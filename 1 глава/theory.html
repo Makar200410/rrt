@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теоретические основы химии | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .topic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topic-list>li {
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .topic-header {
+            background-color: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topic-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .subtopic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .subtopic-list li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .subtopic-list li:last-child {
+            border-bottom: none;
+        }
+
+        .subtopic-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .subtopic-link:hover {
+            background-color: #f0f7ff;
+            color: var(--text-accent);
+        }
+
+        .test-link {
+            display: inline-block;
+            margin: 0.5rem 1.5rem 1rem;
+            font-size: 0.9rem;
+            color: #d35400;
+            /* Orange for tests */
+            text-decoration: none;
+            background: #fff5e6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .test-link:hover {
+            background: #ffe0b2;
+        }
+
+        .badge {
+            font-size: 0.8em;
+            padding: 0.2em 0.6em;
+            border-radius: 4px;
+            background: #eee;
+            color: #666;
+        }
+
+        .badge.ready {
+            background: #e1f5fe;
+            color: #0288d1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">
+            CHEM<span>EGE</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Теория</a></li>
+                <li><a href="#">Тесты</a></li>
+                <li><a href="#">Задачи</a></li>
+                <li><a href="#">Справочник</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../index.html">Главная</a> <span>/</span>
+                Теоретические основы химии
+            </div>
+
+            <h1>Раздел 1. Теоретические основы химии</h1>
+            <p>Выберите тему для изучения. Темы соответствуют кодификатору ЕГЭ.</p>
+
+            <ul class="topic-list">
+
+                <!-- 1.1 Строение атома -->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.1. Современные представления о строении атома</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="atom_structure.html" class="subtopic-link">
+                                <span>1.1.1. Строение электронных оболочек (s-, p-, d-элементы). Конфигурации атомов и
+                                    ионов.</span>
+                                <span class="badge ready">Готово</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Строение атома» (Задание 1)</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 1.2 Периодический закон -->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.2. Периодический закон и система Д.И. Менделеева</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="../2 глава/periodic_law.html" class="subtopic-link">
+                                <span>1.2.1. Закономерности изменения свойств элементов и соединений.</span>
+                                <span class="badge ready">Готово</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Периодический закон» (Задание 2)</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 1.3 Степени оксления и валентность-->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.3. Степени оксления и валентность</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="oxidation_valence.html" class="subtopic-link">
+                                <span>1.3.1. Степени оксления и валентность.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Степени оксления и валентность»
+                                (Задание 3)</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <!-- 1.4 Химическая связь -->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.4. Химическая связь и строение вещества</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="../3 глава/chemical_bonds.html" class="subtopic-link">
+                                <span>1.4.1. Ковалентная, ионная, металлическая, водородная связь. Механизмы
+                                    образования.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Химические связи» (Задание 4)</a>
+                        </li>
+                        <li>
+                            <a href="../4 глава/crystal_lattices.html" class="subtopic-link">
+                                <span>1.4.2. Вещества молекулярного и немолекулярного строения. Кристаллические
+                                    решетки.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Вещества молекулярного и
+                                немолекулярного строения. Кристаллические решетки»(Задание 4)</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 1.5 Химическая реакция -->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.5. Химическая реакция</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="../5 глава/Классификация химических реакций/reaction_classification.html"
+                                class="subtopic-link">
+                                <span>1.5.1. Классификация химических реакций.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Классификация реакций» (Задание 17)</a>
+                        </li>
+                        <li>
+                            <a href="../5 глава/Скорость химических реакций и факторы влияния/reaction_rate.html"
+                                class="subtopic-link">
+                                <span>1.5.2. Скорость химических реакций и факторы влияния.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Скорость химических реакций» (Задание
+                                18)</a>
+                        </li>
+                        <li>
+                            <a href="../5 глава/Окислительно-восстановительные реакции/oxidation_reduction.html"
+                                class="subtopic-link">
+                                <span>1.5.3. Окислительно-восстановительные реакции.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Окислительно-восстановительные
+                                реакции» (Задание 19)</a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Окислительно-восстановительные
+                                реакции» (Задание 29)</a>
+                        </li>
+                        <li>
+                            <a href="../5 глава/Химические равновесия/chemical_equilibrium.html" class="subtopic-link">
+                                <span>1.5.4. Химическое равновесие.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Химическое равновесие» (Задание 22)</a>
+                        </li>
+                        <li>
+                            <a href="../5 глава/Электролитическая диссоциация/electrolytic_dissociation.html"
+                                class="subtopic-link">
+                                <span>1.5.5. Электролитическая диссоциация электролитов в водных растворах. Сильные и
+                                    слабые электролиты.</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>1.5.6. Реакции ионного обмена.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Реакции ионного обмена» (Задание
+                                30)</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 1.6 Электролиз -->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.6. Электролиз расплавов и растворов.</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="../3 глава/chemical_bonds.html" class="subtopic-link">
+                                <span>1.6.1. Электролиз расплавов и растворов.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Электролиз расплавов и растворов»
+                                (Задание 20)</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 1.7 Гидролиз -->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.7. Гидролиз солей и среда растворов.</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="../3 глава/chemical_bonds.html" class="subtopic-link">
+                                <span>1.7.1. Гидролиз солей и среда растворов.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Гидролиз солей и среда растворов»
+                                (Задание 21)</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 1.8 Химическая реакция -->
+                <li>
+                    <div class="topic-header">
+                        <h3>1.8. Расчётные задачи из первой части ЕГЭ.</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>1.8.1. Расчётная задача на химические равновесия.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Расчётная задача на химические
+                                равновесия» (Задание 23)</a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>1.8.2. Задача на растворы.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Задача на растворы» (Задание 26)</a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>1.8.3. Расчётная задача по термохимическим равновесиям.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Расчётная задача по термохимическим
+                                равновесиям» (Задание 27)</a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>1.8.4. Задача на выход и примеси.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Задача на выход и примеси» (Задание
+                                28)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- РАЗДЕЛ 2: НЕОРГАНИЧЕСКАЯ ХИМИЯ -->
+            <h1 style="margin-top: 3rem;">Раздел 2. Неорганическая химия</h1>
+            <p>Темы раздела охватывают все классы неорганических веществ и их свойства.</p>
+
+            <ul class="topic-list">
+
+                <!-- 2.1 Классификация неорганических веществ -->
+                <li>
+                    <div class="topic-header">
+                        <h3>2.1. Классификация неорганических веществ. Номенклатура неорганических веществ (тривиальная
+                            и международная)</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.1.1. Классификация и номенклатура неорганических веществ.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Классификация неорганических веществ»
+                                (Задание 5) с ответами</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 2.2 Характерные химические свойства оксидов, оснований, амфотерных гидроксидов, кислот и солей -->
+                <li>
+                    <div class="topic-header">
+                        <h3>2.2. Характерные химические свойства оксидов, оснований, амфотерных гидроксидов, кислот и
+                            солей</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.2.1. Характерные химические свойства основных, амфотерных и кислотных
+                                    оксидов.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.2.2. Характерные химические свойства оснований и амфотерных гидроксидов.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.2.3. Характерные химические свойства кислот.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.2.4. Характерные химические свойства солей: средних, кислых, основных;
+                                    комплексных.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Свойства солей, кислот, оснований,
+                                амфотерных гидроксидов. РИО» (Задание 6) с ответами</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 2.3 Характерные химические свойства металлов -->
+                <li>
+                    <div class="topic-header">
+                        <h3>2.3. Характерные химические свойства металлов</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.3.1. Щелочные металлы.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.3.2. Щелочноземельные металлы.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.3.3. Алюминий.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Свойства неорганических веществ»
+                                (Задание 6) с ответами</a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Свойства неорганических веществ»
+                                (Задание 7) с ответами</a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Превращения неорганических веществ»
+                                (Задание 8) с ответами</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 2.4 Переходные металлы -->
+                <li>
+                    <div class="topic-header">
+                        <h3>2.4. Характерные химические свойства переходных металлов</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.4.1. Хром.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.4.2. Марганец.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.4.3. Железо.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.4.4. Медь, серебро, золото.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.4.5. Цинк, ртуть.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Свойства неорганических веществ»
+                                (Задание 6) с ответами</a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Свойства неорганических веществ»
+                                (Задание 7) с ответами</a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Превращения неорганических веществ»
+                                (Задание 8) с ответами</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 2.5 Неметаллы -->
+                <li>
+                    <div class="topic-header">
+                        <h3>2.5. Характерные химические свойства неметаллов</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.1. Водород.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.2. Галогены.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.3. Кислород.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.4. Сера.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.5. Азот.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.6. Фосфор.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.7. Углерод.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.5.8. Кремний.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Свойства неорганических веществ»
+                                (Задание 6) с ответами</a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Свойства неорганических веществ»
+                                (Задание 7) с ответами</a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Превращения неорганических веществ»
+                                (Задание 8) с ответами</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 2.8 Взаимосвязь классов неорганических веществ -->
+                <li>
+                    <div class="topic-header">
+                        <h3>2.8. Взаимосвязь различных классов неорганических веществ</h3>
+                    </div>
+                    <ul class="subtopic-list">
+                        <li>
+                            <a href="#" class="subtopic-link">
+                                <span>2.8.1. Взаимосвязь различных классов неорганических веществ.</span>
+                            </a>
+                            <a href="#" class="test-link">⚡ Тренировочные тесты «Реакции с участием неорганических
+                                веществ» (Задание 31) с ответами</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CHEM EGE. Электронный учебник и задачник.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

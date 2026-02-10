@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скорость химических реакций - CHEM EGE</title>
+    <meta name="description"
+        content="Химическая кинетика. Скорость химической реакции и факторы, влияющие на неё: температура, концентрация, давление, катализаторы, площадь поверхности.">
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="with-sidebar">
+
+    <header>
+        <a href="../../index.html" class="logo">
+            CHEM<span>EGE</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="../../1 глава/theory.html">Теория</a></li>
+                <li><a href="#">Тесты</a></li>
+                <li><a href="#">Задачи</a></li>
+                <li><a href="#">Справочник</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#definition">1. Определение скорости</a></li>
+                <li><a href="#temperature">2. Влияние температуры</a></li>
+                <li><a href="#concentration">3. Влияние концентрации</a></li>
+                <li><a href="#pressure">4. Влияние давления</a></li>
+                <li><a href="#catalyst">5. Катализаторы</a></li>
+                <li><a href="#surface">6. Площадь поверхности</a></li>
+                <li><a href="#nature">7. Природа веществ</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Главная</a> <span>/</span> <a href="../../1 глава/theory.html">Теоретические
+                    основы</a> <span>/</span> Скорость реакций
+            </div>
+
+            <h1>Скорость химических реакций (Химическая кинетика)</h1>
+
+            <div class="topic-section">
+                <h2 id="definition">1. Что такое скорость реакции?</h2>
+                <p><strong>Скорость химической реакции</strong> ($\upsilon$) показывает, как быстро протекает процесс,
+                    то есть как быстро расходуются исходные вещества или образуются продукты реакции.</p>
+                <div class="info-box" style="border-left-color: #2196F3;">
+                    Реакция происходит при <strong>столкновении</strong> частиц. Но не каждое столкновение приводит к
+                    реакции, а только <strong>эффективное</strong> (когда частицы обладают достаточной энергией).
+                </div>
+
+                <h3>Гомогенные реакции (однородная среда)</h3>
+                <p>Если реагенты находятся в одной фазе (газ + газ или жидкость + жидкость), скорость определяется как
+                    изменение <strong>концентрации</strong> вещества ($\Delta C$) за единицу времени ($\Delta t$):</p>
+                <div class="reaction-box">
+                    $$ \upsilon = \frac{\Delta C}{\Delta t} = \pm \frac{C_2 - C_1}{t_2 - t_1} $$
+                    <small>Единица измерения: моль/(л · с)</small>
+                </div>
+
+                <h3>Гетерогенные реакции (разные фазы)</h3>
+                <p>Если реакция идет на границе раздела фаз (например, твердое + газ), скорость зависит от изменения
+                    количества вещества ($\Delta \nu$) на единицу <strong>площади поверхности</strong> ($S$) за единицу
+                    времени:</p>
+                <div class="reaction-box">
+                    $$ \upsilon = \frac{\Delta \nu}{S \cdot \Delta t} $$
+                    <small>Единица измерения: моль/(м² · с)</small>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h2 id="factors">Факторы, влияющие на скорость реакции</h2>
+                <p>Скорость реакции зависит от условий, в которых она протекает. Рассмотрим основные факторы.</p>
+
+                <h3 id="temperature">1. Температура</h3>
+                <p>При повышении температуры частицы движутся быстрее и сталкиваются чаще. Но главное — резко возрастает
+                    доля <strong>активных частиц</strong>, способных преодолеть энергетический барьер.</p>
+
+                <div class="subclass-card"
+                    style="border-left-color: #FF5722; background: linear-gradient(135deg, #fff3e0 0%, #ffebee 100%);">
+                    <h4>Правило Вант-Гоффа</h4>
+                    <p>При повышении температуры на каждые 10°C скорость реакции возрастает в <strong>2–4 раза</strong>.
+                    </p>
+                    <div class="reaction-box">
+                        $$ \upsilon_2 = \upsilon_1 \cdot \gamma^{\frac{t_2 - t_1}{10}} $$
+                        <small>где $\gamma$ — температурный коэффициент (от 2 до 4)</small>
+                    </div>
+                </div>
+                <div class="info-box" style="border-left-color: #FF9800;">
+                    <strong>Важно!</strong> Это правило работает и для экзотермических, и для эндотермических реакций.
+                    При нагревании скорость <strong>всегда растет</strong>.
+                </div>
+
+                <h3 id="concentration">2. Концентрация реагентов</h3>
+                <p>Чем выше концентрация реагирующих веществ (для газов и растворов), тем больше частиц в единице объема
+                    и тем чаще они сталкиваются.</p>
+                <div class="subclass-card" style="border-left-color: #4CAF50;">
+                    <h4>Закон действующих масс</h4>
+                    <p>Скорость реакции прямо пропорциональна произведению концентраций реагирующих веществ в степенях
+                        их коэффициентов.</p>
+                    <p>Для реакции $aA + bB \to D$:</p>
+                    <div class="reaction-box">
+                        $$ \upsilon = k \cdot [A]^a \cdot [B]^b $$
+                        <small>$k$ — константа скорости (зависит только от температуры и природы веществ)</small>
+                    </div>
+                </div>
+                <p>Концентрации <strong>твердых веществ</strong> в уравнение скорости гетерогенной реакции <strong>не
+                        входят</strong>, так как они реагируют только на поверхности и их концентрация постоянна.</p>
+                <div class="info-box" style="border-left-color: #00BCD4;">
+                    Однако, если твердое вещество <strong>растворимо</strong>, то по мере его растворения концентрация
+                    вещества <strong>в растворе увеличивается</strong>, что может влиять на скорость реакций,
+                    протекающих уже в жидкой фазе.
+                </div>
+
+                <h3 id="pressure">3. Давление (только для газов)</h3>
+                <p>Влияет только на реакции с участием <strong>газов</strong>. Изменение давления равносильно изменению
+                    концентрации газа.</p>
+                <ul>
+                    <li><strong>Повышение давления</strong> (сжатие = уменьшение объема сосуда) $\to$ увеличение
+                        концентрации газов $\to$ <strong>ускорение</strong> реакции.</li>
+                    <li><strong>Понижение давления</strong> (расширение = увеличение объема сосуда) $\to$ уменьшение
+                        концентрации газов $\to$ <strong>замедление</strong> реакции.</li>
+                </ul>
+                <div class="info-box" style="border-left-color: #607D8B;">
+                    <strong>Изменение объема сосуда обратно давлению:</strong><br>
+                    Уменьшение объема сосуда в N раз = Увеличение давления в N раз = Увеличение скорости (для
+                    газов).<br>
+                    Увеличение объема сосуда в N раз = Уменьшение давления в N раз = Уменьшение скорости (для газов).
+                </div>
+                <div class="reactions-grid">
+                    <div class="reaction-mini">N<sub>2(г)</sub> + 3H<sub>2(г)</sub> ⇌ 2NH<sub>3(г)</sub>
+                        <br><small>Давление влияет (все газы)</small>
+                    </div>
+                    <div class="reaction-mini">CaCO<sub>3(тв)</sub> ⇌ CaO<sub>(тв)</sub> + CO<sub>2(г)</sub>
+                        <br><small>Давление влияет (есть газ)</small>
+                    </div>
+                    <div class="reaction-mini">CaO<sub>(тв)</sub> + SiO<sub>2(тв)</sub> → CaSiO<sub>3(тв)</sub>
+                        <br><small>Давление НЕ влияет (нет газов)</small>
+                    </div>
+                </div>
+
+                <h3 id="catalyst">4. Катализаторы</h3>
+                <p><strong>Катализаторы</strong> — вещества, ускоряющие реакцию, но не расходующиеся в ней. Они
+                    направляют процесс по другому механизму с меньшей энергией активации.</p>
+                <ul>
+                    <li><strong>Гомогенный катализ</strong>: реагенты и катализатор в одной фазе (газ+газ или
+                        раствор+раствор).</li>
+                    <li><strong>Гетерогенный катализ</strong>: катализатор твердый, реагенты — газы или жидкости
+                        (реакция идет на поверхности).</li>
+                </ul>
+                <figure style="text-align: center; margin: 20px 0;">
+                <img src="image copy.png" alt="Катализ"
+                    style="max-width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Катализ
+                </figcaption>
+            </figure>
+                <div class="info-box" style="border-left-color: #9C27B0;">
+                    <strong>Ингибиторы</strong> — вещества, замедляющие реакцию (но они НЕ называются «отрицательными
+                    катализаторами»).
+                </div>
+                <div class="info-box" style="border-left-color: #FF5722;">
+                    <strong>Важно!</strong> <br>
+                    <strong>Температура</strong>, <strong>свет</strong> ($h\nu$), <strong>радиация</strong>,
+                    <strong>электрический ток</strong> — это <strong>условия</strong> начала или течения реакции
+                    (инициаторы), но они <strong>НЕ являются катализаторами</strong>. Катализатор — это всегда
+                    <strong>вещество</strong>.
+                </div>
+
+                <h3 id="surface">5. Площадь соприкосновения (для гетерогенных)</h3>
+                <p>Актуально для реакций с участием <strong>твердых веществ</strong>. Чем сильнее измельчено твердое
+                    вещество, тем больше площадь контакта и выше скорость.</p>
+                <ul>
+                    <li>Растворение порошка цинка в кислоте идет быстрее, чем растворение гранул.</li>
+                    <li>Сжигание угольной пыли происходит мгновенно (взрыв), в отличие от горения куска угля.</li>
+                    <li>Для жидких реагентов (несмешивающихся) помогает <strong>перемешивание</strong>.</li>
+                </ul>
+
+                <h3 id="nature">6. Природа реагирующих веществ</h3>
+                <p>Скорость зависит от химической активности веществ и прочности разрываемых связей (энергии активации).
+                </p>
+                <ul>
+                    <li>Реакции ионного обмена (в растворах электролитов) идут <strong>мгновенно</strong> (связи не
+                        рвутся, ионы просто соединяются).</li>
+                    <li>Реакции молекулярных веществ (органика, многие газы) часто идут медленно и требуют нагревания
+                        или катализатора.</li>
+                    <li>Чем активнее металл/неметалл, тем быстрее реакция (например, Na реагирует с водой быстрее, чем
+                        Mg).</li>
+                </ul>
+            </div>
+            <div class="navigation-links" style="margin-top: 40px; display: flex; justify-content: space-between;">
+                <a href="../../5 глава/Классификация химических реакций/reaction_classification.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 4px; font-weight: 500;">
+                    ← Классификация химических реакций
+                </a>
+                <a href="../../5 глава/Окислительно-восстановительные реакции/oxidation_reduction.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 4px; font-weight: 500;">
+                    Окислительно-восстановительные реакции → 
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

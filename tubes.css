@@ -1,0 +1,270 @@
+/* Styles for Reaction Schemes and Test Tubes */
+
+.reaction-scheme-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 30px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.reaction-group-card {
+    flex: 1 1 45%;
+    min-width: 350px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 20px;
+    background: #fafafa;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.reaction-group-title {
+    color: #4a148c;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 2px solid #7c4dff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    background: white;
+}
+
+/* --- The Fork/Branching Layout System --- */
+
+.reducer-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    /* Increased to allow space for labels under pills */
+}
+
+/* Left Input Pill */
+.substance-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 36px;
+    border: 2px solid #7c4dff;
+    border-radius: 10px;
+    color: #333;
+    font-weight: 700;
+    font-size: 1rem;
+    background: white;
+    padding: 0 10px;
+    z-index: 2;
+    white-space: nowrap;
+    position: relative;
+    /* For sub-label positioning */
+}
+
+.substance-pill.blue {
+    border-color: #29b6f6;
+}
+
+.substance-pill.gray {
+    border-color: #78909c;
+}
+
+/* Sub-label under the pill (e.g. "H2S, CuS...") */
+.sub-label {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    color: #888;
+    white-space: nowrap;
+    padding-top: 4px;
+    font-weight: 500;
+}
+
+.fork-leader {
+    width: 30px;
+    height: 2px;
+    background-color: #9fa8da;
+    flex-shrink: 0;
+}
+
+.fork-branches {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 0;
+}
+
+/* Individual Branch Row */
+.branch {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Tree Structure - Vertical Line */
+.branch::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    background-color: #9fa8da;
+}
+
+.branch:not(:first-child):not(:last-child)::before {
+    top: 0;
+    bottom: 0;
+}
+
+.branch:first-child:not(:last-child)::before {
+    top: 50%;
+    bottom: 0;
+}
+
+.branch:last-child:not(:first-child)::before {
+    top: 0;
+    bottom: 50%;
+}
+
+.branch:only-child::before {
+    display: none;
+}
+
+.branch-connector {
+    width: 15px;
+    height: 2px;
+    background-color: #9fa8da;
+    flex-shrink: 0;
+}
+
+/* Arrow Segment - Fixed for Vertical Alignment */
+.arrow-segment {
+    position: relative;
+    /* The height acts as the "line" presence for alignment */
+    height: 2px;
+    min-width: 140px;
+    background: transparent;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The actual line */
+.arrow-body {
+    width: 100%;
+    height: 2px;
+    background-color: #9fa8da;
+    position: relative;
+}
+
+.arrow-body::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    border-left: 8px solid #9fa8da;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+/* Labels positioned absolutely to perfectly preserve center alignment of lines */
+.arrow-label {
+    position: absolute;
+    bottom: 8px;
+    /* Sits above the line */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    color: #7e57c2;
+    pointer-events: none;
+}
+
+/* Bottom Label */
+.arrow-label-bottom {
+    position: absolute;
+    top: 8px;
+    /* Sits below the line */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    color: #7e57c2;
+    pointer-events: none;
+}
+
+/* Crossed out arrow */
+.arrow-crossed .arrow-body::before {
+    content: '';
+    position: absolute;
+    left: 45%;
+    top: -5px;
+    height: 12px;
+    width: 2px;
+    background: #e53935;
+    transform: rotate(45deg);
+}
+
+.product-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 36px;
+    border: 2px solid #ff4081;
+    border-radius: 10px;
+    color: #333;
+    font-weight: 700;
+    font-size: 1rem;
+    background: white;
+    padding: 0 10px;
+    margin-left: 10px;
+    position: relative;
+    /* For tooltip or extra info if needed */
+}
+
+.product-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Test Tube Visuals */
+.test-tube-mini {
+    width: 12px;
+    height: 28px;
+    border: 2px solid #b0bec5;
+    border-radius: 0 0 6px 6px;
+    margin-left: 8px;
+    position: relative;
+    background: white;
+    flex-shrink: 0;
+}
+
+.test-tube-mini::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    height: 16px;
+    border-radius: 0 0 3px 3px;
+    background-color: var(--color, #ccc);
+}
+
+.result-text {
+    font-size: 0.75rem;
+    color: #616161;
+    margin-left: 8px;
+    line-height: 1.2;
+    max-width: 100px;
+}
+
+.fork-branches.single .branch-connector {
+    display: block !important;
+}

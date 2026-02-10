@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кристаллические решетки - CHEM EGE</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="with-sidebar">
+
+    <header>
+        <a href="../index.html" class="logo">
+            CHEM<span>EGE</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Теория</a></li>
+                <li><a href="#">Тесты</a></li>
+                <li><a href="#">Задачи</a></li>
+                <li><a href="#">Справочник</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#lattices">1. Типы решёток</a></li>
+                <li><a href="#molecular">2. Молекулярная</a></li>
+                <li><a href="#atomic">3. Атомная</a></li>
+                <li><a href="#ionic">4. Ионная</a></li>
+                <li><a href="#metallic">5. Металлическая</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="breadcrumbs">
+                <a href="../index.html">Главная</a> <span>/</span> <a href="../1 глава/theory.html">Теоретические
+                    основы</a>
+                <span>/</span>
+                Кристаллические решетки
+            </div>
+
+            <h1>Кристаллические решетки и строение вещества</h1>
+
+            <style>
+                #lattices-table th,
+                #lattices-table td {
+                    padding: 12px 8px;
+                    /* Уменьшаем отступы чтобы влезло больше текста */
+                }
+            </style>
+            <div class="topic-section">
+                <h2 id="lattices">1. Типы кристаллических решёток</h2>
+                <p>Физические свойства веществ (температура плавления, твердость, электропроводность) зависят от типа их
+                    кристаллической решетки.</p>
+
+                <table id="lattices-table" class="styled-table" style="font-size: 0.9em;">
+                    <tr>
+                        <th style="width: 8%;">Тип решётки</th>
+                        <th id="molecular" style="width: 23%;">Молекулярная</th>
+                        <th id="atomic" style="width: 23%;">Атомная</th>
+                        <th id="ionic" style="width: 23%;">Ионная</th>
+                        <th id="metallic" style="width: 23%;">Металлическая</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Тип связи</strong></td>
+                        <td>Ковалентная (внутри молекул) + Слабые межмолекулярные силы</td>
+                        <td>Ковалентная (очень прочная)</td>
+                        <td>Ионная</td>
+                        <td>Металлическая</td>
+                    </tr>
+                    <tr>
+                        <td><strong>В узлах решетки</strong></td>
+                        <td>Молекулы</td>
+                        <td>Атомы</td>
+                        <td>Ионы (+ и -)</td>
+                        <td>Атомы и ионы (в "электронном газе")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Свойства</strong></td>
+                        <td>
+                            • Летучие (имеют запах)<br>
+                            • Легкоплавкие (низкая Т<sub>пл</sub>)<br>
+                            • Малая твердость<br>
+                            • Диэлектрики (не проводят ток)
+                        </td>
+                        <td>
+                            • Очень твердые<br>
+                            • Тугоплавкие (очень высокая Т<sub>пл</sub>)<br>
+                            • Нелетучие<br>
+                            • Нерастворимые
+                        </td>
+                        <td>
+                            • Твердые, но хрупкие<br>
+                            • Тугоплавкие<br>
+                            • Растворы и расплавы <strong>проводят ток</strong><br>
+                            • Часто растворимы в воде
+                        </td>
+                        <td>
+                            • Пластичные, ковкие<br>
+                            • Металлический блеск<br>
+                            • Высокая тепло- и электропроводность
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Типичные примеры</strong></td>
+                        <td>
+                            • Все газы (O<sub>2</sub>, N<sub>2</sub>, CO<sub>2</sub>)<br>
+                            • Жидкости (H<sub>2</sub>O, Br<sub>2</sub>)<br>
+                            • Твердые: I<sub>2</sub>, S<sub>8</sub>, P<sub>4</sub> (белый), C<sub>60</sub>
+                            (фуллерен)<br>
+                            • <strong>Органика</strong> (почти вся)
+                        </td>
+                        <td>
+                            • <strong>C</strong> (алмаз, графит)<br>
+                            • <strong>Si</strong> (кремний)<br>
+                            • <strong>B</strong> (бор)<br>
+                            • <strong>SiO<sub>2</sub></strong> (кремнезем, кварц, песок)<br>
+                            • <strong>SiC</strong> (карборунд)
+                        </td>
+                        <td>
+                            • <strong>Соли</strong> (NaCl, K<sub>2</sub>SO<sub>4</sub>, NH<sub>4</sub>Cl)<br>
+                            • <strong>Щелочи</strong> (NaOH, KOH)<br>
+                            • <strong>Оксиды металлов</strong> (CaO, CuO)<br>
+                            • Бинарные соединения Ме+НеМе
+                        </td>
+                        <td>
+                            • <strong>Металлы</strong> (Fe, Cu, Na, Au)<br>
+                            • <strong>Сплавы</strong> (бронза, сталь)
+                        </td>
+                    </tr>
+                </table>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="image.png" alt="Водородная связь"
+                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Кристаллические решетки
+                        простых веществ
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="topic-section">
+                <h2 id="structure">2. Молекулярное и немолекулярное строение</h2>
+                <p>В зависимости от типа химической связи и кристаллической решетки, все вещества можно разделить на две
+                    группы по строению.</p>
+
+                <h3>1. Вещества молекулярного строения</h3>
+                <p>Состоят из молекул. Внутри молекул связи очень прочные (ковалентные), но между самими молекулами
+                    действуют слабые межмолекулярные силы.</p>
+                <div class="info-box" style="border-left-color: #2196F3;">
+                    <strong>Свойства:</strong>
+                    <ul>
+                        <li>Низкие температуры плавления и кипения (легкоплавкие).</li>
+                        <li>Летучие (часто имеют запах).</li>
+                        <li><strong>К ним относятся все газы и жидкости</strong> (кроме ртути), а также
+                            <strong>некоторые твердые вещества</strong>.</li>
+                        <li>Слабая электропроводность (диэлектрики).</li>
+                    </ul>
+                </div>
+                <p><strong>Примеры:</strong></p>
+                <ul>
+                    <li>Газы: H<sub>2</sub>, O<sub>2</sub>, Cl<sub>2</sub>, N<sub>2</sub>, CO<sub>2</sub>,
+                        NH<sub>3</sub></li>
+                    <li>Жидкости: H<sub>2</sub>O, H<sub>2</sub>SO<sub>4</sub> (безводная), Бром (Br<sub>2</sub>)</li>
+                    <li>Твердые вещества: Йод (I<sub>2</sub>), Сера (S<sub>8</sub>), Белый фосфор (P<sub>4</sub>),
+                        Глюкоза, Сахароза</li>
+                </ul>
+
+                <h3>2. Вещества немолекулярного строения</h3>
+                <p>Не содержат молекул. Атомы или ионы связаны в единый бесконечный каркас (кристаллическую решетку).
+                </p>
+                <div class="info-box" style="border-left-color: #FF5722;">
+                    <strong>Свойства:</strong>
+                    <ul>
+                        <li>Высокие температуры плавления (тугоплавкие).</li>
+                        <li>Высокая твердость и прочность.</li>
+                        <li>Нелетучие (нет запаха).</li>
+                    </ul>
+                </div>
+                <p><strong>Типы связей в немолекулярных веществах:</strong></p>
+                <ul>
+                    <li><strong>Ионная:</strong> Соли (NaCl), Щелочи (NaOH), Оксиды металлов (CaO).</li>
+                    <li><strong>Металлическая:</strong> Все металлы и сплавы.</li>
+                    <li><strong>Ковалентная (атомная решетка):</strong> Алмаз (C), Графит (C), Кремний (Si), Кварц
+                        (SiO<sub>2</sub>), Карбид кремния (SiC).</li>
+                </ul>
+            </div>
+
+            <div class="navigation-links" style="margin-top: 40px; display: flex; justify-content: space-between;">
+                <a href="../3 глава/chemical_bonds.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 4px; font-weight: 500;">
+                    ← Химическая связь
+                </a>
+                <a href="../5 глава/Классификация химических реакций/reaction_classification.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 4px; font-weight: 500;">
+                    Классификация химических реакций →
+                </a>
+            </div>
+
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
