@@ -18,6 +18,155 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Gradient-bordered card for important laws */
+        .law-card {
+            position: relative;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.5rem 0;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .law-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #43a047, #00acc1, #5c6bc0, #ab47bc);
+            z-index: -1;
+        }
+
+        .law-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #f0faf0 0%, #e8f8fb 50%, #f3f0fa 100%);
+            z-index: -1;
+        }
+
+        .law-card h4 {
+            margin: 0 0 0.6rem 0;
+            font-size: 1.15rem;
+            color: #2e7d32;
+            font-family: var(--font-heading);
+        }
+
+        .law-card p {
+            margin-bottom: 0.6rem;
+        }
+
+        /* Round beautiful formula bubbles */
+        .formula-bubble {
+            background: linear-gradient(135deg, #fafbff 0%, #eef1f8 40%, #f0eefa 100%);
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, #90caf9, #ce93d8) 1;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            margin: 1rem auto;
+            text-align: center;
+            font-size: 1.1rem;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 12px rgba(100, 100, 200, 0.1), inset 0 1px 4px rgba(255, 255, 255, 0.8);
+            max-width: fit-content;
+            /* border-image doesn't work with border-radius, use outline trick */
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: visible;
+        }
+
+        .formula-bubble::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 52px;
+            background: linear-gradient(135deg, #64b5f6, #ba68c8, #4dd0e1);
+            z-index: -1;
+        }
+
+        .formula-bubble::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #fafbff 0%, #eef1f8 40%, #f0eefa 100%);
+            z-index: -1;
+        }
+
+        .formula-bubble small {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.82rem;
+            color: #666;
+            font-style: italic;
+            font-family: var(--font-body);
+        }
+
+        .formula-bubble .MathJax {
+            font-size: 1.05em !important;
+        }
+
+        /* Vant-Hoff card */
+        .vanthoff-card {
+            position: relative;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.5rem 0;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .vanthoff-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ff7043, #ffa726, #ff5252);
+            z-index: -1;
+        }
+
+        .vanthoff-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #fff8f0 0%, #fff3e0 50%, #ffebee 100%);
+            z-index: -1;
+        }
+
+        .vanthoff-card h4 {
+            margin: 0 0 0.6rem 0;
+            font-size: 1.15rem;
+            color: #d84315;
+            font-family: var(--font-heading);
+        }
+
+        .vanthoff-card p {
+            margin-bottom: 0.6rem;
+        }
+    </style>
 </head>
 
 <body class="with-sidebar">
@@ -70,7 +219,7 @@
                 <h3>Гомогенные реакции (однородная среда)</h3>
                 <p>Если реагенты находятся в одной фазе (газ + газ или жидкость + жидкость), скорость определяется как
                     изменение <strong>концентрации</strong> вещества ($\Delta C$) за единицу времени ($\Delta t$):</p>
-                <div class="reaction-box">
+                <div class="formula-bubble">
                     $$ \upsilon = \frac{\Delta C}{\Delta t} = \pm \frac{C_2 - C_1}{t_2 - t_1} $$
                     <small>Единица измерения: моль/(л · с)</small>
                 </div>
@@ -79,7 +228,7 @@
                 <p>Если реакция идет на границе раздела фаз (например, твердое + газ), скорость зависит от изменения
                     количества вещества ($\Delta \nu$) на единицу <strong>площади поверхности</strong> ($S$) за единицу
                     времени:</p>
-                <div class="reaction-box">
+                <div class="formula-bubble">
                     $$ \upsilon = \frac{\Delta \nu}{S \cdot \Delta t} $$
                     <small>Единица измерения: моль/(м² · с)</small>
                 </div>
@@ -93,12 +242,11 @@
                 <p>При повышении температуры частицы движутся быстрее и сталкиваются чаще. Но главное — резко возрастает
                     доля <strong>активных частиц</strong>, способных преодолеть энергетический барьер.</p>
 
-                <div class="subclass-card"
-                    style="border-left-color: #FF5722; background: linear-gradient(135deg, #fff3e0 0%, #ffebee 100%);">
+                <div class="vanthoff-card">
                     <h4>Правило Вант-Гоффа</h4>
                     <p>При повышении температуры на каждые 10°C скорость реакции возрастает в <strong>2–4 раза</strong>.
                     </p>
-                    <div class="reaction-box">
+                    <div class="formula-bubble">
                         $$ \upsilon_2 = \upsilon_1 \cdot \gamma^{\frac{t_2 - t_1}{10}} $$
                         <small>где $\gamma$ — температурный коэффициент (от 2 до 4)</small>
                     </div>
@@ -111,12 +259,12 @@
                 <h3 id="concentration">2. Концентрация реагентов</h3>
                 <p>Чем выше концентрация реагирующих веществ (для газов и растворов), тем больше частиц в единице объема
                     и тем чаще они сталкиваются.</p>
-                <div class="subclass-card" style="border-left-color: #4CAF50;">
-                    <h4>Закон действующих масс</h4>
+                <div class="law-card">
+                    <h4>📐 Закон действующих масс</h4>
                     <p>Скорость реакции прямо пропорциональна произведению концентраций реагирующих веществ в степенях
                         их коэффициентов.</p>
                     <p>Для реакции $aA + bB \to D$:</p>
-                    <div class="reaction-box">
+                    <div class="formula-bubble">
                         $$ \upsilon = k \cdot [A]^a \cdot [B]^b $$
                         <small>$k$ — константа скорости (зависит только от температуры и природы веществ)</small>
                     </div>
@@ -166,11 +314,11 @@
                         (реакция идет на поверхности).</li>
                 </ul>
                 <figure style="text-align: center; margin: 20px 0;">
-                <img src="image copy.png" alt="Катализ"
-                    style="max-width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Катализ
-                </figcaption>
-            </figure>
+                    <img src="image copy.png" alt="Катализ"
+                        style="max-width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Катализ
+                    </figcaption>
+                </figure>
                 <div class="info-box" style="border-left-color: #9C27B0;">
                     <strong>Ингибиторы</strong> — вещества, замедляющие реакцию (но они НЕ называются «отрицательными
                     катализаторами»).
@@ -205,13 +353,15 @@
                 </ul>
             </div>
             <div class="navigation-links" style="margin-top: 40px; display: flex; justify-content: space-between;">
-                <a href="../../5 глава/Классификация химических реакций/reaction_classification.html" class="prev-chapter"
+                <a href="../../5 глава/Классификация химических реакций/reaction_classification.html"
+                    class="prev-chapter"
                     style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 4px; font-weight: 500;">
                     ← Классификация химических реакций
                 </a>
-                <a href="../../5 глава/Окислительно-восстановительные реакции/oxidation_reduction.html" class="next-chapter"
+                <a href="../../5 глава/Окислительно-восстановительные реакции/oxidation_reduction.html"
+                    class="next-chapter"
                     style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 4px; font-weight: 500;">
-                    Окислительно-восстановительные реакции → 
+                    Окислительно-восстановительные реакции →
                 </a>
             </div>
 
