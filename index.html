@@ -4,69 +4,1127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Химия | Электронный Учебник</title>
+    <title>ХимПодготовка — Подготовка к ЕГЭ по химии</title>
+    <meta name="description"
+        content="Персонализированная подготовка к ЕГЭ по химии для школьников. Интерактивная платформа с 3D-визуализациями.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@400;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --orange: #F5A623;
+            --orange-dark: #E8941A;
+            --orange-light: #FFF4E0;
+            --orange-gradient: linear-gradient(135deg, #F5A623 0%, #FF8C00 100%);
+            --navy: #1B2A4A;
+            --navy-light: #2D4A7A;
+            --text: #333;
+            --text-secondary: #666;
+            --bg: #FFFFFF;
+            --bg-light: #FFF9F0;
+            --bg-gray: #F7F8FA;
+            --border: #E8E4DE;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --shadow: 0 4px 24px rgba(27, 42, 74, 0.08);
+            --shadow-lg: 0 8px 40px rgba(27, 42, 74, 0.12);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .lp-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(232, 228, 222, 0.5);
+        }
+
+        .lp-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--navy);
+        }
+
+        .lp-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--orange-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .lp-logo span {
+            color: var(--orange);
+        }
+
+        .lp-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .lp-nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .lp-nav a:hover,
+        .lp-nav a.active {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: var(--orange-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 16px rgba(245, 166, 35, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(245, 166, 35, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: white;
+            color: var(--navy);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 4% 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--orange-light);
+            color: var(--orange-dark);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(245, 166, 35, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-social {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-avatars {
+            display: flex;
+        }
+
+        .hero-avatars span {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-right: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .hero-avatars span:nth-child(1) {
+            background: #FFD6A5;
+            color: #A56000;
+        }
+
+        .hero-avatars span:nth-child(2) {
+            background: #A5D8FF;
+            color: #1864AB;
+        }
+
+        .hero-avatars span:nth-child(3) {
+            background: #D8F5A2;
+            color: #5C7C00;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-img-wrapper {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #FFF0D4 0%, #FFE0A0 30%, #F5A623 60%, #D48B0F 100%);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-img-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%25" stop-color="%23FFE8B5"/><stop offset="100%25" stop-color="%23F5A623"/></linearGradient></defs><rect fill="url(%23g1)" width="400" height="300" rx="20"/><g transform="translate(120,60)"><path d="M50,0 L70,0 L80,120 L60,180 L20,180 L0,120 Z" fill="%23FFFFFFcc" stroke="%23F5A623" stroke-width="2"/><ellipse cx="40" cy="180" rx="35" ry="8" fill="%23F5A62340"/><rect x="30" y="60" width="20" height="60" fill="%23FF8C0080" rx="4"/></g><g transform="translate(220,80)"><path d="M30,0 L50,0 L55,100 L45,140 L15,140 L5,100 Z" fill="%23FFFFFFcc" stroke="%23FF8C00" stroke-width="2"/><rect x="20" y="40" width="15" height="50" fill="%2327ae6060" rx="3"/></g><g transform="translate(60,100)"><path d="M25,0 L45,0 L50,80 L40,110 L10,110 L0,80 Z" fill="%23FFFFFFcc" stroke="%23e67e22" stroke-width="2"/><rect x="15" y="30" width="15" height="40" fill="%232196F360" rx="3"/></g><circle cx="200" cy="40" r="15" fill="%23F5A62360"/><circle cx="320" cy="100" r="10" fill="%23FF8C0040"/><circle cx="80" cy="60" r="8" fill="%23FFD6A580"/></svg>') center/cover;
+            z-index: 1;
+        }
+
+        .hero-float-badge {
+            position: absolute;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .hero-float-badge.top-right {
+            top: 10%;
+            right: -5%;
+            color: var(--navy);
+        }
+
+        .hero-float-badge.top-right em {
+            color: var(--orange);
+            font-style: normal;
+        }
+
+        .hero-float-badge.bottom-right {
+            bottom: 15%;
+            right: -8%;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .hero-float-badge .stars {
+            color: var(--orange);
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(245, 166, 35, 0.15);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-weight: 500;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 4%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 0.95rem;
+        }
+
+        /* ===== COURSES ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--orange);
+        }
+
+        .course-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .course-icon.organic {
+            background: #E8F5E9;
+        }
+
+        .course-icon.inorganic {
+            background: #E3F2FD;
+        }
+
+        .course-icon.general {
+            background: var(--orange-light);
+        }
+
+        .course-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .course-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .course-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-list li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .course-list li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .course-test-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.3rem 0.7rem;
+            background: var(--orange-light);
+            color: var(--orange-dark);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-right: 0.5rem;
+        }
+
+        .course-test-link:hover {
+            background: #FFE0B2;
+            transform: translateX(2px);
+        }
+
+        .course-link {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--orange);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: gap 0.2s;
+        }
+
+        .course-link:hover {
+            gap: 0.6rem;
+        }
+
+        /* ===== TESTIMONIAL ===== */
+        .testimonial-section {
+            background: linear-gradient(135deg, #FFF9F0 0%, #FFF4E0 100%);
+            padding: 4rem 0;
+        }
+
+        .testimonial-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .testimonial-content {
+            position: relative;
+        }
+
+        .testimonial-stars {
+            color: var(--orange);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-quote {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD6A5, #F5A623);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .floating-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem 1.25rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 160px;
+        }
+
+        .floating-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .floating-card-icon.lab {
+            background: #FFE0B2;
+        }
+
+        .floating-card-icon.ai {
+            background: #E3F2FD;
+        }
+
+        .floating-card-icon.quiz {
+            background: #E8F5E9;
+        }
+
+        .floating-card-icon.anim {
+            background: #F3E5F5;
+        }
+
+        .floating-card-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .floating-cards-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            transform: rotate(-3deg);
+        }
+
+        .floating-cards-wrapper .floating-card:nth-child(2) {
+            transform: translateY(10px);
+        }
+
+        .floating-cards-wrapper .floating-card:nth-child(3) {
+            transform: translateY(-10px);
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 4% 4rem;
+        }
+
+        .cta-box {
+            background: var(--navy);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.15) 0%, transparent 60%);
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.1) 0%, transparent 60%);
+        }
+
+        .cta-box h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons .btn-primary {
+            padding: 0.85rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-buttons .btn-secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.85rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-buttons .btn-secondary:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        .cta-note {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== FOOTER ===== */
+        .lp-footer {
+            background: var(--bg-gray);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4%;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            line-height: 1.6;
+            max-width: 250px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--orange);
+            background: var(--orange-light);
+        }
+
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .footer-input-wrap {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-input-wrap input {
+            flex: 1;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .footer-input-wrap input:focus {
+            border-color: var(--orange);
+        }
+
+        .footer-input-wrap button {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--orange-gradient);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 4% 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-bottom a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--orange);
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-desc {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-social {
+                justify-content: center;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .testimonial-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-visual {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .lp-nav {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 1.5rem;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <a href="index.html" class="logo">
-            CHEM<span>EGE</span>
+    <!-- HEADER -->
+    <header class="lp-header">
+        <a href="index.html" class="lp-logo">
+            <div class="lp-logo-icon">🧪</div>
+            Хим<span>Подготовка</span>
         </a>
-        <nav>
-            <ul>
-                <li><a href="#">Теория</a></li>
-                <li><a href="#">Тесты</a></li>
-                <li><a href="#">Задачи</a></li>
-                <li><a href="#">Справочник</a></li>
-            </ul>
+        <nav class="lp-nav">
+            <a href="dashboard.html">Панель управления</a>
+            <a href="tests/periodic_law_test.html">Тесты ЕГЭ</a>
+            <a href="1 глава/theory.html">Учебные материалы</a>
+            <a href="#">Задачи</a>
+            <a href="#">Тарифы</a>
         </nav>
+        <a href="dashboard.html" class="btn-primary">Начать обучение</a>
     </header>
 
-    <div class="container">
-        <main>
-            <h1>Учебные материалы по Химии</h1>
-            <p>Добро пожаловать в электронный учебник для подготовки к ЕГЭ и ОГЭ по химии. Выберите раздел ниже, чтобы
-                начать изучение.</p>
-
-            <div class="grid-cards">
-                <a href="1 глава/theory.html" class="card">
-                    <h3>1. Теоретические основы химии</h3>
-                    <p>Строение атома, периодический закон, химическая связь, химические реакции.</p>
-                </a>
-                <a href="#" class="card">
-                    <h3>2. Неорганическая химия</h3>
-                    <p>Свойства металлов, неметаллов, оксидов, кислот, оснований и солей.</p>
-                </a>
-                <a href="#" class="card">
-                    <h3>3. Органическая химия</h3>
-                    <p>Углеводороды, кислородсодержащие и азотсодержащие соединения, полимеры.</p>
-                </a>
-                <a href="#" class="card">
-                    <h3>4. Методы познания в химии. Химия и жизнь</h3>
-                    <p>Экспериментальные основы, промышленные способы получения веществ, расчеты.</p>
-                </a>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <div class="hero-badge">🎓 ЛУЧШАЯ ПРОГРАММА ДЛЯ ПОДГОТОВКИ К ЕГЭ 2025</div>
+            <h1>Подготовка к<br>ЕГЭ <span>по химии.</span></h1>
+            <p class="hero-desc">Персонализированная подготовка для школьников. Превратите сложные уравнения в понятные
+                концепции с помощью нашей интерактивной платформы с 3D-визуализациями.</p>
+            <div class="hero-buttons">
+                <a href="dashboard.html" class="btn-primary">Начать обучение →</a>
+                <a href="#" class="btn-secondary">▶ Как это работает</a>
             </div>
-
-            <h2>Последние обновления</h2>
-            <div class="info-box">
-                <p><strong>Новое в кодификаторе 2025:</strong> Добавлены новые типы расчетных задач и уточнены вопросы
-                    по химическому равновесию.</p>
+            <div class="hero-social">
+                <div class="hero-avatars">
+                    <span>АП</span>
+                    <span>МК</span>
+                    <span>ОН</span>
+                </div>
+                Присоединились более 12,000 школьников со всей России
             </div>
-        </main>
-    </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-img-wrapper"></div>
+            <div class="hero-float-badge top-right">
+                📊 <em>+54%</em> к сдаче
+            </div>
+            <div class="hero-float-badge bottom-right">
+                <span class="stars">★★★★★</span> 4.2 у учеников
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 CHEM EGE. Электронный учебник.</p>
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">готовых тестов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15K+</div>
+                <div class="stat-label">заданий практики</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">успешная сдача</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">поддержка экспертов</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES -->
+    <section class="section">
+        <h2 class="section-title">Освойте каждый раздел</h2>
+        <p class="section-desc">Изучите нашу структурированную программу, охватывающую все от строения атома до сложного
+            органического синтеза.</p>
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-icon organic">🧬</div>
+                <h3>Органическая химия</h3>
+                <p>Изучите основы углеводородов и основных классов. Молекулы, цепочки и структуры различных форм.</p>
+                <ul class="course-list">
+                    <li>Углеводороды и полимеры</li>
+                    <li>Функциональные группы</li>
+                    <li>Полимеризация и синтез</li>
+                </ul>
+                <a href="tests/periodic_law_test.html" class="course-test-link">📝 Тесты</a>
+                <a href="1 глава/theory.html" class="course-link">Изучить модуль →</a>
+            </div>
+            <div class="course-card">
+                <div class="course-icon inorganic">⚗️</div>
+                <h3>Неорганическая химия</h3>
+                <p>Представление о нитратах, сульфатах и периодической системе. От простейших соединений до металлургии.
+                </p>
+                <ul class="course-list">
+                    <li>Неорганические классы</li>
+                    <li>Химические свойства</li>
+                    <li>Получение веществ</li>
+                </ul>
+                <a href="tests/periodic_law_test.html" class="course-test-link">📝 Тесты</a>
+                <a href="1 глава/theory.html" class="course-link">Изучить модуль →</a>
+            </div>
+            <div class="course-card">
+                <div class="course-icon general">∑</div>
+                <h3>Общая химия</h3>
+                <p>Взаимодействие веществ с энергией: скорость, термодинамика, равновесия и электрохимия.</p>
+                <ul class="course-list">
+                    <li>Термодинамика</li>
+                    <li>Химическая кинетика</li>
+                    <li>Электролиз</li>
+                </ul>
+                <a href="tests/periodic_law_test.html" class="course-test-link">📝 Тесты</a>
+                <a href="1 глава/theory.html" class="course-link">Изучить модуль →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-section">
+        <div class="testimonial-inner">
+            <div class="testimonial-content">
+                <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+                <blockquote class="testimonial-quote">
+                    "ChemPrep полностью изменила мой взгляд на органику. 3D-визуализации помогли всё понять, и я
+                    поднялась с тройки до пятерки всего за три месяца!"
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">👩</div>
+                    <div>
+                        <div class="testimonial-name">Анна Смирнова</div>
+                        <div class="testimonial-role">Выпускница • Июнь 2024</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-visual">
+                <div class="floating-cards-wrapper">
+                    <div class="floating-card">
+                        <div class="floating-card-icon lab">🔬</div>
+                        <div class="floating-card-text">Лаборатория</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="floating-card-icon ai">🤖</div>
+                        <div class="floating-card-text">AI-Менеджер</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="floating-card-icon quiz">📋</div>
+                        <div class="floating-card-text">Ежедневные тесты</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="floating-card-icon anim">🎬</div>
+                        <div class="floating-card-text">Анимации</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-box">
+            <h2>Готовы сдать экзамены на<br>отлично?</h2>
+            <p>Присоединяйтесь к тысячам учеников, которые уже раскрывают свой потенциал. Первый месяц тренировок
+                бесплатно!</p>
+            <div class="cta-buttons">
+                <a href="dashboard.html" class="btn-primary">Начать бесплатно</a>
+                <a href="#" class="btn-secondary">Тарифы</a>
+            </div>
+            <div class="cta-note">КАРТА НЕ ТРЕБУЕТСЯ • ОТМЕНА В ЛЮБОЕ ВРЕМЯ</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="lp-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="lp-logo">
+                    <div class="lp-logo-icon">🧪</div>
+                    Хим<span>Подготовка</span>
+                </a>
+                <p>Помогаем школьникам осваивать химию с помощью современных инструментов и актуальных знаний.</p>
+                <div class="footer-social">
+                    <a href="#">📱</a>
+                    <a href="#">💬</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Платформа</h4>
+                <ul>
+                    <li><a href="1 глава/theory.html">Подготовка</a></li>
+                    <li><a href="#">Тесты ЕГЭ</a></li>
+                    <li><a href="#">Карточки</a></li>
+                    <li><a href="#">AI Тьютор</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Карьера</a></li>
+                    <li><a href="#">Медиа</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Новости</h4>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Получайте советы по
+                    учёбе и обновления прямо на e-mail.</p>
+                <div class="footer-input-wrap">
+                    <input type="email" placeholder="E-mail адрес">
+                    <button>▶</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ХИМПОДГОТОВКА. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</span>
+            <div>
+                <a href="#">КОНФИДЕНЦИАЛЬНОСТЬ</a> &nbsp;|&nbsp;
+                <a href="#">РЕСУРСЫ</a>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
 </body>
 
 </html>

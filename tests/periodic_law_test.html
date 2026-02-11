@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест: Периодический закон | ХимПодготовка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --orange: #F5A623;
+            --orange-dark: #E8941A;
+            --orange-light: #FFF4E0;
+            --orange-gradient: linear-gradient(135deg, #F5A623 0%, #FF8C00 100%);
+            --navy: #1B2A4A;
+            --teal: #0EA5E9;
+            --green: #22C55E;
+            --red: #EF4444;
+            --text: #333;
+            --text-secondary: #8896A6;
+            --bg: #F0F2F5;
+            --bg-card: #FFFFFF;
+            --border: #E8ECF0;
+            --radius: 16px;
+            --radius-lg: 20px;
+            --shadow: 0 2px 12px rgba(27, 42, 74, 0.06);
+            --shadow-lg: 0 8px 32px rgba(27, 42, 74, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== HEADER ===== */
+        .test-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 3%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .test-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--navy);
+        }
+
+        .test-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--orange-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .test-logo span {
+            color: var(--orange);
+        }
+
+        /* SITE NAV */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 0.3rem;
+        }
+
+        .site-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .site-nav a:hover {
+            color: var(--orange-dark);
+            background: var(--orange-light);
+        }
+
+        .site-nav a.active {
+            background: var(--orange-gradient);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
+        }
+
+        .site-nav a .nav-emoji {
+            font-size: 0.9rem;
+        }
+
+        .test-header-center {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .test-header-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .test-header-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--orange-light);
+            color: var(--orange-dark);
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .test-exit {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .test-exit:hover {
+            color: var(--navy);
+        }
+
+        /* ===== LAYOUT ===== */
+        .test-layout {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 120px 1fr 280px;
+            gap: 1.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 3%;
+            width: 100%;
+        }
+
+        /* ===== QUESTION NAV ===== */
+        .q-nav {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+        }
+
+        .q-nav-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .q-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .q-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .q-num:hover {
+            border-color: var(--orange);
+            transform: scale(1.05);
+        }
+
+        .q-num.correct {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .q-num.wrong {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+        }
+
+        .q-num.current {
+            background: var(--teal);
+            color: white;
+            border-color: var(--teal);
+            box-shadow: 0 3px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .q-num.unanswered {
+            background: var(--bg);
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+
+        .q-legend {
+            list-style: none;
+        }
+
+        .q-legend li {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .q-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .q-legend-dot.green {
+            background: var(--green);
+        }
+
+        .q-legend-dot.red {
+            background: var(--red);
+        }
+
+        .q-legend-dot.blue {
+            background: var(--teal);
+        }
+
+        /* ===== QUESTION AREA ===== */
+        .q-main {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .q-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .q-counter {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        .q-timer {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .q-text {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
+
+        .q-text sub {
+            font-size: 0.7em;
+        }
+
+        /* ANSWERS */
+        .q-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .q-answer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--bg-card);
+        }
+
+        .q-answer:hover {
+            border-color: var(--orange);
+            background: var(--orange-light);
+        }
+
+        .q-answer.selected {
+            border-color: var(--orange);
+            background: var(--orange-light);
+            box-shadow: 0 2px 12px rgba(245, 166, 35, 0.15);
+        }
+
+        .q-answer-letter {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .q-answer.selected .q-answer-letter {
+            background: var(--orange-gradient);
+            color: white;
+        }
+
+        .q-answer-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .q-answer-text sub {
+            font-size: 0.75em;
+        }
+
+        /* BUTTONS */
+        .q-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .q-next {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: var(--orange-gradient);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 16px rgba(245, 166, 35, 0.3);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .q-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(245, 166, 35, 0.4);
+        }
+
+        .q-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.5rem;
+            background: var(--bg-card);
+            color: var(--navy);
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .q-hint:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        /* ===== PROGRESS SIDEBAR ===== */
+        .q-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+        }
+
+        .q-progress-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .q-progress-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .q-progress-visual {
+            width: 160px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #FFF8EE 0%, #F0E6D6 30%, #C9B7A4 60%, #9ABED2 80%, #6BA3C9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .q-progress-visual::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 45%;
+            background: linear-gradient(180deg, rgba(14, 165, 233, 0.6) 0%, rgba(14, 165, 233, 0.9) 100%);
+            border-radius: 8px 8px 0 0;
+            animation: fillUp 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fillUp {
+            0% {
+                height: 35%;
+            }
+
+            100% {
+                height: 50%;
+            }
+        }
+
+        .q-progress-visual::before {
+            content: '—';
+            position: absolute;
+            top: 30%;
+            left: 15%;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 1;
+        }
+
+        .q-progress-percent {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--orange);
+        }
+
+        .q-progress-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .q-goal-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .q-goal-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--orange-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .q-goal-info {
+            flex: 1;
+        }
+
+        .q-goal-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-secondary);
+        }
+
+        .q-goal-value {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* ===== FOOTER ===== */
+        .test-footer {
+            padding: 1.25rem 3%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            margin-top: auto;
+        }
+
+        .test-footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }
+
+        .test-footer-logo span {
+            opacity: 0.7;
+        }
+
+        .test-footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .test-footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .test-footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .test-footer-copy {
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 1024px) {
+            .test-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .q-nav {
+                position: static;
+            }
+
+            .q-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .q-sidebar {
+                position: static;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .q-sidebar>* {
+                flex: 1;
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .test-header-center {
+                display: none;
+            }
+
+            .q-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .q-main {
+                padding: 1.25rem;
+            }
+
+            .q-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="test-header">
+        <a href="../index.html" class="test-logo">
+            <div class="test-logo-icon">🧪</div>
+            Хим<span>Подготовка</span>
+        </a>
+        <nav class="site-nav">
+            <a href="../index.html"><span class="nav-emoji">🏠</span> Главная</a>
+            <a href="../1 глава/theory.html"><span class="nav-emoji">📚</span> Теория</a>
+            <a href="../tests/periodic_law_test.html" class="active"><span class="nav-emoji">📝</span> Тесты</a>
+            <a href="../dashboard.html"><span class="nav-emoji">📊</span> Панель</a>
+        </nav>
+        <div class="test-header-center">
+            <span class="test-header-badge">ТЕМА: ПЕРИОДИЧЕСКИЙ ЗАКОН</span>
+        </div>
+    </header>
+
+    <!-- LAYOUT -->
+    <div class="test-layout">
+
+        <!-- QUESTION NAV -->
+        <div class="q-nav">
+            <div class="q-nav-title">Вопросы</div>
+            <div class="q-grid">
+                <div class="q-num correct" onclick="goToQuestion(1)">1</div>
+                <div class="q-num correct" onclick="goToQuestion(2)">2</div>
+                <div class="q-num current" onclick="goToQuestion(3)">3</div>
+                <div class="q-num wrong" onclick="goToQuestion(4)">4</div>
+                <div class="q-num unanswered" onclick="goToQuestion(5)">5</div>
+                <div class="q-num unanswered" onclick="goToQuestion(6)">6</div>
+                <div class="q-num unanswered" onclick="goToQuestion(7)">7</div>
+                <div class="q-num unanswered" onclick="goToQuestion(8)">8</div>
+                <div class="q-num unanswered" onclick="goToQuestion(9)">9</div>
+                <div class="q-num unanswered" onclick="goToQuestion(10)">10</div>
+            </div>
+            <ul class="q-legend">
+                <li><span class="q-legend-dot green"></span> Верно</li>
+                <li><span class="q-legend-dot red"></span> Ошибка</li>
+                <li><span class="q-legend-dot blue"></span> Текущий</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION -->
+        <div class="q-main">
+            <div class="q-meta">
+                <div class="q-counter">Вопрос 3 из 10</div>
+                <div class="q-timer">⏱ <span id="timer">14:32</span></div>
+            </div>
+
+            <h2 class="q-text" id="questionText">В каком ряду элементы расположены в порядке увеличения их атомного
+                радиуса?</h2>
+
+            <div class="q-answers" id="answersContainer">
+                <div class="q-answer" onclick="selectAnswer(this, 0)">
+                    <div class="q-answer-letter">A</div>
+                    <div class="q-answer-text">Na → Mg → Al → Si</div>
+                </div>
+                <div class="q-answer" onclick="selectAnswer(this, 1)">
+                    <div class="q-answer-letter">B</div>
+                    <div class="q-answer-text">F → O → N → C</div>
+                </div>
+                <div class="q-answer selected" onclick="selectAnswer(this, 2)">
+                    <div class="q-answer-letter">C</div>
+                    <div class="q-answer-text">Li → Na → K → Rb</div>
+                </div>
+                <div class="q-answer" onclick="selectAnswer(this, 3)">
+                    <div class="q-answer-letter">D</div>
+                    <div class="q-answer-text">Cl → Br → Se → As</div>
+                </div>
+            </div>
+
+            <div class="q-actions">
+                <button class="q-next" onclick="nextQuestion()">Следующий вопрос →</button>
+                <button class="q-hint" onclick="showHint()">💡 Подсказка</button>
+            </div>
+        </div>
+
+        <!-- PROGRESS SIDEBAR -->
+        <div class="q-sidebar">
+            <div class="q-progress-card">
+                <div class="q-progress-title">Прогресс успеха</div>
+                <div class="q-progress-visual"></div>
+                <div class="q-progress-percent" id="progressPercent">45%</div>
+                <div class="q-progress-label">Реакция идет успешно!</div>
+            </div>
+            <div class="q-goal-card">
+                <div class="q-goal-icon">🏆</div>
+                <div class="q-goal-info">
+                    <div class="q-goal-label">Цель дня</div>
+                    <div class="q-goal-value">80 баллов сегодня</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="test-footer">
+        <a href="index.html" class="test-footer-logo">🧪 <span>ХимПодготовка</span></a>
+        <div class="test-footer-links">
+            <a href="../dashboard.html">Панель</a>
+            <a href="../1 глава/theory.html">Теория</a>
+            <a href="#">Помощь</a>
+            <a href="#">Справочник</a>
+            <a href="#">Таблица Менделеева</a>
+        </div>
+        <div class="test-footer-copy">© 2025 Практика ЕГЭ</div>
+    </footer>
+
+    <script>
+        // ===== QUESTIONS DATA =====
+        const questions = [
+            {
+                text: "Какой элемент имеет электронную конфигурацию 1s²2s²2p⁶3s²3p⁶?",
+                answers: ["Натрий (Na)", "Аргон (Ar)", "Калий (K)", "Хлор (Cl)"],
+                correct: 1
+            },
+            {
+                text: "Как изменяется электроотрицательность элементов в периоде слева направо?",
+                answers: ["Уменьшается", "Увеличивается", "Не изменяется", "Сначала увеличивается, потом уменьшается"],
+                correct: 1
+            },
+            {
+                text: "В каком ряду элементы расположены в порядке увеличения их атомного радиуса?",
+                answers: ["Na → Mg → Al → Si", "F → O → N → C", "Li → Na → K → Rb", "Cl → Br → Se → As"],
+                correct: 2
+            },
+            {
+                text: "Какое свойство усиливается в группе сверху вниз?",
+                answers: ["Электроотрицательность", "Энергия ионизации", "Металлические свойства", "Неметаллические свойства"],
+                correct: 2
+            },
+            {
+                text: "Какой из перечисленных элементов имеет наибольшую энергию ионизации?",
+                answers: ["Na", "Mg", "Al", "Ne"],
+                correct: 3
+            },
+            {
+                text: "Как изменяется кислотность высших оксидов в периоде слева направо?",
+                answers: ["Ослабевает", "Усиливается", "Не изменяется", "Зависит от периода"],
+                correct: 1
+            },
+            {
+                text: "Кто сформулировал периодический закон?",
+                answers: ["Н. Бор", "Дж. Дальтон", "Д.И. Менделеев", "А. Лавуазье"],
+                correct: 2
+            },
+            {
+                text: "Что является главной характеристикой элемента по современной формулировке периодического закона?",
+                answers: ["Атомная масса", "Заряд ядра", "Число нейтронов", "Электроотрицательность"],
+                correct: 1
+            },
+            {
+                text: "Какой инертный газ завершает 3-й период?",
+                answers: ["He", "Ne", "Ar", "Kr"],
+                correct: 2
+            },
+            {
+                text: "Сколько элементов содержит 4-й период?",
+                answers: ["8", "18", "32", "2"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 2; // 0-indexed, starts at question 3
+        let selectedAnswers = [1, 1, null, 0, null, null, null, null, null, null]; // pre-filled some
+        let correctAnswers = questions.map(q => q.correct);
+        let questionStates = ['correct', 'correct', 'current', 'wrong', 'unanswered', 'unanswered', 'unanswered', 'unanswered', 'unanswered', 'unanswered'];
+
+        // Timer
+        let timerSeconds = 872; // 14:32
+        const timerEl = document.getElementById('timer');
+
+        setInterval(() => {
+            timerSeconds--;
+            if (timerSeconds < 0) timerSeconds = 0;
+            const m = Math.floor(timerSeconds / 60);
+            const s = timerSeconds % 60;
+            timerEl.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+        }, 1000);
+
+        function selectAnswer(el, idx) {
+            document.querySelectorAll('.q-answer').forEach(a => a.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedAnswers[currentQuestion] = idx;
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQuestion];
+            document.getElementById('questionText').innerHTML = q.text;
+            document.querySelector('.q-counter').textContent = `Вопрос ${currentQuestion + 1} из 10`;
+
+            const container = document.getElementById('answersContainer');
+            const letters = ['A', 'B', 'C', 'D'];
+            container.innerHTML = q.answers.map((ans, i) =>
+                `<div class="q-answer${selectedAnswers[currentQuestion] === i ? ' selected' : ''}" onclick="selectAnswer(this, ${i})">
+                    <div class="q-answer-letter">${letters[i]}</div>
+                    <div class="q-answer-text">${ans}</div>
+                </div>`
+            ).join('');
+
+            // Update nav
+            const nums = document.querySelectorAll('.q-num');
+            nums.forEach((num, i) => {
+                num.className = 'q-num';
+                if (i === currentQuestion) {
+                    num.classList.add('current');
+                } else {
+                    num.classList.add(questionStates[i]);
+                }
+            });
+
+            updateProgress();
+        }
+
+        function nextQuestion() {
+            // Check answer
+            if (selectedAnswers[currentQuestion] !== null) {
+                if (selectedAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
+                    questionStates[currentQuestion] = 'correct';
+                } else {
+                    questionStates[currentQuestion] = 'wrong';
+                }
+            }
+
+            if (currentQuestion < 9) {
+                currentQuestion++;
+                questionStates[currentQuestion] = 'current';
+                renderQuestion();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function goToQuestion(num) {
+            // Save current if answered
+            if (selectedAnswers[currentQuestion] !== null && questionStates[currentQuestion] === 'current') {
+                if (selectedAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
+                    questionStates[currentQuestion] = 'correct';
+                } else {
+                    questionStates[currentQuestion] = 'wrong';
+                }
+            } else if (questionStates[currentQuestion] === 'current') {
+                questionStates[currentQuestion] = 'unanswered';
+            }
+
+            currentQuestion = num - 1;
+            questionStates[currentQuestion] = 'current';
+            renderQuestion();
+        }
+
+        function updateProgress() {
+            const correct = questionStates.filter(s => s === 'correct').length;
+            const answered = questionStates.filter(s => s === 'correct' || s === 'wrong').length;
+            const percent = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+            document.getElementById('progressPercent').textContent = `${percent}%`;
+        }
+
+        function showHint() {
+            const hints = [
+                "Вспомните конфигурацию благородных газов.",
+                "В периоде электроотрицательность растёт от металлов к неметаллам.",
+                "Атомный радиус увеличивается сверху вниз в группе и уменьшается слева направо в периоде.",
+                "Металлические свойства связаны со способностью отдавать электроны.",
+                "Инертные газы имеют самую высокую энергию ионизации.",
+                "Кислотные свойства оксидов усиливаются с ростом степени окисления.",
+                "Периодический закон был сформулирован в 1869 году.",
+                "Современная формулировка основана на работах Мозли.",
+                "Третий период заканчивается элементом с Z=18.",
+                "В 4-м периоде впервые появляются d-элементы."
+            ];
+            alert("💡 Подсказка: " + hints[currentQuestion]);
+        }
+
+        // Initial render
+        renderQuestion();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления | ХимПодготовка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --orange: #F5A623;
+            --orange-dark: #E8941A;
+            --orange-light: #FFF4E0;
+            --orange-gradient: linear-gradient(135deg, #F5A623 0%, #FF8C00 100%);
+            --navy: #1B2A4A;
+            --teal: #0EA5E9;
+            --teal-dark: #0284C7;
+            --green: #22C55E;
+            --red: #EF4444;
+            --text: #333;
+            --text-secondary: #8896A6;
+            --bg: #F0F2F5;
+            --bg-card: #FFFFFF;
+            --border: #E8ECF0;
+            --radius: 16px;
+            --radius-lg: 20px;
+            --shadow: 0 2px 12px rgba(27, 42, 74, 0.06);
+            --shadow-lg: 0 8px 32px rgba(27, 42, 74, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* ===== TOP-LEVEL LAYOUT ===== */
+        .db-wrapper {
+            display: flex;
+            max-width: 1440px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .db-sidebar {
+            width: 260px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            flex-shrink: 0;
+        }
+
+        .db-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .db-logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--orange-gradient);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .db-logo span {
+            color: var(--orange);
+        }
+
+        .db-nav {
+            list-style: none;
+            flex: 1;
+        }
+
+        .db-nav li {
+            margin-bottom: 0.25rem;
+        }
+
+        .db-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .db-nav a:hover {
+            background: var(--orange-light);
+            color: var(--orange-dark);
+        }
+
+        .db-nav a.active {
+            background: var(--orange-gradient);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.25);
+        }
+
+        .db-nav-icon {
+            width: 20px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .db-pro-card {
+            background: var(--orange-light);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .db-pro-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--orange-gradient);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .db-pro-card p {
+            font-size: 0.82rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .db-pro-btn {
+            display: block;
+            width: 100%;
+            padding: 0.6rem;
+            background: var(--orange-gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .db-pro-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .db-user {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .db-user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E8F0FE, #D0E0FC);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .db-user-info {
+            flex: 1;
+        }
+
+        .db-user-name {
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--navy);
+        }
+
+        .db-user-class {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .db-user-settings {
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .db-main {
+            flex: 1;
+            padding: 2rem 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* TOP BAR */
+        .db-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .db-welcome h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .db-welcome p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .db-topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .db-search {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            min-width: 220px;
+        }
+
+        .db-search input {
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 0.85rem;
+            color: var(--text);
+            background: transparent;
+            width: 100%;
+        }
+
+        .db-search-icon {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .db-notif {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .db-notif-dot {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--orange);
+            border-radius: 50%;
+        }
+
+        /* CONTENT GRID */
+        .db-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 1.5rem;
+        }
+
+        .db-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .db-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* CARD BASE */
+        .db-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .db-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .db-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .db-card-link {
+            font-size: 0.82rem;
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .db-card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* PROGRESS */
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .progress-item {
+            text-align: center;
+            padding: 1rem 0.5rem;
+            background: var(--bg);
+            border-radius: var(--radius);
+        }
+
+        .progress-circle {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 0.75rem;
+            position: relative;
+        }
+
+        .progress-circle svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .progress-circle .bg {
+            fill: none;
+            stroke: #E8ECF0;
+            stroke-width: 6;
+        }
+
+        .progress-circle .fill {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .progress-circle .fill.blue {
+            stroke: var(--teal);
+        }
+
+        .progress-circle .fill.orange {
+            stroke: var(--orange);
+        }
+
+        .progress-circle .fill.green {
+            stroke: var(--green);
+        }
+
+        .progress-percent {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .progress-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .progress-sub {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
+        }
+
+        /* CONTINUE CARD */
+        .continue-card {
+            background: linear-gradient(135deg, #1B3A5C 0%, #0F2744 100%);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .continue-card::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .continue-badge {
+            display: inline-block;
+            padding: 0.25rem 0.7rem;
+            background: rgba(14, 165, 233, 0.2);
+            color: #7DD3FC;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .continue-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .continue-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .continue-card .continue-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.25rem;
+            max-width: 380px;
+            line-height: 1.55;
+            position: relative;
+            z-index: 1;
+        }
+
+        .continue-footer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .continue-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1.25rem;
+            background: var(--orange-gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .continue-time {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* QUICK LINKS GRID */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .quick-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 1rem 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .quick-link:hover {
+            border-color: var(--orange);
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .quick-link-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+        }
+
+        .quick-link-icon.test {
+            background: #FFF0E0;
+        }
+
+        .quick-link-icon.theory {
+            background: #E0F2FE;
+        }
+
+        .quick-link-icon.cards {
+            background: #E8F5E9;
+        }
+
+        .quick-link-icon.quiz {
+            background: #F3E5F5;
+        }
+
+        .quick-link span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-align: center;
+        }
+
+        /* STATS */
+        .stat-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-icon-wrap {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .stat-icon-wrap.fire {
+            background: #FFF0E0;
+        }
+
+        .stat-icon-wrap.clock {
+            background: #E0F2FE;
+        }
+
+        .stat-icon-wrap.check {
+            background: #E8F5E9;
+        }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-info-label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-info-sub {
+            font-size: 0.68rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .stat-unit {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        /* QUICK ACTIONS */
+        .quick-actions h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .quick-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .quick-btn:hover {
+            border-color: var(--orange);
+            box-shadow: var(--shadow);
+        }
+
+        .quick-btn-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .quick-btn-icon.create {
+            background: #E0F2FE;
+        }
+
+        .quick-btn-icon.quiz {
+            background: #FFF0E0;
+        }
+
+        .quick-btn span {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* EVENTS */
+        .events-card .events-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .events-month {
+            padding: 0.25rem 0.6rem;
+            background: var(--orange-light);
+            color: var(--orange-dark);
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .event-row {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .event-row:last-child {
+            border-bottom: none;
+        }
+
+        .event-date {
+            text-align: center;
+            min-width: 42px;
+        }
+
+        .event-day-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+
+        .event-day-num {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .event-info {
+            flex: 1;
+        }
+
+        .event-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .event-meta {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+        }
+
+        /* LEADERBOARD */
+        .leaderboard-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .leaderboard-row:last-child {
+            border-bottom: none;
+        }
+
+        .lb-rank {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .lb-rank.gold {
+            background: linear-gradient(135deg, #F5A623, #FF8C00);
+        }
+
+        .lb-rank.silver {
+            background: linear-gradient(135deg, #94A3B8, #64748B);
+        }
+
+        .lb-rank.bronze {
+            background: linear-gradient(135deg, #CD7F32, #B5651D);
+        }
+
+        .lb-rank.normal {
+            background: var(--bg);
+            color: var(--text-secondary);
+        }
+
+        .lb-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .lb-info {
+            flex: 1;
+        }
+
+        .lb-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .lb-level {
+            font-size: 0.68rem;
+            color: var(--text-secondary);
+        }
+
+        .lb-score {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .lb-you {
+            background: var(--orange-light);
+            border-radius: 10px;
+            padding: 0.6rem 0.5rem;
+            margin: 0 -0.5rem;
+        }
+
+        /* THEORY PROGRESS */
+        .theory-progress-list {
+            list-style: none;
+        }
+
+        .tp-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tp-item:last-child {
+            border-bottom: none;
+        }
+
+        .tp-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .tp-info {
+            flex: 1;
+        }
+
+        .tp-label {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .tp-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            margin-top: 0.3rem;
+            overflow: hidden;
+        }
+
+        .tp-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .tp-bar-fill.green {
+            background: var(--green);
+        }
+
+        .tp-bar-fill.orange {
+            background: var(--orange);
+        }
+
+        .tp-bar-fill.blue {
+            background: var(--teal);
+        }
+
+        .tp-pct {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            min-width: 35px;
+            text-align: right;
+        }
+
+        /* SITE NAV */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 0.3rem;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .site-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .site-nav a:hover {
+            color: var(--orange-dark);
+            background: var(--orange-light);
+        }
+
+        .site-nav a.active {
+            background: var(--orange-gradient);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
+        }
+
+        .site-nav a .nav-emoji {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1100px) {
+            .db-content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .db-sidebar {
+                display: none;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .db-main {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="db-wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="db-sidebar">
+            <a href="index.html" class="db-logo">
+                <div class="db-logo-icon">🧪</div>
+                Chem<span>Study</span>
+            </a>
+
+            <ul class="db-nav">
+                <li><a href="dashboard.html" class="active"><span class="db-nav-icon">📊</span> Панель управления</a>
+                </li>
+                <li><a href="1 глава/theory.html"><span class="db-nav-icon">📚</span> Мои курсы</a></li>
+                <li><a href="#"><span class="db-nav-icon">🗂️</span> Карточки</a></li>
+                <li><a href="tests/periodic_law_test.html"><span class="db-nav-icon">📝</span> Тесты и экзамены</a></li>
+                <li><a href="#"><span class="db-nav-icon">🧮</span> Задачи</a></li>
+                <li><a href="#"><span class="db-nav-icon">👥</span> Сообщество</a></li>
+                <li><a href="#"><span class="db-nav-icon">📖</span> Справочник</a></li>
+            </ul>
+
+            <div class="db-pro-card">
+                <div class="db-pro-badge">PRO ПЛАН</div>
+                <p>Доступ ко всем симуляциям ЕГЭ.</p>
+                <a href="#" class="db-pro-btn">Обновить сейчас</a>
+            </div>
+
+            <div class="db-user">
+                <div class="db-user-avatar">👤</div>
+                <div class="db-user-info">
+                    <div class="db-user-name">Алексей Петров</div>
+                    <div class="db-user-class">11 класс</div>
+                </div>
+                <a href="#" class="db-user-settings">⚙</a>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="db-main">
+
+            <!-- SITE NAV -->
+            <nav class="site-nav">
+                <a href="index.html"><span class="nav-emoji">🏠</span> Главная</a>
+                <a href="1 глава/theory.html"><span class="nav-emoji">📚</span> Теория</a>
+                <a href="tests/periodic_law_test.html"><span class="nav-emoji">📝</span> Тесты</a>
+                <a href="dashboard.html" class="active"><span class="nav-emoji">📊</span> Панель</a>
+            </nav>
+
+            <!-- TOP BAR -->
+            <div class="db-topbar">
+                <div class="db-welcome">
+                    <h1>С возвращением, Алексей! 👋</h1>
+                    <p>Готов разобрать Кислоты и Основания сегодня?</p>
+                </div>
+                <div class="db-topbar-right">
+                    <div class="db-search">
+                        <span class="db-search-icon">🔍</span>
+                        <input type="text" placeholder="Поиск тем, формул...">
+                    </div>
+                    <a href="#" class="db-notif">
+                        🔔
+                        <div class="db-notif-dot"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div class="quick-links" style="margin-bottom: 1.5rem;">
+                <a href="tests/periodic_law_test.html" class="quick-link">
+                    <div class="quick-link-icon test">📝</div>
+                    <span>Тесты ЕГЭ</span>
+                </a>
+                <a href="1 глава/theory.html" class="quick-link">
+                    <div class="quick-link-icon theory">📚</div>
+                    <span>Теория</span>
+                </a>
+                <a href="#" class="quick-link">
+                    <div class="quick-link-icon cards">🗂️</div>
+                    <span>Карточки</span>
+                </a>
+                <a href="#" class="quick-link">
+                    <div class="quick-link-icon quiz">⚡</div>
+                    <span>Быстрый квиз</span>
+                </a>
+            </div>
+
+            <div class="db-content-grid">
+                <div class="db-left">
+
+                    <!-- PROGRESS -->
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <div class="db-card-title">Ваш прогресс</div>
+                            <a href="1 глава/theory.html" class="db-card-link">Смотреть все →</a>
+                        </div>
+                        <div class="progress-grid">
+                            <div class="progress-item">
+                                <div class="progress-circle">
+                                    <svg viewBox="0 0 42 42">
+                                        <circle class="bg" cx="21" cy="21" r="17" />
+                                        <circle class="fill blue" cx="21" cy="21" r="17" stroke-dasharray="106.8"
+                                            stroke-dashoffset="26.7" />
+                                    </svg>
+                                    <div class="progress-percent">75%</div>
+                                </div>
+                                <div class="progress-label">Органическая химия</div>
+                                <div class="progress-sub">12 из 16 уроков</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-circle">
+                                    <svg viewBox="0 0 42 42">
+                                        <circle class="bg" cx="21" cy="21" r="17" />
+                                        <circle class="fill orange" cx="21" cy="21" r="17" stroke-dasharray="106.8"
+                                            stroke-dashoffset="64.08" />
+                                    </svg>
+                                    <div class="progress-percent">40%</div>
+                                </div>
+                                <div class="progress-label">Неорганическая химия</div>
+                                <div class="progress-sub">4 из 10 уроков</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-circle">
+                                    <svg viewBox="0 0 42 42">
+                                        <circle class="bg" cx="21" cy="21" r="17" />
+                                        <circle class="fill green" cx="21" cy="21" r="17" stroke-dasharray="106.8"
+                                            stroke-dashoffset="10.68" />
+                                    </svg>
+                                    <div class="progress-percent">90%</div>
+                                </div>
+                                <div class="progress-label">Химическая связь</div>
+                                <div class="progress-sub">9 из 10 уроков</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTINUE -->
+                    <div class="continue-card">
+                        <div class="continue-badge">ПРОДОЛЖИТЬ ОБУЧЕНИЕ</div>
+                        <div class="continue-label">СЛЕДУЮЩИЙ УРОК</div>
+                        <h3>Модуль 4: Кислоты и Основания</h3>
+                        <p class="continue-desc">Изучите шкалу pH, реакции нейтрализации и методы титрования в этом
+                            основном модуле химии.</p>
+                        <div class="continue-footer">
+                            <a href="1 глава/theory.html" class="continue-btn">Начать урок</a>
+                            <div class="continue-time">🕐 15 мин</div>
+                        </div>
+                    </div>
+
+                    <!-- THEORY PROGRESS -->
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <div class="db-card-title">Прогресс по темам</div>
+                            <a href="1 глава/theory.html" class="db-card-link">Все темы →</a>
+                        </div>
+                        <ul class="theory-progress-list">
+                            <li class="tp-item">
+                                <div class="tp-icon" style="background:#E0F2FE">⚛️</div>
+                                <div class="tp-info">
+                                    <div class="tp-label"><a href="atom_structure.html"
+                                            style="color:inherit;text-decoration:none">Строение атома</a></div>
+                                    <div class="tp-bar">
+                                        <div class="tp-bar-fill green" style="width:100%"></div>
+                                    </div>
+                                </div>
+                                <div class="tp-pct">100%</div>
+                            </li>
+                            <li class="tp-item">
+                                <div class="tp-icon" style="background:#FFF0E0">📊</div>
+                                <div class="tp-info">
+                                    <div class="tp-label"><a href="2 глава/periodic_law.html"
+                                            style="color:inherit;text-decoration:none">Периодический закон</a></div>
+                                    <div class="tp-bar">
+                                        <div class="tp-bar-fill orange" style="width:80%"></div>
+                                    </div>
+                                </div>
+                                <div class="tp-pct">80%</div>
+                            </li>
+                            <li class="tp-item">
+                                <div class="tp-icon" style="background:#E8F5E9">🔗</div>
+                                <div class="tp-info">
+                                    <div class="tp-label"><a href="3 глава/chemical_bonds.html"
+                                            style="color:inherit;text-decoration:none">Химическая связь</a></div>
+                                    <div class="tp-bar">
+                                        <div class="tp-bar-fill green" style="width:90%"></div>
+                                    </div>
+                                </div>
+                                <div class="tp-pct">90%</div>
+                            </li>
+                            <li class="tp-item">
+                                <div class="tp-icon" style="background:#F3E5F5">🔬</div>
+                                <div class="tp-info">
+                                    <div class="tp-label"><a href="4 глава/crystal_lattices.html"
+                                            style="color:inherit;text-decoration:none">Кристаллические решётки</a></div>
+                                    <div class="tp-bar">
+                                        <div class="tp-bar-fill blue" style="width:60%"></div>
+                                    </div>
+                                </div>
+                                <div class="tp-pct">60%</div>
+                            </li>
+                            <li class="tp-item">
+                                <div class="tp-icon" style="background:#FFF0E0">⚡</div>
+                                <div class="tp-info">
+                                    <div class="tp-label"><a
+                                            href="5 глава/Окислительно-восстановительные реакции/oxidation_reduction.html"
+                                            style="color:inherit;text-decoration:none">ОВР</a></div>
+                                    <div class="tp-bar">
+                                        <div class="tp-bar-fill orange" style="width:35%"></div>
+                                    </div>
+                                </div>
+                                <div class="tp-pct">35%</div>
+                            </li>
+                            <li class="tp-item">
+                                <div class="tp-icon" style="background:#E0F2FE">⚖️</div>
+                                <div class="tp-info">
+                                    <div class="tp-label"><a
+                                            href="5 глава/Химические равновесия/chemical_equilibrium.html"
+                                            style="color:inherit;text-decoration:none">Хим. равновесие</a></div>
+                                    <div class="tp-bar">
+                                        <div class="tp-bar-fill blue" style="width:20%"></div>
+                                    </div>
+                                </div>
+                                <div class="tp-pct">20%</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="db-right">
+
+                    <!-- STATS -->
+                    <div class="db-card">
+                        <div class="db-card-title" style="margin-bottom: 0.5rem;">Статистика обучения</div>
+                        <div class="stat-row">
+                            <div class="stat-icon-wrap fire">🔥</div>
+                            <div class="stat-info">
+                                <div class="stat-info-label">Ударный режим</div>
+                                <div class="stat-info-sub">Так держать!</div>
+                            </div>
+                            <div><span class="stat-value">12</span> <span class="stat-unit">дней</span></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-icon-wrap clock">🕐</div>
+                            <div class="stat-info">
+                                <div class="stat-info-label">Всего часов</div>
+                                <div class="stat-info-sub">На этой неделе</div>
+                            </div>
+                            <div><span class="stat-value">24.5</span><span class="stat-unit">ч</span></div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-icon-wrap check">✅</div>
+                            <div class="stat-info">
+                                <div class="stat-info-label">Задач решено</div>
+                                <div class="stat-info-sub">За всё время</div>
+                            </div>
+                            <div><span class="stat-value">347</span></div>
+                        </div>
+                    </div>
+
+                    <!-- QUICK ACTIONS -->
+                    <div class="quick-actions">
+                        <h3>Быстрые действия</h3>
+                        <div class="quick-grid">
+                            <a href="#" class="quick-btn">
+                                <div class="quick-btn-icon create">➕</div>
+                                <span>Создать карточку</span>
+                            </a>
+                            <a href="tests/periodic_law_test.html" class="quick-btn">
+                                <div class="quick-btn-icon quiz">⚡</div>
+                                <span>Быстрый квиз</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- LEADERBOARD -->
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <div class="db-card-title">Рейтинг учеников</div>
+                            <a href="#" class="db-card-link">Все →</a>
+                        </div>
+                        <div class="leaderboard-row">
+                            <div class="lb-rank gold">1</div>
+                            <div class="lb-avatar" style="background:#FFE0B2">👩</div>
+                            <div class="lb-info">
+                                <div class="lb-name">Мария Иванова</div>
+                                <div class="lb-level">11 класс • 98 баллов</div>
+                            </div>
+                            <div class="lb-score">2850</div>
+                        </div>
+                        <div class="leaderboard-row">
+                            <div class="lb-rank silver">2</div>
+                            <div class="lb-avatar" style="background:#C8E6C9">👨</div>
+                            <div class="lb-info">
+                                <div class="lb-name">Дмитрий Козлов</div>
+                                <div class="lb-level">11 класс • 95 баллов</div>
+                            </div>
+                            <div class="lb-score">2630</div>
+                        </div>
+                        <div class="leaderboard-row">
+                            <div class="lb-rank bronze">3</div>
+                            <div class="lb-avatar" style="background:#BBDEFB">👩</div>
+                            <div class="lb-info">
+                                <div class="lb-name">Екатерина Новак</div>
+                                <div class="lb-level">10 класс • 91 балл</div>
+                            </div>
+                            <div class="lb-score">2410</div>
+                        </div>
+                        <div class="leaderboard-row lb-you">
+                            <div class="lb-rank normal">7</div>
+                            <div class="lb-avatar" style="background:#E8F0FE">👤</div>
+                            <div class="lb-info">
+                                <div class="lb-name">Вы (Алексей)</div>
+                                <div class="lb-level">11 класс • 82 балла</div>
+                            </div>
+                            <div class="lb-score">1920</div>
+                        </div>
+                    </div>
+
+                    <!-- EVENTS -->
+                    <div class="db-card events-card">
+                        <div class="events-header">
+                            <div class="db-card-title">Ближайшие события</div>
+                            <div class="events-month">МАЙ 2024</div>
+                        </div>
+                        <div class="event-row">
+                            <div class="event-date">
+                                <div class="event-day-label">ЧТ</div>
+                                <div class="event-day-num">23</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-title">Подготовка к зачёту</div>
+                                <div class="event-meta">10:00 • Органическая химия</div>
+                            </div>
+                        </div>
+                        <div class="event-row">
+                            <div class="event-date">
+                                <div class="event-day-label">ПН</div>
+                                <div class="event-day-num">27</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-title">Лабораторная работа</div>
+                                <div class="event-meta">14:30 • Виртуальная лаб.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- /db-wrapper -->
+
+</body>
+
+</html>
