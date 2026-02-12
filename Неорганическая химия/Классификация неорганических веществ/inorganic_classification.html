@@ -11,6 +11,102 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
         rel="stylesheet">
+    <style>
+        /* Beautiful Clarification Frame */
+        .clarification-frame {
+            position: relative;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 30px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .clarification-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .clarification-frame strong {
+            color: #0277bd;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05em;
+        }
+
+        /* Nomenclature Table (Scientific) */
+        .table-nomenclature {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-nomenclature th {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+            padding: 12px 15px;
+        }
+
+        .table-nomenclature td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .table-nomenclature tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .table-nomenclature tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        /* Trivial Table (Common Names) */
+        .table-trivial {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            border: 2px solid #dba617;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-trivial th {
+            background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
+            color: #4a3b00;
+            padding: 15px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .table-trivial td {
+            padding: 12px 15px;
+            border-bottom: 1px dashed #dba617;
+            background-color: #fffdf5;
+        }
+
+        .table-trivial tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-trivial td:first-child {
+            font-weight: bold;
+            color: #d35400;
+        }
+    </style>
 </head>
 
 <body class="with-sidebar">
@@ -69,28 +165,12 @@
             <p><strong>Сложные вещества</strong> — состоят из разных атомов. Примеры: KMnO₄, SO₂, NaOH, Mg(NO₃)₂,
                 H₂SiO₃.</p>
 
-            <table class="styled-table">
-                <tr>
-                    <th colspan="4" style="text-align: center; background: #E3F2FD;">НЕОРГАНИЧЕСКИЕ ВЕЩЕСТВА</th>
-                </tr>
-                <tr>
-                    <th colspan="2" style="text-align: center;">Простые (один элемент)</th>
-                    <th colspan="2" style="text-align: center;">Сложные (два и более элемента)</th>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><strong>Металлы</strong><br>Fe, K, Ca, Zn, Mn</td>
-                    <td style="text-align: center;"><strong>Неметаллы</strong><br>H₂, C, O₂, F, Cl₂</td>
-                    <td style="text-align: center;">
-                        <strong>Оксиды</strong> — Э<sub>x</sub>O<sub>y</sub><br>
-                        <strong>Гидроксиды</strong> — Me(OH)<sub>n</sub><br>
-                    </td>
-                    <td style="text-align: center;">
-                        <strong>Кислоты</strong> — H<sub>x</sub>A<br>
-                        <strong>Соли</strong> — Me<sub>x</sub>A<sub>y</sub><br>
-                        <strong>Бинарные соединения</strong>
-                    </td>
-                </tr>
-            </table>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image copy 4.png" alt="Схема классификации"
+                    style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Схема классификации
+                </figcaption>
+            </figure>
 
             <!-- ==================== РАЗДЕЛ 2 ==================== -->
             <h2 id="simple">2. Простые вещества</h2>
@@ -103,7 +183,7 @@
             <p>Простые вещества, обладающие характерным металлическим блеском, высокой электро- и теплопроводностью,
                 пластичностью и ковкостью. В Периодической таблице расположены <strong>левее и ниже</strong>
                 диагонали B–Si–As–Te–At.</p>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Группа металлов</th>
                     <th>Элементы</th>
@@ -138,7 +218,7 @@
                 ни неметаллами в классическом смысле. В заданиях ЕГЭ их обычно относят к неметаллам.</p>
 
             <h4>Аллотропные модификации неметаллов</h4>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Элемент</th>
                     <th>Аллотропные формы</th>
@@ -181,11 +261,16 @@
             <p><strong>НЕ относятся к оксидам:</strong> пероксиды (Na₂O₂, CaO₂, BaO₂),
                 супероксиды (KO₂, NaO₂), фториды кислорода (OF₂, O₂F₂).</p>
 
-            <h3>Несолеобразующие оксиды</h3>
-            <p>NO, N₂O, SiO, CO</p>
+            <div class="clarification-frame" style="border-left: none;">
+                <!-- Override internal style if present in class, but class uses before pseudo-element -->
+                <strong>Несолеобразующие оксиды:</strong><br>
+                Оксиды неметаллов в низких степенях окисления, которые не реагируют ни с кислотами, ни с
+                основаниями.<br>
+                <strong>Запомнить:</strong> NO (+2), N₂O (+1), SiO (+2), CO (+2).
+            </div>
 
             <h3>Солеобразующие оксиды</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Тип</th>
                     <th>Степени окисления</th>
@@ -207,16 +292,27 @@
                     <td>Cl₂O₇, SiO₂, SO₂, SO₃, N₂O₅, CO₂, P₂O₅, Mn₂O₇, CrO₃</td>
                 </tr>
             </table>
+            <div class="clarification-frame">
+                <strong>Важные исключения!</strong><br>
+                Некоторые оксиды металлов в высоких степенях окисления являются <strong>кислотными</strong> (Mn₂O₇,
+                CrO₃).<br>
+                Оксид свинца PbO₂ и оксид марганца MnO₂ — <strong>амфотерные</strong>.
+            </div>
             <p><strong>Fe₃O₄</strong> (FeO · Fe₂O₃) — <strong>смешанный оксид</strong>.</p>
 
+            <h3>Номенклатура оксидов</h3>
+            <p>Систематическое название строится так: <strong>Оксид элемента (валентность)</strong>.</p>
+            <p><em>Примеры:</em> CuO — оксид меди (II), Cu₂O — оксид меди (I), SO₃ — оксид серы (VI).</p>
+            <p>Также используются названия с приставками, указывающими число атомов кислорода (см. таблицу ниже).</p>
+
             <h3>Названия оксидов по числу атомов кислорода</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Формула</th>
                     <th>Название</th>
                 </tr>
                 <tr>
-                    <th colspan="2" style="text-align: center; background: #f0f0f0;">Монооксиды</th>
+                    <th colspan="2" style="text-align: center; background: #a06bf5;">Монооксиды</th>
                 </tr>
                 <tr>
                     <td><strong>CO</strong></td>
@@ -227,7 +323,7 @@
                     <td>монооксид азота (II)</td>
                 </tr>
                 <tr>
-                    <th colspan="2" style="text-align: center; background: #f0f0f0;">Диоксиды</th>
+                    <th colspan="2" style="text-align: center; background: #a06bf5;">Диоксиды</th>
                 </tr>
                 <tr>
                     <td><strong>CO₂</strong></td>
@@ -242,7 +338,7 @@
                     <td>диоксид марганца (IV)</td>
                 </tr>
                 <tr>
-                    <th colspan="2" style="text-align: center; background: #f0f0f0;">Триоксиды</th>
+                    <th colspan="2" style="text-align: center; background: #a06bf5;">Триоксиды</th>
                 </tr>
                 <tr>
                     <td><strong>SO₃</strong></td>
@@ -255,7 +351,7 @@
             </table>
 
             <h3>Тривиальные названия оксидов</h3>
-            <table class="styled-table">
+            <table class="table-trivial">
                 <tr>
                     <th>Формула</th>
                     <th>Тривиальное название</th>
@@ -309,12 +405,13 @@
             <!-- ==================== РАЗДЕЛ 4 ==================== -->
             <h2 id="hydroxides">4. Гидроксиды</h2>
             <p>Гидроксиды делятся на три типа: <strong>основные</strong> (основания), <strong>амфотерные</strong> и
-                <strong>кислотные</strong> (кислородсодержащие кислоты).
+                <strong>кислотные</strong> (кислородсодержащие кислоты). Классификация гидроксидов основана на степени
+                окисления металлов. Смотри таблицу Солеобразующие оксиды.
             </p>
 
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
-                    <th colspan="3" style="text-align: center; background: #E3F2FD;">Гидроксиды</th>
+                    <th colspan="3" style="text-align: center; background: #52b7ff;">Гидроксиды</th>
                 </tr>
                 <tr>
                     <th style="text-align: center;">Основные</th>
@@ -330,13 +427,22 @@
 
             <p><strong>Основные гидроксиды = Основания.</strong> Кислотные гидроксиды = Кислородсодержащие кислоты.</p>
 
+            <h3>Номенклатура гидроксидов</h3>
+            <p>Название строится так: <strong>Гидроксид элемента (валентность)</strong>.</p>
+            <p><em>Примеры:</em> NaOH — гидроксид натрия, Fe(OH)₂ — гидроксид железа (II), Fe(OH)₃ — гидроксид железа
+                (III).</p>
+
             <h3>Основания</h3>
             <p>Основания делятся на <strong>щёлочи</strong> (растворимые) и <strong>нерастворимые основания</strong>.
             </p>
 
-            <h4>Щёлочи:</h4>
-            <p>LiOH, NaOH, KOH, RbOH, CsOH, Ca(OH)₂, Sr(OH)₂, Ba(OH)₂</p>
-
+            <div class="clarification-frame">
+                <strong>Важно:</strong> Растворимые основания называют <strong>щелочами</strong>. К ним относятся
+                гидроксиды
+                щелочных (Li-Cs) и щелочноземельных (Ca-Ba) металлов.<br>
+                Нерастворимые основания (Cu(OH)₂, Fe(OH)₂) не являются щелочами и разлагаются при нагревании.
+            </div>
+            <p><strong>Щелочи:</strong> LiOH, NaOH, KOH, RbOH, CsOH, Ca(OH)₂, Sr(OH)₂, Ba(OH)₂</p>
             <p>NH₃ · H₂O — гидроксид аммония (гидрат аммиака) — слабое растворимое основание.</p>
 
             <h3>Амфотерные гидроксиды</h3>
@@ -344,7 +450,7 @@
             <p>Al(OH)₃, Be(OH)₂, Zn(OH)₂, Cr(OH)₃, Fe(OH)₃ (слабо), Sn(OH)₂, Pb(OH)₂</p>
 
             <h3>Тривиальные названия гидроксидов</h3>
-            <table class="styled-table">
+            <table class="table-trivial">
                 <tr>
                     <th>Формула</th>
                     <th>Тривиальное название</th>
@@ -383,8 +489,89 @@
             <h2 id="acids">5. Кислоты H<sub>x</sub>A</h2>
             <p>Кислоты — сложные вещества, состоящие из атомов водорода и кислотного остатка.</p>
 
+            <h3>Номенклатура кислот</h3>
+            <p>Названия кислот зависят от наличия кислорода и степени окисления кислотообразующего элемента.</p>
+
+            <h4>1. Бескислородные кислоты</h4>
+            <p>Название: <strong>[Элемент] + оводородная</strong>.</p>
+            <ul>
+                <li>HCl — Хлор<strong>оводородная</strong> (соляная)</li>
+                <li>H₂S — Сер<strong>оводородная</strong></li>
+            </ul>
+
+            <h4>2. Кислородсодержащие кислоты</h4>
+            <table class="table-nomenclature">
+                <tr>
+                    <th>Элемент</th>
+                    <th>СО</th>
+                    <th>Формула</th>
+                    <th>Название</th>
+                    <th>Суффикс</th>
+                </tr>
+                <!-- Галогены (Хлор) -->
+                <tr>
+                    <td rowspan="4"><strong>Галогены (Cl)</strong></td>
+                    <td>+1</td>
+                    <td>HClO</td>
+                    <td>Хлорноват<strong>истая</strong></td>
+                    <td>-оват + -истая</td>
+                </tr>
+                <tr>
+                    <td>+3</td>
+                    <td>HClO₂</td>
+                    <td>Хлор<strong>истая</strong></td>
+                    <td>-истая</td>
+                </tr>
+                <tr>
+                    <td>+5</td>
+                    <td>HClO₃</td>
+                    <td>Хлор<strong>новатая</strong></td>
+                    <td>-новатая</td>
+                </tr>
+                <tr>
+                    <td>+7</td>
+                    <td>HClO₄</td>
+                    <td>Хлор<strong>ная</strong></td>
+                    <td>-ная</td>
+                </tr>
+                <!-- Сера -->
+                <tr>
+                    <td rowspan="2"><strong>Сера (S)</strong></td>
+                    <td>+4</td>
+                    <td>H₂SO₃</td>
+                    <td>Серн<strong>истая</strong></td>
+                    <td>-истая</td>
+                </tr>
+                <tr>
+                    <td>+6</td>
+                    <td>H₂SO₄</td>
+                    <td>Сер<strong>ная</strong></td>
+                    <td>-ная</td>
+                </tr>
+                <!-- Фосфор -->
+                <tr>
+                    <td rowspan="3"><strong>Фосфор (P)</strong></td>
+                    <td>+1</td>
+                    <td>H₃PO₂</td>
+                    <td>Фосфорноват<strong>истая</strong></td>
+                    <td>-оват + -истая</td>
+                </tr>
+                <tr>
+                    <td>+3</td>
+                    <td>H₃PO₃</td>
+                    <td>Фосфор<strong>истая</strong></td>
+                    <td>-истая</td>
+                </tr>
+                <tr>
+                    <td>+5</td>
+                    <td>H₃PO₄</td>
+                    <td>Фосфор<strong>ная</strong></td>
+                    <td>-ная</td>
+                </tr>
+            </table>
+
             <h3>Классификация по основности</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Одноосновные</th>
                     <th>Двухосновные</th>
@@ -401,7 +588,7 @@
                 H₃PO₄ (ортофосфорная) — <strong>трёхосновная</strong>.</p>
 
             <h3>Классификация по наличию кислорода</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Кислородсодержащие (кислотные гидроксиды)</th>
                     <th>Бескислородные</th>
@@ -413,7 +600,7 @@
             </table>
 
             <h3>Сильные и слабые кислоты</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Слабые</th>
                     <th>Сильные</th>
@@ -425,7 +612,7 @@
             </table>
 
             <h3>Полная таблица кислот и кислотных остатков</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Формула</th>
                     <th>Название кислоты</th>
@@ -595,9 +782,16 @@
                     <td>Оксалат</td>
                 </tr>
             </table>
+            <div class="clarification-frame">
+                <strong>Неустойчивые кислоты:</strong><br>
+                H₂CO₃ (угольная) и H₂SO₃ (сернистая) существуют только в растворе. При выделении в свободном виде они
+                распадаются на газ и воду (обратимо):<br>
+                H₂CO₃ ⇄ H₂O + CO₂↑<br>
+                H₂SO₃ ⇄ H₂O + SO₂↑
+            </div>
 
             <h3>Кислоты и кислотные остатки хлора</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Кислота</th>
                     <th>Название</th>
@@ -636,7 +830,7 @@
             </table>
 
             <h3>Ангидриды кислот</h3>
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Ангидрид</th>
                     <th>→</th>
@@ -673,9 +867,24 @@
             <h2 id="salts">6. Соли M<sub>x</sub>A<sub>y</sub></h2>
             <p>Соли — сложные вещества, состоящие из катионов металла (или NH₄⁺) и анионов кислотного остатка.</p>
 
-            <table class="styled-table">
+            <div class="clarification-frame" style="border-left: 6px solid #63b8f5; margin-bottom: 20px;">
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><strong>Средние (нормальные) соли</strong> — продукты полного замещения атомов водорода в
+                        кислоте на атомы металла (Na₂SO₄).</li>
+                    <li><strong>Кислые соли</strong> — продукты неполного замещения атомов водорода в кислоте на металл
+                        (NaHSO₄).</li>
+                    <li><strong>Основные соли</strong> — продукты неполного замещения гидроксогрупп в основании на
+                        кислотный остаток ((CuOH)₂CO₃).</li>
+                    <li><strong>Двойные соли</strong> — содержат два различных катиона и один анион (KAl(SO₄)₂).</li>
+                    <li><strong>Смешанные соли</strong> — содержат один катион и два различных аниона (Ca(OCl)Cl).</li>
+                    <li><strong>Комплексные соли</strong> — содержат сложные комплексные ионы, состоящие из центрального
+                        атома и лигандов (K₄[Fe(CN)₆]).</li>
+                </ul>
+            </div>
+
+            <table class="table-nomenclature">
                 <tr>
-                    <th colspan="6" style="text-align: center; background: #E3F2FD;">Классификация солей</th>
+                    <th colspan="6" style="text-align: center; background: #63b8f5;">Классификация солей</th>
                 </tr>
                 <tr>
                     <th style="text-align: center;">Средние</th>
@@ -699,7 +908,7 @@
 
             <h3>Кристаллогидраты</h3>
             <p>Кристаллогидраты — соли, содержащие молекулы воды в кристаллической решётке.</p>
-            <table class="styled-table">
+            <table class="table-trivial">
                 <tr>
                     <th>Формула</th>
                     <th>Тривиальное название</th>
@@ -729,13 +938,18 @@
                     <td>двойной суперфосфат</td>
                 </tr>
             </table>
+            <div class="clarification-frame" style="border-left: none;">
+                При нагревании <strong>кристаллогидраты</strong> теряют кристаллизационную воду и превращаются в
+                безводные соли (часто меняя цвет).<br>
+                CuSO₄·5H₂O (синий) → CuSO₄ (белый) + 5H₂O (t°).
+            </div>
 
             <h4>Названия приставок (число молекул воды):</h4>
             <p>1 — моно-, 2 — ди-, 3 — три-, 4 — тетра-, 5 — пента-, 6 — гекса-, 7 — гепта-, 8 — окта-, 9 — нона-, 10 —
                 дека-</p>
 
             <h3>Тривиальные названия солей</h3>
-            <table class="styled-table">
+            <table class="table-trivial">
                 <tr>
                     <th>Формула</th>
                     <th>Тривиальное название</th>
@@ -908,93 +1122,169 @@
                 </tr>
             </table>
 
+
             <!-- ==================== РАЗДЕЛ 8 ==================== -->
-            <h2 id="trivial">8. Вещества, образующие водородные связи</h2>
-            <table class="styled-table">
-                <tr>
-                    <th>Неорганика</th>
-                    <th>Органика</th>
-                </tr>
-                <tr>
-                    <td rowspan="3">HF</td>
-                    <td><strong>Спирты:</strong> R–O–H</td>
-                </tr>
-                <tr>
-                    <td><strong>Карбоновые кислоты:</strong> R–COOH</td>
-                </tr>
-                <tr>
-                    <td><strong>Углеводы</strong></td>
-                </tr>
-                <tr>
-                    <td rowspan="3">H₂O</td>
-                    <td><strong>Амины (кроме третичных):</strong> R–NH₂</td>
-                </tr>
-                <tr>
-                    <td><strong>Аминокислоты</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>Белки</strong></td>
-                </tr>
-                <tr>
-                    <td>NH₃</td>
-                    <td><strong>Фенолы</strong></td>
-                </tr>
-            </table>
+            <h2 id="nomenclature">8. Особенности составления названий солей</h2>
 
-            <!-- ==================== РАЗДЕЛ 9 ==================== -->
-            <h2 id="nomenclature">9. Особенности составления названий</h2>
+            <h3>Общие правила номенклатуры</h3>
+            <p>Название соли строится по формуле: <strong>Название аниона</strong> + <strong>Название катиона</strong>
+                (в родительном падеже).</p>
 
-            <h3>Соединения из двух элементов</h3>
-            <p>Формула: <strong>первый элемент + второй элемент + «-ид»</strong></p>
+            <h3>1. Название катиона (металла)</h3>
             <ul>
-                <li>Cl — хлор → хлор<strong>ид</strong></li>
-                <li>Br — бром → бром<strong>ид</strong></li>
-                <li>F — фтор → фтор<strong>ид</strong></li>
-                <li>I — иод → иод<strong>ид</strong></li>
-                <li>P — фосфор → фосф<strong>ид</strong></li>
-                <li>S — сера → сульф<strong>ид</strong></li>
+                <li><strong>Постоянная валентность</strong> (Li, Na, K, Ca, Ba, Al и др.) — указывается просто название
+                    элемента.<br>
+                    <em>Пример:</em> Na₂SO₄ — сульфат натрия.
+                </li>
+                <li><strong>Переменная валентность</strong> (Fe, Cu, Cr, Mn и др.) — в скобках римской цифрой
+                    указывается валентность (степень окисления).<br>
+                    <em>Пример:</em> FeSO₄ — сульфат железа (II), Fe₂(SO₄)₃ — сульфат железа (III).
+                </li>
             </ul>
 
-            <p><em>Примеры:</em> NaCl — натрия хлорид (хлорид натрия), K₂S — калия сульфид (сульфид калия),
-                Mg₃P₂ — магния фосфид (фосфид магния).</p>
+            <h3>2. Название аниона (кислотного остатка)</h3>
+            <p>Название зависит от степени окисления (СО) кислотообразующего неметалла.</p>
 
-            <h3>Многоатомные соединения</h3>
-            <p>В высшей СО: суффикс <strong>«-ат»</strong>. В промежуточной СО: суффикс <strong>«-ит»</strong>.</p>
-            <p>Исключения: гидроксиды, пероксиды, цианиды.</p>
-
-            <table class="styled-table">
+            <table class="table-nomenclature">
                 <tr>
                     <th>Степень окисления</th>
                     <th>Суффикс</th>
+                    <th>Правило</th>
                     <th>Пример</th>
                 </tr>
                 <tr>
-                    <td>N<sup>+3</sup></td>
-                    <td>нитр<strong>ит</strong></td>
-                    <td>P<sup>+3</sup> — фосф<strong>ит</strong></td>
+                    <td><strong>Низшая</strong> (бинарные)</td>
+                    <td>-ид</td>
+                    <td>Соединения без кислорода</td>
+                    <td>Cl⁻ (Хлор<strong>ид</strong>), S²⁻ (Сульф<strong>ид</strong>)</td>
                 </tr>
                 <tr>
-                    <td>N<sup>+5</sup></td>
-                    <td>нитр<strong>ат</strong></td>
-                    <td>P<sup>+5</sup> — фосф<strong>ат</strong></td>
+                    <td><strong>Промежуточная</strong></td>
+                    <td>-ит</td>
+                    <td>Меньшее содержание кислорода (одна промеж. СО)</td>
+                    <td>S⁺⁴ (Сульф<strong>ит</strong>), N⁺³ (Нитр<strong>ит</strong>), P⁺³ (Фосф<strong>ит</strong>)
+                    </td>
                 </tr>
                 <tr>
-                    <td>S<sup>+4</sup></td>
-                    <td>сульф<strong>ит</strong></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>S<sup>+6</sup></td>
-                    <td>сульф<strong>ат</strong></td>
-                    <td></td>
+                    <td><strong>Высшая</strong></td>
+                    <td>-ат</td>
+                    <td>Максимальное содержание кислорода</td>
+                    <td>S⁺⁶ (Сульф<strong>ат</strong>), N⁺⁵ (Нитр<strong>ат</strong>), P⁺⁵ (Фосф<strong>ат</strong>)
+                    </td>
                 </tr>
             </table>
 
-            <p><em>Примеры:</em></p>
+            <h4>Номенклатура солей галогенов (Cl, Br, I)</h4>
+            <p>Для элементов с большим числом степеней окисления (как у хлора) используются дополнительные приставки.
+            </p>
+            <table class="table-nomenclature">
+                <tr>
+                    <th>СО элемента</th>
+                    <th>Название</th>
+                    <th>Пример (Соль натрия)</th>
+                </tr>
+                <tr>
+                    <td><strong>+1</strong> (Низшая пол.)</td>
+                    <td>приставка <strong>гипо-</strong> ... суффикс <strong>-ит</strong></td>
+                    <td>NaClO (<strong>Гипо</strong>хлор<strong>ит</strong> натрия)</td>
+                </tr>
+                <tr>
+                    <td><strong>+3</strong> (Промежуточная 1)</td>
+                    <td>суффикс <strong>-ит</strong></td>
+                    <td>NaClO₂ (Хлор<strong>ит</strong> натрия)</td>
+                </tr>
+                <tr>
+                    <td><strong>+5</strong> (Промежуточная 2)</td>
+                    <td>суффикс <strong>-ат</strong></td>
+                    <td>NaClO₃ (Хлор<strong>ат</strong> натрия)</td>
+                </tr>
+                <tr>
+                    <td><strong>+7</strong> (Высшая)</td>
+                    <td>приставка <strong>пер-</strong> ... суффикс <strong>-ат</strong></td>
+                    <td>NaClO₄ (<strong>Пер</strong>хлор<strong>ат</strong> натрия)</td>
+                </tr>
+            </table>
+
+            <h4>Номенклатура солей фосфора</h4>
+            <p>У фосфора есть особенности: кислоты H₃PO₂ и H₃PO₃ содержат атомы водорода, которые <strong>не
+                    замещаются</strong> на металл. Поэтому их «кислые» по виду соли на самом деле являются
+                <strong>средними</strong>.
+            </p>
+            <table class="table-nomenclature">
+                <tr>
+                    <th>СО P</th>
+                    <th>Название соли</th>
+                    <th>Формула (пример)</th>
+                    <th>Тип соли</th>
+                </tr>
+                <tr>
+                    <td><strong>+1</strong></td>
+                    <td>Гипофосфит (H₂PO₂⁻)</td>
+                    <td>NaH₂PO₂</td>
+                    <td>Средняя</td>
+                </tr>
+                <tr>
+                    <td><strong>+3</strong></td>
+                    <td>Фосфит (HPO₃²⁻)</td>
+                    <td>Na₂HPO₃</td>
+                    <td>Средняя</td>
+                </tr>
+                <tr>
+                    <td><strong>+5</strong></td>
+                    <td>Фосфат (Ортофосфат)</td>
+                    <td>Na₃PO₄</td>
+                    <td>Средняя</td>
+                </tr>
+            </table>
+
+            <h3>3. Номенклатура других типов солей</h3>
+            <table class="table-nomenclature">
+                <tr>
+                    <th>Тип соли</th>
+                    <th>Правило</th>
+                    <th>Пример</th>
+                </tr>
+                <tr>
+                    <td><strong>Кислые</strong></td>
+                    <td>Приставка <strong>гидро-</strong> к названию аниона. Если водородов два —
+                        <strong>дигидро-</strong>.
+                    </td>
+                    <td>NaHCO₃ — <strong>гидро</strong>карбонат натрия<br>KH₂PO₄ — <strong>дигидро</strong>фосфат калия
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Основные</strong></td>
+                    <td>Группа OH называется <strong>гидроксо-</strong> (или гидроксогруппа).</td>
+                    <td>(CuOH)₂CO₃ — карбонат <strong>гидроксо</strong>меди (II)</td>
+                </tr>
+                <tr>
+                    <td><strong>Двойные</strong></td>
+                    <td>Перечисляются оба катиона в родительном падеже (обычно в порядке алфавита или по формуле).</td>
+                    <td>KAl(SO₄)₂ — сульфат алюминия-калия</td>
+                </tr>
+                <tr>
+                    <td><strong>Смешанные</strong></td>
+                    <td>Перечисляются оба аниона.</td>
+                    <td>Ca(OCl)Cl — хлорид-гипохлорит кальция</td>
+                </tr>
+                <tr>
+                    <td><strong>Комплексные</strong></td>
+                    <td>Указывается число лигандов, сам лиганд и центральный атом с суффиксом <strong>-ат</strong> (и
+                        валентностью).</td>
+                    <td>K₄[Fe(CN)₆] — гексацианоферр<strong>ат</strong> (II) калия<br>Na[Al(OH)₄] —
+                        тетрагидроксоалюмин<strong>ат</strong> натрия</td>
+                </tr>
+            </table>
+
+            <h3>Примеры составления названий</h3>
             <ul>
-                <li>CuSO₄ — меди (II) сульфат (сульфат меди (II))</li>
-                <li>NaNO₂ — натрия нитрит (нитрит натрия)</li>
-                <li>K₂HPO₃ — калия фосфит (фосфит калия)</li>
+                <li><strong>CrCl₃</strong>: Анион Cl⁻ (хлорид) + Катион Cr⁺³ (хром, вал. III) → <strong>Хлорид хрома
+                        (III)</strong></li>
+                <li><strong>K₂SO₃</strong>: Анион SO₃²⁻ (сульфит, S⁺⁴) + Катион K⁺ (калий, пост.) → <strong>Сульфит
+                        калия</strong></li>
+                <li><strong>Mg(ClO₄)₂</strong>: Анион ClO₄⁻ (перхлорат, Cl⁺⁷) + Катион Mg²⁺ (магний, пост.) →
+                    <strong>Перхлорат магния</strong>
+                </li>
             </ul>
 
             <p><strong>NaOH — каустическая сода, Na₂CO₃ — кальцинированная сода,
