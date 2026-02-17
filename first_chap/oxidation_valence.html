@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степень окисления и валентность | ХимПодготовка</title>
+    <meta name="description"
+        content="Степень окисления и валентность для подготовки к ЕГЭ по химии. Правила определения, исключения, примеры вычисления степеней окисления.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%23F5A623'/><stop offset='100%25' stop-color='%23FF6B00'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='58' text-anchor='middle' dominant-baseline='central' font-size='55' font-weight='bold' fill='white'>X</text><circle cx='70' cy='25' r='8' fill='rgba(255,255,255,0.5)'/><circle cx='78' cy='38' r='5' fill='rgba(255,255,255,0.35)'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#definition">1. Определения</a></li>
+                <li><a href="#rules">2. Правила определения</a></li>
+                <li><a href="#transition">3. Переходные металлы</a></li>
+                <li><a href="#nonmetals">4. Неметаллы (N, P, C, S, Cl)</a></li>
+                <li><a href="#metals">5. Характерные СО металлов</a></li>
+                <li><a href="#amphoteric">6. Амфотерные элементы</a></li>
+                <li><a href="#valence-exceptions">7. Валентность и исключения</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../index.html">Главная</a> <span>/</span> <a href="theory.html">Теоретические основы</a>
+                <span>/</span>
+                Степень окисления и валентность
+            </div>
+
+            <h1>Степень окисления и валентность</h1>
+
+            <div class="info-box">
+                <p><strong>Важно понимать:</strong> Степень окисления и валентность — это разные понятия, хотя их
+                    численные значения часто совпадают.</p>
+            </div>
+
+            <h2 id="definition">1. Определения и различия</h2>
+
+            <div class="definition">
+                <h3>Степень окисления (СО)</h3>
+                <p>Это условный заряд атома в соединении, вычисленный из предположения, что все связи являются ионными
+                    (электроны полностью перешли от менее электроотрицательного атома к более электроотрицательному).
+                </p>
+                <p>Может быть: положительной (+), отрицательной (-), нулевой (0) и даже дробной.</p>
+            </div>
+
+            <div class="definition">
+                <h3>Валентность</h3>
+                <p>Это способность атома образовывать определенное число химических связей. Численно равна количеству
+                    связей, которые образует атом.</p>
+                <p>Обозначается римскими цифрами (I, II, III...). Не имеет знака. Не может быть нулем (в соединениях)
+                    или отрицательной.</p>
+            </div>
+
+            <p><strong>Пример различия:</strong> В молекуле азота N<sub>2</sub>:</p>
+            <ul>
+                <li>Степень окисления N = 0 (простое вещество).</li>
+                <li>Валентность N = III (тройная связь N≡N).</li>
+            </ul>
+            <p>В пероксиде водорода H<sub>2</sub>O<sub>2</sub> (H–O–O–H):</p>
+            <ul>
+                <li>Степень окисления O = -1.</li>
+                <li>Валентность O = II (две связи: одна с H, одна с O).</li>
+            </ul>
+
+            <h2 id="rules">2. Правила определения степени окисления</h2>
+            <ol>
+                <li><strong>В простых веществах</strong> СО всегда равна <strong>0</strong> (O<sub>2</sub>, Fe,
+                    P<sub>4</sub>).</li>
+                <li><strong>Сумма СО</strong> всех атомов в нейтральной молекуле равна <strong>0</strong>, в ионе —
+                    заряду иона.</li>
+                <li><strong>Постоянная СО:</strong>
+                    <ul>
+                        <li>Металлы IA группы (Li, Na, K...): <strong>+1</strong></li>
+                        <li>Металлы IIA группы (Mg, Ca, Ba...): <strong>+2</strong></li>
+                        <li>Алюминий (Al): <strong>+3</strong></li>
+                        <li>Фтор (F): всегда <strong>-1</strong></li>
+                    </ul>
+                </li>
+                <li><strong>Условно-постоянная СО:</strong>
+                    <ul>
+                        <li>Водород (H): <strong>+1</strong> (с неметаллами), <strong>-1</strong> (с металлами -
+                            гидриды).</li>
+                        <li>Кислород (O): обычно <strong>-2</strong> (оксиды), редко -1 (пероксиды), +2
+                            (OF<sub>2</sub>).</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3 id="examples">Примеры нахождения степеней окисления</h3>
+            <p>Для определения степени окисления элемента в сложном веществе можно составить простое уравнение. Пусть
+                <b>x</b> — это искомая степень окисления.
+            </p>
+
+            <div
+                style="background-color: var(--bg-card); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--text-accent);">
+                <h4>Пример 1: Перманганат калия (KMnO<sub>4</sub>)</h4>
+                <ul>
+                    <li>У калия (K) как у щелочного металла СО постоянная: <strong>+1</strong>.</li>
+                    <li>У кислорода (O) обычно СО равна: <strong>-2</strong>.</li>
+                    <li>Составим уравнение по правилу электронейтральности (сумма всех СО равна 0):</li>
+                    K<sup>+1</sup>Mn<sup>+x</sup>O<sub>4</sub><sup>-2</sup><br>
+                    (+1) + x + 4 · (-2) = 0<br>
+                    1 + x - 8 = 0<br>
+                    x - 7 = 0<br>
+                    <b>x = +7</b>
+                    </li>
+                </ul>
+                <p>Ответ: Степени окисления: K<sup>+1</sup>Mn<sup>+7</sup>O<sub>4</sub><sup>-2</sup>.</p>
+            </div>
+
+            <div
+                style="background-color: var(--bg-card); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--text-accent);">
+                <h4>Пример 2: Дихромат калия (K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>)</h4>
+                <ul>
+                    <li>У калия (K): <strong>+1</strong>.</li>
+                    <li>У кислорода (O): <strong>-2</strong>.</li>
+                    <li>Пусть у хрома СО равна <b>x</b>. Атомов хрома два, поэтому пишем <b>2x</b>.</li>
+                    K<sub>2</sub><sup>+1</sup>Cr<sub>2</sub><sup>+x</sup>O<sub>7</sub><sup>-2</sup><br>
+                    2 · (+1) + 2x + 7 · (-2) = 0<br>
+                    2 + 2x - 14 = 0<br>
+                    2x - 12 = 0<br>
+                    2x = 12<br>
+                    <b>x = +6</b>
+                    </li>
+                </ul>
+                <p>Ответ: K<sub>2</sub><sup>+1</sup>Cr<sub>2</sub><sup>+6</sup>O<sub>7</sub><sup>-2</sup>.</p>
+            </div>
+
+            <div
+                style="background-color: var(--bg-card); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--text-accent);">
+                <h4>Пример 3: Ион аммония (NH<sub>4</sub><sup>+</sup>)</h4>
+                <ul>
+                    <li>Это заряженный ион (катион), поэтому сумма СО равна заряду иона: <strong>+1</strong>.</li>
+                    <li>У водорода (H) с неметаллами: <strong>+1</strong>.</li>
+                    <li>Пусть у азота СО равна <b>x</b>.</li>
+                    (N<sup>x</sup>H<sub>4</sub><sup>+1</sup>)<sup>+1</sup><br>
+                    x + 4 · (+1) = +1<br>
+                    x + 4 = 1<br>
+                    <b>x = -3</b>
+                    </li>
+                </ul>
+                <p>Ответ: (N<sup>-3</sup>H<sub>4</sub><sup>+1</sup>)<sup>+1</sup>.</p>
+            </div>
+
+            <h2 id="transition">3. Максимальная степень окисления переходных металлов</h2>
+            <p>У переходных металлов (d-элементов) валентные электроны находятся на внешнем s-подуровне и предвнешнем
+                d-подуровне.</p>
+
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color); text-align: center;">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Группа</th>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">I</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">II</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">III</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">IV</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">V</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">VI</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">VII</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">VIII</td>
+                </tr>
+                <tr>
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Элемент</th>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>Cu</strong></td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>Zn</strong></td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>Sc</strong></td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>Ti</strong></td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>V</strong></td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>Cr</strong></td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>Mn</strong></td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);"><strong>Fe, Co, Ni</strong></td>
+                </tr>
+                <tr>
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Высшая СО</th>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">+2 (+3*)</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">+2</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">+3</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">+4</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">+5</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">+6</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">+7</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Fe (+6, +3, +2)<br>Co (+3,
+                        +2)<br>Ni (+2)</td>
+                </tr>
+            </table>
+            <p style="font-size: 0.9em; color: #666;">* Редкие или неустойчивые степени окисления.</p>
+
+            <h2 id="nonmetals">4. Степени окисления p-элементов (неметаллов)</h2>
+
+            <h3>Степени окисления Азота (N)</h3>
+            <p>Максимальная валентность = IV (из-за отсутствия d-подуровня).<br>Максимальная степень окисления = +5.</p>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Гидроксид / Кислота</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Анион</th>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #8e44ad;">
+                        +5<br><span style="font-size:0.8em; font-weight:normal;">(высшая)</span></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">N<sub>2</sub>O<sub>5</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HNO<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NaNO<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NO<sub>3</sub><sup>-</sup> (нитрат)
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +4</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NO<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">N<sub>2</sub>O<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HNO<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NaNO<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NO<sub>2</sub><sup>-</sup> (нитрит)
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +2</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NO</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +1</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">N<sub>2</sub>O</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2980b9;">
+                        -3<br><span style="font-size:0.8em; font-weight:normal;">(низшая)</span></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NH<sub>3</sub><br><span
+                            style="font-size:0.8em; color:#666;">(аммиак)</span></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NH<sub>4</sub>OH<br><span
+                            style="font-size:0.8em; color:#666;">(гидрат)</span></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NH<sub>4</sub>Cl</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">- (катион
+                        NH<sub>4</sub><sup>+</sup>)</td>
+                </tr>
+            </table>
+
+            <h3>Степени окисления Фосфора (P)</h3>
+            <p><strong>Примечание:</strong> Мышьяк (As) проявляет химические свойства, во многом схожие со свойствами
+                фосфора, и имеет аналогичные степени окисления и формы соединений.</p>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Гидроксид</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Анион</th>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #8e44ad;">
+                        +5</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">P<sub>2</sub>O<sub>5</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HPO<sub>3</sub>,
+                        H<sub>3</sub>PO<sub>4</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>3</sub>PO<sub>4</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">PO<sub>4</sub><sup>3-</sup>
+                        (фосфат)</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">P<sub>2</sub>O<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>3</sub>PO<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>2</sub>HPO<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HPO<sub>3</sub><sup>2-</sup>
+                        (фосфит)</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +1</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>3</sub>PO<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">NaH<sub>2</sub>PO<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">
+                        H<sub>2</sub>PO<sub>2</sub><sup>-</sup> (гипофосфит)</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2980b9;">
+                        -3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">PH<sub>3</sub><br><span
+                            style="font-size:0.8em; color:#666;">(фосфин)</span></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>3</sub>P</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">P<sup>3-</sup> (фосфид)</td>
+                </tr>
+            </table>
+
+            <h3>Степени окисления Углерода (C)</h3>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Вещества / Ионы</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Примеры (Органика)</th>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #8e44ad;">
+                        +4</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">CO<sub>2</sub>,
+                        H<sub>2</sub>CO<sub>3</sub>, CO<sub>3</sub><sup>2-</sup></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">CCl<sub>4</sub>, COCl<sub>2</sub>
+                        (фосген)</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Щавелевая кислота (HOOC-COOH)</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +2</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">CO (угарный газ), HCOOH (форм.
+                        к-та)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Хлороформ CHCl<sub>3</sub> (у С +2)
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        0</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">C (графит, алмаз), HCHO
+                        (формальдегид)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        -1</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">C<sub>2</sub>H<sub>2</sub>
+                        (ацетилен)</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        -2</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">CH<sub>3</sub>OH (метанол)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">C<sub>2</sub>H<sub>4</sub> (этилен)
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        -3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">C<sub>2</sub>H<sub>6</sub> (этан)
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2980b9;">
+                        -4</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">CH<sub>4</sub> (метан),
+                        Al<sub>4</sub>C<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                </tr>
+            </table>
+
+
+            <h3>Степени окисления Кремния (Si)</h3>
+            <p><strong>Примечание:</strong> Германий (Ge) проявляет химические свойства, во многом схожие со свойствами
+                кремния, и имеет аналогичные степени окисления.</p>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид / Гидрид</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Кислота</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Анион</th>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #8e44ad;">
+                        +4</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">SiO<sub>2</sub> (кремнезем, песок)
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>2</sub>SiO<sub>3</sub>
+                        (кремниевая)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>2</sub>SiO<sub>3</sub>
+                        (силикат)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">SiO<sub>3</sub><sup>2-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2980b9;">
+                        -4</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">SiH<sub>4</sub> (силан)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Mg<sub>2</sub>Si (силицид)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Si<sup>4-</sup></td>
+                </tr>
+            </table>
+
+            <h3>Степени окисления Бора (B)</h3>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Кислота</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Анион</th>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #8e44ad;">
+                        +3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">B<sub>2</sub>O<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>3</sub>BO<sub>3</sub>
+                        (борная)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>3</sub>BO<sub>3</sub>
+                        (борат)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">BO<sub>3</sub><sup>3-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2980b9;">
+                        -3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Mg<sub>3</sub>B<sub>2</sub> (борид)
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">B<sup>3-</sup></td>
+                </tr>
+            </table>
+
+            <h3>Валентность и СО Кислорода (O)</h3>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Примеры</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Структура</th>
+                </tr>
+                <tr>
+                    <td style="text-align:center; padding: 8px; border: 1px solid var(--border-color);">
+                        <strong>+2</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">OF<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">F — O — F</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; padding: 8px; border: 1px solid var(--border-color);">
+                        <strong>+1</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">O<sub>2</sub>F<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">F — O — O — F</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; padding: 8px; border: 1px solid var(--border-color);">
+                        <strong>0</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">O<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">O = O</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; padding: 8px; border: 1px solid var(--border-color);">
+                        <strong>-1</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>2</sub>O<sub>2</sub>
+                        (пероксиды)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H — O — O — H</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; padding: 8px; border: 1px solid var(--border-color);">
+                        <strong>-2</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>2</sub>O, CO<sub>2</sub>,
+                        Na<sub>2</sub>O</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H — O — H</td>
+                </tr>
+            </table>
+
+            <h3>Степени окисления Галогенов (Cl, Br, I)</h3>
+            <p>Фтор (F) всегда имеет СО -1. Для остальных галогенов (Cl, Br, I) характерны следующие степени окисления:
+            </p>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид (пример для Cl)</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Гидроксид / Кислота</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль (пример K)</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Анион</th>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #8e44ad;">
+                        +7<br><span style="font-size:0.8em; font-weight:normal;">(высшая)</span></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Cl<sub>2</sub>O<sub>7</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HClO<sub>4</sub> (хлорная)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">KClO<sub>4</sub> (перхлорат)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">ClO<sub>4</sub><sup>-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +5</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">- (для I<sub>2</sub>O<sub>5</sub>)
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HClO<sub>3</sub> (хлорноватая)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">KClO<sub>3</sub> (хлорат)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">ClO<sub>3</sub><sup>-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HClO<sub>2</sub> (хлористая)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">KClO<sub>2</sub> (хлорит)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">ClO<sub>2</sub><sup>-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
+                        +1</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Cl<sub>2</sub>O</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HClO (хлорноватистая)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">KClO (гипохлорит)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">ClO<sup>-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="padding: 8px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2980b9;">
+                        -1<br><span style="font-size:0.8em; font-weight:normal;">(низшая)</span></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">HCl (хлороводородная)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">KCl (хлорид)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Cl<sup>-</sup></td>
+                </tr>
+            </table>
+
+            <h3>Степени окисления Серы (S)</h3>
+            <p><strong>Примечание:</strong> Селен (Se) и Теллур (Te) (халькогены) проявляют химические свойства, во
+                многом схожие со свойствами серы.</p>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Кислота</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Анион</th>
+                </tr>
+                <tr>
+                    <td
+                        style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #8e44ad;">
+                        +6</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">SO<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>2</sub>SO<sub>4</sub>
+                        (серная)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>2</sub>SO<sub>4</sub>
+                        (сульфат)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">SO<sub>4</sub><sup>2-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold;">
+                        +4</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">SO<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>2</sub>SO<sub>3</sub>
+                        (сернистая)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>2</sub>SO<sub>3</sub>
+                        (сульфит)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">SO<sub>3</sub><sup>2-</sup></td>
+                </tr>
+                <tr>
+                    <td
+                        style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #2980b9;">
+                        -2</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">H<sub>2</sub>S (сероводородная)
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Na<sub>2</sub>S (сульфид)</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">S<sup>2-</sup></td>
+                </tr>
+            </table>
+
+            <h2 id="metals">5. Характерные СО металлов</h2>
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+
+                <div>
+                    <h4>Степени окисления Хрома (Cr)</h4>
+                    <table
+                        style="width:100%; border-collapse: collapse; margin: 0.5rem 0; border: 1px solid var(--border-color);">
+                        <tr style="background-color: var(--bg-sidebar);">
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид (Свойства)</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Гидроксид / Кислота</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Соль (Пример)</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Анион / Катион</th>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #8e44ad;">
+                                +6</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">CrO<sub>3</sub> (Кислотный)
+                            </td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                H<sub>2</sub>CrO<sub>4</sub> (хромовая)<br>H<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>
+                                (дихромовая)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                Na<sub>2</sub>CrO<sub>4</sub> (хромат)<br>Na<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>
+                                (дихромат)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                CrO<sub>4</sub><sup>2-</sup><br>Cr<sub>2</sub>O<sub>7</sub><sup>2-</sup></td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #d35400;">
+                                +3</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cr<sub>2</sub>O<sub>3</sub>
+                                (Амфотерный)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cr(OH)<sub>3</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">KCrO<sub>2</sub>
+                                (хромит)<br>K<sub>3</sub>[Cr(OH)<sub>6</sub>]</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">CrO<sub>2</sub><sup>-</sup>
+                                (анион)<br>[Cr(OH)<sub>6</sub>]<sup>3-</sup><br>Cr<sup>3+</sup> (катион)</td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #27ae60;">
+                                +2</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">CrO (Основный)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cr(OH)<sub>2</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">CrCl<sub>2</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cr<sup>2+</sup> (катион)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h4>Степени окисления Железа (Fe)</h4>
+                    <table
+                        style="width:100%; border-collapse: collapse; margin: 0.5rem 0; border: 1px solid var(--border-color);">
+                        <tr style="background-color: var(--bg-sidebar);">
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Гидроксид</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Анион / Катион</th>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #8e44ad;">
+                                +6</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                Na<sub>2</sub>FeO<sub>4</sub> (феррат)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                FeO<sub>4</sub><sup>2-</sup></td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #d35400;">
+                                +3</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Fe<sub>2</sub>O<sub>3</sub>
+                                (Амф/Осн)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Fe(OH)<sub>3</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">KFeO<sub>2</sub>
+                                (феррит)<br>Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                FeO<sub>2</sub><sup>-</sup><br>Fe<sup>3+</sup> (катион)</td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #27ae60;">
+                                +2</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">FeO (Основный)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Fe(OH)<sub>2</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">FeSO<sub>4</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Fe<sup>2+</sup> (катион)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h4>Степени окисления Марганца (Mn)</h4>
+                    <table
+                        style="width:100%; border-collapse: collapse; margin: 0.5rem 0; border: 1px solid var(--border-color);">
+                        <tr style="background-color: var(--bg-sidebar);">
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Гидроксид / Кислота</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Анион / Катион</th>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #8e44ad;">
+                                +7</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Mn<sub>2</sub>O<sub>7</sub>
+                                (Кислотный)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">HMnO<sub>4</sub>
+                                (марганцовая)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">KMnO<sub>4</sub>
+                                (перманганат)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">MnO<sub>4</sub><sup>-</sup>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #9b59b6;">
+                                +6</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                H<sub>2</sub>MnO<sub>4</sub> (марганцовистая)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                K<sub>2</sub>MnO<sub>4</sub> (манганат)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                MnO<sub>4</sub><sup>2-</sup></td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #d35400;">
+                                +4</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">MnO<sub>2</sub>
+                                (Амфотерный)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">-</td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #27ae60;">
+                                +2</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">MnO (Основный)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Mn(OH)<sub>2</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">MnSO<sub>4</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Mn<sup>2+</sup> (катион)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h4>Степени окисления Меди (Cu)</h4>
+                    <table
+                        style="width:100%; border-collapse: collapse; margin: 0.5rem 0; border: 1px solid var(--border-color);">
+                        <tr style="background-color: var(--bg-sidebar);">
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Гидроксид</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Соль</th>
+                            <th style="padding: 8px; border: 1px solid var(--border-color);">Катион</th>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #27ae60;">
+                                +2</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">CuO (Осн)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cu(OH)<sub>2</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">CuSO<sub>4</sub>,
+                                CuCl<sub>2</sub></td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cu<sup>2+</sup></td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="text-align:center; padding: 8px; border: 1px solid var(--border-color); font-weight: bold; color: #2ecc71;">
+                                +1</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cu<sub>2</sub>O (Осн)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">CuOH (неуст.)</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">
+                                [Cu(NH<sub>3</sub>)<sub>2</sub>]Cl</td>
+                            <td style="padding: 8px; border: 1px solid var(--border-color);">Cu<sup>+</sup></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <h2 id="amphoteric">6. Амфотерные элементы (Be, Zn, Al)</h2>
+            <p>Эти элементы проявляют амфотерные свойства: образуют и катионы (в солях с кислотами), и анионы (в солях с
+                щелочами).</p>
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Элемент</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">СО</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Оксид / Гидроксид</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль (катион)</th>
+                    <th style="padding: 8px; border: 1px solid var(--border-color);">Соль (комплекс / анион)</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>Be</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color); text-align: center;">+2</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">BeO, Be(OH)<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">BeCl<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">
+                        Na<sub>2</sub>[Be(OH)<sub>4</sub>]<br>Na<sub>2</sub>BeO<sub>2</sub></td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>Zn</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color); text-align: center;">+2</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">ZnO, Zn(OH)<sub>2</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">ZnSO<sub>4</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">
+                        Na<sub>2</sub>[Zn(OH)<sub>4</sub>]<br>Na<sub>2</sub>ZnO<sub>2</sub></td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>Al</strong>
+                    </td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color); text-align: center;">+3</td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">Al<sub>2</sub>O<sub>3</sub>,
+                        Al(OH)<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">AlCl<sub>3</sub></td>
+                    <td style="padding: 8px; border: 1px solid var(--border-color);">
+                        Na[Al(OH)<sub>4</sub>]<br>NaAlO<sub>2</sub></td>
+                </tr>
+            </table>
+
+            <h2 id="valence-exceptions">7. Валентность и исключения</h2>
+            <p>В большинстве случаев численное значение валентности совпадает с модулем степени окисления. Однако есть
+                важные исключения, которые необходимо знать для ЕГЭ.</p>
+
+            <table
+                style="width:100%; border-collapse: collapse; margin: 1rem 0; border: 1px solid var(--border-color);">
+                <tr style="background-color: var(--bg-sidebar);">
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Вещество / Частица</th>
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Элемент</th>
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Степень окисления</th>
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Валентность</th>
+                    <th style="padding: 10px; border: 1px solid var(--border-color);">Примечание</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>N<sub>2</sub></strong><br>(Азот)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">N</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">0</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #d35400;">
+                        III</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Тройная связь N≡N</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>CO</strong><br>(Угарный газ)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">C</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">+2</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #d35400;">
+                        III</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Тройная связь C≡O</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>CO</strong><br>(Угарный газ)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">O</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">-2</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #d35400;">
+                        III</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Кислород — донор пары электронов
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>HNO<sub>3</sub></strong><br>(Азотная кислота)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">N</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">+5</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #d35400;">
+                        IV</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Максимальная валентность азота —
+                        IV</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>N<sub>2</sub>O<sub>5</sub></strong><br>(Оксид азота V)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">N</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">+5</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #d35400;">
+                        IV</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Аналогично азотной кислоте</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>NH<sub>4</sub><sup>+</sup></strong><br>(Ион аммония)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">N</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">-3</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #d35400;">
+                        IV</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">4 ковалентные связи (одна
+                        донорно-акцепторная)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>H<sub>2</sub>O<sub>2</sub></strong><br>(Пероксид водорода)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">O</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">-1</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2ecc71;">
+                        II</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Две связи: H—O и O—O</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>H<sub>3</sub>O<sup>+</sup></strong><br>(Ион гидроксония)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">O</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">-2</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #d35400;">
+                        III</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Три связи с водородом</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">
+                        <strong>Органические в-ва</strong><br>(напр. C<sub>2</sub>H<sub>6</sub>)
+                    </td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">C</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color); text-align: center;">-3 (в
+                        C<sub>2</sub>H<sub>6</sub>)</td>
+                    <td
+                        style="padding: 10px; border: 1px solid var(--border-color); text-align: center; font-weight: bold; color: #2ecc71;">
+                        IV</td>
+                    <td style="padding: 10px; border: 1px solid var(--border-color);">Валентность углерода в органике
+                        почти всегда IV</td>
+                </tr>
+            </table>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания по степени окисления и валентности. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../tests/oxidation_valence_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../sc_chap/periodic_law.html"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Периодический закон
+                </a>
+                <a href="../th_chap/chemical_bonds.html"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Следующая тема: Химическая связь →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem;">
+            <a href="../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="theory.html" style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p>© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

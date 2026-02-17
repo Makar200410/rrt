@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Химическое равновесие - CHEM EGE</title>
+    <meta name="description"
+        content="Химическое равновесие. Принцип Ле Шателье. Факторы, влияющие на смещение равновесия: концентрация, температура, давление. Константа равновесия.">
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.25rem 0;
+            background: var(--bg-paper, #ffffff);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(26, 35, 50, 0.04), 0 1px 2px rgba(26, 35, 50, 0.06);
+            border: 1px solid #e8e4de;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e8e4de;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #f5a623 0%, #d48b0f 100%);
+            font-weight: 600;
+            color: white;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: #fff4e0;
+        }
+
+        .factor-card {
+            background: var(--bg-paper, #ffffff);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid #f5a623;
+            box-shadow: 0 1px 3px rgba(26, 35, 50, 0.04), 0 1px 2px rgba(26, 35, 50, 0.06);
+            transition: all 0.25s ease;
+        }
+
+        .factor-card:hover {
+            box-shadow: 0 4px 12px rgba(26, 35, 50, 0.06);
+            transform: translateX(4px);
+        }
+
+        .shift-arrow {
+            display: inline-block;
+            padding: 0.2em 0.6em;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .shift-right {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            color: #2e7d32;
+        }
+
+        .shift-left {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            color: #c62828;
+        }
+
+        /* Beautiful Clarification Frame */
+        .clarification-frame {
+            position: relative;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px 30px;
+            margin: 25px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .clarification-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .clarification-frame strong {
+            color: #0277bd;
+            font-size: 1.05em;
+        }
+
+        /* Beautiful Equation Bubble */
+        .equation-frame {
+            position: relative;
+            background: linear-gradient(145deg, #ffffff, #f5f7fa);
+            border-radius: 60px;
+            padding: 25px 50px;
+            margin: 30px auto;
+            text-align: center;
+            box-shadow:
+                8px 8px 20px rgba(163, 177, 198, 0.15),
+                -8px -8px 20px rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            max-width: fit-content;
+        }
+
+        .equation-frame .MathJax {
+            font-size: 1.25em !important;
+            color: #1565c0;
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#reversible">1. Обратимые реакции</a></li>
+                <li><a href="#le-chatelier">2. Принцип Ле Шателье</a></li>
+                <li><a href="#factors">3. Факторы смещения</a></li>
+                <li><a href="#constant">4. Константа равновесия</a></li>
+                <li><a href="#practice">Практика</a></li>
+                <li><a href="#ionic-equilibrium">5. Равновесие в растворах</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Главная</a> <span>/</span>
+                <a href="../../1 глава/theory.html">Теоретические основы</a> <span>/</span>
+                Химическое равновесие
+            </div>
+
+            <h1>Химическое равновесие</h1>
+
+            <div class="clarification-frame">
+                <strong>Химическое равновесие</strong> — это состояние химической системы, при котором скорость прямой
+                реакции равна скорости обратной реакции ($v_{пр} = v_{обр}$).
+                <br><br>
+                При этом концентрации веществ (реагентов и продуктов) остаются неизменными во времени, хотя сами реакции
+                продолжают идти (это <em>динамическое</em> равновесие).
+            </div>
+
+            <div class="topic-section">
+                <h2 id="reversible">1. Обратимые и необратимые реакции</h2>
+                <p>Все химические реакции делятся на две группы в зависимости от способности протекать в обратном
+                    направлении.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Тип реакции</th>
+                            <th>Описание</th>
+                            <th>Примеры</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Необратимые</strong></td>
+                            <td>Протекают только в одном направлении (до полного расходования одного из реагентов).
+                                <br>Признаки необратимости:
+                                <ul>
+                                    <li>Выпадение осадка ($\downarrow$)</li>
+                                    <li>Выделение газа ($\uparrow$)</li>
+                                    <li>Образование слабого электролита (например, $H_2O$)</li>
+                                    <li>Выделение большого количества тепла (горение)</li>
+                                </ul>
+                            </td>
+                            <td>
+                                $BaCl_2 + H_2SO_4 \rightarrow BaSO_4\downarrow + 2HCl$<br>
+                                $Zn + 2HCl \rightarrow ZnCl_2 + H_2\uparrow$<br>
+                                $NaOH + HCl \rightarrow NaCl + H_2O$
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Обратимые</strong></td>
+                            <td>Протекают одновременно в двух противоположных направлениях: прямом ($\rightarrow$) и
+                                обратном ($\leftarrow$).
+                                <br>В уравнениях используется знак обратимости: $\leftrightarrows$.
+                            </td>
+                            <td>
+                                $N_2 + 3H_2 \leftrightarrows 2NH_3$ (синтез аммиака)<br>
+                                $2SO_2 + O_2 \leftrightarrows 2SO_3$<br>
+                                $H_2 + I_2 \leftrightarrows 2HI$
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="topic-section">
+                <h2 id="le-chatelier">2. Принцип Ле Шателье</h2>
+                <div class="clarification-frame">
+                    <strong>Принцип Ле Шателье — Брауна:</strong><br>
+                    Если на систему, находящуюся в состоянии равновесия, оказать внешнее воздействие (изменить
+                    концентрацию, температуру или давление), то равновесие смещается в сторону той реакции, которая
+                    <strong>ослабляет</strong> это воздействие.
+                </div>
+                <p>Система ведет себя как "упрямый ребенок": вы её нагреваете — она хочет охладиться; вы её сжимаете —
+                    она хочет уменьшить объём.</p>
+            </div>
+
+            <div class="topic-section">
+                <h2 id="factors">3. Факторы смещения равновесия</h2>
+
+                <!-- Concentration -->
+                <div class="factor-card" style="border-left-color: #ffffff;">
+                    <h3>🧪 Концентрация веществ</h3>
+                    <p>Правило: <strong>«Где густо — оттуда течет, где пусто — туда течет»</strong>.</p>
+                    <ul>
+                        <li><strong>Увеличение концентрации реагентов</strong> (добавили вещество слева) → равновесие
+                            смещается <strong>вправо</strong> (в сторону продуктов), чтобы потратить добавленное.</li>
+                        <li><strong>Увеличение концентрации продуктов</strong> (добавили вещество справа) → равновесие
+                            смещается <strong>влево</strong> (в сторону реагентов).</li>
+                        <li><strong>Удаление вещества</strong> (вывод из зоны реакции) → равновесие смещается в сторону
+                            <strong>образования</strong> этого вещества.
+                        </li>
+                    </ul>
+                    <div class="clarification-frame"
+                        style="margin-top: 20px; box-shadow: none; border: 1px solid #eee;">
+                        <strong>Важно!</strong> Добавление твердых нерастворимых веществ (осадка) <strong>не
+                            влияет</strong> на смещение равновесия, так как их концентрация (активная поверхность)
+                        считается постоянной (если поверхность не меняется радикально) или просто не учитывается в
+                        выражении константы равновесия для газов/растворов.
+                        <br>Например, в реакции $C_{(тв)} + CO_{2(г)} \leftrightarrows 2CO_{(г)}$ добавление угля ($C$)
+                        не смещает равновесие.
+                    </div>
+                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <strong>Пример:</strong><br>
+                        <figure style="text-align: center; margin: 10px 0;">
+                            <img src="image_copy.png" alt="Влияние концентрации на равновесие"
+                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
+                                концентрации на равновесие
+                            </figcaption>
+                        </figure>
+                        <figure style="text-align: center; margin: 10px 0;">
+                            <img src="image_copy_2.png" alt="Влияние концентрации на равновесие"
+                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
+                                концентрации на равновесие
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Temperature -->
+                <div class="factor-card" style="border-left-color: #ffffff;">
+                    <h3>🔥 Температура</h3>
+                    <p>Для определения направления нужно знать тепловой эффект реакции:</p>
+                    <ul>
+                        <li><strong>Экзотермическая ($+Q$)</strong>: выделение тепла (горячо).</li>
+                        <li><strong>Эндотермическая ($-Q$)</strong>: поглощение тепла (холодно).</li>
+                    </ul>
+                    <p><em>Правило:</em></p>
+                    <ul>
+                        <li><strong>При нагревании</strong> ($T\uparrow$) система хочет охладиться → равновесие
+                            смещается в сторону <strong>эндотермической</strong> реакции ($-Q$).</li>
+                        <li><strong>При охлаждении</strong> ($T\downarrow$) система хочет согреться → равновесие
+                            смещается в сторону <strong>экзотермической</strong> реакции ($+Q$).</li>
+                    </ul>
+                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <strong>Пример:</strong><br>
+                        <figure style="text-align: center; margin: 10px 0;">
+                            <img src="image.png" alt="Влияние температуры на равновесие"
+                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
+                                температуры на равновесие
+                            </figcaption>
+                        </figure>
+                        <figure style="text-align: center; margin: 10px 0;">
+                            <img src="image_copy_3.png" alt="Влияние температуры на равновесие"
+                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
+                                температуры на равновесие
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Pressure -->
+                <div class="factor-card" style="border-left-color: #ffffff;">
+                    <h3>💨 Давление (только для газов!)</h3>
+                    <p>Давление связано с объемом газов (числом моль газов).</p>
+                    <p>Считаем коэффициенты <strong>перед газами</strong> слева и справа.</p>
+                    <ul>
+                        <li><strong>Повышение давления</strong> ($P\uparrow$) (сжатие системы) → равновесие смещается в
+                            сторону <strong>меньшего объема</strong> (меньшего числа моль газов), чтобы ослабить
+                            давление.</li>
+                        <li><strong>Понижение давления</strong> ($P\downarrow$) (расширение системы) → равновесие
+                            смещается в сторону <strong>большего объема</strong> (большего числа моль газов).</li>
+                    </ul>
+                    <div class="clarification-frame"
+                        style="margin-top: 20px; box-shadow: none; border: 1px solid #eee;">
+                        <strong>Примечание:</strong> Если число моль газов слева и справа одинаково (например, $H_2 +
+                        I_2 \leftrightarrows 2HI$, 2 моль газа $\leftrightarrows$ 2 моль газа), то изменение давления
+                        <strong>не смещает</strong> равновесие.
+                    </div>
+                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <strong>Пример:</strong><br>
+                        <figure style="text-align: center; margin: 10px 0;">
+                            <img src="image_copy_4.png" alt="Влияние давления на равновесие"
+                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
+                                давления на равновесие
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Catalyst -->
+                <div class="factor-card" style="border-left-color: #ffffff;">
+                    <h3>⏳ Катализатор</h3>
+                    <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">
+                        КАТАЛИЗАТОР НЕ СМЕЩАЕТ РАВНОВЕСИЕ!
+                    </div>
+                    <p>Катализатор ускоряет как прямую, так и обратную реакцию <strong>в одинаковой степени</strong>.
+                    </p>
+                    <p>Он лишь помогает системе быстрее достигнуть состояния равновесия, но не меняет соотношение
+                        продуктов и реагентов.</p>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h2 id="constant">4. Константа равновесия (дополнительно)</h2>
+                <p>Количественной характеристикой равновесия является <strong>константа равновесия ($K_c$)</strong>.</p>
+                <p>Для реакции $aA + bB \leftrightarrows cC + dD$:</p>
+                <div class="equation-frame">
+                    $$ K_c = \frac{[C]^c \cdot [D]^d}{[A]^a \cdot [B]^b} $$
+                </div>
+                <p>
+                    Где $[A], [B], [C], [D]$ — равновесные молярные концентрации веществ.<br>
+                    <strong>Константа равновесия зависит только от температуры!</strong> Она не зависит от начальных
+                    концентраций.
+                </p>
+            </div>
+
+            <div class="topic-section">
+                <h2 id="practice">⚡ Практика: определите смещение равновесия</h2>
+                <div class="subclass-card" style="border-left-color: #ffffff;">
+                    <p><strong>Реакция:</strong> $2SO_{2(г)} + O_{2(г)} \leftrightarrows 2SO_{3(г)} + Q$</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Воздействие</th>
+                                <th>Направление смещения</th>
+                                <th>Пояснение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Добавление $O_2$</td>
+                                <td><span class="shift-arrow shift-right">Вправо ($\rightarrow$)</span></td>
+                                <td>Увеличили концентрацию реагента.</td>
+                            </tr>
+                            <tr>
+                                <td>Удаление $SO_3$</td>
+                                <td><span class="shift-arrow shift-right">Вправо ($\rightarrow$)</span></td>
+                                <td>Система стремится восполнить убыль продукта.</td>
+                            </tr>
+                            <tr>
+                                <td>Повышение температуры</td>
+                                <td><span class="shift-arrow shift-left">Влево ($\leftarrow$)</span></td>
+                                <td>Реакция экзотермическая ($+Q$). Система "убегает" в $-Q$ (обратную).</td>
+                            </tr>
+                            <tr>
+                                <td>Повышение давления</td>
+                                <td><span class="shift-arrow shift-right">Вправо ($\rightarrow$)</span></td>
+                                <td>Слева 3 моль газа ($2+1$), справа 2 моль. Идем к меньшему объему.</td>
+                            </tr>
+                            <tr>
+                                <td>Введение катализатора ($V_2O_5$)</td>
+                                <td><span class="shift-arrow" style="background:#eee; color:#666;">Не смещается</span>
+                                </td>
+                                <td>Катализатор не влияет на положение равновесия.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <div class="topic-section">
+                <h2 id="ionic-equilibrium">5. Равновесие в растворах электролитов (ионные реакции)</h2>
+                <div class="clarification-frame">
+                    Для реакций в растворах важно учитывать не только добавление реагентов, но и взаимодействие ионов
+                    (связывание в осадок, газ или слабый электролит).
+                </div>
+
+                <div class="subclass-card" style="border-left-color: #ffffff;">
+                    <h3>🧪 Пример: Роданидное равновесие</h3>
+                    <div class="equation-frame">
+                        $\underset{\text{желтоватый}}{Fe^{3+}} + 3SCN^- \leftrightarrows
+                        \underset{\text{кроваво-красный}}{Fe(SCN)_3}$
+                    </div>
+
+                    <p><strong>Максимальное количество воздействий на систему:</strong></p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Воздействие</th>
+                                <th>Что происходит?</th>
+                                <th>Смещение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Добавление $FeCl_3$ (или $Fe(NO_3)_3$)</td>
+                                <td>Увеличивается концентрация $Fe^{3+}$ (реагента).</td>
+                                <td><span class="shift-arrow shift-right">Вправо ($\rightarrow$)</span><br>(раствор
+                                    краснеет)</td>
+                            </tr>
+                            <tr>
+                                <td>Добавление $KSCN$</td>
+                                <td>Увеличивается концентрация $SCN^-$ (реагента).</td>
+                                <td><span class="shift-arrow shift-right">Вправо ($\rightarrow$)</span><br>(раствор
+                                    краснеет)</td>
+                            </tr>
+                            <tr>
+                                <td>Добавление $NaOH$ (щёлочи)</td>
+                                <td>Связывание $Fe^{3+}$ в осадок: $Fe^{3+} + 3OH^- \to
+                                    Fe(OH)_3\downarrow$.<br>Концентрация
+                                    $Fe^{3+}$ падает.</td>
+                                <td><span class="shift-arrow shift-left">Влево ($\leftarrow$)</span><br>(раствор
+                                    светлеет)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Добавление $AgNO_3$</td>
+                                <td>Связывание $SCN^-$ в осадок: $Ag^+ + SCN^- \to AgSCN\downarrow$.<br>Концентрация
+                                    $SCN^-$
+                                    падает.</td>
+                                <td><span class="shift-arrow shift-left">Влево ($\leftarrow$)</span><br>(раствор
+                                    светлеет)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Добавление твердого $KCl$</td>
+                                <td>Ионы $K^+$ и $Cl^-$ не участвуют в реакции.<br>(Если не учитывать ионную силу).</td>
+                                <td><span class="shift-arrow" style="background:#eee; color:#666;">Не смещается</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Разбавление водой</td>
+                                <td>Концентрация всех частиц падает. Система стремится туда, где частиц больше.<br>Слева
+                                    $1+3=4$ иона, справа 1 молекула.</td>
+                                <td><span class="shift-arrow shift-left">Влево ($\leftarrow$)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания по теме "Химическое равновесие". Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../tests/chemical_equilibrium_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../redox/oxidation_reduction.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← ОВР
+                </a>
+                <a href="../electrolytic-dissociation/electrolytic_dissociation.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Электролитическая диссоциация →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../first_chap/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

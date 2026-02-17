@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гидролиз солей | ХимПодготовка</title>
+    <meta name="description"
+        content="Гидролиз солей. Типы гидролиза: по катиону, по аниону, полный. Среда водных растворов солей. Индикаторы. Подготовка к ЕГЭ по химии.">
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+
+        .clarification-frame {
+            position: relative;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 30px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            border-left: 6px solid #4facfe;
+        }
+
+        .clarification-frame strong {
+            color: #0277bd;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05em;
+        }
+
+        .table-nomenclature {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-nomenclature th {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+            padding: 12px 15px;
+        }
+
+        .table-nomenclature td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddddd;
+            vertical-align: top;
+        }
+
+        .table-nomenclature tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .table-nomenclature tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .process-step {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #63b8f5;
+        }
+
+        .mnemo-verse {
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+            color: #555;
+            background: #fff9c4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #fbc02d;
+        }
+
+        .ph-scale {
+            display: flex;
+            height: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .ph-acid {
+            flex: 1;
+            background: linear-gradient(to right, #d32f2f, #ef5350);
+        }
+
+        .ph-neutral {
+            width: 60px;
+            background: #66bb6a;
+        }
+
+        .ph-base {
+            flex: 1;
+            background: linear-gradient(to right, #42a5f5, #1565c0);
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#definition">1. Что такое гидролиз?</a></li>
+                <li><a href="#strength">2. Сила кислот и оснований</a></li>
+                <li><a href="#types">3. Типы гидролиза (правила)</a></li>
+                <li><a href="#medium">4. Среда раствора (pH)</a></li>
+                <li><a href="#indicators">5. Индикаторы</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="breadcrumbs">
+                <a href="../index.html">Главная</a> <span>/</span>
+                <a href="../1 глава/theory.html">Теория</a> <span>/</span>
+                <a href="#">Глава 7</a> <span>/</span>
+                Гидролиз солей
+            </div>
+
+            <h1>Гидролиз солей и среда растворов</h1>
+
+            <div class="info-box">
+                <p><strong>Темы кодификатора ЕГЭ:</strong> Гидролиз солей. Среда водных растворов: кислая, нейтральная,
+                    щелочная. Водородный показатель (pH). Окраска индикаторов.</p>
+            </div>
+
+            <!-- ==================== РАЗДЕЛ 1 ==================== -->
+            <h2 id="definition">1. Что такое гидролиз?</h2>
+            <div class="clarification-frame">
+                <strong>Гидролиз</strong> (от греч. <em>hydor</em> — вода и <em>lysis</em> — разложение) — это
+                взаимодействие ионов соли с водой, приводящее к образованию слабого электролита и изменению среды
+                раствора (pH).
+            </div>
+            <p><strong>Золотое правило гидролиза:</strong> «Вода разрушает СЛАБОЕ» (сильное выдерживает удар).</p>
+            <ul>
+                <li>Гидролиз идет по тому иону, который соответствует <strong>слабому</strong> электролиту (кислоте или
+                    основанию).</li>
+                <li>Среду раствора определяет <strong>сильный</strong> ион (побеждает сильнейший).</li>
+            </ul>
+
+            <!-- ==================== РАЗДЕЛ 2 ==================== -->
+            <h2 id="strength">2. Сила кислот и оснований</h2>
+            <p>Чтобы определять тип гидролиза, нужно твердо знать, что является сильным, а что слабым.</p>
+
+            <table class="table-nomenclature">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Основания (Катионы)</th>
+                        <th style="width: 50%;">Кислоты (Анионы)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>СИЛЬНЫЕ (Щелочи)</strong><br>
+                            Гидроксиды активных металлов:<br>
+                            1. <span style="color: #2e7d32; font-weight: bold;">LiOH</span> (Гидроксид лития)<br>
+                            2. <span style="color: #2e7d32; font-weight: bold;">NaOH</span> (Едкий натр)<br>
+                            3. <span style="color: #2e7d32; font-weight: bold;">KOH</span> (Едкое кали)<br>
+                            4. <span style="color: #2e7d32; font-weight: bold;">RbOH</span> (Гидроксид рубидия)<br>
+                            5. <span style="color: #2e7d32; font-weight: bold;">CsOH</span> (Гидроксид цезия)<br>
+                            6. <span style="color: #2e7d32; font-weight: bold;">Ca(OH)₂</span> (Гашеная известь)<br>
+                            7. <span style="color: #2e7d32; font-weight: bold;">Sr(OH)₂</span> (Гидроксид стронция)<br>
+                            8. <span style="color: #2e7d32; font-weight: bold;">Ba(OH)₂</span> (Едкий барит)
+                        </td>
+                        <td>
+                            <strong>СИЛЬНЫЕ КИСЛОТЫ</strong> (15+ примеров)<br>
+                            1. <span style="color: #2e7d32; font-weight: bold;">HCl</span> (Соляная)<br>
+                            2. <span style="color: #2e7d32; font-weight: bold;">HBr</span> (Бромоводородная)<br>
+                            3. <span style="color: #2e7d32; font-weight: bold;">HI</span> (Йодоводородная)<br>
+                            4. <span style="color: #2e7d32; font-weight: bold;">HNO₃</span> (Азотная)<br>
+                            5. <span style="color: #2e7d32; font-weight: bold;">H₂SO₄</span> (Серная)<br>
+                            6. <span style="color: #2e7d32; font-weight: bold;">HClO₄</span> (Хлорная)<br>
+                            7. <span style="color: #2e7d32; font-weight: bold;">HClO₃</span> (Хлорноватая)<br>
+                            8. <span style="color: #2e7d32; font-weight: bold;">HBrO₄</span> (Бромная)<br>
+                            9. <span style="color: #2e7d32; font-weight: bold;">HBrO₃</span> (Бромноватая)<br>
+                            10. <span style="color: #2e7d32; font-weight: bold;">HIO₄</span> (Йодная)<br>
+                            11. <span style="color: #2e7d32; font-weight: bold;">HMnO₄</span> (Марганцовая)<br>
+                            12. <span style="color: #2e7d32; font-weight: bold;">H₂CrO₄</span> (Хромовая)<br>
+                            13. <span style="color: #2e7d32; font-weight: bold;">H₂Cr₂O₇</span> (Дихромовая)<br>
+                            14. <span style="color: #2e7d32; font-weight: bold;">H₂SeO₄</span> (Селеновая)<br>
+                            15. <span style="color: #2e7d32; font-weight: bold;">HSCN</span> (Роданистоводородная)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>СЛАБЫЕ ОСНОВАНИЯ</strong> (15+ примеров)<br>
+                            <span style="color: #455a64;">Растворимые:</span><br>
+                            1. <strong>NH₄OH</strong> (Гидрат аммиака)<br><br>
+                            <span style="color: #455a64;">Нерастворимые (осадки):</span><br>
+                            2. <span style="color: #c62828;">Mg(OH)₂</span> (Гидроксид магния)<br>
+                            3. <span style="color: #c62828;">Fe(OH)₂</span> (Гидр. железа II)<br>
+                            4. <span style="color: #c62828;">Fe(OH)₃</span> (Гидр. железа III)<br>
+                            5. <span style="color: #c62828;">Cu(OH)₂</span> (Гидр. меди II)<br>
+                            6. <span style="color: #c62828;">Al(OH)₃</span> (Гидр. алюминия)<br>
+                            7. <span style="color: #c62828;">Zn(OH)₂</span> (Гидр. цинка)<br>
+                            8. <span style="color: #c62828;">Cr(OH)₃</span> (Гидр. хрома III)<br>
+                            9. <span style="color: #c62828;">Be(OH)₂</span> (Гидр. бериллия)<br>
+                            10. <span style="color: #c62828;">Mn(OH)₂</span> (Гидр. марганца II)<br>
+                            11. <span style="color: #c62828;">Ni(OH)₂</span> (Гидр. никеля II)<br>
+                            12. <span style="color: #c62828;">Co(OH)₂</span> (Гидр. кобальта II)<br>
+                            13. <span style="color: #c62828;">Pb(OH)₂</span> (Гидр. свинца II)<br>
+                            14. <span style="color: #c62828;">Sn(OH)₂</span> (Гидр. олова II)<br>
+                            15. <span style="color: #c62828;">Bi(OH)₃</span> (Гидр. висмута III)
+                        </td>
+                        <td>
+                            <strong>СЛАБЫЕ КИСЛОТЫ</strong> (15+ примеров)<br>
+                            1. <span style="color: #c62828;">HF</span> (Плавиковая)<br>
+                            2. <span style="color: #c62828;">H₂S</span> (Сероводородная)<br>
+                            3. <span style="color: #c62828;">HNO₂</span> (Азотистая)<br>
+                            4. <span style="color: #c62828;">H₂SO₃</span> (Сернистая)<br>
+                            5. <span style="color: #c62828;">H₂CO₃</span> (Угольная)<br>
+                            6. <span style="color: #c62828;">H₂SiO₃</span> (Кремниевая)<br>
+                            7. <span style="color: #c62828;">H₃PO₄</span> (Ортофосфорная)<br>
+                            8. <span style="color: #c62828;">HCN</span> (Синильная)<br>
+                            9. <span style="color: #c62828;">HClO</span> (Хлорноватистая)<br>
+                            10. <span style="color: #c62828;">HClO₂</span> (Хлористая)<br>
+                            11. <span style="color: #c62828;">HBrO</span> (Бромноватистая)<br>
+                            12. <span style="color: #c62828;">HIO</span> (Йодноватистая)<br>
+                            13. <span style="color: #c62828;">CH₃COOH</span> (Уксусная)<br>
+                            14. <span style="color: #c62828;">HCOOH</span> (Муравьиная)<br>
+                            15. <span style="color: #c62828;">H₂C₂O₄</span> (Щавелевая)<br>
+                            16. <span style="color: #c62828;">H₃BO₃</span> (Борная)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ==================== РАЗДЕЛ 3 ==================== -->
+            <h2 id="types">3. Типы гидролиза</h2>
+
+            <div class="process-step">
+                <h3>1. Соль: Катион СИЛЬНОГО основания + Анион СИЛЬНОЙ кислоты</h3>
+                <p><em>Примеры:</em> NaCl, K₂SO₄, Ba(NO₃)₂, CaCl₂ (Ca(OH)₂ — сильное).</p>
+                <p><strong>Гидролиз:</strong> НЕ ИДЕТ.</p>
+                <p><strong>Среда:</strong> НЕЙТРАЛЬНАЯ (pH = 7).</p>
+                <p>Слабых ионов нет, разрушать нечего.</p>
+            </div>
+
+            <div class="process-step">
+                <h3>2. Соль: Катион СЛАБОГО основания + Анион СИЛЬНОЙ кислоты</h3>
+                <p><em>Примеры:</em> NH₄Cl, CuSO₄, AlCl₃, Fe(NO₃)₃, MgCl₂.</p>
+                <p><strong>Гидролиз:</strong> ПО КАТИОНУ (слабый катион).</p>
+                <p><strong>Среда:</strong> КИСЛАЯ (pH < 7).</p>
+                        <p><em>Объяснение:</em> Сильная кислота "побеждает" → среда кислая.</p>
+            </div>
+
+            <div class="process-step">
+                <h3>3. Соль: Катион СИЛЬНОГО основания + Анион СЛАБОЙ кислоты</h3>
+                <p><em>Примеры:</em> Na₂CO₃, K₃PO₄, CH₃COONa, K₂S, LiNO₂.</p>
+                <p><strong>Гидролиз:</strong> ПО АНИОНУ (слабый анион).</p>
+                <p><strong>Среда:</strong> ЩЕЛОЧНАЯ (pH > 7).</p>
+                <p><em>Объяснение:</em> Сильное основание "побеждает" → среда щелочная.</p>
+            </div>
+
+            <div class="process-step">
+                <h3>4. Соль: Катион СЛАБОГО основания + Анион СЛАБОЙ кислоты</h3>
+                <p><em>Примеры:</em> CH₃COONH₄, (NH₄)₂CO₃, Al₂S₃.</p>
+                <p><strong>Гидролиз:</strong> И ПО КАТИОНУ, И ПО АНИОНУ (полный).</p>
+                <p><strong>Среда:</strong> БЛИЗКА К НЕЙТРАЛЬНОЙ (зависит от констант, в ЕГЭ часто считают ≈7).</p>
+                <p>Некоторые соли (Al₂S₃, Cr₂S₃) разлагаются водой полностью с выделением газа и осадка (необратимый
+                    гидролиз).</p>
+                <p>2AlCl₃ + 3Na₂S + 6H₂O → 2Al(OH)₃↓ + 3H₂S↑ + 6NaCl</p>
+            </div>
+
+            <div class="clarification-frame">
+                <strong>Важное исключение: Кислые соли</strong><br>
+                Обычно кислая соль дает среду, определяемую сильным компонентом, но есть нюансы:<br>
+                <ul>
+                    <li><strong>Сильнокислая среда:</strong> KHSO₄, NaHSO₄ (как сильная кислота).</li>
+                    <li><strong>Слабокислая среда:</strong> NaH₂PO₄, NaHSO₃ (диссоциация H⁺ преобладает над гидролизом).
+                    </li>
+                    <li><strong>Слабощелочная среда:</strong> NaHCO₃, K₂HPO₄, KHS (гидролиз преобладает над
+                        диссоциацией).</li>
+                </ul>
+            </div>
+
+            <!-- ==================== РАЗДЕЛ 4 ==================== -->
+            <h2 id="medium">4. Среда раствора (pH)</h2>
+            <p>В химии для количественной характеристики среды используют водородный показатель <strong>pH</strong>.</p>
+
+            <div class="ph-scale">
+                <div class="ph-acid">Кислая (pH < 7)</div>
+                        <div class="ph-neutral">7</div>
+                        <div class="ph-base">Щелочная (pH > 7)</div>
+                </div>
+                <p style="text-align: center;"><em>Нейтральная среда: чистая вода, растворы солей сильного основания и
+                        сильной кислоты.</em></p>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="image_copy_3.png" alt="Среда раствора"
+                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Среда раствора
+                    </figcaption>
+                </figure>
+
+                <!-- ==================== РАЗДЕЛ 5 ==================== -->
+                <h2 id="indicators">5. Индикаторы</h2>
+                <p>Вещества, меняющие цвет в зависимости от среды.</p>
+
+                <table class="table-nomenclature" style="border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="background-color: #009879; color: white;">Индикатор</th>
+                            <th style="background-color: #009879; color: white;">В кислой среде</th>
+                            <th style="background-color: #009879; color: white;">В нейтральной</th>
+                            <th style="background-color: #009879; color: white;">В щелочной</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold;">Лакмус</td>
+                            <td style="background-color: #ef5350; color: white; font-weight: 500;">Красный</td>
+                            <td style="background-color: #ab47bc; color: white; font-weight: 500;">Фиолетовый</td>
+                            <td style="background-color: #42a5f5; color: white; font-weight: 500;">Синий</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Метилоранж</td>
+                            <td style="background-color: #f06292; color: white; font-weight: 500;">Розовый</td>
+                            <td style="background-color: #ffa726; color: white; font-weight: 500;">Оранжевый</td>
+                            <td style="background-color: #ffee58; color: #333; font-weight: 500;">Желтый</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Фенолфталеин</td>
+                            <td style="background-color: #f5f5f5; color: #9e9e9e;">Бесцветный</td>
+                            <td style="background-color: #f5f5f5; color: #9e9e9e;">Бесцветный</td>
+                            <td style="background-color: #ec407a; color: white; font-weight: 500;">Малиновый</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <!-- БЛОК ТЕСТА -->
+                <div
+                    style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                            тест по теме</div>
+                        <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                            знания по теме "Гидролиз солей". Задания формата ЕГЭ.</div>
+                    </div>
+                    <a href="../tests/hydrolysis_test.html"
+                        style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                        тест →</a>
+                </div>
+
+                <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                    <a href="../sixth_chap/electrolysis.html" class="prev-chapter"
+                        style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                        ← Глава 6. Электролиз
+                    </a>
+                    <a href="../eighth_chap/equilibrium-tasks/chemical_equilibrium_tasks.html" class="next-chapter"
+                        style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                        Глава 8. Задачи на равновесие →
+                    </a>
+                </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../first_chap/theory.html" style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

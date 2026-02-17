@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Железо и его соединения | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        .color-box {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+        .color-green {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #1b5e20;
+        }
+
+        .color-brown {
+            background-color: #efebe9;
+            border-left: 4px solid #795548;
+            color: #3e2723;
+        }
+
+        .color-red {
+            background-color: #fbe9e7;
+            border-left: 4px solid #e64a19;
+            color: #bf360c;
+        }
+
+        .color-blue {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #0d47a1;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#structure" class="active">1. Строение атома</a></li>
+                <li><a href="#physical">2. Физические свойства</a></li>
+                <li><a href="#nature">3. Нахождение в природе</a></li>
+                <li><a href="#production">4. Получение</a></li>
+                <li><a href="#qualitative">5. Качественные реакции</a></li>
+                <li><a href="#chemical-prop">6. Свойства простого вещества</a></li>
+                <li><a href="#oxide-fe2">7. Оксид железа (II)</a></li>
+                <li><a href="#oxide-fe3">8. Оксид железа (III)</a></li>
+                <li><a href="#oxide-fe34">9. Оксид железа (II, III)</a></li>
+                <li><a href="#hydroxide-fe2">10. Гидроксид железа (II)</a></li>
+                <li><a href="#hydroxide-fe3">11. Гидроксид железа (III)</a></li>
+                <li><a href="#salts">12. Соли железа</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a
+                    href="../../../1 глава/theory.html">Неорганическая химия</a>
+                <span>/</span> <a href="../../../1 глава/theory.html">Переходные металлы</a> <span>/</span> Железо
+            </div>
+
+            <h1>Железо</h1>
+            <p class="subtitle">Элемент побочной подгруппы VIII группы: самый важный металл цивилизации</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Железо проявляет две основные степени окисления: <strong>+2 и
+                        +3</strong>.
+                    Fe(OH)<sub>2</sub> — основание, Fe(OH)<sub>3</sub> — амфотерный гидроксид (с преобладанием основных
+                    свойств).
+                    Железо <strong>пассивируется</strong> холодными концентрированными H<sub>2</sub>SO<sub>4</sub> и
+                    HNO<sub>3</sub>,
+                    но реагирует с ними при нагревании. Соли Fe<sup>3+</sup> — окислители!</p>
+            </div>
+
+            <!-- 1. СТРОЕНИЕ -->
+            <h2 id="structure">1. Строение и положение в ПС</h2>
+            <p>Железо (<strong>Fe</strong>) расположено в 4-м периоде, в побочной подгруппе VIII группы периодической
+                системы.
+                Порядковый номер — 26, атомная масса — 56.</p>
+
+            <h3>Электронная конфигурация</h3>
+            <div
+                style="background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.2em; border: 1px solid #e9ecef; margin: 15px 0;">
+                <strong>+26Fe:
+                    1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>3d<sup>6</sup>4s<sup>2</sup></strong>
+            </div>
+            <p>На d-подуровне у атома железа расположено 6 электронов. При отдаче двух 4s-электронов образуется ион
+                Fe<sup>2+</sup>
+                с конфигурацией 3d<sup>6</sup>. Если дополнительно отдать один d-электрон, получается ион
+                Fe<sup>3+</sup>
+                (3d<sup>5</sup>) — конфигурация с наполовину заполненным d-подуровнем, что объясняет относительную
+                устойчивость
+                степени окисления +3. Железо обладает ярко выраженными магнитными свойствами — оно является
+                ферромагнетиком.</p>
+
+            <div class="clarification-frame">
+                <strong>Интересный факт:</strong> Железо — один из самых распространённых элементов во Вселенной. Ядро
+                нашей
+                планеты на ~85% состоит из железа. Именно железо в составе гемоглобина придаёт крови красный цвет и
+                переносит
+                кислород по организму.
+            </div>
+
+            <!-- 2. ФИЗИЧЕСКИЕ СВОЙСТВА -->
+            <h2 id="physical">2. Физические свойства</h2>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image.png" alt="Железо"
+                    style="max-width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Железо
+                </figcaption>
+            </figure>
+            <p>Железо — серебристо-белый металл с высокой ковкостью и пластичностью. Обладает хорошей тепло- и
+                электропроводностью.</p>
+            <ul>
+                <li><strong>Температура плавления:</strong> 1538°C — один из самых тугоплавких d-металлов.</li>
+                <li><strong>Температура кипения:</strong> 2861°C.</li>
+                <li><strong>Магнитные свойства:</strong> железо — классический ферромагнетик, притягивается к магниту.
+                    Это свойство используется для отделения железа от других веществ.</li>
+                <li><strong>Коррозия:</strong> на влажном воздухе покрывается рыхлой ржавчиной (в отличие от алюминия и
+                    хрома, у которых оксидная плёнка защищает металл).</li>
+                <li><strong>Применение:</strong> основа чёрной металлургии — из железа и его сплавов (стали, чугуна)
+                    производят около 95% всех металлических изделий в мире.</li>
+            </ul>
+
+            <!-- 3. НАХОЖДЕНИЕ В ПРИРОДЕ -->
+            <h2 id="nature">3. Нахождение в природе</h2>
+            <p>По распространённости в земной коре железо занимает <strong>4-е место</strong> среди всех элементов и
+                <strong>2-е место</strong> среди металлов (после алюминия). Содержание в земной коре — около 4-8%.
+            </p>
+            <p>Основные минералы железа:</p>
+            <ul>
+                <li><strong>Красный железняк (гематит)</strong> — Fe<sub>2</sub>O<sub>3</sub>. Важнейшая руда для
+                    выплавки стали.</li>
+                <li><strong>Магнитный железняк (магнетит)</strong> — Fe<sub>3</sub>O<sub>4</sub> (или
+                    FeO·Fe<sub>2</sub>O<sub>3</sub>). Обладает магнитными свойствами.</li>
+                <li><strong>Пирит (серный колчедан)</strong> — FeS<sub>2</sub>. Используется для получения серной
+                    кислоты, а не железа, так как при обжиге образуется хрупкое металлическое железо с большим
+                    содержанием примесей.</li>
+            </ul>
+
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy.png" alt="Гематит (красный железняк)"
+                        style="max-width: 80%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Гематит (красный
+                        железняк) — Fe<sub>2</sub>O<sub>3</sub>
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy_2.png" alt="Магнетит (магнитный железняк)"
+                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 3. Магнетит (магнитный
+                        железняк) — Fe<sub>3</sub>O<sub>4</sub>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <!-- 4. ПОЛУЧЕНИЕ -->
+            <h2 id="production">4. Способы получения</h2>
+            <p>Железо в промышленности получают преимущественно из гематита (Fe<sub>2</sub>O<sub>3</sub>) и магнетита
+                (Fe<sub>3</sub>O<sub>4</sub>).</p>
+
+            <p><strong>1. Доменный процесс (основной промышленный способ):</strong></p>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image_copy_3.png" alt="Схема доменной печи"
+                    style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 4. Схема доменной печи
+                </figcaption>
+            </figure>
+            <p>В доменную печь загружают <em>шихту</em> — смесь железной руды, каменноугольного кокса и флюсов
+                (например, известняка CaCO<sub>3</sub>). Процесс многоэтапный:</p>
+            <p>Сначала кокс сгорает, образуя угарный газ:</p>
+            <p class="reaction">2C + O<sub>2</sub> → 2CO</p>
+            <p>В верхней части печи (200–700°C) начинается постепенное восстановление:</p>
+            <p class="reaction">3Fe<sub>2</sub>O<sub>3</sub> + CO → 2Fe<sub>3</sub>O<sub>4</sub> + CO<sub>2</sub></p>
+            <p>Ниже (≈850°C) происходит дальнейшее восстановление:</p>
+            <p class="reaction">Fe<sub>3</sub>O<sub>4</sub> + CO → 3FeO + CO<sub>2</sub></p>
+            <p>В самой горячей зоне (до 1200°C) — окончательное восстановление до металла:</p>
+            <p class="reaction">FeO + CO → Fe + CO<sub>2</sub></p>
+            <p>Углекислый газ, поднимаясь, реагирует с коксом, регенерируя угарный газ:</p>
+            <p class="reaction">CO<sub>2</sub> + C → 2CO</p>
+            <p>Суммарная реакция восстановления:</p>
+            <p class="reaction">3CO + Fe<sub>2</sub>O<sub>3</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Fe + 3CO<sub>2</sub></p>
+
+            <div class="clarification-frame">
+                <strong>Важно для ЕГЭ:</strong> Флюс (CaCO<sub>3</sub>) при разложении даёт CaO, который связывает
+                примеси пустой породы, образуя легкоплавкий <em>шлак</em>. Шлак всплывает и защищает расплавленный
+                металл от окисления.
+            </div>
+
+            <p><strong>2. Прямое восстановление водородом:</strong></p>
+            <p>Даёт более чистое железо без примесей серы и фосфора:</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Fe + 3H<sub>2</sub>O</p>
+
+            <p><strong>3. Электролиз растворов солей железа</strong> — для получения особо чистого металла.</p>
+
+            <!-- 5. КАЧЕСТВЕННЫЕ РЕАКЦИИ -->
+            <h2 id="qualitative">5. Качественные реакции</h2>
+
+            <h3>На ионы Fe<sup>2+</sup></h3>
+            <ul>
+                <li><strong>Со щелочами</strong> — образуется <strong>серо-зелёный студенистый осадок</strong>
+                    гидроксида железа (II), который на воздухе быстро буреет, окисляясь до Fe(OH)<sub>3</sub>:<br>
+                    <span class="reaction">FeCl<sub>2</sub> + 2NaOH → Fe(OH)<sub>2</sub>↓ + 2NaCl</span><br>
+                    <span class="reaction">4Fe(OH)<sub>2</sub> + O<sub>2</sub> + 2H<sub>2</sub>O →
+                        4Fe(OH)<sub>3</sub></span>
+                </li>
+                <li>Растворы солей Fe<sup>2+</sup> имеют <strong>светлый жёлто-зелёный цвет</strong>.</li>
+                <li><strong>С красной кровяной солью K<sub>3</sub>[Fe(CN)<sub>6</sub>]</strong> — образуется синий
+                    осадок «<strong>турнбулева синь</strong>».</li>
+            </ul>
+            <div class="color-green">
+                <strong>Fe(OH)<sub>2</sub></strong> — серо-зелёный студенистый осадок → буреет на воздухе.
+            </div>
+
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy_4.png" alt="Осадок Fe(OH)2"
+                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 5. Серо-зелёный осадок
+                        Fe(OH)<sub>2</sub>
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy_5.png" alt="Турнбулева синь"
+                        style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 6. Турнбулева синь
+                        (Fe<sup>2+</sup> + K<sub>3</sub>[Fe(CN)<sub>6</sub>])
+                    </figcaption>
+                </figure>
+            </div>
+
+            <h3>На ионы Fe<sup>3+</sup></h3>
+            <ul>
+                <li><strong>Со щелочами</strong> — образуется <strong>бурый осадок</strong> гидроксида железа (III):<br>
+                    <span class="reaction">FeCl<sub>3</sub> + 3NaOH → Fe(OH)<sub>3</sub>↓ + 3NaCl</span>
+                </li>
+                <li>Растворы солей Fe<sup>3+</sup> имеют <strong>жёлто-оранжевый цвет</strong>.</li>
+                <li><strong>С жёлтой кровяной солью K<sub>4</sub>[Fe(CN)<sub>6</sub>]</strong> — образуется синий осадок
+                    «<strong>берлинская лазурь</strong>».</li>
+                <li><strong>С роданидами (KCNS, NaCNS)</strong> — раствор окрашивается в <strong>кроваво-красный
+                        цвет</strong> (образуется Fe(CNS)<sub>3</sub>):<br>
+                    <span class="reaction">FeCl<sub>3</sub> + 3NaCNS → Fe(CNS)<sub>3</sub> + 3NaCl</span>
+                </li>
+            </ul>
+            <div class="color-brown">
+                <strong>Fe(OH)<sub>3</sub></strong> — бурый осадок (не растворяется в избытке щёлочи в растворе).
+            </div>
+
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
+                <figure style="text-align: center; width: 30%;">
+                    <img src="image_copy_6.png" alt="Осадок Fe(OH)3"
+                        style="max-width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 7. Бурый осадок
+                        Fe(OH)<sub>3</sub>
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 30%;">
+                    <img src="image_copy_7.png" alt="Берлинская лазурь"
+                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 8. Берлинская лазурь
+                        (Fe<sup>3+</sup> + K<sub>4</sub>[Fe(CN)<sub>6</sub>])
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 30%;">
+                    <img src="image_copy_8.png" alt="Роданид железа"
+                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 9. Кроваво-красный цвет
+                        Fe(CNS)<sub>3</sub>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="clarification-frame">
+                <strong>Лайфхак для ЕГЭ:</strong> Турнбулева синь и берлинская лазурь по строению оказались
+                <strong>идентичными</strong> веществами — Fe<sub>4</sub>[Fe<sub>2</sub>(CN)<sub>6</sub>]<sub>3</sub>. Но
+                качественные реакции различаются: <strong>Fe<sup>2+</sup> + красная</strong> кровяная соль, а
+                <strong>Fe<sup>3+</sup> + жёлтая</strong> кровяная соль.
+            </div>
+
+            <!-- 6. ХИМИЧЕСКИЕ СВОЙСТВА -->
+            <h2 id="chemical-prop">6. Химические свойства простого вещества</h2>
+            <p>При обычных условиях железо малоактивно благодаря оксидной плёнке. Однако при нагревании, особенно в
+                мелкораздробленном состоянии, оно активно реагирует почти со всеми неметаллами.</p>
+
+            <h3>Взаимодействие с неметаллами</h3>
+            <table class="styled-table reaction-table">
+                <tbody>
+                    <tr>
+                        <td><strong>С галогенами</strong></td>
+                        <td>
+                            Активные галогены (F<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub>) окисляют железо до
+                            <strong>+3</strong>:<br>
+                            <span class="reaction">2Fe + 3Cl<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2FeCl<sub>3</sub></span><br>
+                            А менее активный йод — только до <strong>+2</strong>:<br>
+                            <span class="reaction">Fe + I<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                FeI<sub>2</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С серой</strong></td>
+                        <td>
+                            Образуется сульфид железа (II):<br>
+                            <span class="reaction">Fe + S <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> FeS</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С фосфором</strong></td>
+                        <td>
+                            Образуется фосфид железа:<br>
+                            <span class="reaction">Fe + P <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> FeP</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С кислородом</strong></td>
+                        <td>
+                            При горении на воздухе образуется железная окалина — смешанный оксид:<br>
+                            <span class="reaction">3Fe + 2O<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Fe<sub>3</sub>O<sub>4</sub></span><br>
+                            При пропускании O<sub>2</sub> через расплав возможно образование FeO:<br>
+                            <span class="reaction">2Fe + O<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2FeO</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="clarification-frame">
+                <strong>Важно для ЕГЭ:</strong> Запомните закономерность — сильные окислители (Cl<sub>2</sub>,
+                Br<sub>2</sub>, HNO<sub>3</sub>) окисляют Fe до <strong>+3</strong>,
+                а слабые (I<sub>2</sub>, S, HCl, разб. H<sub>2</sub>SO<sub>4</sub>) — до <strong>+2</strong>.
+            </div>
+
+            <h3>Взаимодействие со сложными веществами</h3>
+
+            <p><strong>1. С водой:</strong><br>
+                При обычных условиях практически не реагирует. Раскалённое железо (700–900°С) реагирует с водяным паром:
+            </p>
+            <p class="reaction">3Fe + 4H<sub>2</sub>O <span class="reaction-arrow"><span
+                        class="ra-condition">700-900°C</span><span class="ra-symbol">→</span></span>
+                Fe<sub>3</sub>O<sub>4</sub> + 4H<sub>2</sub>↑</p>
+            <p>Во влажном воздухе медленно корродирует (ржавеет):</p>
+            <p class="reaction">4Fe + 3O<sub>2</sub> + 6H<sub>2</sub>O → 4Fe(OH)<sub>3</sub></p>
+
+            <p><strong>2. С кислотами-неокислителями (HCl, разб. H<sub>2</sub>SO<sub>4</sub>):</strong><br>
+                Растворяется с образованием солей Fe<sup>2+</sup> и водорода:</p>
+            <p class="reaction">Fe + 2HCl → FeCl<sub>2</sub> + H<sub>2</sub>↑</p>
+
+            <p><strong>3. С конц. H<sub>2</sub>SO<sub>4</sub>:</strong><br>
+                На холоде — <strong>пассивация</strong>! При нагревании реакция идёт, железо окисляется до +3:</p>
+            <p class="reaction">2Fe + 6H<sub>2</sub>SO<sub>4(конц.)</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + 3SO<sub>2</sub>↑ + 6H<sub>2</sub>O</p>
+
+            <p><strong>4. С азотной кислотой:</strong><br>
+                Холодная концентрированная HNO<sub>3</sub> также <strong>пассивирует</strong> железо. При нагревании:
+            </p>
+            <p class="reaction">Fe + 6HNO<sub>3(конц.)</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Fe(NO<sub>3</sub>)<sub>3</sub> + 3NO<sub>2</sub>↑ + 3H<sub>2</sub>O</p>
+            <p>С разбавленной HNO<sub>3</sub>:</p>
+            <p class="reaction">Fe + 4HNO<sub>3(разб.)</sub> → Fe(NO<sub>3</sub>)<sub>3</sub> + NO↑ + 2H<sub>2</sub>O
+            </p>
+            <p>С очень разбавленной HNO<sub>3</sub> образуется нитрат аммония:</p>
+            <p class="reaction">8Fe + 30HNO<sub>3(оч. разб.)</sub> → 8Fe(NO<sub>3</sub>)<sub>3</sub> +
+                3NH<sub>4</sub>NO<sub>3</sub> + 9H<sub>2</sub>O</p>
+
+            <p><strong>5. С сильными окислителями в щелочной среде:</strong><br>
+                Железо может быть окислено до степени окисления +6 (ферраты):</p>
+            <p class="reaction">Fe + 2KOH + 3KNO<sub>3</sub> <span class="reaction-arrow"><span class="ra-condition">t°,
+                        сплавл.</span><span class="ra-symbol">→</span></span> K<sub>2</sub>FeO<sub>4</sub> +
+                3KNO<sub>2</sub> + H<sub>2</sub>O</p>
+
+            <p><strong>6. С солями менее активных металлов:</strong><br>
+                Железо вытесняет менее активные металлы из растворов их солей:</p>
+            <p class="reaction">Fe + CuSO<sub>4</sub> → FeSO<sub>4</sub> + Cu↓</p>
+
+            <p><strong>7. Взаимодействие Fe с солями Fe<sup>3+</sup>:</strong><br>
+                Металлическое железо восстанавливает Fe<sup>3+</sup> до Fe<sup>2+</sup>:</p>
+            <p class="reaction">2FeCl<sub>3</sub> + Fe → 3FeCl<sub>2</sub></p>
+            <p class="reaction">Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + Fe → 3FeSO<sub>4</sub></p>
+
+            <!-- 7. ОКСИД ЖЕЛЕЗА (II) -->
+            <h2 id="oxide-fe2">7. Оксид железа (II) — FeO</h2>
+            <p>Твёрдое чёрное вещество, нерастворимое в воде. Типичный <strong>основный оксид</strong>. Неустойчив —
+                легко окисляется до соединений Fe(III).</p>
+
+            <h3>Получение</h3>
+            <ul>
+                <li>Частичное восстановление Fe<sub>2</sub>O<sub>3</sub> водородом:<br>
+                    <span class="reaction">Fe<sub>2</sub>O<sub>3</sub> + H<sub>2</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2FeO + H<sub>2</sub>O</span>
+                </li>
+                <li>Частичное восстановление угарным газом:<br>
+                    <span class="reaction">Fe<sub>2</sub>O<sub>3</sub> + CO <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2FeO +
+                        CO<sub>2</sub></span>
+                </li>
+                <li>Восстановление Fe<sub>2</sub>O<sub>3</sub> железом:<br>
+                    <span class="reaction">Fe<sub>2</sub>O<sub>3</sub> + Fe <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3FeO</span>
+                </li>
+                <li>Разложение гидроксида железа (II):<br>
+                    <span class="reaction">Fe(OH)<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> FeO +
+                        H<sub>2</sub>O</span>
+                </li>
+            </ul>
+
+            <h3>Химические свойства</h3>
+            <p>1. <strong>С кислотными оксидами</strong> — образуются соли:</p>
+            <p class="reaction">FeO + SO<sub>3</sub> → FeSO<sub>4</sub></p>
+            <p>2. <strong>С кислотами</strong>:</p>
+            <p class="reaction">FeO + 2HCl → FeCl<sub>2</sub> + H<sub>2</sub>O</p>
+            <p>3. <strong>С водой</strong> не реагирует.</p>
+            <p>4. <strong>Окисление сильными кислотами-окислителями</strong> (Fe<sup>2+</sup> → Fe<sup>3+</sup>):</p>
+            <p class="reaction">FeO + 4HNO<sub>3(конц.)</sub> → Fe(NO<sub>3</sub>)<sub>3</sub> + NO<sub>2</sub>↑ +
+                2H<sub>2</sub>O</p>
+            <p class="reaction">3FeO + 10HNO<sub>3(разб.)</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                3Fe(NO<sub>3</sub>)<sub>3</sub> + NO↑ + 5H<sub>2</sub>O</p>
+            <p>5. <strong>Восстановление</strong> (FeO — слабый окислитель):</p>
+            <p class="reaction">FeO + CO <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> Fe + CO<sub>2</sub></p>
+
+            <!-- 8. ОКСИД ЖЕЛЕЗА (III) -->
+            <h2 id="oxide-fe3">8. Оксид железа (III) — Fe<sub>2</sub>O<sub>3</sub></h2>
+            <p>Твёрдое красно-коричневое вещество, нерастворимое в воде. <strong>Амфотерный оксид</strong> (с
+                преобладанием основных свойств).</p>
+
+            <h3>Получение</h3>
+            <ul>
+                <li>Окисление FeO кислородом:<br>
+                    <span class="reaction">4FeO + O<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        2Fe<sub>2</sub>O<sub>3</sub></span>
+                </li>
+                <li>Разложение гидроксида железа (III):<br>
+                    <span class="reaction">2Fe(OH)<sub>3</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        Fe<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub>O</span>
+                </li>
+            </ul>
+
+            <h3>Химические свойства</h3>
+            <p>1. <strong>С кислотами</strong>:</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + 6HNO<sub>3</sub> → 2Fe(NO<sub>3</sub>)<sub>3</sub> +
+                3H<sub>2</sub>O</p>
+            <p>2. <strong>С щелочами</strong> (в расплаве — проявляет кислотные свойства, образуя ферриты):</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + 2NaOH <span class="reaction-arrow"><span
+                        class="ra-condition">t°, сплавл.</span><span class="ra-symbol">→</span></span>
+                2NaFeO<sub>2</sub> + H<sub>2</sub>O</p>
+            <p>3. <strong>С водой</strong> не реагирует.</p>
+            <p>4. <strong>Окисление до ферратов</strong> сильными окислителями в щелочной среде:</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + 3KNO<sub>3</sub> + 4KOH <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                2K<sub>2</sub>FeO<sub>4</sub> + 3KNO<sub>2</sub> + 2H<sub>2</sub>O</p>
+            <p>5. <strong>Восстановление</strong> (окислительные свойства):</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + 3CO <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Fe + 3CO<sub>2</sub></p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Fe + 3H<sub>2</sub>O</p>
+            <p>Алюмотермия:</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + 2Al <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Fe +
+                Al<sub>2</sub>O<sub>3</sub></p>
+            <p>Восстановление железом (только до FeO):</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + Fe <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3FeO</p>
+            <p>6. <strong>Вытеснение летучих оксидов</strong> из солей при сплавлении:</p>
+            <p class="reaction">Fe<sub>2</sub>O<sub>3</sub> + Na<sub>2</sub>CO<sub>3</sub> <span
+                    class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                2NaFeO<sub>2</sub> + CO<sub>2</sub>↑</p>
+
+            <!-- 9. ОКСИД ЖЕЛЕЗА (II, III) -->
+            <h2 id="oxide-fe34">9. Оксид железа (II, III) — Fe<sub>3</sub>O<sub>4</sub> (железная окалина)</h2>
+            <p>Твёрдое чёрное вещество, нерастворимое в воде. Представляет собой <strong>смешанный оксид</strong>
+                (FeO·Fe<sub>2</sub>O<sub>3</sub>), сочетающий свойства обоих оксидов. В природе — минерал
+                <strong>магнетит</strong>.
+            </p>
+
+            <h3>Получение</h3>
+            <ul>
+                <li>Горение железа на воздухе:<br>
+                    <span class="reaction">3Fe + 2O<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        Fe<sub>3</sub>O<sub>4</sub></span>
+                </li>
+                <li>Реакция раскалённого железа с водяным паром:<br>
+                    <span class="reaction">3Fe + 4H<sub>2</sub>O<sub>(пар)</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        Fe<sub>3</sub>O<sub>4</sub> + 4H<sub>2</sub>↑</span>
+                </li>
+            </ul>
+
+            <h3>Химические свойства</h3>
+            <p>1. <strong>С кислотами</strong> — образуются <strong>две соли</strong> (Fe<sup>2+</sup> и
+                Fe<sup>3+</sup>):</p>
+            <p class="reaction">Fe<sub>3</sub>O<sub>4</sub> + 8HCl → FeCl<sub>2</sub> + 2FeCl<sub>3</sub> +
+                4H<sub>2</sub>O</p>
+            <p>2. <strong>С кислотами-окислителями</strong> (всё железо окисляется до +3):</p>
+            <p class="reaction">Fe<sub>3</sub>O<sub>4</sub> + 10HNO<sub>3(конц.)</sub> → 3Fe(NO<sub>3</sub>)<sub>3</sub>
+                + NO<sub>2</sub>↑ + 5H<sub>2</sub>O</p>
+            <p class="reaction">2Fe<sub>3</sub>O<sub>4</sub> + 10H<sub>2</sub>SO<sub>4(конц.)</sub> →
+                3Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + SO<sub>2</sub>↑ + 10H<sub>2</sub>O</p>
+            <p>Окисление кислородом:</p>
+            <p class="reaction">4Fe<sub>3</sub>O<sub>4</sub> + O<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                6Fe<sub>2</sub>O<sub>3</sub></p>
+            <p>3. <strong>Восстановление</strong>:</p>
+            <p class="reaction">Fe<sub>3</sub>O<sub>4</sub> + 4CO <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3Fe + 4CO<sub>2</sub></p>
+            <p class="reaction">Fe<sub>3</sub>O<sub>4</sub> + 4H<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3Fe + 4H<sub>2</sub>O</p>
+            <p>Алюмотермия:</p>
+            <p class="reaction">3Fe<sub>3</sub>O<sub>4</sub> + 8Al <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 9Fe +
+                4Al<sub>2</sub>O<sub>3</sub></p>
+            <p>С йодоводородом (восстановитель HI сначала восстанавливает Fe<sup>3+</sup> до Fe<sup>2+</sup>):</p>
+            <p class="reaction">Fe<sub>3</sub>O<sub>4</sub> + 8HI → 3FeI<sub>2</sub> + I<sub>2</sub> + 4H<sub>2</sub>O
+            </p>
+
+            <!-- 10. ГИДРОКСИД ЖЕЛЕЗА (II) -->
+            <h2 id="hydroxide-fe2">10. Гидроксид железа (II) — Fe(OH)<sub>2</sub></h2>
+            <p>Белый (серо-зелёный на практике) студенистый осадок. <strong>Основный гидроксид</strong>. Слабое
+                основание, нерастворимое в воде. На воздухе быстро буреет, окисляясь до Fe(OH)<sub>3</sub>.</p>
+
+            <h3>Получение</h3>
+            <ul>
+                <li>Действие щёлочи на соли Fe(II):<br>
+                    <span class="reaction">FeCl<sub>2</sub> + 2KOH → Fe(OH)<sub>2</sub>↓ + 2KCl</span>
+                </li>
+                <li>Действие раствора аммиака на соли Fe(II):<br>
+                    <span class="reaction">FeCl<sub>2</sub> + 2NH<sub>3</sub> + 2H<sub>2</sub>O → Fe(OH)<sub>2</sub>↓ +
+                        2NH<sub>4</sub>Cl</span>
+                </li>
+            </ul>
+
+            <h3>Химические свойства</h3>
+            <p>1. <strong>С кислотами</strong> (основные свойства):</p>
+            <p class="reaction">Fe(OH)<sub>2</sub> + 2HCl → FeCl<sub>2</sub> + 2H<sub>2</sub>O</p>
+            <p class="reaction">Fe(OH)<sub>2</sub> + H<sub>2</sub>SO<sub>4</sub> → FeSO<sub>4</sub> + 2H<sub>2</sub>O
+            </p>
+            <p>2. <strong>С кислотными оксидами сильных кислот</strong>:</p>
+            <p class="reaction">Fe(OH)<sub>2</sub> + SO<sub>3</sub> → FeSO<sub>4</sub> + 2H<sub>2</sub>O</p>
+            <p>3. <strong>Восстановительные свойства</strong> — легко окисляется до Fe(III):</p>
+            <p class="reaction">4Fe(OH)<sub>2</sub> + O<sub>2</sub> + 2H<sub>2</sub>O → 4Fe(OH)<sub>3</sub>↓</p>
+            <p class="reaction">2Fe(OH)<sub>2</sub> + H<sub>2</sub>O<sub>2</sub> → 2Fe(OH)<sub>3</sub></p>
+            <p>При растворении в кислотах-окислителях образуются соли Fe(III):</p>
+            <p class="reaction">2Fe(OH)<sub>2</sub> + 4H<sub>2</sub>SO<sub>4(конц.)</sub> →
+                Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + SO<sub>2</sub>↑ + 6H<sub>2</sub>O</p>
+            <p>4. <strong>Разложение при нагревании:</strong></p>
+            <p class="reaction">Fe(OH)<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> FeO + H<sub>2</sub>O</p>
+
+            <!-- 11. ГИДРОКСИД ЖЕЛЕЗА (III) -->
+            <h2 id="hydroxide-fe3">11. Гидроксид железа (III) — Fe(OH)<sub>3</sub></h2>
+            <p>Бурый аморфный осадок, нерастворимый в воде. <strong>Амфотерный гидроксид</strong> с преобладанием
+                основных свойств. Кислотные свойства проявляет только при сплавлении с щелочами.</p>
+
+            <h3>Получение</h3>
+            <ul>
+                <li>Действие щёлочи на соли Fe(III):<br>
+                    <span class="reaction">FeCl<sub>3</sub> + 3KOH → Fe(OH)<sub>3</sub>↓ + 3KCl</span>
+                </li>
+                <li>Действие раствора аммиака:<br>
+                    <span class="reaction">FeCl<sub>3</sub> + 3NH<sub>3</sub> + 3H<sub>2</sub>O → Fe(OH)<sub>3</sub>↓ +
+                        3NH<sub>4</sub>Cl</span>
+                </li>
+                <li>Окисление Fe(OH)<sub>2</sub>:<br>
+                    <span class="reaction">4Fe(OH)<sub>2</sub> + O<sub>2</sub> + 2H<sub>2</sub>O →
+                        4Fe(OH)<sub>3</sub>↓</span>
+                </li>
+                <li>Необратимый гидролиз при взаимодействии солей Fe(III) с карбонатами:<br>
+                    <span class="reaction">2FeCl<sub>3</sub> + 3Na<sub>2</sub>CO<sub>3</sub> + 3H<sub>2</sub>O →
+                        2Fe(OH)<sub>3</sub>↓ + 3CO<sub>2</sub>↑ + 6NaCl</span>
+                </li>
+            </ul>
+
+            <div class="clarification-frame">
+                <strong>Важно для ЕГЭ:</strong> Карбонат и сульфит железа (III) <strong>не существуют</strong> в водном
+                растворе — они полностью и необратимо гидролизуются с образованием Fe(OH)<sub>3</sub>↓ и
+                соответствующего газа (CO<sub>2</sub> или SO<sub>2</sub>). Но с сульфитами чаще записывают
+                <strong>ОВР</strong> — Fe<sup>3+</sup> окисляет SO<sub>3</sub><sup>2−</sup>.
+            </div>
+
+            <h3>Химические свойства</h3>
+            <p>1. <strong>С кислотами</strong> (основные свойства):</p>
+            <p class="reaction">Fe(OH)<sub>3</sub> + 3HCl → FeCl<sub>3</sub> + 3H<sub>2</sub>O</p>
+            <p class="reaction">Fe(OH)<sub>3</sub> + 3HNO<sub>3</sub> → Fe(NO<sub>3</sub>)<sub>3</sub> + 3H<sub>2</sub>O
+            </p>
+            <p class="reaction">2Fe(OH)<sub>3</sub> + 3H<sub>2</sub>SO<sub>4</sub> →
+                Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + 6H<sub>2</sub>O</p>
+            <p>2. <strong>С кислотными оксидами сильных кислот</strong>:</p>
+            <p class="reaction">2Fe(OH)<sub>3</sub> + 3SO<sub>3</sub> → Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> +
+                3H<sub>2</sub>O</p>
+            <p>3. <strong>С щелочами</strong> (кислотные свойства — только при сплавлении!):</p>
+            <p class="reaction">Fe(OH)<sub>3</sub> + KOH <span class="reaction-arrow"><span class="ra-condition">t°,
+                        сплавл.</span><span class="ra-symbol">→</span></span> KFeO<sub>2</sub> + 2H<sub>2</sub>O</p>
+            <p>4. <strong>Разложение при нагревании:</strong></p>
+            <p class="reaction">2Fe(OH)<sub>3</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Fe<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub>O</p>
+
+            <!-- 12. СОЛИ ЖЕЛЕЗА -->
+            <h2 id="salts">12. Соли железа</h2>
+
+            <h3>Термическое разложение нитратов</h3>
+            <p>Нитраты железа разлагаются по общей схеме нитратов металлов средней активности — до оксида металла,
+                NO<sub>2</sub> и O<sub>2</sub>:</p>
+            <p class="reaction">4Fe(NO<sub>3</sub>)<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                2Fe<sub>2</sub>O<sub>3</sub> + 8NO<sub>2</sub>↑ + O<sub>2</sub>↑</p>
+            <p class="reaction">4Fe(NO<sub>3</sub>)<sub>3</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                2Fe<sub>2</sub>O<sub>3</sub> + 12NO<sub>2</sub>↑ + 3O<sub>2</sub>↑</p>
+
+            <h3>Гидролиз солей железа</h3>
+            <p>Растворимые соли железа (III), образованные сильными кислотами, гидролизуются ступенчато по катиону
+                (среда кислая). Карбонаты и сульфиты Fe(III) гидролизуются <strong>необратимо</strong>:</p>
+            <p class="reaction">2FeCl<sub>3</sub> + 3Na<sub>2</sub>CO<sub>3</sub> + 3H<sub>2</sub>O →
+                2Fe(OH)<sub>3</sub>↓ + 6NaCl + 3CO<sub>2</sub>↑</p>
+            <p class="reaction">Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + 3K<sub>2</sub>CO<sub>3</sub> +
+                3H<sub>2</sub>O → 2Fe(OH)<sub>3</sub>↓ + 3CO<sub>2</sub>↑ + 3K<sub>2</sub>SO<sub>4</sub></p>
+            <p>Взаимодействие солей Fe(III) с сульфитами — <strong>ОВР</strong> (Fe<sup>3+</sup> окисляет
+                SO<sub>3</sub><sup>2−</sup>):</p>
+            <p class="reaction">2FeCl<sub>3</sub> + Na<sub>2</sub>SO<sub>3</sub> + H<sub>2</sub>O → 2FeCl<sub>2</sub> +
+                Na<sub>2</sub>SO<sub>4</sub> + 2HCl</p>
+
+            <h3>Окислительные свойства солей Fe(III)</h3>
+            <p>Соединения Fe<sup>3+</sup> проявляют довольно сильные окислительные свойства — сами восстанавливаются до
+                Fe<sup>2+</sup>.</p>
+
+            <p><strong>С сульфидами:</strong></p>
+            <p class="reaction">2FeCl<sub>3</sub> + 3Na<sub>2</sub>S → 2FeS + S + 6NaCl</p>
+            <p class="reaction">2FeCl<sub>3</sub> + H<sub>2</sub>S → 2FeCl<sub>2</sub> + S↓ + 2HCl</p>
+
+            <p><strong>С йодидами:</strong></p>
+            <p class="reaction">2FeCl<sub>3</sub> + 2KI → 2FeCl<sub>2</sub> + I<sub>2</sub> + 2KCl</p>
+
+            <p><strong>С металлами:</strong><br>
+                Соли Fe(III) могут реагировать даже с металлами, стоящими <em>после</em> железа в ряду активности
+                (вплоть до меди включительно), восстанавливаясь до Fe<sup>2+</sup>:</p>
+            <p class="reaction">2FeCl<sub>3</sub> + Cu → 2FeCl<sub>2</sub> + CuCl<sub>2</sub></p>
+            <p>Более активные металлы (левее Fe в ряду активности) восстанавливают железо до простого вещества:</p>
+            <p class="reaction">2Fe(NO<sub>3</sub>)<sub>3</sub> + 3Zn → 2Fe + 3Zn(NO<sub>3</sub>)<sub>2</sub></p>
+
+            <div class="clarification-frame">
+                <strong>Лайфхак для ЕГЭ:</strong> Fe<sup>3+</sup> — окислитель «средней силы». Он окисляет Cu,
+                I<sup>−</sup>, S<sup>2−</sup>, SO<sub>3</sub><sup>2−</sup>. Но <strong>не окисляет</strong>
+                Br<sup>−</sup> и Cl<sup>−</sup>! Запомните: FeCl<sub>3</sub> растворяет медные платы — именно на этом
+                основано травление печатных плат.
+            </div>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../manganese/manganese.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Марганец
+                </a>
+                <a href="../copper-silver-gold/copper_silver_gold.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Медь, серебро и золото →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+            <div
+                style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+                <a href="../../../index.html"
+                    style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+                <span style="color: #ddd;">·</span>
+                    <a href="../../../1 глава/theory.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../tests/periodic_law_test.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../variants.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../courses.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../dashboard.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+                </div>
+                <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+            </footer>
+
+        </main>
+
+</body>
+
+</html>

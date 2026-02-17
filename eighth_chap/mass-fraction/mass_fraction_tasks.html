@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчетные задачи на растворы (Задание 26) | ХимПодготовка</title>
+    <meta name="description"
+        content="Алгоритм решения задач на массовую долю вещества в растворе. Метод стаканчиков. Примеры задач с решениями. Подготовка к ЕГЭ по химии.">
+    <link rel="stylesheet" href="../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+
+        .task-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+
+        .task-header {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .task-badge {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .solution-step {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        details>summary {
+            cursor: pointer;
+            color: #1976d2;
+            font-weight: bold;
+            user-select: none;
+            outline: none;
+        }
+
+        details>summary:hover {
+            text-decoration: underline;
+        }
+
+        details[open]>summary {
+            margin-bottom: 15px;
+        }
+
+        .calc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        .calc-table th,
+        .calc-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .calc-table th {
+            background-color: #f1f8e9;
+            color: #33691e;
+        }
+
+        .calc-table .highlight-row {
+            background-color: #fffde7;
+        }
+
+        .calc-table .result-cell {
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .algorithm-box {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #b2ebf2;
+        }
+
+        .algorithm-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Beaker Visualization Styles */
+        .beaker-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .beaker-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .beaker {
+            width: 80px;
+            height: 100px;
+            border: 3px solid #555;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            background: linear-gradient(to top, #e3f2fd 0%, #e3f2fd 70%, transparent 70%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 10px;
+            font-size: 0.85em;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        .beaker.water {
+            background: linear-gradient(to top, #e0f7fa 0%, #e0f7fa 70%, transparent 70%);
+            color: #006064;
+        }
+
+        .beaker.salt {
+            background: linear-gradient(to top, #fff9c4 0%, #fff9c4 30%, transparent 30%);
+            color: #f57f17;
+            height: 60px;
+            /* Smaller container for solid */
+            border: 3px solid #f57f17;
+            border-top: none;
+        }
+
+        .beaker-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .math-sign {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .formula-box {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#algorithm">Алгоритм решения</a></li>
+                <li><a href="#task1">Задача 1 (Смешивание)</a></li>
+                <li><a href="#task2">Задача 2 (Добавление соли)</a></li>
+                <li><a href="#task3">Задача 3 (Выпаривание)</a></li>
+                <li><a href="#task4">Задача 4 (Разбавление)</a></li>
+                <li><a href="#task5">Задача 5 (Кристаллогидрат)</a></li>
+                <li><a href="#task6">Задача 6 (Растворимость)</a></li>
+                <li><a href="#task7">Задача 7 (Плотность)</a></li>
+                <li><a href="#task8">Задача 8 (Сколько выпарить?)</a></li>
+                <li><a href="#task9">Задача 9 (Сколько добавить?)</a></li>
+                <li><a href="#task10">Задача 10 (Сложное смешивание)</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Главная</a> <span>/</span>
+                <a href="../../1 глава/theory.html">Теория</a> <span>/</span>
+                <a href="#">Глава 8</a> <span>/</span>
+                Задачи на растворы (Задание 26)
+            </div>
+
+            <h1>Расчетные задачи на растворы (Задание 26)</h1>
+
+            <div class="info-box">
+                <p><strong>В задании 26</strong> проверяется умение проводить расчеты с использованием понятия «массовая
+                    доля вещества в растворе». Задачи могут быть на смешивание растворов, разбавление, концентрирование
+                    или выпаривание.</p>
+            </div>
+
+            <!-- ==================== АЛГОРИТМ ==================== -->
+            <h2 id="algorithm">Алгоритм решения (Метод стаканчиков)</h2>
+
+            <div class="algorithm-box">
+                <h3>🧪 Правило смешивания</h3>
+                <p>Основные формулы, используемые для решения:</p>
+
+                <div class="formula-box" style="text-align: left; padding-left: 40px;">
+                    <p style="margin: 10px 0;">
+                        1. Массовая доля компонента:<br>
+                        <span style="font-size: 1.2em;">ω = <span
+                                style="display: inline-block; vertical-align: middle; text-align: center;">
+                                <span style="display: block; border-bottom: 1px solid black;">m (компонента)</span>
+                                <span style="display: block;">m (всей смеси)</span>
+                            </span> · 100%</span>
+                    </p>
+                    <p style="margin: 10px 0;">
+                        2. Массовая доля вещества в растворе:<br>
+                        <span style="font-size: 1.2em; color: #1976d2;">ω(вещества) = <span
+                                style="display: inline-block; vertical-align: middle; text-align: center;">
+                                <span style="display: block; border-bottom: 1px solid black;">m (вещества)</span>
+                                <span style="display: block;">m (раствора)</span>
+                            </span> · 100%</span>
+                    </p>
+                </div>
+
+                <p>Также удобно использовать правило смешивания (для проверки или быстрого счета):</p>
+                <div class="formula-box">
+                    m₁·ω₁ + m₂·ω₂ = m₃·ω₃
+                </div>
+
+                <p>Где:</p>
+                <ul class="algorithm-list">
+                    <li><strong>m₁</strong> и <strong>m₂</strong> — массы смешиваемых растворов (или веществ).</li>
+                    <li><strong>ω₁</strong> и <strong>ω₂</strong> — их массовые доли (в долях единицы, не в %!).</li>
+                    <li><strong>m₃</strong> = m₁ + m₂ — масса конечного раствора.</li>
+                    <li><strong>ω₃</strong> — массовая доля в конечном растворе.</li>
+                </ul>
+
+                <p><strong>Важные частные случаи:</strong></p>
+                <ul>
+                    <li>Если добавляем <strong>чистую воду</strong>: ω = 0.</li>
+                    <li>Если добавляем <strong>чистое вещество (соль)</strong>: ω = 1 (или 100%).</li>
+                    <li>Если <strong>выпариваем воду</strong>: ставим знак «минус» перед слагаемым с водой.</li>
+                </ul>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 1 ==================== -->
+            <div class="task-card" id="task1">
+                <div class="task-header">
+                    <span class="task-badge">Пример 1</span>
+                    Смешивание двух растворов
+                </div>
+                <p>Смешали 120 г раствора с массовой долей соли 15% и 80 г раствора с массовой долей той же соли 20%.
+                    Вычислите массовую долю соли в полученном растворе (в процентах).</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>15%</div>
+                                        <div>120 г</div>
+                                    </div>
+                                    <div class="beaker-label">Раствор 1</div>
+                                </div>
+                                <div class="math-sign">+</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>20%</div>
+                                        <div>80 г</div>
+                                    </div>
+                                    <div class="beaker-label">Раствор 2</div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>X %</div>
+                                        <div>200 г</div>
+                                    </div>
+                                    <div class="beaker-label">Итог</div>
+                                </div>
+                            </div>
+
+                            <p><strong>1. Найдем массу чистого вещества в каждом растворе:</strong></p>
+                            <ul>
+                                <li>m(в-ва)₁ = 120 · 0.15 = <strong>18 г</strong></li>
+                                <li>m(в-ва)₂ = 80 · 0.20 = <strong>16 г</strong></li>
+                            </ul>
+
+                            <p><strong>2. Найдем параметры итогового раствора:</strong></p>
+                            <ul>
+                                <li>Масса раствора (m₃) = 120 + 80 = <strong>200 г</strong></li>
+                                <li>Масса вещества (m₃ в-ва) = 18 + 16 = <strong>34 г</strong></li>
+                            </ul>
+
+                            <p><strong>3. Вычислим итоговую массовую долю:</strong></p>
+                            <p>ω₃ = 34 / 200 = 0.17</p>
+                            <p>В процентах: 0.17 · 100% = <strong>17%</strong></p>
+
+                            <p><strong>Ответ:</strong> 17</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 2 ==================== -->
+            <div class="task-card" id="task2">
+                <div class="task-header">
+                    <span class="task-badge">Пример 2</span>
+                    Добавление вещества (концентрирование)
+                </div>
+                <p>К 180 г раствора с массовой долей соли 8% добавили 20 г этой же соли. Вычислите массовую долю соли в
+                    полученном растворе.</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>8%</div>
+                                        <div>180 г</div>
+                                    </div>
+                                    <div class="beaker-label">Раствор</div>
+                                </div>
+                                <div class="math-sign">+</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker salt">
+                                        <div style="color: #bf360c;">100%</div>
+                                        <div style="color: #bf360c;">20 г</div>
+                                    </div>
+                                    <div class="beaker-label">Соль</div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>X %</div>
+                                        <div>200 г</div>
+                                    </div>
+                                    <div class="beaker-label">Итог</div>
+                                </div>
+                            </div>
+
+                            <p><strong>1. Найдем массу вещества в исходном растворе:</strong></p>
+                            <ul>
+                                <li>m(в-ва)₁ = 180 · 0.08 = <strong>14.4 г</strong></li>
+                            </ul>
+
+                            <p><strong>2. Учтем добавленную соль:</strong></p>
+                            <ul>
+                                <li>Добавили 20 г чистой соли. Это значит, что масса вещества увеличилась на 20 г.</li>
+                                <li>Масса раствора тоже увеличилась на 20 г!</li>
+                            </ul>
+
+                            <p><strong>3. Итоговый раствор:</strong></p>
+                            <ul>
+                                <li>m(р-ра)₂ = 180 + 20 = <strong>200 г</strong></li>
+                                <li>m(в-ва)₂ = 14.4 + 20 = <strong>34.4 г</strong></li>
+                            </ul>
+
+                            <p><strong>4. Расчет массовой доли:</strong></p>
+                            <p>ω₂ = 34.4 / 200 = 0.172</p>
+                            <p>В процентах: <strong>17.2%</strong></p>
+
+                            <p><strong>Ответ:</strong> 17.2</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 3 ==================== -->
+            <div class="task-card" id="task3">
+                <div class="task-header">
+                    <span class="task-badge">Пример 3</span>
+                    Выпаривание воды
+                </div>
+                <p>Из 500 г раствора с массовой долей соли 10% выпарили 100 г воды. Чему стала равна массовая доля соли
+                    в растворе?</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>10%</div>
+                                        <div>500 г</div>
+                                    </div>
+                                    <div class="beaker-label">Раствор</div>
+                                </div>
+                                <div class="math-sign">–</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker water">
+                                        <div>Вода</div>
+                                        <div>100 г</div>
+                                    </div>
+                                    <div class="beaker-label">Пары воды</div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>X %</div>
+                                        <div>400 г</div>
+                                    </div>
+                                    <div class="beaker-label">Итог</div>
+                                </div>
+                            </div>
+
+                            <p><strong>Ответ:</strong> 12.5</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 4 ==================== -->
+            <div class="task-card" id="task4">
+                <div class="task-header">
+                    <span class="task-badge">Пример 4</span>
+                    Разбавление водой
+                </div>
+                <p>К 150 г раствора с массовой долей соли 20% добавили 50 мл воды. Вычислите массовую долю соли в
+                    полученном растворе (в процентах, с точностью до целых).</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>20%</div>
+                                        <div>150 г</div>
+                                    </div>
+                                    <div class="beaker-label">Раствор</div>
+                                </div>
+                                <div class="math-sign">+</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker water">
+                                        <div>Вода</div>
+                                        <div>50 г</div>
+                                    </div>
+                                    <div class="beaker-label">Вода</div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>X %</div>
+                                        <div>200 г</div>
+                                    </div>
+                                    <div class="beaker-label">Итог</div>
+                                </div>
+                            </div>
+                            <p><strong>Пояснение:</strong> Плотность воды ρ ≈ 1 г/мл, поэтому 50 мл = 50 г. Массовая
+                                доля вещества в воде = 0%.</p>
+                            <ul>
+                                <li>m(в-ва) = 150 · 0.20 = <strong>30 г</strong> (не изменилась).</li>
+                                <li>m(р-ра)₂ = 150 + 50 = <strong>200 г</strong>.</li>
+                                <li>ω₂ = 30 / 200 = 0.15 → <strong>15%</strong>.</li>
+                            </ul>
+                            <p><strong>Ответ:</strong> 15</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 5 ==================== -->
+            <div class="task-card" id="task5">
+                <div class="task-header">
+                    <span class="task-badge">Пример 5</span>
+                    Кристаллогидрат
+                </div>
+                <p>Вычислите массовую долю сульфата меди(II) в растворе, полученном при растворении 25 г медного
+                    купороса (CuSO₄·5H₂O) в 175 г воды. Ответ дайте в процентах.</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <p><strong>Важно:</strong> Кристаллогидрат — это "соль в упаковке из воды". Нужно найти,
+                                сколько чистой соли (CuSO₄) содержится в 25 г кристаллогидрата.</p>
+                            <p>M(CuSO₄) = 64 + 32 + 4·16 = 160 г/моль.<br>
+                                M(CuSO₄·5H₂O) = 160 + 5·18 = 250 г/моль.</p>
+
+                            <p><strong>1. Найдем долю чистой соли в кристаллогидрате:</strong><br>
+                                ω(соли) = 160 / 250 = 0.64 (или 64%).</p>
+
+                            <p><strong>2. Найдем массу чистой соли:</strong><br>
+                                m(CuSO₄) = 25 г · 0.64 = <strong>16 г</strong>.</p>
+
+                            <p><strong>3. Найдем массу всего раствора:</strong><br>
+                                m(р-ра) = m(кристаллогидрата) + m(воды) = 25 + 175 = <strong>200 г</strong>.</p>
+
+                            <p><strong>4. Итоговая массовая доля:</strong><br>
+                                ω = 16 / 200 = 0.08 → <strong>8%</strong>.</p>
+
+                            <p><strong>Ответ:</strong> 8</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 6 ==================== -->
+            <div class="task-card" id="task6">
+                <div class="task-header">
+                    <span class="task-badge">Пример 6</span>
+                    Растворимость
+                </div>
+                <p>Коэффициент растворимости соли при некоторой температуре составляет 35 г на 100 г воды. Вычислите
+                    массовую долю соли в насыщенном растворе при этой температуре (в %, с точностью до десятых).</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker salt">
+                                        <div>35 г</div>
+                                    </div>
+                                    <div class="beaker-label">Соль</div>
+                                </div>
+                                <div class="math-sign">+</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker water">
+                                        <div>100 г</div>
+                                    </div>
+                                    <div class="beaker-label">Вода</div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>X %</div>
+                                        <div>135 г</div>
+                                    </div>
+                                    <div class="beaker-label">Насыщ. р-р</div>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>Масса вещества = 35 г.</li>
+                                <li>Масса раствора = масса воды + масса вещества = 100 + 35 = <strong>135 г</strong>.
+                                </li>
+                                <li>ω = 35 / 135 ≈ 0.25925...</li>
+                                <li>В процентах: 25.925...% ≈ <strong>25.9%</strong>.</li>
+                            </ul>
+                            <p><strong>Ответ:</strong> 25.9</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 7 ==================== -->
+            <div class="task-card" id="task7">
+                <div class="task-header">
+                    <span class="task-badge">Пример 7</span>
+                    Использование плотности
+                </div>
+                <p>Имеется 200 мл раствора кислоты с плотностью 1.1 г/мл и массовой долей вещества 15%. Вычислите массу
+                    кислоты (вещества) в граммах.</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <p><strong>1. Найдем массу раствора через плотность:</strong><br>
+                                m(р-ра) = V · ρ = 200 мл · 1.1 г/мл = <strong>220 г</strong>.</p>
+
+                            <p><strong>2. Найдем массу чистого вещества:</strong><br>
+                                m(в-ва) = m(р-ра) · ω = 220 г · 0.15 = <strong>33 г</strong>.</p>
+
+                            <p><strong>Ответ:</strong> 33</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 8 ==================== -->
+            <div class="task-card" id="task8">
+                <div class="task-header">
+                    <span class="task-badge">Пример 8</span>
+                    Сколько воды выпарить?
+                </div>
+                <p>Сколько граммов воды нужно выпарить из 400 г 10%-го раствора соли, чтобы довести массовую долю соли
+                    до 20%?</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>10%</div>
+                                        <div>400 г</div>
+                                    </div>
+                                    <div class="beaker-label">Раствор</div>
+                                </div>
+                                <div class="math-sign">–</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker water">
+                                        <div>Вода</div>
+                                        <div>X г</div>
+                                    </div>
+                                    <div class="beaker-label">Вода</div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>20%</div>
+                                        <div>(400-X) г</div>
+                                    </div>
+                                    <div class="beaker-label">Итог</div>
+                                </div>
+                            </div>
+                            <p>Пусть <strong>X</strong> — масса выпаренной воды.</p>
+                            <ul>
+                                <li><strong>Было:</strong> 400 г раствора, в нем 400 · 0.10 = <strong>40 г
+                                        соли</strong>.</li>
+                                <li><strong>Стало:</strong>
+                                    <ul>
+                                        <li>Масса соли не изменилась (40 г).</li>
+                                        <li>Масса раствора уменьшилась: (400 - X) г.</li>
+                                        <li>Новая доля 20% (0.2).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p><strong>Уравнение:</strong><br>
+                                0.2 = 40 / (400 - X)</p>
+                            <p>400 - X = 40 / 0.2<br>
+                                400 - X = 200<br>
+                                X = 200 г.</p>
+                            <p><strong>Ответ:</strong> 200</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 9 ==================== -->
+            <div class="task-card" id="task9">
+                <div class="task-header">
+                    <span class="task-badge">Пример 9</span>
+                    Сколько соли добавить?
+                </div>
+                <p>Сколько граммов соли нужно добавить к 200 г 5%-го раствора, чтобы массовая доля соли стала равна 10%?
+                    (Ответ округлите до десятых).</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>5%</div>
+                                        <div>200 г</div>
+                                    </div>
+                                    <div class="beaker-label">Раствор</div>
+                                </div>
+                                <div class="math-sign">+</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker salt">
+                                        <div style="color: #bf360c;">100%</div>
+                                        <div style="color: #bf360c;">X г</div>
+                                    </div>
+                                    <div class="beaker-label">Соль</div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>10%</div>
+                                        <div>(200+X) г</div>
+                                    </div>
+                                    <div class="beaker-label">Итог</div>
+                                </div>
+                            </div>
+                            <p>Пусть <strong>X</strong> — масса добавленной соли.</p>
+                            <ul>
+                                <li><strong>Было:</strong> 200 г раствора, в нем 200 · 0.05 = <strong>10 г
+                                        соли</strong>.</li>
+                                <li><strong>Стало:</strong>
+                                    <ul>
+                                        <li>Масса соли увеличилась: (10 + X) г.</li>
+                                        <li>Масса раствора тоже увеличилась: (200 + X) г.</li>
+                                        <li>Новая доля 10% (0.1).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p><strong>Уравнение:</strong><br>
+                                0.1 = (10 + X) / (200 + X)<br>
+                                0.1 · (200 + X) = 10 + X<br>
+                                20 + 0.1X = 10 + X<br>
+                                10 = 0.9X<br>
+                                X = 10 / 0.9 ≈ 11.11...</p>
+                            <p><strong>Ответ:</strong> 11.1</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ==================== ЗАДАЧА 10 ==================== -->
+            <div class="task-card" id="task10">
+                <div class="task-header">
+                    <span class="task-badge">Пример 10</span>
+                    Сложное смешивание
+                </div>
+                <p>Смешали 100 г 10%-го раствора соли, 200 г 20%-го раствора той же соли и 50 мл воды. Вычислите
+                    массовую долю соли в полученном растворе (в %, с точностью до десятых).</p>
+
+                <div class="solution-step">
+                    <details>
+                        <summary>Показать решение</summary>
+                        <div>
+                            <div class="beaker-container">
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>10%</div>
+                                        <div>100г</div>
+                                    </div>
+                                </div>
+                                <div class="math-sign">+</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>20%</div>
+                                        <div>200г</div>
+                                    </div>
+                                </div>
+                                <div class="math-sign">+</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker water">
+                                        <div>Вода</div>
+                                        <div>50г</div>
+                                    </div>
+                                </div>
+                                <div class="math-sign">=</div>
+                                <div class="beaker-wrapper">
+                                    <div class="beaker">
+                                        <div>X %</div>
+                                        <div>?</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p><strong>1. Считаем массу соли (в-ва):</strong></p>
+                            <ul>
+                                <li>Из 1-го р-ра: 100 · 0.1 = 10 г</li>
+                                <li>Из 2-го р-ра: 200 · 0.2 = 40 г</li>
+                                <li>Из воды: 0 г</li>
+                                <li><strong>Итого соли:</strong> 10 + 40 = <strong>50 г</strong>.</li>
+                            </ul>
+
+                            <p><strong>2. Считаем массу всего раствора:</strong></p>
+                            <p>m(итог) = 100 + 200 + 50 = <strong>350 г</strong>.</p>
+
+                            <p><strong>3. Считаем долю:</strong></p>
+                            <p>ω = 50 / 350 ≈ 0.1428...</p>
+                            <p>В процентах: <strong>14.3%</strong></p>
+
+                            <p><strong>Ответ:</strong> 14.3</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        навыки решения задач на массовую долю. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../tests/mass_fraction_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../equilibrium-tasks/chemical_equilibrium_tasks.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Задачи на равновесие
+                </a>
+                <a href="../thermochemical/thermochemical_tasks.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Термохимические задачи →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../first_chap/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

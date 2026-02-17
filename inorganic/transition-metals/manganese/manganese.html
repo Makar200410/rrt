@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Марганец и его соединения | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        .color-box {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+        .color-green {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #1b5e20;
+        }
+
+        .color-pink {
+            background-color: #fce4ec;
+            border-left: 4px solid #e91e63;
+            color: #880e4f;
+        }
+
+        .color-violet {
+            background-color: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            color: #4a148c;
+        }
+
+        .color-blue {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #0d47a1;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#structure" class="active">1. Строение атома</a></li>
+                <li><a href="#physical">2. Физические свойства</a></li>
+                <li><a href="#production">3. Получение</a></li>
+                <li><a href="#chemical-prop">4. Свойства простого вещества</a></li>
+                <li><a href="#compounds-oxide">5. Оксиды марганца</a></li>
+                <li><a href="#compounds-hydroxide">6. Гидроксиды марганца</a></li>
+                <li><a href="#compounds-salts">7. Соли марганца</a></li>
+                <li><a href="#qualitative">8. Качественные реакции</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a href="#">Неорганическая химия</a>
+                <span>/</span> <a href="#">Металлы</a> <span>/</span> Марганец
+            </div>
+
+            <h1>Марганец</h1>
+            <p class="subtitle">Элемент побочной подгруппы VII группы: король перманганатов</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Марганец проявляет переменные степени окисления: <strong>+2, +4,
+                        +6, +7</strong>.
+                    Соединения Mn(II) — основные, MnO<sub>2</sub> — амфотерный оксид, Mn(VII) — сильнейший
+                    окислитель (перманганаты). Продукты восстановления KMnO<sub>4</sub> зависят от среды!</p>
+            </div>
+
+            <h2 id="structure">1. Строение и положение в ПС</h2>
+            <p>Марганец (<strong>Mn</strong>) находится в 4-м периоде, VII группе (побочной подгруппе). Порядковый номер
+                25.</p>
+
+            <h3>Электронная конфигурация</h3>
+            <div
+                style="background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.2em; border: 1px solid #e9ecef; margin: 15px 0;">
+                <strong>...3d<sup>5</sup>4s<sup>2</sup></strong>
+            </div>
+            <p>У марганца наполовину заполненный d-подуровень (5 электронов), что делает эту конфигурацию особенно
+                устойчивой. Именно поэтому степень окисления +2 (потеря только 4s-электронов) — самая стабильная для
+                марганца.</p>
+
+            <div class="clarification-frame">
+                <strong>Интересный факт:</strong> Название «марганец» происходит от латинского «magnes» — магнит.
+                Древние
+                стеклоделы использовали минерал пиролюзит (MnO<sub>2</sub>) для обесцвечивания стекла, называя его
+                «мылом стекольщиков».
+            </div>
+
+            <h2 id="physical">2. Физические свойства</h2>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image.png" alt="Марганец"
+                    style="max-width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Марганец
+                </figcaption>
+            </figure>
+            <p>Марганец — металл серебристо-белого цвета с розоватым оттенком.</p>
+            <ul>
+                <li><strong>Плотность:</strong> 7,21 г/см³ — тяжелый металл (близка к плотности хрома).</li>
+                <li><strong>Температура плавления:</strong> 1244°C.</li>
+                <li><strong>Твердость и хрупкость:</strong> довольно твердый, но при этом очень хрупкий — легко крошится
+                    и растирается в порошок (в отличие от хрома, который пластичен).</li>
+                <li><strong>Коррозионная стойкость:</strong> на сухом воздухе покрывается тонкой оксидной пленкой, но во
+                    влажном воздухе постепенно окисляется.</li>
+                <li><strong>Применение:</strong> около 90% добываемого марганца идет на производство сталей. Добавка
+                    марганца делает сталь более прочной, износостойкой и устойчивой к ударам.</li>
+            </ul>
+
+            <h2 id="production">3. Способы получения</h2>
+            <p>В природе встречается в виде минералов <strong>пиролюзита</strong> (MnO<sub>2</sub>) и
+                <strong>гаусманита</strong> (Mn<sub>3</sub>O<sub>4</sub>).
+            </p>
+
+            <p><strong>1. Алюмотермия (получение чистого марганца):</strong></p>
+            <p class="reaction">3MnO<sub>2</sub> + 4Al <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3Mn +
+                2Al<sub>2</sub>O<sub>3</sub></p>
+
+            <p><strong>2. Восстановление коксом (получение ферромарганца):</strong></p>
+            <p class="reaction">MnO<sub>2</sub> + 2C <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Mn + 2CO↑</p>
+
+            <p><strong>3. Электролиз раствора MnSO<sub>4</sub>:</strong></p>
+            <p>Используется для получения особо чистого марганца.</p>
+
+            <h2 id="chemical-prop">4. Химические свойства простого вещества</h2>
+            <p>Марганец — активный металл, более активный, чем хром. Стоит в ряду активности <strong>левее
+                    водорода</strong>.</p>
+
+            <h3>Взаимодействие с неметаллами</h3>
+            <table class="styled-table reaction-table">
+                <tbody>
+                    <tr>
+                        <td><strong>С галогенами</strong></td>
+                        <td>
+                            <span class="reaction">Mn + Cl<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                MnCl<sub>2</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С кислородом</strong></td>
+                        <td>
+                            Горит с образованием Mn<sub>3</sub>O<sub>4</sub>:<br>
+                            <span class="reaction">3Mn + 2O<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Mn<sub>3</sub>O<sub>4</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С серой</strong></td>
+                        <td>
+                            <span class="reaction">Mn + S <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                MnS</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С азотом</strong></td>
+                        <td>
+                            <span class="reaction">3Mn + N<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Mn<sub>3</sub>N<sub>2</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С углеродом</strong></td>
+                        <td>
+                            <span class="reaction">3Mn + C <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Mn<sub>3</sub>C</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Взаимодействие со сложными веществами</h3>
+            <p><strong>1. С водой:</strong><br>
+                Медленно реагирует с водой при комнатной температуре, быстрее при нагревании:</p>
+            <p class="reaction">Mn + 2H<sub>2</sub>O <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Mn(OH)<sub>2</sub> + H<sub>2</sub>↑</p>
+
+            <p><strong>2. С кислотами-неокислителями (HCl, разб. H<sub>2</sub>SO<sub>4</sub>):</strong><br>
+                Легко растворяется с выделением водорода:</p>
+            <p class="reaction">Mn + 2HCl → MnCl<sub>2</sub> + H<sub>2</sub>↑</p>
+            <p class="reaction">Mn + H<sub>2</sub>SO<sub>4(разб.)</sub> → MnSO<sub>4</sub> + H<sub>2</sub>↑</p>
+
+            <p><strong>3. С кислотами-окислителями:</strong><br>
+                Реагирует с разбавленной и концентрированной азотной кислотой:</p>
+            <p class="reaction">3Mn + 8HNO<sub>3(разб.)</sub> → 3Mn(NO<sub>3</sub>)<sub>2</sub> + 2NO↑ +
+                4H<sub>2</sub>O</p>
+            <p class="reaction">Mn + 4HNO<sub>3(конц.)</sub> → Mn(NO<sub>3</sub>)<sub>2</sub> + 2NO<sub>2</sub>↑ +
+                2H<sub>2</sub>O</p>
+            <div class="clarification-frame">
+                <strong>Внимание:</strong> В отличие от хрома, марганец <strong>не пассивируется</strong>
+                концентрированными серной и азотной кислотами! Он слишком активен для этого.
+            </div>
+
+            <p><strong>4. С солями (вытеснение металлов):</strong></p>
+            <p class="reaction">Mn + CuSO<sub>4</sub> → MnSO<sub>4</sub> + Cu</p>
+
+            <h2 id="compounds-oxide">5. Оксиды марганца</h2>
+
+            <h3>5.1. Оксид марганца (II) — MnO (Основный)</h3>
+            <p>Серо-зеленый порошок. Проявляет основные свойства.</p>
+
+            <p><strong>Получение:</strong></p>
+            <ul>
+                <li>Разложение карбоната: <span class="reaction">MnCO<sub>3</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> MnO +
+                        CO<sub>2</sub></span></li>
+                <li>Восстановление MnO<sub>2</sub> водородом: <span class="reaction">MnO<sub>2</sub> + H<sub>2</sub>
+                        <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> MnO +
+                        H<sub>2</sub>O</span></li>
+            </ul>
+
+            <p><strong>Химические свойства:</strong></p>
+            <ul>
+                <li>С кислотами: <span class="reaction">MnO + 2HCl → MnCl<sub>2</sub> + H<sub>2</sub>O</span>
+                </li>
+                <li>С водой не реагирует.</li>
+            </ul>
+
+            <h3>5.2. Оксид марганца (IV) — MnO<sub>2</sub> (Амфотерный)</h3>
+            <p>Черно-бурый порошок. Важнейший оксид марганца. Проявляет амфотерные свойства (с преобладанием основных)
+                и является окислителем.</p>
+
+            <div class="clarification-frame">
+                <strong>Практическое применение:</strong> MnO<sub>2</sub> используется в батарейках (как деполяризатор в
+                элементах Лекланше), в производстве стекла и как катализатор разложения пероксида водорода в
+                лабораторных опытах.
+            </div>
+
+            <p><strong>Получение:</strong></p>
+            <ul>
+                <li>Природный минерал пиролюзит.</li>
+                <li>Термическое разложение нитрата: <span class="reaction">2Mn(NO<sub>3</sub>)<sub>2</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2MnO + 4NO<sub>2</sub>↑ + O<sub>2</sub>↑</span></li>
+            </ul>
+
+            <p><strong>Химические свойства:</strong></p>
+            <p>1. <strong>Окислительные свойства</strong> (наиболее характерны):<br>
+                С соляной кислотой (лабораторный способ получения хлора!):<br>
+                <span class="reaction">MnO<sub>2</sub> + 4HCl<sub>(конц.)</sub> → MnCl<sub>2</sub> + Cl<sub>2</sub>↑ +
+                    2H<sub>2</sub>O</span>
+            </p>
+            <div class="clarification-frame">
+                <strong>Важно для ЕГЭ:</strong> Эта реакция — классический лабораторный способ получения хлора!
+                Обратите внимание: из 4 моль HCl только 2 моль окисляются до Cl<sub>2</sub>, а 2 моль идут на
+                образование соли.
+            </div>
+
+            <p>Разложение пероксида водорода (катализатор):<br>
+                <span class="reaction">2H<sub>2</sub>O<sub>2</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">MnO<sub>2</sub></span><span class="ra-symbol">→</span></span>
+                    2H<sub>2</sub>O + O<sub>2</sub>↑</span>
+            </p>
+
+            <p>2. <strong>С кислотами</strong> (как основный оксид):<br>
+                <span class="reaction">MnO<sub>2</sub> + H<sub>2</sub>SO<sub>4(конц.)</sub> <span
+                        class="reaction-arrow"><span class="ra-condition">t°</span><span
+                            class="ra-symbol">→</span></span> MnSO<sub>4</sub> + O<sub>2</sub> +
+                    H<sub>2</sub>O</span>
+            </p>
+
+            <p>3. <strong>С щелочами</strong> (при сплавлении, как кислотный оксид):<br>
+                Образуются манганиты:<br>
+                <span class="reaction">MnO<sub>2</sub> + 2KOH <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                    K<sub>2</sub>MnO<sub>3</sub> + H<sub>2</sub>O</span>
+            </p>
+
+            <p>4. <strong>Восстановление</strong> (получение металла):<br>
+                <span class="reaction">MnO<sub>2</sub> + 2C <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Mn + 2CO↑</span>
+            </p>
+
+            <h3>5.3. Оксид марганца (VII) — Mn<sub>2</sub>O<sub>7</sub> (Кислотный)</h3>
+            <p>Тёмно-зеленая маслянистая жидкость. Крайне неустойчив, <strong>взрывается</strong> при нагревании
+                выше 55°C. Сильнейший окислитель.</p>
+
+            <div class="clarification-frame">
+                <strong>Опасно!</strong> Mn<sub>2</sub>O<sub>7</sub> — одно из самых опасных химических веществ.
+                Он может воспламенить спирт, эфир и даже бумагу при контакте, подобно CrO<sub>3</sub>.
+            </div>
+
+            <p><strong>Получение:</strong></p>
+            <p class="reaction">2KMnO<sub>4</sub> + H<sub>2</sub>SO<sub>4(конц.)</sub> → Mn<sub>2</sub>O<sub>7</sub> +
+                2KHSO<sub>4</sub> + H<sub>2</sub>O</p>
+
+            <p><strong>Свойства:</strong></p>
+            <ul>
+                <li>Растворяется в воде с образованием марганцовой кислоты:<br>
+                    <span class="reaction">Mn<sub>2</sub>O<sub>7</sub> + H<sub>2</sub>O → 2HMnO<sub>4</sub></span>
+                    (марганцовая кислота)
+                </li>
+                <li>Легко разлагается:<br>
+                    <span class="reaction">2Mn<sub>2</sub>O<sub>7</sub> → 4MnO<sub>2</sub> + 3O<sub>2</sub></span>
+                </li>
+            </ul>
+
+            <p><strong>Окислительные свойства</strong> (сильнейший окислитель!):</p>
+            <ul>
+                <li>Воспламеняет серу при контакте:<br>
+                    <span class="reaction">Mn<sub>2</sub>O<sub>7</sub> + S → 2MnO<sub>2</sub> + SO<sub>2</sub></span>
+                </li>
+                <li>Воспламеняет органические вещества (спирт, эфир, древесину):<br>
+                    <span class="reaction">2Mn<sub>2</sub>O<sub>7</sub> + C<sub>2</sub>H<sub>5</sub>OH →
+                        4MnO<sub>2</sub> + 2CO<sub>2</sub> + 3H<sub>2</sub>O</span>
+                </li>
+            </ul>
+            <div class="clarification-frame">
+                <strong>Наглядный опыт:</strong> Если капнуть Mn<sub>2</sub>O<sub>7</sub> на бумагу или вату — они
+                мгновенно вспыхивают ярким пламенем. Именно поэтому Mn<sub>2</sub>O<sub>7</sub> практически не
+                используется на практике — слишком опасен.
+            </div>
+
+            <h2 id="compounds-hydroxide">6. Гидроксиды марганца</h2>
+
+            <h3>6.1. Гидроксид марганца (II) — Mn(OH)<sub>2</sub> (Основный)</h3>
+            <p>Белый (на воздухе быстро буреет) осадок. Проявляет основные свойства. Слабое основание.</p>
+
+            <p><strong>Получение:</strong></p>
+            <p>Действие щелочей на соли Mn(II):<br>
+                <span class="reaction">MnCl<sub>2</sub> + 2NaOH → Mn(OH)<sub>2</sub>↓ + 2NaCl</span>
+            </p>
+
+            <p><strong>Химические свойства:</strong></p>
+            <ul>
+                <li><strong>С кислотами:</strong><br>
+                    <span class="reaction">Mn(OH)<sub>2</sub> + 2HCl → MnCl<sub>2</sub> + 2H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Окисление на воздухе</strong> (буреет):<br>
+                    <span class="reaction">2Mn(OH)<sub>2</sub> + O<sub>2</sub> → 2MnO(OH)↓ + H<sub>2</sub>O</span><br>
+                    <em>(Гидроксид быстро темнеет, превращаясь в бурый MnO(OH) — «марганцовистую кислоту»)</em>
+                </li>
+                <li><strong>Термическое разложение:</strong><br>
+                    <span class="reaction">Mn(OH)<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> MnO +
+                        H<sub>2</sub>O</span>
+                </li>
+            </ul>
+
+            <h2 id="compounds-salts">7. Соли марганца</h2>
+
+            <h3>Соли Mn(II)</h3>
+            <p>Растворы солей Mn<sup>2+</sup> бесцветные или бледно-розовые. Гидролизуются по катиону (слабо).</p>
+
+            <h3>Манганаты (MnO<sub>4</sub><sup>2-</sup>) — Mn(VI)</h3>
+            <p>Соли марганцовистой кислоты. <strong>Зеленого</strong> цвета. Устойчивы только в сильнощелочной среде.
+            </p>
+            <div class="color-green">
+                <strong>K<sub>2</sub>MnO<sub>4</sub></strong> — манганат калия, зеленый раствор.
+            </div>
+
+            <p><strong>Получение:</strong></p>
+            <p>Сплавление MnO<sub>2</sub> с щелочью и окислителем:<br>
+                <span class="reaction">MnO<sub>2</sub> + 2KOH + KNO<sub>3</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                    K<sub>2</sub>MnO<sub>4</sub> + KNO<sub>2</sub> + H<sub>2</sub>O</span>
+            </p>
+
+            <p><strong>Диспропорционирование</strong> (в воде и кислой среде):<br>
+                <span class="reaction">3K<sub>2</sub>MnO<sub>4</sub> + 2H<sub>2</sub>O → 2KMnO<sub>4</sub> +
+                    MnO<sub>2</sub>↓ + 4KOH</span>
+            </p>
+            <div class="clarification-frame">
+                <strong>Интересный факт:</strong> Именно из-за реакции диспропорционирования манганат зеленого цвета в
+                воде моментально превращается в фиолетовый перманганат — эффектное превращение «зеленого в фиолетовый»!
+            </div>
+
+            <h3>Перманганаты (MnO<sub>4</sub><sup>-</sup>) — Mn(VII)</h3>
+            <p>Соли марганцовой кислоты. <strong>Фиолетового</strong> цвета. Сильнейшие окислители.</p>
+            <div class="color-violet">
+                <strong>KMnO<sub>4</sub></strong> — перманганат калия («марганцовка»), тёмно-фиолетовые кристаллы.
+            </div>
+
+            <div class="clarification-frame">
+                <strong>Знакомое вещество!</strong> KMnO<sub>4</sub> — это обычная «марганцовка» из аптеки. Раствор
+                используется как антисептик и дезинфицирующее средство. В химии — один из самых важных окислителей.
+            </div>
+
+            <p><strong>Термическое разложение KMnO<sub>4</sub></strong> (лабораторный способ получения
+                кислорода!):<br>
+                <span class="reaction">2KMnO<sub>4</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                    K<sub>2</sub>MnO<sub>4</sub> + MnO<sub>2</sub> + O<sub>2</sub>↑</span>
+            </p>
+
+            <h3>Окислительные свойства KMnO<sub>4</sub> в разных средах</h3>
+            <p>Это <strong>ключевая тема для ЕГЭ!</strong> Продукты восстановления перманганата зависят от среды:</p>
+
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Среда</th>
+                        <th>Продукт восстановления</th>
+                        <th>Цвет</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Кислая (H<sup>+</sup>)</td>
+                        <td>Соли <strong>Mn<sup>2+</sup></strong></td>
+                        <td class="color-pink">Бесцветный (бледно-розовый)</td>
+                    </tr>
+                    <tr>
+                        <td>Нейтральная (H<sub>2</sub>O)</td>
+                        <td><strong>MnO<sub>2</sub></strong>↓</td>
+                        <td style="background-color: #efebe9; border-left: 4px solid #795548; color: #3e2723;">
+                            Бурый осадок</td>
+                    </tr>
+                    <tr>
+                        <td>Щелочная (OH<sup>-</sup>)</td>
+                        <td><strong>MnO<sub>4</sub><sup>2-</sup></strong> (манганат)</td>
+                        <td class="color-green">Зеленый раствор</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Примеры реакций:</strong></p>
+
+            <p>1. <strong>В кислой среде</strong> (Mn<sup>+7</sup> → Mn<sup>+2</sup>, обесцвечивание):<br>
+                С сульфитом натрия:<br>
+                <span class="reaction">2KMnO<sub>4</sub> + 5Na<sub>2</sub>SO<sub>3</sub> + 3H<sub>2</sub>SO<sub>4</sub>
+                    → 2MnSO<sub>4</sub> + 5Na<sub>2</sub>SO<sub>4</sub> + K<sub>2</sub>SO<sub>4</sub> +
+                    3H<sub>2</sub>O</span><br>
+                С соляной кислотой:<br>
+                <span class="reaction">2KMnO<sub>4</sub> + 16HCl → 2MnCl<sub>2</sub> + 5Cl<sub>2</sub>↑ + 2KCl +
+                    8H<sub>2</sub>O</span><br>
+                С солями железа (II):<br>
+                <span class="reaction">2KMnO<sub>4</sub> + 10FeSO<sub>4</sub> + 8H<sub>2</sub>SO<sub>4</sub> →
+                    2MnSO<sub>4</sub> + 5Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + K<sub>2</sub>SO<sub>4</sub> +
+                    8H<sub>2</sub>O</span><br>
+                С пероксидом водорода:<br>
+                <span class="reaction">2KMnO<sub>4</sub> + 5H<sub>2</sub>O<sub>2</sub> + 3H<sub>2</sub>SO<sub>4</sub>
+                    →
+                    2MnSO<sub>4</sub> + 5O<sub>2</sub>↑ + K<sub>2</sub>SO<sub>4</sub> + 8H<sub>2</sub>O</span>
+            </p>
+
+            <p>2. <strong>В нейтральной среде</strong> (Mn<sup>+7</sup> → MnO<sub>2</sub>↓, бурый осадок):<br>
+                С сульфитом натрия:<br>
+                <span class="reaction">2KMnO<sub>4</sub> + 3Na<sub>2</sub>SO<sub>3</sub> + H<sub>2</sub>O →
+                    2MnO<sub>2</sub>↓ + 3Na<sub>2</sub>SO<sub>4</sub> + 2KOH</span>
+            </p>
+
+            <p>3. <strong>В щелочной среде</strong> (Mn<sup>+7</sup> → MnO<sub>4</sub><sup>2-</sup>, зеленый
+                раствор):<br>
+                С сульфитом натрия:<br>
+                <span class="reaction">2KMnO<sub>4</sub> + Na<sub>2</sub>SO<sub>3</sub> + 2KOH →
+                    2K<sub>2</sub>MnO<sub>4</sub> + Na<sub>2</sub>SO<sub>4</sub> + H<sub>2</sub>O</span>
+            </p>
+
+            <div class="clarification-frame">
+                <strong>Лайфхак для ЕГЭ:</strong> Запомните продукты по цветам: <strong>кислая</strong> среда →
+                обесцвечивание (Mn<sup>2+</sup>), <strong>нейтральная</strong> → бурый осадок (MnO<sub>2</sub>),
+                <strong>щелочная</strong> → зеленый раствор (MnO<sub>4</sub><sup>2-</sup>). Фиолетовый → бесцветный /
+                бурый / зеленый!
+            </div>
+
+            <h2 id="qualitative">8. Качественные реакции</h2>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy_2.png" alt="Раствор соли марганца(II)"
+                        style="width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">1. Бледно-розовый раствор
+                        MnSO<sub>4</sub>
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy.png" alt="Осадок Mn(OH)2"
+                        style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">2. Белый осадок
+                        Mn(OH)<sub>2</sub> (буреет на воздухе)
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy_3.png" alt="Бурый осадок MnO2"
+                        style="width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">3. Бурый осадок
+                        MnO<sub>2</sub> (нейтральная среда)
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy_4.png" alt="Раствор KMnO4"
+                        style="width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">4. Фиолетовый раствор
+                        KMnO<sub>4</sub> (перманганат)
+                    </figcaption>
+                </figure>
+            </div>
+            <ul>
+                <li><strong>Mn<sup>2+</sup></strong>: Бесцветный/бледно-розовый раствор → с щелочью даёт белый осадок
+                    Mn(OH)<sub>2</sub>,
+                    быстро буреющий на воздухе (окисление до MnO(OH)).<br>
+                    <span class="reaction">MnCl<sub>2</sub> + 2NaOH → Mn(OH)<sub>2</sub>↓ + 2NaCl</span>
+                </li>
+                <li><strong>MnO<sub>4</sub><sup>-</sup></strong>: Интенсивная <strong>фиолетовая</strong> окраска
+                    раствора — характерный
+                    признак перманганат-ионов. Обесцвечивание раствора KMnO<sub>4</sub> — признак протекания
+                    ОВР в кислой среде.</li>
+                <li><strong>Окисление Mn<sup>2+</sup> до MnO<sub>4</sub><sup>-</sup></strong> (подтверждение
+                    наличия Mn):<br>
+                    При действии сильного окислителя (PbO<sub>2</sub>) в кислой среде бесцветный раствор
+                    становится фиолетовым:<br>
+                    <span class="reaction">2MnSO<sub>4</sub> + 5PbO<sub>2</sub> + 6HNO<sub>3</sub> →
+                        2HMnO<sub>4</sub> + 5PbSO<sub>4</sub>↓ + 2H<sub>2</sub>O + (3N<sub>2</sub>O<sub>5</sub>)</span>
+                </li>
+            </ul>
+
+            <h2 id="videos">9. Видео эксперименты</h2>
+            <p>Рекомендуем посмотреть опыты с марганцем на канале Thoisoi:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=zYvUl5JBzBI" target="_blank">Марганец (Manganese) —
+                        свойства и реакции</a></li>
+            </ul>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../chromium/chromium.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Хром
+                </a>
+                <a href="../iron/iron.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Железо →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../1 глава/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алюминий и его соединения | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#general" class="active">1. Общая характеристика</a></li>
+                <li><a href="#nature">2. Нахождение в природе</a></li>
+                <li><a href="#production">3. Получение</a></li>
+                <li><a href="#chemical-prop">4. Химические свойства алюминия</a></li>
+                <li><a href="#compounds-oxide">5.1. Оксид алюминия</a></li>
+                <li><a href="#compounds-hydroxide">5.2. Гидроксид алюминия</a></li>
+                <li><a href="#compounds-salts">5.3. Соли алюминия</a></li>
+                <li><a href="#binary">5.4. Бинарные соединения</a></li>
+                <li><a href="#qualitative">6. Качественные реакции</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a href="#">Неорганическая химия</a>
+                <span>/</span> <a href="#">Металлы</a> <span>/</span> Алюминий
+            </div>
+
+            <h1>Алюминий</h1>
+            <p class="subtitle">Химия элемента IIIA группы: самый распространенный металл</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Алюминий — типичный амфотерный металл. Он сам, его оксид и гидроксид
+                    реагируют как с кислотами, так и с щелочами. В соединениях проявляет постоянную степень окисления
+                    <strong>+3</strong>.
+                </p>
+            </div>
+
+            <h2 id="general">1. Общая характеристика</h2>
+            <p>Алюминий (<strong>Al</strong>) находится в III группе (главной подгруппе) 3-го периода Периодической
+                системы. Порядковый номер 13.</p>
+
+            <h3>Строение атома</h3>
+            <p>Электронная конфигурация в основном состоянии:</p>
+            <div
+                style="background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.2em; border: 1px solid #e9ecef; margin: 15px 0;">
+                <strong>1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>1</sup></strong>
+            </div>
+            <p>В возбужденном состоянии один s-электрон переходит на p-подуровень, и конфигурация внешнего уровня
+                становится <strong>3s<sup>1</sup>3p<sup>2</sup></strong>, что объясняет валентность III и степень
+                окисления +3.</p>
+
+            <div class="clarification-frame">
+                <strong>Оксидная пленка:</strong>
+                Поверхность алюминия всегда покрыта тонкой, но очень прочной оксидной пленкой
+                Al<sub>2</sub>O<sub>3</sub>.
+                Она защищает металл от дальнейшего окисления и взаимодействия с водой и кислотами-окислителями (на
+                холоде). Именно благодаря ей алюминиевая посуда не растворяется в воде, хотя алюминий — очень активный
+                металл.
+            </div>
+
+            <h3>Физические свойства</h3>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image.png" alt="Алюминий"
+                    style="max-width: 35%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Алюминий
+                </figcaption>
+            </figure>
+            <p>Алюминий — легкий серебристо-белый металл.
+            <ul>
+                <li><strong>Плотность:</strong> низкая (2,7 г/см³), что делает его незаменимым в авиастроении («крылатый
+                    металл»).</li>
+                <li><strong>Температура плавления:</strong> 660°C.</li>
+                <li><strong>Проводимость:</strong> обладает высокой тепло- и электропроводностью (уступает серебру и
+                    меди,
+                    но значительно легче и дешевле их).</li>
+                <li><strong>Пластичность:</strong> легко поддается ковке, прокатке в фольгу и вытягиванию в проволоку.
+                </li>
+            </ul>
+            </p>
+
+            <h2 id="nature">2. Нахождение в природе</h2>
+            <p>Алюминий — <strong>самый распространенный металл</strong> в земной коре (и третий элемент после кислорода
+                и кремния). Из-за высокой активности в свободном виде не встречается.</p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Название минерала</th>
+                        <th>Формула</th>
+                        <th>Комментарий</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Боксит</strong></td>
+                        <td>Al<sub>2</sub>O<sub>3</sub> · nH<sub>2</sub>O</td>
+                        <td>Основная руда для получения алюминия (содержит примеси SiO<sub>2</sub>,
+                            Fe<sub>2</sub>O<sub>3</sub>).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Корунд</strong></td>
+                        <td>Al<sub>2</sub>O<sub>3</sub></td>
+                        <td>Очень твердый минерал.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Рубин</strong></td>
+                        <td>Al<sub>2</sub>O<sub>3</sub> (с примесью Cr)</td>
+                        <td>Драгоценный камень красного цвета.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Сапфир</strong></td>
+                        <td>Al<sub>2</sub>O<sub>3</sub> (с примесью Ti и Fe)</td>
+                        <td>Драгоценный камень синего цвета.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Криолит</strong></td>
+                        <td>Na<sub>3</sub>[AlF<sub>6</sub>]</td>
+                        <td>Используется как растворитель при электролизе глинозема.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Каолинит (Глина)</strong></td>
+                        <td>Al<sub>2</sub>O<sub>3</sub> · 2SiO<sub>2</sub> · 2H<sub>2</sub>O</td>
+                        <td>Основа керамики.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Нефелин</strong></td>
+                        <td>KNa<sub>3</sub>[AlSiO<sub>4</sub>]<sub>4</sub></td>
+                        <td>Важное сырье.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="production">3. Способы получения</h2>
+            <p>Традиционное восстановление углем неэффективно из-за образования карбидов. Поэтому используется
+                электрохимический метод.</p>
+
+            <div class="reaction-block">
+                <p><strong>1. Электролиз расплава оксида алюминия (Промышленный способ Холла-Эру):</strong></p>
+                <p>Оксид алюминия (глинозем) плавится при очень высокой температуре (2050°C). Для снижения энергозатрат
+                    его растворяют в расплавленном <strong>криолите</strong> (Na<sub>3</sub>AlF<sub>6</sub>), что
+                    снижает температуру процесса до ~960°C и повышает электропроводность.</p>
+                <p class="reaction">2Al<sub>2</sub>O<sub>3</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">электролиз</span><span class="ra-condition">в криолите</span><span
+                            class="ra-symbol">→</span></span> 4Al + 3O<sub>2</sub>↑</p>
+                <p><em>Процесс происходит с использованием графитовых электродов, которые постепенно сгорают в
+                        выделяющемся кислороде (C + O<sub>2</sub> → CO<sub>2</sub>).</em></p>
+            </div>
+
+            <div class="reaction-block">
+                <p><strong>2. Химическое восстановление (Лабораторный способ):</strong></p>
+                <p>Впервые алюминий был получен восстановлением его безводного хлорида металлическим калием (Велер,
+                    1827):</p>
+                <p class="reaction">AlCl<sub>3</sub> + 3K <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Al + 3KCl</p>
+                <div class="clarification-frame">
+                    <strong>Исторический факт:</strong> В XIX веке алюминий стоил дороже золота! На банкетах Наполеона
+                    III самые почетные гости ели алюминиевыми ложками, а "простые смертные" — золотыми. Менделееву в
+                    подарок преподнесли весы с чашами из алюминия, как из самого дорогого металла того времени.
+                </div>
+            </div>
+
+            <h2 id="chemical-prop">4. Химические свойства алюминия</h2>
+            <p>Алюминий — <strong>сильный восстановитель</strong>. В реакциях отдает 3 электрона (Al<sup>0</sup> - 3e →
+                Al<sup>+3</sup>).</p>
+
+            <h3>4.1. Взаимодействие с простыми веществами</h3>
+            <table class="styled-table reaction-table">
+                <tbody>
+                    <tr>
+                        <td><strong>С галогенами</strong></td>
+                        <td>
+                            Реагирует активно, часто при обычных условиях или небольшом нагревании.<br>
+                            С иодом реакция идет при комнатной температуре в присутствии воды как катализатора:<br>
+                            <span class="reaction">2Al + 3I<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">H<sub>2</sub>O</span><span
+                                        class="ra-symbol">→</span></span> 2AlI<sub>3</sub></span><br>
+                            С хлором и бромом:<br>
+                            <span class="reaction">2Al + 3Cl<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2AlCl<sub>3</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С кислородом</strong></td>
+                        <td>
+                            Алюминий горит в кислороде ослепительным пламенем, выделяя огромное количество тепла:<br>
+                            <span class="reaction">4Al + 3O<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2Al<sub>2</sub>O<sub>3</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С серой</strong></td>
+                        <td>
+                            При сплавлении образуется сульфид:<br>
+                            <span class="reaction">2Al + 3S <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Al<sub>2</sub>S<sub>3</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С углеродом</strong></td>
+                        <td>
+                            При сильном нагревании образуется карбид (метанид):<br>
+                            <span class="reaction">4Al + 3C <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Al<sub>4</sub>C<sub>3</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С азотом</strong></td>
+                        <td>
+                            Нитрид образуется только при очень высоких температурах (1000°C):<br>
+                            <span class="reaction">2Al + N<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2AlN</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С фосфором</strong></td>
+                        <td>
+                            Образуется фосфид:<br>
+                            <span class="reaction">Al + P <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                AlP</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С водородом</strong></td>
+                        <td>
+                            <strong>Не реагирует</strong> напрямую. Гидрид алюминия (AlH<sub>3</sub>) получают косвенным
+                            путем.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.2. Взаимодействие со сложными веществами</h3>
+
+            <h4>С водой</h4>
+            <p>Обычный алюминий <strong>не реагирует</strong> с водой из-за оксидной пленки. Если пленку удалить
+                (механически или химически, например, амальгамированием — обработкой солями ртути), металл начинает
+                бурно реагировать:</p>
+            <p class="reaction">2Al + 6H<sub>2</sub>O → 2Al(OH)<sub>3</sub>↓ + 3H<sub>2</sub>↑</p>
+
+            <h4>С кислотами</h4>
+            <p><strong>1. С кислотами-неокислителями (HCl, разб. H<sub>2</sub>SO<sub>4</sub>):</strong><br>
+                Алюминий легко растворяется с выделением водорода:</p>
+            <p class="reaction">2Al + 6HCl → 2AlCl<sub>3</sub> + 3H<sub>2</sub>↑</p>
+            <p class="reaction">2Al + 3H<sub>2</sub>SO<sub>4(разб.)</sub> → Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> +
+                3H<sub>2</sub>↑</p>
+
+            <p><strong>2. С кислотами-окислителями (HNO<sub>3</sub>, конц. H<sub>2</sub>SO<sub>4</sub>):</strong></p>
+            <div class="clarification-frame">
+                <strong>Пассивация:</strong> В концентрированной серной и азотной кислотах <strong>на холоде</strong>
+                алюминий пассивируется (оксидная пленка становится еще прочнее) и реакция не идет. Это позволяет
+                перевозить эти кислоты в алюминиевых цистернах.
+            </div>
+            <p>При <strong>нагревании</strong> пленка растворяется и реакция начинается (водород НЕ выделяется):</p>
+            <p>С концентрированной серной кислотой (выделяется SO<sub>2</sub>):</p>
+            <p class="reaction">2Al + 6H<sub>2</sub>SO<sub>4(конц.)</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + 3SO<sub>2</sub>↑ + 6H<sub>2</sub>O</p>
+
+            <p>С азотной кислотой (продукты восстановления азота зависят от концентрации):</p>
+            <ul>
+                <li>Концентрированная (при нагревании):<br>
+                    <span class="reaction">Al + 6HNO<sub>3(конц.)</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        Al(NO<sub>3</sub>)<sub>3</sub> + 3NO<sub>2</sub>↑ + 3H<sub>2</sub>O</span>
+                </li>
+                <li>Разбавленная:<br>
+                    <span class="reaction">10Al + 36HNO<sub>3(разб.)</sub> → 10Al(NO<sub>3</sub>)<sub>3</sub> +
+                        3N<sub>2</sub>↑ + 18H<sub>2</sub>O</span>
+                </li>
+                <li>Очень разбавленная:<br>
+                    <span class="reaction">8Al + 30HNO<sub>3(оч. разб.)</sub> → 8Al(NO<sub>3</sub>)<sub>3</sub> +
+                        3NH<sub>4</sub>NO<sub>3</sub> + 9H<sub>2</sub>O</span>
+                </li>
+            </ul>
+
+            <h4>С щелочами (Важное свойство!)</h4>
+            <p>Алюминий растворяется в щелочах, проявляя амфотерность.</p>
+            <p><strong>В водном растворе</strong> образуется комплексная соль (тетрагидроксоалюминат) и водород:</p>
+            <p class="reaction">2Al + 2NaOH + 6H<sub>2</sub>O → 2Na[Al(OH)<sub>4</sub>] + 3H<sub>2</sub>↑</p>
+            <p><strong>В расплаве щелочи</strong> образуется средняя соль (метаалюминат) и водород:</p>
+            <p class="reaction">2Al + 2NaOH + 2H<sub>2</sub>O <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2NaAlO<sub>2</sub> +
+                3H<sub>2</sub>↑</p>
+            <p><em>Обратите внимание: в ЕГЭ часто записывают упрощенное уравнение сплавления без воды в левой
+                    части:</em><br>
+                <span class="reaction">2Al + 6NaOH <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2NaAlO<sub>2</sub> +
+                    2Na<sub>2</sub>O + 3H<sub>2</sub>↑</span> (менее предпочтительно, но встречается).
+            </p>
+
+            <h4>С оксидами металлов (Алюмотермия)</h4>
+            <p>Алюминий отнимает кислород у оксидов менее активных металлов. Это способ получения чистых металлов (Cr,
+                Mn, V, Fe и др.). Реакции сильно экзотермические.</p>
+            <p class="reaction">2Al + Fe<sub>2</sub>O<sub>3</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Al<sub>2</sub>O<sub>3</sub> + 2Fe + <strong>Q (много тепла!)</strong></p>
+            <div class="clarification-frame">
+                <strong>Термит:</strong> Смесь порошка алюминия и железной окалины (Fe<sub>3</sub>O<sub>4</sub>)
+                называется "термитом". При поджигании она горит с выделением колоссальной температуры (до 2500°C),
+                которой достаточно, чтобы расплавленное железо заваривало рельсы прямо на путях!
+            </div>
+            <p class="reaction">8Al + 3Fe<sub>3</sub>O<sub>4</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                4Al<sub>2</sub>O<sub>3</sub> + 9Fe</p>
+            <p class="reaction">2Al + Cr<sub>2</sub>O<sub>3</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Al<sub>2</sub>O<sub>3</sub> + 2Cr</p>
+            <p class="reaction">2Al + 3CuO <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> Al<sub>2</sub>O<sub>3</sub> + 3Cu</p>
+
+            <h4>С окислителями в щелочной среде</h4>
+            <p>В присутствии сильных окислителей и щелочи алюминий окисляется:</p>
+            <p>С нитратом и щелочью (выделяется аммиак):<br>
+                <span class="reaction">8Al + 3KNO<sub>3</sub> + 5KOH + 18H<sub>2</sub>O → 8K[Al(OH)<sub>4</sub>] +
+                    3NH<sub>3</sub>↑</span>
+            </p>
+            <p>С нитритом и щелочью:<br>
+                <span class="reaction">2Al + NaNO<sub>2</sub> + NaOH + 5H<sub>2</sub>O → 2Na[Al(OH)<sub>4</sub>] +
+                    NH<sub>3</sub>↑</span>
+            </p>
+            <p>С дихроматом:<br>
+                <span class="reaction">4Al + K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2KAlO<sub>2</sub> +
+                    Al<sub>2</sub>O<sub>3</sub> + 2Cr</span> (при поджигании смеси)
+            </p>
+
+            <h2 id="compounds-oxide">5.1. Оксид алюминия (Al<sub>2</sub>O<sub>3</sub>)</h2>
+            <p>Белое тугоплавкое вещество. Модификация "корунд" обладает очень высокой твердостью. Типичный
+                <strong>амфотерный оксид</strong>.
+            </p>
+
+            <p><strong>Получение:</strong></p>
+            <ul>
+                <li>Горение металла: <span class="reaction">4Al + 3O<sub>2</sub> → 2Al<sub>2</sub>O<sub>3</sub></span>
+                </li>
+                <li>Разложение гидроксида: <span class="reaction">2Al(OH)<sub>3</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        Al<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub>O</span></li>
+                <li>Разложение нитрата: <span class="reaction">4Al(NO<sub>3</sub>)<sub>3</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2Al<sub>2</sub>O<sub>3</sub> + 12NO<sub>2</sub> +
+                        3O<sub>2</sub></span></li>
+            </ul>
+
+            <p><strong>Химические свойства:</strong></p>
+            <p>1. С водой <strong>не реагирует</strong>.</p>
+            <p>2. Реагирует с кислотами (как основный оксид):<br>
+                <span class="reaction">Al<sub>2</sub>O<sub>3</sub> + 6HCl → 2AlCl<sub>3</sub> +
+                    3H<sub>2</sub>O</span><br>
+                <span class="reaction">Al<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub>SO<sub>4</sub> →
+                    Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + 3H<sub>2</sub>O</span>
+            </p>
+
+            <p>3. Реагирует с щелочами и основными оксидами (как кислотный оксид):<br>
+                В растворе (образуются гидроксокомплексы):<br>
+                <span class="reaction">Al<sub>2</sub>O<sub>3</sub> + 2NaOH + 3H<sub>2</sub>O →
+                    2Na[Al(OH)<sub>4</sub>]</span><br>
+                В расплаве (образуются метаалюминаты):<br>
+                <span class="reaction">Al<sub>2</sub>O<sub>3</sub> + 2NaOH <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2NaAlO<sub>2</sub> +
+                    H<sub>2</sub>O</span><br>
+                <span class="reaction">Al<sub>2</sub>O<sub>3</sub> + Na<sub>2</sub>O <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                    2NaAlO<sub>2</sub></span>
+            </p>
+
+            <p>4. Вытеснение летучих оксидов (карбонатов):<br>
+                <span class="reaction">Al<sub>2</sub>O<sub>3</sub> + Na<sub>2</sub>CO<sub>3</sub> <span
+                        class="reaction-arrow"><span class="ra-condition">t°</span><span
+                            class="ra-symbol">→</span></span> 2NaAlO<sub>2</sub> + CO<sub>2</sub>↑</span>
+            </p>
+
+            <h2 id="compounds-hydroxide">5.2. Гидроксид алюминия (Al(OH)<sub>3</sub>)</h2>
+            <p>Белый студенистый осадок, нерастворимый в воде. Типичный <strong>амфотерный гидроксид</strong>.</p>
+
+            <p><strong>Получение:</strong></p>
+            <ul>
+                <li>Действие аммиака на растворимые соли алюминия (лучший способ, осадок не растворяется в избытке
+                    NH<sub>3</sub>):<br>
+                    <span class="reaction">AlCl<sub>3</sub> + 3NH<sub>3</sub>·H<sub>2</sub>O → Al(OH)<sub>3</sub>↓ +
+                        3NH<sub>4</sub>Cl</span>
+                </li>
+                <li>Действие <strong>недостатка</strong> щелочи на соль алюминия:<br>
+                    <span class="reaction">AlCl<sub>3</sub> + 3NaOH<sub>(недост.)</sub> → Al(OH)<sub>3</sub>↓ +
+                        3NaCl</span>
+                </li>
+                <li>Пропускание CO<sub>2</sub> через раствор алюмината:<br>
+                    <span class="reaction">Na[Al(OH)<sub>4</sub>] + CO<sub>2</sub> → Al(OH)<sub>3</sub>↓ +
+                        NaHCO<sub>3</sub></span><br>
+                    <em>Примечание: образуется именно кислая соль NaHCO<sub>3</sub>, так как CO<sub>2</sub> в
+                        избытке.</em>
+                </li>
+                <li>Взаимный гидролиз солей (соль Al<sup>3+</sup> + соль слабой кислоты):<br>
+                    <span class="reaction">2AlCl<sub>3</sub> + 3Na<sub>2</sub>CO<sub>3</sub> + 3H<sub>2</sub>O →
+                        2Al(OH)<sub>3</sub>↓ + 3CO<sub>2</sub>↑ + 6NaCl</span><br>
+                    <span class="reaction">2AlCl<sub>3</sub> + 3Na<sub>2</sub>S + 6H<sub>2</sub>O → 2Al(OH)<sub>3</sub>↓
+                        + 3H<sub>2</sub>S↑ + 6NaCl</span>
+                </li>
+            </ul>
+
+            <p><strong>Химические свойства:</strong></p>
+            <p>1. Как основание реагирует с кислотами:<br>
+                <span class="reaction">Al(OH)<sub>3</sub> + 3HCl → AlCl<sub>3</sub> + 3H<sub>2</sub>O</span><br>
+                <span class="reaction">Al(OH)<sub>3</sub> + 3HNO<sub>3</sub> → Al(NO<sub>3</sub>)<sub>3</sub> +
+                    3H<sub>2</sub>O</span>
+            </p>
+
+            <p>2. Как кислота реагирует с щелочами:<br>
+                В растворе (растворение осадка):<br>
+                <span class="reaction">Al(OH)<sub>3</sub> + NaOH → Na[Al(OH)<sub>4</sub>]</span><br>
+                В расплаве:<br>
+                <span class="reaction">Al(OH)<sub>3</sub> + NaOH <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span> NaAlO<sub>2</sub> +
+                    2H<sub>2</sub>O</span>
+            </p>
+
+            <p>3. Разложение при нагревании:<br>
+                <span class="reaction">2Al(OH)<sub>3</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                    Al<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub>O</span>
+            </p>
+
+            <h2 id="compounds-salts">5.3. Соли алюминия</h2>
+
+            <h3>Особенности солей</h3>
+            <p>Соли алюминия и сильных кислот (хлориды, сульфаты, нитраты) растворимы в воде. Водные растворы имеют
+                <strong>кислую среду</strong> из-за гидролиза по катиону:
+            </p>
+            <p class="reaction">Al<sup>3+</sup> + HOH ⇄ AlOH<sup>2+</sup> + H<sup>+</sup></p>
+
+            <h3>Комплексные соли (Тетрагидроксоалюминаты)</h3>
+            <p>Важные для ЕГЭ реакции разрушения комплексов.<br>
+                Представляйте Na[Al(OH)<sub>4</sub>] как смесь NaOH + Al(OH)<sub>3</sub>.</p>
+            <ul>
+                <li><strong>Действие сильных кислот (избыток):</strong><br>
+                    <span class="reaction">Na[Al(OH)<sub>4</sub>] + 4HCl → NaCl + AlCl<sub>3</sub> +
+                        4H<sub>2</sub>O</span> (прозрачный раствор)
+                </li>
+                <li><strong>Действие сильных кислот (недостаток):</strong><br>
+                    <span class="reaction">Na[Al(OH)<sub>4</sub>] + HCl → NaCl + Al(OH)<sub>3</sub>↓ +
+                        H<sub>2</sub>O</span> (белый осадок)
+                </li>
+                <li><strong>Действие слабых кислот и кислотных оксидов (CO<sub>2</sub>, SO<sub>2</sub>,
+                        H<sub>2</sub>S):</strong><br>
+                    Всегда выпадает осадок гидроксида, так как слабые кислоты не могут растворить
+                    Al(OH)<sub>3</sub>.<br>
+                    <span class="reaction">Na[Al(OH)<sub>4</sub>] + CO<sub>2</sub> → Al(OH)<sub>3</sub>↓ +
+                        NaHCO<sub>3</sub></span><br>
+                    <span class="reaction">2Na[Al(OH)<sub>4</sub>] + H<sub>2</sub>S → 2Al(OH)<sub>3</sub>↓ + NaHS +
+                        2H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Действие солей алюминия (укрупнение осадка):</strong><br>
+                    <span class="reaction">3Na[Al(OH)<sub>4</sub>] + AlCl<sub>3</sub> → 4Al(OH)<sub>3</sub>↓ +
+                        3NaCl</span>
+                </li>
+                <li><strong>Термическое разложение (высыхание):</strong><br>
+                    <span class="reaction">Na[Al(OH)<sub>4</sub>] <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> NaAlO<sub>2</sub>
+                        + 2H<sub>2</sub>O</span>
+                </li>
+            </ul>
+
+            <h3>Алюминаты (Полученные сплавлением)</h3>
+            <p>NaAlO<sub>2</sub> (метаалюминат натрия). При взаимодействии с кислотами ведут себя как смесь оксидов.</p>
+            <p class="reaction">NaAlO<sub>2</sub> + 4HCl → NaCl + AlCl<sub>3</sub> + 2H<sub>2</sub>O</p>
+            <p>При растворении в воде алюминаты гидролизуются и переходят в комплексы (создают щелочную среду):</p>
+            <p class="reaction">NaAlO<sub>2</sub> + 2H<sub>2</sub>O ⇄ Na[Al(OH)<sub>4</sub>]</p>
+
+            <h2 id="binary">5.4. Бинарные соединения</h2>
+            <p>Многие бинарные соединения алюминия подвергаются необратимому гидролизу.</p>
+            <ul>
+                <li><strong>Сульфид алюминия (Al<sub>2</sub>S<sub>3</sub>):</strong><br>
+                    Получается только сплавлением. В воде разлагается:<br>
+                    <span class="reaction">Al<sub>2</sub>S<sub>3</sub> + 6H<sub>2</sub>O → 2Al(OH)<sub>3</sub>↓ +
+                        3H<sub>2</sub>S↑</span><br>
+                    С кислотами реагирует:<br>
+                    <span class="reaction">Al<sub>2</sub>S<sub>3</sub> + 6HCl → 2AlCl<sub>3</sub> +
+                        3H<sub>2</sub>S↑</span><br>
+                    Окисляется азотной кислотой (конц):<br>
+                    <span class="reaction">Al<sub>2</sub>S<sub>3</sub> + 30HNO<sub>3</sub> →
+                        2Al(NO<sub>3</sub>)<sub>3</sub> + 3H<sub>2</sub>SO<sub>4</sub> + 24NO<sub>2</sub> +
+                        12H<sub>2</sub>O</span>
+                </li>
+
+                <li><strong>Карбид алюминия (Al<sub>4</sub>C<sub>3</sub>):</strong><br>
+                    При гидролизе дает метан (способ получения метана):<br>
+                    <span class="reaction">Al<sub>4</sub>C<sub>3</sub> + 12H<sub>2</sub>O → 4Al(OH)<sub>3</sub>↓ +
+                        3CH<sub>4</sub>↑</span>
+                </li>
+
+                <li><strong>Нитрид алюминия (AlN):</strong><br>
+                    Разлагается водой и кислотами (выделяется аммиак или соль аммония):<br>
+                    <span class="reaction">AlN + 3H<sub>2</sub>O → Al(OH)<sub>3</sub>↓ + NH<sub>3</sub>↑</span><br>
+                    <span class="reaction">AlN + 4HCl → AlCl<sub>3</sub> + NH<sub>4</sub>Cl</span>
+                </li>
+            </ul>
+
+            <h2 id="qualitative">6. Качественные реакции</h2>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image_copy.png" alt="Качественная реакция на ион алюминия"
+                    style="max-width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 4. Качественная реакция на
+                    ион алюминия
+                </figcaption>
+            </figure>
+            <p>Для обнаружения иона <strong>Al<sup>3+</sup></strong> используют реакцию с щелочью: при постепенном
+                добавлении щелочи сначала выпадает белый осадок, который растворяется в избытке реагента.</p>
+            <ol>
+                <li>Добавление OH<sup>-</sup>: <span class="reaction">Al<sup>3+</sup> + 3OH<sup>-</sup> →
+                        Al(OH)<sub>3</sub>↓</span> (белый осадок)</li>
+                <li>Избыток OH<sup>-</sup>: <span class="reaction">Al(OH)<sub>3</sub> + OH<sup>-</sup> →
+                        [Al(OH)<sub>4</sub>]<sup>-</sup></span> (растворение осадка)</li>
+            </ol>
+            <p>Если использовать раствор аммиака (NH<sub>3</sub>·H<sub>2</sub>O), осадок выпадает, но не растворяется в
+                избытке, так как аммиак — слабое основание.</p>
+
+            <h2 id="videos">7. Видео эксперименты</h2>
+            <p>Рекомендуем посмотреть опыты с алюминием на канале Thoisoi:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=BOv3Etp72_I" target="_blank">Алюминий (Aluminium) —
+                        свойства и реакции</a></li>
+            </ul>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../alkaline-earth/alkaline_earth_metals.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Щелочноземельные металлы
+                </a>
+                <a href="../../transition-metals/chromium/chromium.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Хром →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../1 глава/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+</body>
+
+</html>

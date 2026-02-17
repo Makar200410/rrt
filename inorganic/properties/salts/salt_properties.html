@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свойства солей | ХимПодготовка</title>
+    <meta name="description" content="Классификация, физические свойства и получение солей.">
+    <link rel="stylesheet" href="../../../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .table-properties {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin: 20px 0;
+            border: 2px solid #7c4dff;
+        }
+
+        .table-properties th,
+        .table-properties td {
+            border: 1px solid #7c4dff;
+            padding: 8px 10px;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .table-properties th {
+            background-color: #f3e5f5;
+            font-weight: bold;
+            color: #4a148c;
+            font-size: 1.05em;
+        }
+
+        .table-properties td p {
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .prop-note {
+            font-size: 0.85em;
+            color: #555;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .powder-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .powder-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+        }
+
+        .powder-visual {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 10px;
+            box-shadow: inset -5px -5px 20px rgba(0, 0, 0, 0.2), 5px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Simulating powder texture with radial gradient */
+        .powder-blue {
+            background: radial-gradient(circle at 30% 30%, #4fc3f7, #0288d1);
+        }
+
+        .powder-dark-blue {
+            background: radial-gradient(circle at 30% 30%, #29b6f6, #0277bd);
+        }
+
+        .powder-teal {
+            background: radial-gradient(circle at 30% 30%, #4dd0e1, #006064);
+        }
+
+        .powder-orange {
+            background: radial-gradient(circle at 30% 30%, #ffcc80, #e65100);
+        }
+
+        .powder-brown {
+            background: radial-gradient(circle at 30% 30%, #8d6e63, #3e2723);
+        }
+
+        .powder-orange-red {
+            background: radial-gradient(circle at 30% 30%, #ff7043, #d84315);
+        }
+
+        .powder-white {
+            background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0);
+            border: 1px solid #ddd;
+        }
+
+        .powder-green {
+            background: radial-gradient(circle at 30% 30%, #a5d6a7, #2e7d32);
+        }
+
+        .powder-emerald {
+            background: radial-gradient(circle at 30% 30%, #69f0ae, #2e7d32);
+        }
+
+        .powder-pale-green {
+            background: radial-gradient(circle at 30% 30%, #dcedc8, #8bc34a);
+        }
+
+        .powder-malachite {
+            background: radial-gradient(circle at 30% 30%, #1de9b6, #004d40);
+        }
+
+        .powder-purple {
+            background: radial-gradient(circle at 30% 30%, #e1bee7, #7b1fa2);
+        }
+
+        .powder-dark-purple {
+            background: radial-gradient(circle at 30% 30%, #ea80fc, #4a148c);
+        }
+
+        .powder-violet {
+            background: radial-gradient(circle at 30% 30%, #b39ddb, #512da8);
+        }
+
+        .powder-yellow {
+            background: radial-gradient(circle at 30% 30%, #fff59d, #fbc02d);
+        }
+
+        .powder-bright-yellow {
+            background: radial-gradient(circle at 30% 30%, #fff176, #fdd835);
+        }
+
+        .powder-gold {
+            background: radial-gradient(circle at 30% 30%, #ffeb3b, #fbc02d);
+        }
+
+        .powder-pale-yellow {
+            background: radial-gradient(circle at 30% 30%, #fff9c4, #fbc02d);
+        }
+
+        .powder-canary {
+            background: radial-gradient(circle at 30% 30%, #ffff00, #fbc02d);
+        }
+
+        .powder-pink {
+            background: radial-gradient(circle at 30% 30%, #f48fb1, #ad1457);
+        }
+
+        .powder-pale-pink {
+            background: radial-gradient(circle at 30% 30%, #fce4ec, #f48fb1);
+        }
+
+        .powder-red {
+            background: radial-gradient(circle at 30% 30%, #ef5350, #b71c1c);
+        }
+
+        .powder-cinnabar {
+            background: radial-gradient(circle at 30% 30%, #ff5252, #c62828);
+        }
+
+        .powder-black {
+            background: radial-gradient(circle at 30% 30%, #757575, #212121);
+        }
+
+        .powder-label {
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        .powder-sub {
+            font-size: 0.85em;
+            color: #666;
+            text-align: center;
+        }
+
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#classification">1. Классификация</a></li>
+                <li><a href="#physical">2. Физические свойства</a></li>
+                <li><a href="#preparation">3. Получение солей</a></li>
+                <li><a href="#acid-salts">Получение кислых солей</a></li>
+                <li><a href="#basic-salts">Получение основных солей</a></li>
+                <li><a href="#medium-salts">Получение средних солей</a></li>
+                <li><a href="#complex-salts">Получение комплексных солей</a></li>
+                <li><a href="#chem-properties">4. Химические свойства</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span>
+                <a href="../../../1 глава/theory.html">Теория</a> <span>/</span>
+                Свойства солей
+            </div>
+
+            <h1>Соли: Классификация, Физические свойства, Получение</h1>
+
+            <div class="info-box">
+                <p><strong>Соли</strong> – это сложные вещества, которые состоят из катионов металлов (или аммония NH₄⁺)
+                    и анионов кислотных остатков.</p>
+            </div>
+
+            <h2 id="classification">1. Классификация солей</h2>
+            <p>В зависимости от состава и свойств соли делят на несколько групп:</p>
+
+            <h3>По продукту замещения:</h3>
+            <ul>
+                <li><strong>Средние (нормальные) соли:</strong> Продукты полного замещения атомов водорода в молекуле
+                    кислоты на атомы металла (Na₂CO₃, K₃PO₄).</li>
+                <li><strong>Кислые соли:</strong> Продукты неполного замещения атомов водорода в молекуле кислоты на
+                    атомы металла. Содержат водород (NaHCO₃, K₂HPO₄). Образуются многоосновными кислотами.</li>
+                <li><strong>Основные соли:</strong> Продукты неполного замещения гидроксогрупп в молекуле основания на
+                    кислотные остатки. Содержат группу OH ( (CuOH)₂CO₃ ).</li>
+            </ul>
+
+            <h3>По числу катионов и анионов:</h3>
+            <ul>
+                <li><strong>Простые соли:</strong> Один тип катиона и один тип аниона (NaCl).</li>
+                <li><strong>Двойные соли:</strong> Два разных катиона и один тип аниона (KAl(SO₄)₂).</li>
+                <li><strong>Смешанные соли:</strong> Один катион и два разных аниона (Ca(OCl)Cl).</li>
+            </ul>
+
+            <h3>По структуре:</h3>
+            <ul>
+                <li><strong>Комплексные соли:</strong> Содержат комплексный катион или анион ( K₃[Fe(CN)₆], Na[Al(OH)₄]
+                    ).</li>
+                <li><strong>Кристаллогидраты:</strong> Содержат молекулы кристаллизационной воды (CuSO₄·5H₂O).</li>
+            </ul>
+
+            <h2 id="physical">2. Физические свойства</h2>
+            <p>Соли — это твердые кристаллические вещества с ионной кристаллической решеткой. Они имеют высокие
+                температуры плавления.</p>
+
+            <p><strong>Растворимость:</strong> По растворимости в воде соли делят на растворимые (Р), малорастворимые
+                (М) и нерастворимые (Н). (См. Таблицу растворимости).</p>
+
+            <p><strong>Цвет:</strong> Многие соли имеют характерную окраску, которая зависит от катиона металла или
+                аниона кислотного остатка.</p>
+
+            <div class="powder-container">
+                <!-- Blue/Teal -->
+                <div class="powder-item">
+                    <div class="powder-visual powder-dark-blue"></div>
+                    <div class="powder-label">Сульфат меди (II)</div>
+                    <div class="powder-sub">CuSO₄·5H₂O</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-teal"></div>
+                    <div class="powder-label">Хлорид меди (II)</div>
+                    <div class="powder-sub">CuCl₂</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-malachite"></div>
+                    <div class="powder-label">Карбонат меди (II)</div>
+                    <div class="powder-sub">CuCO₃</div>
+                </div>
+
+                <!-- Green -->
+                <div class="powder-item">
+                    <div class="powder-visual powder-emerald"></div>
+                    <div class="powder-label">Сульфат никеля (II)</div>
+                    <div class="powder-sub">NiSO₄</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-pale-green"></div>
+                    <div class="powder-label">Сульфат железа (II)</div>
+                    <div class="powder-sub">FeSO₄·7H₂O</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-violet"></div>
+                    <div class="powder-label">Хлорид хрома (III)</div>
+                    <div class="powder-sub">CrCl₃</div>
+                </div>
+
+                <!-- Red/Pink/Purple -->
+                <div class="powder-item">
+                    <div class="powder-visual powder-dark-purple"></div>
+                    <div class="powder-label">Перманганат калия</div>
+                    <div class="powder-sub">KMnO₄</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-pink"></div>
+                    <div class="powder-label">Хлорид кобальта (II)</div>
+                    <div class="powder-sub">CoCl₂·6H₂O</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-pale-pink"></div>
+                    <div class="powder-label">Хлорид марганца (II)</div>
+                    <div class="powder-sub">MnCl₂</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-red"></div>
+                    <div class="powder-label">Красная кровяная соль</div>
+                    <div class="powder-sub">K₃[Fe(CN)₆]</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-cinnabar"></div>
+                    <div class="powder-label">Сульфид ртути (II)</div>
+                    <div class="powder-sub">HgS</div>
+                </div>
+
+                <!-- Orange/Yellow -->
+                <div class="powder-item">
+                    <div class="powder-visual powder-orange-red"></div>
+                    <div class="powder-label">Дихромат калия</div>
+                    <div class="powder-sub">K₂Cr₂O₇</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-bright-yellow"></div>
+                    <div class="powder-label">Хромат калия</div>
+                    <div class="powder-sub">K₂CrO₄</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-brown"></div>
+                    <div class="powder-label">Хлорид железа (III)</div>
+                    <div class="powder-sub">FeCl₃</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-gold"></div>
+                    <div class="powder-label">Иодид свинца (II)</div>
+                    <div class="powder-sub">PbI₂</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-canary"></div>
+                    <div class="powder-label">Сульфид кадмия</div>
+                    <div class="powder-sub">CdS</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-pale-yellow"></div>
+                    <div class="powder-label">Иодид серебра</div>
+                    <div class="powder-sub">AgI</div>
+                </div>
+
+                <!-- White/Black -->
+                <div class="powder-item">
+                    <div class="powder-visual powder-white"></div>
+                    <div class="powder-label">Хлорид натрия</div>
+                    <div class="powder-sub">NaCl</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-black"></div>
+                    <div class="powder-label">Сульфид серебра</div>
+                    <div class="powder-sub">Ag₂S</div>
+                </div>
+                <div class="powder-item">
+                    <div class="powder-visual powder-black"></div>
+                    <div class="powder-label">Сульфид меди (II)</div>
+                    <div class="powder-sub">CuS</div>
+                </div>
+            </div>
+
+            <h2 id="preparation">3. Получение солей</h2>
+
+            <h3 id="acid-salts">Получение кислых солей</h3>
+            <p>Кислые соли образуются при недостатке основания или избытке кислоты (для многоосновных кислот).</p>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 40%">Способ получения</th>
+                        <th style="width: 60%">Примеры реакций</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Щелочь + Избыток кислоты</strong><br>(Для многоосновных кислот)</td>
+                        <td>
+                            <p>При избытке кислоты образуется кислая соль.</p>
+                            NaOH + H₃PO₄ → NaH₂PO₄ + H₂O <span class="prop-note">(Дигидрофосфат)</span><br>
+                            2NaOH + H₃PO₄ → Na₂HPO₄ + 2H₂O <span class="prop-note">(Гидрофосфат)</span><br>
+                            KOH + H₂SO₄ → KHSO₄ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Средняя соль + Кислота</strong><br>(Той же соли)</td>
+                        <td>
+                            <p>Растворением средней соли в кислоте.</p>
+                            CaCO₃ + CO₂ + H₂O ⇄ Ca(HCO₃)₂ <span class="prop-note">(Временная жесткость)</span><br>
+                            Na₂SO₄ + H₂SO₄ → 2NaHSO₄<br>
+                            Ca₃(PO₄)₂ + 4H₃PO₄ → 3Ca(H₂PO₄)₂
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Щелочь + Избыток кислотного оксида</strong></td>
+                        <td>
+                            NaOH + CO₂ (изб.) → NaHCO₃<br>
+                            Ca(OH)₂ + 2CO₂ (изб.) → Ca(HCO₃)₂
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Кислотный оксид + Средняя соль + Вода</strong></td>
+                        <td>
+                            K₂SO₃ + SO₂ + H₂O → 2KHSO₃<br>
+                            Na₂S + H₂S → 2NaHS
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="basic-salts">Получение основных солей</h3>
+            <p>Основные соли образуются при недостатке кислоты или избытке основания (для многокислотных оснований).</p>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 40%">Способ получения</th>
+                        <th style="width: 60%">Примеры реакций</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Кислота + Избыток основания</strong><br>(Для многокислотных оснований)</td>
+                        <td>
+                            <p>При недостатке кислоты замещаются не все гидроксильные группы.</p>
+                            Cu(OH)₂ + HCl → (CuOH)Cl + H₂O<br>
+                            Al(OH)₃ + HCl → Al(OH)₂Cl + H₂O<br>
+                            Fe(OH)₃ + 2HNO₃ → Fe(OH)(NO₃)₂ + 2H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Гидролиз солей</strong><br>(Слабое основание + Сильная кислота)</td>
+                        <td>
+                            <p>Гидролиз по катиону часто приводит к образованию основных солей.</p>
+                            AlCl₃ + H₂O ⇄ AlOHCl₂ + HCl<br>
+                            ZnCl₂ + H₂O ⇄ ZnOHCl + HCl
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Средняя соль + Щелочь</strong><br>(Осторожное добавление)</td>
+                        <td>
+                            AlCl₃ + 2NaOH → Al(OH)₂Cl + 2NaCl<br>
+                            2MgCl₂ + 2Mg(OH)₂ → 4MgOHCl (при t°)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Разложение средних солей</strong></td>
+                        <td>
+                            <p>Некоторые соли при нагревании теряют часть кислотного остатка.</p>
+                            2MgCl₂ + O₂ → 2Mg₂OCl₂ (оксохлорид) + ... (специфичные реакции)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="medium-salts">Получение средних солей</h3>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 40%">Способ получения</th>
+                        <th style="width: 60%">Примеры реакций</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Кислотный оксид + Основный оксид</strong></td>
+                        <td>
+                            <p class="prop-note">Сплавление твердых оксидов или реакция газов.</p>
+                            CaO + CO₂ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> CaCO₃<br>
+                            MgO + SiO₂ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> MgSiO₃
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Кислота + Основание</strong> (Нейтрализация)</td>
+                        <td>
+                            <p class="prop-note">Важнейший способ. Полная нейтрализация.</p>
+                            H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O<br>
+                            HNO₃ + KOH → KNO₃ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Металл + Неметалл</strong></td>
+                        <td>
+                            <p class="prop-note">Прямой синтез. Обычно при нагревании.</p>
+                            Fe + S <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> FeS<br>
+                            2Na + Cl₂ → 2NaCl<br>
+                            2Fe + 3Cl₂ → 2FeCl₃ <span class="prop-note">(Окисление до высшей СО)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Металл + Кислота</strong></td>
+                        <td>
+                            <p class="prop-note">Металл должен стоять до Н (для обычных кислот).</p>
+                            Zn + 2HCl → ZnCl₂ + H₂↑<br>
+                            Mg + H₂SO₄ (разб.) → MgSO₄ + H₂↑
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Металл + Раствор соли</strong></td>
+                        <td>
+                            <p class="prop-note">Более активный металл вытесняет менее активный.</p>
+                            Fe + CuSO₄ → FeSO₄ + Cu↓<br>
+                            Zn + Pb(NO₃)₂ → Zn(NO₃)₂ + Pb↓
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Кислотный оксид + Щелочь</strong></td>
+                        <td>
+                            <p class="prop-note">Избыток щелочи дает среднюю соль.</p>
+                            CO₂ + 2NaOH → Na₂CO₃ + H₂O<br>
+                            SO₃ + 2KOH → K₂SO₄ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Основный оксид + Кислота</strong></td>
+                        <td>
+                            <p class="prop-note">Растворение оксидов металлов.</p>
+                            CuO + H₂SO₄ → CuSO₄ + H₂O<br>
+                            ZnO + 2HNO₃ → Zn(NO₃)₂ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>8. Соль + Кислота</strong></td>
+                        <td>
+                            <p class="prop-note">Должен выделяться газ или осадок.</p>
+                            BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl<br>
+                            CaCO₃ + 2HCl → CaCl₂ + CO₂↑ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>9. Соль + Щелочь</strong></td>
+                        <td>
+                            <p class="prop-note">Исходная соль растворима, образуется осадок или газ.</p>
+                            CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄<br>
+                            NH₄Cl + KOH → KCl + NH₃↑ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>10. Соль + Соль</strong></td>
+                        <td>
+                            <p class="prop-note">Обе соли растворимы, продукт — осадок.</p>
+                            AgNO₃ + NaCl → AgCl↓ + NaNO₃<br>
+                            BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>11. Аммиак + Кислота</strong></td>
+                        <td>
+                            <p class="prop-note">Получение солей аммония.</p>
+                            NH₃ + HCl → NH₄Cl (дым без огня)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="complex-salts">Получение комплексных солей</h3>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 40%">Способ получения</th>
+                        <th style="width: 60%">Примеры реакций</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Амфотерный металл + Щелочь (раствор)</strong></td>
+                        <td>
+                            <p>Растворение амфотерных металлов в щелочах.</p>
+                            2Al + 2NaOH + 6H₂O → 2Na[Al(OH)₄] + 3H₂↑<br>
+                            Zn + 2NaOH + 2H₂O → Na₂[Zn(OH)₄] + H₂↑
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Амфотерный оксид + Щелочь (раствор)</strong></td>
+                        <td>
+                            <p>В растворе образуются гидроксокомплексы.</p>
+                            ZnO + 2NaOH + H₂O → Na₂[Zn(OH)₄]<br>
+                            Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Амфотерный гидроксид + Щелочь (раствор)</strong></td>
+                        <td>
+                            <p>Растворение осадка амфотерного гидроксида.</p>
+                            Al(OH)₃ + NaOH → Na[Al(OH)₄]<br>
+                            Zn(OH)₂ + 2KOH → K₂[Zn(OH)₄]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Соль + Избыток Щелочи</strong></td>
+                        <td>
+                            <p>Сначала выпадает осадок, затем растворяется.</p>
+                            ZnCl₂ + 4NaOH (изб.) → Na₂[Zn(OH)₄] + 2NaCl
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Соль + Аммиак (водный раствор)</strong></td>
+                        <td>
+                            <p>Образование аммиачных комплексов (аммиакатов).</p>
+                            CuSO₄ + 4NH₃ → [Cu(NH₃)₄]SO₄ <span class="prop-note">(Ярко-синий раствор)</span><br>
+                            AgCl + 2NH₃ → [Ag(NH₃)₂]Cl <span class="prop-note">(Растворение осадка AgCl)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="chem-properties">4. Химические свойства солей</h2>
+            <p>Химические свойства солей зависят от их типа (средние, кислые, основные, комплексные). Ниже представлены
+                подробные таблицы свойств для каждой группы.</p>
+
+            <h3 id="medium-chem">4.1. Свойства средних солей (Базовые свойства)</h3>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 35%">Свойство</th>
+                        <th style="width: 65%">Химическая реакция и пояснения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Диссоциация</strong></td>
+                        <td>
+                            Na₂SO₄ → 2Na⁺ + SO₄²⁻<br>
+                            KHSO₄ → K⁺ + HSO₄⁻ <span class="prop-note">(Сильная кислая среда за счет HSO₄⁻)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие с более активными металлами</strong></td>
+                        <td>
+                            <p>Более активный металл вытесняет менее активный из раствора соли.</p>
+                            CuSO₄ + Fe → FeSO₄ + Cu↓
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие с кислотными оксидами</strong></td>
+                        <td>
+                            <p><strong>Сплавление</strong> (вытеснение летучего оксида):</p>
+                            K₂CO₃ + SiO₂ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> K₂SiO₃ + CO₂↑<br>
+                            <p><strong>В растворе</strong>:</p>
+                            Na₂SiO₃ + 2CO₂ (изб.) + 2H₂O → 2NaHCO₃ + H₂SiO₃↓
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие с кислотами</strong></td>
+                        <td>
+                            <p class="prop-note">Условие: образуется осадок, газ или малодиссоциирующее вещество (слабая
+                                кислота).</p>
+                            CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑<br>
+                            ZnF₂ + 2HNO₃ → Zn(NO₃)₂ + 2HF <span class="prop-note">(HF — слабая к-та)</span><br>
+                            (CH₃COO)₂Pb + 2HCl → PbCl₂↓ + 2CH₃COOH<br>
+                            <p><strong>Образование кислых солей:</strong></p>
+                            Na₃PO₄ + 2H₃PO₄ → 3NaH₂PO₄
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие со щелочами</strong></td>
+                        <td>
+                            <p class="prop-note">Условие: образуется осадок, газ или слабый электролит.</p>
+                            ZnCl₂ + 2NaOH → Zn(OH)₂↓ + 2NaCl<br>
+                            ZnCl₂ + 4NaOH (изб.) → Na₂[Zn(OH)₄] + 2NaCl <span class="prop-note">(Растворение осадка в
+                                избытке)</span><br>
+                            Ba(OH)₂ + K₂SO₄ → BaSO₄↓ + 2KOH<br>
+                            NH₄NO₃ + NaOH → NH₃↑ + NaNO₃ + H₂O <span class="prop-note">(Качественная реакция на
+                                NH₄⁺)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие с другими солями</strong></td>
+                        <td>
+                            <p class="prop-note">Условие: обе соли растворимы, продукт — осадок.</p>
+                            NaCl + AgNO₃ → AgCl↓ + NaNO₃
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Совместный гидролиз двух солей</strong></td>
+                        <td>
+                            <p>Усиливает друг друга до полного разложения.</p>
+                            3Na₂CO₃ + 2FeCl₃ + 3H₂O → 6NaCl + 2Fe(OH)₃↓ + 3CO₂↑
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Сплавление с амфотерными оксидами/гидроксидами</strong></td>
+                        <td>
+                            Na₂CO₃ + Al₂O₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> 2NaAlO₂ + CO₂↑<br>
+                            Na₂CO₃ + 2Al(OH)₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> 2NaAlO₂ + CO₂↑ + 3H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Замещение в солях галогенов</strong></td>
+                        <td>
+                            <p>Активность: F > Cl > Br > I. Более активный галоген вытесняет менее активный.</p>
+                            2NaBr + Cl₂ → 2NaCl + Br₂<br>
+                            2NaI + Br₂ → 2NaBr + I₂<br>
+                            NaCl + I₂ ↛ реакция не идет
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Специфические свойства (OBC)</strong></td>
+                        <td>
+                            2K₂CrO₄ <span class="prop-note">(желтый)</span> + H₂SO₄ → K₂Cr₂O₇ <span
+                                class="prop-note">(оранжевый)</span> + K₂SO₄ + H₂O<br>
+                            2KMnO₄ + 16HCl → 2KCl + 2MnCl₂ + 5Cl₂↑ + 8H₂O
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="decomp-chem">4.2. Разложение солей (Нитраты, Карбонаты, Аммоний)</h3>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Тип соли</th>
+                        <th style="width: 70%">Продукты разложения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Нитраты (MeNO₃)</strong><br><span class="prop-note">Зависит от активности
+                                металла</span></td>
+                        <td>
+                            <div
+                                style="margin-bottom: 10px; font-family: monospace; background: #f0f0f0; padding: 5px; border-radius: 4px; overflow-x: auto;">
+                                Li Rb K Ba Sr Ca Na Mg Al Mn Zn Cr Fe ... Cu Hg Ag Pt Au
+                            </div>
+                            <ul>
+                                <li><strong>Левее Mg (кроме Li):</strong> MeNO₂ (нитрит) + O₂<br>
+                                    2NaNO₃ → 2NaNO₂ + O₂</li>
+                                <li><strong>От Mg до Cu (и Li):</strong> MeO + NO₂ + O₂<br>
+                                    2Cu(NO₃)₂ → 2CuO + 4NO₂ + O₂</li>
+                                <li><strong>Правее Cu:</strong> Me + NO₂ + O₂<br>
+                                    2AgNO₃ → 2Ag + 2NO₂ + O₂</li>
+                            </ul>
+                            <p><strong>Особые случаи:</strong></p>
+                            4Fe(NO₃)₂ → 2Fe₂O₃ + 8NO₂ + O₂ <span class="prop-note">(Окисление Fe⁺² до Fe⁺³)</span><br>
+                            Mn(NO₃)₂ → MnO₂ + 2NO₂
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Карбонаты</strong></td>
+                        <td>
+                            <p>Нерастворимые карбонаты разлагаются на оксид металла и CO₂.</p>
+                            CaCO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> CaO + CO₂↑<br>
+                            (CuOH)₂CO₃ <span class="prop-note">(Малахит)</span> → 2CuO + CO₂ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td><strong>Соли аммония</strong><br><span class="prop-note">Разложение зависит от аниона
+                                (окислитель или нет)</span></td>
+                        <td>
+                            <p><strong>1. Без изменения степени окисления (анион — не окислитель):</strong></p>
+                            1. NH₄Cl ⇄ NH₃↑ + HCl↑ <span class="prop-note">(«Возгонка», обратимо)</span><br>
+                            2. (NH₄)₂CO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> 2NH₃↑ + CO₂↑ + H₂O<br>
+                            3. NH₄HCO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> NH₃↑ + CO₂↑ + H₂O <span
+                                class="prop-note">(Разрыхлитель теста)</span><br>
+                            4. (NH₄)₂SO₄ <span class="reaction-arrow"><span class="ra-condition">250°C</span><span
+                                    class="ra-symbol">→</span></span> NH₄HSO₄ + NH₃↑ <span class="prop-note">(До кислой
+                                соли)</span><br>
+                            <br>
+                            <p><strong>2. С ОВР (анион — окислитель):</strong></p>
+                            5. NH₄NO₂ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> N₂↑ + 2H₂O <span class="prop-note">(Лаб. способ
+                                получения N₂)</span><br>
+                            6. NH₄NO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> N₂O↑ + 2H₂O <span class="prop-note">(Веселящий
+                                газ)</span><br>
+                            7. (NH₄)₂Cr₂O₇ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> N₂↑ + Cr₂O₃ + 4H₂O <span
+                                class="prop-note">(Реакция «Вулкан» — оранжевый порошок превращается в зелёный)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="acid-salt-chem">4.3. Свойства кислых солей</h3>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 35%">Свойство</th>
+                        <th style="width: 65%">Реакция</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Кислая соль + Кислота</strong><br>→ Более кислая соль</td>
+                        <td>Na₂HPO₄ + H₃PO₄ → 2NaH₂PO₄</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Кислая соль + Основание</strong><br>→ Средняя (или менее кислая) соль</td>
+                        <td>
+                            KH₂PO₄ + 2KOH → K₃PO₄ + 2H₂O<br>
+                            2KH₂PO₄ + 3Ba(OH)₂ (изб.) → Ba₃(PO₄)₂↓ + 2KOH + 4H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Кислая соль + Более сильная кислота</strong></td>
+                        <td>
+                            <p class="prop-note">Вытеснение слабой кислоты или газа.</p>
+                            NaHCO₃ + HCl → NaCl + CO₂↑ + H₂O<br>
+                            2NaHS + H₂SO₄ → Na₂SO₄ + 2H₂S↑
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие с солями</strong></td>
+                        <td>
+                            Ba(HCO₃)₂ + K₂SO₄ → BaSO₄↓ + 2KHCO₃<br>
+                            KHSO₄ + BaCl₂ → BaSO₄↓ + KCl + HCl <span class="prop-note">(Как кислота)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Свойства гидросульфатов (HSO₄⁻)</strong></td>
+                        <td>
+                            <p class="prop-note">Ведут себя как сильные кислоты.</p>
+                            2KHSO₄ + Fe → K₂SO₄ + FeSO₄ + H₂↑<br>
+                            2NaHSO₄ + 2KHCO₃ → Na₂SO₄ + K₂SO₄ + 2CO₂↑ + 2H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимный гидролиз</strong></td>
+                        <td>
+                            FeCl₃ + 3NaHCO₃ → Fe(OH)₃↓ + 3CO₂↑ + 3NaCl
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Термическое разложение</strong></td>
+                        <td>
+                            2NaHCO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> Na₂CO₃ + CO₂↑ + H₂O<br>
+                            2KHSO₃ → K₂SO₃ + SO₂↑ + H₂O
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="basic-complex-chem">4.4. Свойства основных и комплексных солей</h3>
+            <table class="table-properties">
+                <thead>
+                    <tr>
+                        <th style="width: 35%">Тип соли / Свойство</th>
+                        <th style="width: 65%">Реакция</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #e8eaf6; text-align:center;"><strong>Основные
+                                соли</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие с кислотами</strong><br>(Переход в среднюю соль)</td>
+                        <td>
+                            (CuOH)Cl + HCl → CuCl₂ + H₂O<br>
+                            (CuOH)Cl + HBr → CuBrCl + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Разложение</strong></td>
+                        <td>(CuOH)₂CO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> 2CuO + CO₂ + H₂O</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="background-color: #e8eaf6; text-align:center;"><strong>Комплексные соли
+                                (гидроксо-)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Разрушение сильной кислотой</strong><br>(Недостаток кислоты)</td>
+                        <td>
+                            K[Al(OH)₄] + HCl → KCl + Al(OH)₃↓ + H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Разрушение сильной кислотой</strong><br>(Избыток кислоты)</td>
+                        <td>
+                            Na[Al(OH)₄] + 4HCl → NaCl + AlCl₃ + 4H₂O
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Разрушение слабыми кислотами/газами</strong><br>(CO₂, SO₂, H₂S)</td>
+                        <td>
+                            K[Al(OH)₄] + CO₂ → Al(OH)₃↓ + KHCO₃<br>
+                            K₂[Zn(OH)₄] + 2SO₂ → Zn(OH)₂↓ + 2KHSO₃<br>
+                            Na₂[Zn(OH)₄] + 3H₂S → ZnS↓ + 2NaHS + 4H₂O <span class="prop-note">(Сульфид цинка выпадает в
+                                осадок)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Взаимодействие с солями</strong><br>(Усиление гидролиза)</td>
+                        <td>
+                            3K[Al(OH)₄] + AlCl₃ → 4Al(OH)₃↓ + 3KCl
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Термическое разложение</strong><br>(Твердой соли)</td>
+                        <td>
+                            Na[Al(OH)₄] <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> NaAlO₂ + 2H₂O<br>
+                            Na₂[Zn(OH)₄] <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> Na₂ZnO₂ + 2H₂O
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div
+                style="margin-top: 2rem; display: flex; justify-content: space-between; max-width: 1100px; margin-left: auto; margin-right: auto; margin-bottom: 2rem;">
+                <a href="../acids/acid_properties.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Свойства кислот
+                </a>
+                <a href="../../metals/alkali/alkali_metals.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Щелочные металлы →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+            <div
+                style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+                <a href="../../../index.html"
+                    style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+                <span style="color: #ddd;">·</span>
+                    <a href="../../../1 глава/theory.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../tests/periodic_law_test.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../variants.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../courses.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../dashboard.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+                </div>
+                <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+            </footer>
+
+        </main>
+
+    <script src="../../../js/script.js"></script>
+</body>
+
+</html>

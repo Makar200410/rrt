@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Щелочные металлы | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#general" class="active">1. Общая характеристика</a></li>
+                <li><a href="#nature">2. Нахождение в природе</a></li>
+                <li><a href="#production">3. Получение</a></li>
+                <li><a href="#chemical-prop">4. Химические свойства металлов</a></li>
+                <li><a href="#compounds-oxides">5.1. Оксиды</a></li>
+                <li><a href="#compounds-peroxides">5.2. Пероксиды</a></li>
+                <li><a href="#compounds-hydroxides">5.3. Гидроксиды (Щелочи)</a></li>
+                <li><a href="#compounds-salts">5.4. Соли</a></li>
+                <li><a href="#qualitative">6. Качественные реакции</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a href="#">Неорганическая химия</a>
+                <span>/</span> <a href="#">Металлы</a> <span>/</span> Щелочные металлы
+            </div>
+
+            <h1>Щелочные металлы</h1>
+            <p class="subtitle">Химия элементов IА группы: от Лития до Франция</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Щелочные металлы — самые активные металлы. В соединениях они всегда
+                    проявляют постоянную степень окисления <strong>+1</strong>. Их гидроксиды являются растворимыми в
+                    воде сильными основаниями (щелочами).</p>
+            </div>
+
+            <h2 id="general">1. Общая характеристика элементов IA группы</h2>
+            <p>К щелочным металлам относятся элементы главной подгруппы I группы Периодической системы:</p>
+            <ul class="chemical-list">
+                <li>Литий (<strong>Li</strong>)</li>
+                <li>Натрий (<strong>Na</strong>)</li>
+                <li>Калий (<strong>K</strong>)</li>
+                <li>Рубидий (<strong>Rb</strong>)</li>
+                <li>Цезий (<strong>Cs</strong>)</li>
+                <li>Франций (<strong>Fr</strong>) — радиоактивный элемент</li>
+            </ul>
+
+            <h3>Строение атома</h3>
+            <p>Все эти элементы имеют сходное строение внешнего электронного уровня:</p>
+            <div
+                style="background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.2em; border: 1px solid #e9ecef; margin: 15px 0;">
+                <strong>ns<sup>1</sup></strong>
+            </div>
+            <p>На внешнем уровне находится всего один валентный s-электрон, который они легко отдают в химических
+                реакциях, проявляя свойства сильных восстановителей.</p>
+
+            <h3>Закономерности в группе (Li → Fr)</h3>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image_copy.png" alt="Закономерности в группе (Li → Fr)"
+                    style="max-width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Закономерности в группе
+                    (Li → Fr)
+                </figcaption>
+            </figure>
+
+
+            <h3>Физические свойства</h3>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image.png" alt="Физические свойства"
+                    style="max-width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Физические свойства
+                    (Li → Fr)
+                </figcaption>
+            </figure>
+            <p>Щелочные металлы — это мягкие вещества серебристо-белого цвета (на свежем срезе). Их можно резать ножом.
+                Обладают характерным металлическим блеском, высокой тепло- и электропроводностью. Имеют низкие
+                температуры плавления и низкую плотность (литий, натрий и калий легче воды).</p>
+            <p>Из-за высокой химической активности их хранят под слоем керосина или в запаянных ампулах (чтобы исключить
+                контакт с кислородом и влагой воздуха).</p>
+
+            <h2 id="nature">2. Нахождение в природе</h2>
+            <p>Ввиду своей исключительной активности, в свободном виде щелочные металлы в природе <strong>не
+                    встречаются</strong>. Они существуют только в виде соединений (солей).</p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Название минерала</th>
+                        <th>Формула</th>
+                        <th>Химическое название</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Каменная соль (Галит)</td>
+                        <td>NaCl</td>
+                        <td>Хлорид натрия</td>
+                    </tr>
+                    <tr>
+                        <td>Сильвин</td>
+                        <td>KCl</td>
+                        <td>Хлорид калия</td>
+                    </tr>
+                    <tr>
+                        <td>Сильвинит</td>
+                        <td>NaCl · KCl</td>
+                        <td>Смешанный хлорид натрия-калия</td>
+                    </tr>
+                    <tr>
+                        <td>Глауберова соль (Мирабилит)</td>
+                        <td>Na<sub>2</sub>SO<sub>4</sub> · 10H<sub>2</sub>O</td>
+                        <td>Декагидрат сульфата натрия</td>
+                    </tr>
+                    <tr>
+                        <td>Селитра чилийская</td>
+                        <td>NaNO<sub>3</sub></td>
+                        <td>Нитрат натрия</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="production">3. Способы получения</h2>
+            <p>Основной промышленный метод получения щелочных металлов — <strong>электролиз расплавов</strong> их солей
+                (чаще всего хлоридов).</p>
+
+            <div class="reaction-block">
+                <p><strong>1. Получение лития и натрия (Электролиз):</strong></p>
+                <p>В расплаве ионы металла восстанавливаются на катоде:</p>
+                <p class="reaction">2NaCl (расплав) → 2Na + Cl<sub>2</sub>↑</p>
+                <p><em>На катоде (-): Na<sup>+</sup> + e<sup>-</sup> → Na<sup>0</sup></em><br>
+                    <em>На аноде (+): 2Cl<sup>-</sup> - 2e<sup>-</sup> → Cl<sub>2</sub><sup>0</sup></em>
+                </p>
+                <p class="note">Аналогично получают литий из расплава LiCl.</p>
+            </div>
+
+            <div class="reaction-block">
+                <p><strong>2. Термохимическое восстановление (для K, Rb, Cs):</strong></p>
+                <p>Более тяжелые металлы (калий, рубидий, цезий) трудно получить электролизом из-за их высокой летучести
+                    и растворимости в расплавленных солях. Их вытесняют из расплавов солей более активными (или менее
+                    летучими) металлами, либо восстанавливают:</p>
+                <p class="reaction">KCl + Na <span class="reaction-arrow"><span class="ra-symbol">⇄</span></span> NaCl +
+                    K↑</p>
+                <p class="reaction">2CsCl + Ca → CaCl<sub>2</sub> + 2Cs↑</p>
+            </div>
+
+            <h2 id="chemical-prop">4. Химические свойства простых веществ (Металлов)</h2>
+            <p>Щелочные металлы — <strong>сильнейшие восстановители</strong>. Они легко отдают единственный внешний
+                электрон, превращаясь в положительно заряженные ионы M<sup>+</sup>.</p>
+
+            <table class="styled-table reaction-table">
+                <thead>
+                    <tr>
+                        <th>Реагент</th>
+                        <th>Описание процесса и уравнения реакций</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>С галогенами</strong></td>
+                        <td>Реагируют очень бурно (со взрывом или воспламенением), образуя галогениды (ионные соли).<br>
+                            <span class="reaction">2Na + Cl<sub>2</sub> → 2NaCl</span><br>
+                            <span class="reaction">2K + I<sub>2</sub> → 2KI</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С серой</strong></td>
+                        <td>При нагревании (с ртутью, а также калий с серой могут реагировать даже при растирании)
+                            образуют сульфиды.<br>
+                            <span class="reaction">2Na + S <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Na<sub>2</sub>S</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С фосфором</strong></td>
+                        <td>Образуют фосфиды при нагревании.<br>
+                            <span class="reaction">3K + P <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                K<sub>3</sub>P</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С водородом</strong></td>
+                        <td>Образуют твердые ионные гидриды (активные восстановители).<br>
+                            <span class="reaction">2Na + H<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2NaH</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С азотом</strong></td>
+                        <td>Литий реагирует с азотом <strong>при комнатной температуре</strong> (уникальное свойство!),
+                            остальные — при нагревании. Образуются нитриды.<br>
+                            <span class="reaction">6Li + N<sub>2</sub> → 2Li<sub>3</sub>N</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С кислородом</strong></td>
+                        <td>
+                            <div class="clarification-frame">
+                                <strong>Важное различие!</strong><br>
+                                При горении на воздухе:<br>
+                                • Литий образует <strong>нормальный оксид</strong>: <span class="reaction">4Li +
+                                    O<sub>2</sub> → 2Li<sub>2</sub>O</span><br>
+                                • Натрий образует <strong>пероксид</strong>: <span class="reaction">2Na + O<sub>2</sub>
+                                    → Na<sub>2</sub>O<sub>2</sub></span><br>
+                                • Калий, Рубидий, Цезий образуют <strong>надпероксиды</strong>: <span class="reaction">K
+                                    + O<sub>2</sub> → KO<sub>2</sub></span>
+                            </div>
+                            Цезий на воздухе самовозгорается мгновенно.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С водой</strong></td>
+                        <td>Реагируют бурно (натрий "бегает" по воде, калий загорается, цезий взрывается). Образуется
+                            щелочь и выделяется водород.<br>
+                            <span class="reaction">2Na + 2H<sub>2</sub>O → 2NaOH + H<sub>2</sub>↑</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С кислотами</strong></td>
+                        <td>Реакция протекает со взрывом. Проводить опасно.<br>
+                            С HCl: <span class="reaction">2Na + 2HCl → 2NaCl + H<sub>2</sub>↑</span><br>
+                            С конц. H<sub>2</sub>SO<sub>4</sub> (возможно образование H<sub>2</sub>S и S):<br>
+                            <span class="reaction">8Na + 5H<sub>2</sub>SO<sub>4(конц.)</sub> →
+                                4Na<sub>2</sub>SO<sub>4</sub> + H<sub>2</sub>S + 4H<sub>2</sub>O</span><br><br>
+
+                            <strong>С азотной кислотой (HNO<sub>3</sub>):</strong><br>
+                            С концентрированной (образуется N<sub>2</sub>O):<br>
+                            <span class="reaction">8Na + 10HNO<sub>3(конц.)</sub> → 8NaNO<sub>3</sub> + N<sub>2</sub>O↑
+                                + 5H<sub>2</sub>O</span><br>
+                            С разбавленной (образуется N<sub>2</sub>):<br>
+                            <span class="reaction">10Na + 12HNO<sub>3(разб.)</sub> → 10NaNO<sub>3</sub> + N<sub>2</sub>↑
+                                + 6H<sub>2</sub>O</span><br>
+                            С очень разбавленной (образуется NH<sub>4</sub>NO<sub>3</sub>):<br>
+                            <span class="reaction">8Na + 10HNO<sub>3(оч. разб.)</sub> → 8NaNO<sub>3</sub> +
+                                NH<sub>4</sub>NO<sub>3</sub> + 3H<sub>2</sub>O</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Взаимодействие с органическими веществами</h3>
+            <p>Щелочные металлы способны замещать водород в соединениях, обладающих даже очень слабыми кислотными
+                свойствами:</p>
+            <ul>
+                <li><strong>Со спиртами</strong> (образование алкоголятов): <br><span class="reaction">2CH<sub>3</sub>OH
+                        + 2Na → 2CH<sub>3</sub>ONa + H<sub>2</sub>↑</span></li>
+                <li><strong>С фенолом</strong> (образование фенолятов): <br><span
+                        class="reaction">2C<sub>6</sub>H<sub>5</sub>OH + 2Na → 2C<sub>6</sub>H<sub>5</sub>ONa +
+                        H<sub>2</sub>↑</span></li>
+                <li><strong>С алкинами</strong> (с концевой тройной связью): <br><span class="reaction">HC≡CH + 2Na →
+                        NaC≡CNa + H<sub>2</sub>↑</span></li>
+                <li><strong>С галогеналканами</strong> (реакция Вюрца): <br><span class="reaction">2CH<sub>3</sub>Cl +
+                        2Na → C<sub>2</sub>H<sub>6</sub> + 2NaCl</span></li>
+            </ul>
+
+            <h2 id="compounds-oxides">5.1. Оксиды щелочных металлов (M<sub>2</sub>O)</h2>
+            <p><strong>Оксиды</strong> (например, Na<sub>2</sub>O, K<sub>2</sub>O) — это твердые вещества, проявляющие
+                ярко выраженные <strong>основные свойства</strong>.</p>
+
+            <p><strong>Получение:</strong> Прямым окислением можно получить только Li<sub>2</sub>O. Оксиды других
+                металлов получают косвенно:</p>
+            <ul>
+                <li>Нагревание пероксида с металлом: <span class="reaction">Na<sub>2</sub>O<sub>2</sub> + 2Na →
+                        2Na<sub>2</sub>O</span></li>
+                <li>Нагревание нитрата с металлом: <span class="reaction">2NaNO<sub>3</sub> + 10Na → 6Na<sub>2</sub>O +
+                        N<sub>2</sub>↑</span></li>
+                <li>Взаимодействие натрия с расплавом щелочи: <span class="reaction">2Na + 2NaOH → 2Na<sub>2</sub>O +
+                        H<sub>2</sub>↑</span></li>
+                <li>Разложение гидроксида лития (единственный из щелочей разлагается): <span class="reaction">2LiOH
+                        <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> Li<sub>2</sub>O + H<sub>2</sub>O</span></li>
+            </ul>
+
+            <p><strong>Химические свойства:</strong></p>
+            <ol>
+                <li><strong>С водой</strong> (очень активно): <span class="reaction">Na<sub>2</sub>O + H<sub>2</sub>O →
+                        2NaOH</span></li>
+                <li><strong>С кислотными оксидами:</strong> <span class="reaction">Na<sub>2</sub>O + CO<sub>2</sub> →
+                        Na<sub>2</sub>CO<sub>3</sub></span></li>
+                <li><strong>С амфотерными оксидами и гидроксидами (при сплавлении):</strong><br>
+                    <span class="reaction">Na<sub>2</sub>O + Al<sub>2</sub>O<sub>3</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span>
+                        2NaAlO<sub>2</sub></span> (метаалюминат натрия)<br>
+                    <span class="reaction">K<sub>2</sub>O + Zn(OH)<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        K<sub>2</sub>ZnO<sub>2</sub> + H<sub>2</sub>O</span> (цинкат калия)
+                </li>
+                <li><strong>С кислотами:</strong> <span class="reaction">K<sub>2</sub>O + 2HCl → 2KCl +
+                        H<sub>2</sub>O</span></li>
+                <li><strong>Окисление кислородом</strong> (кроме Li<sub>2</sub>O): <span
+                        class="reaction">2Na<sub>2</sub>O + O<sub>2</sub> → 2Na<sub>2</sub>O<sub>2</sub></span></li>
+            </ol>
+
+            <h2 id="compounds-peroxides">5.2. Пероксиды щелочных металлов (M<sub>2</sub>O<sub>2</sub>)</h2>
+            <p>Содержат кислород в степени окисления <strong>-1</strong> (группа -O-O-). Пероксид натрия
+                Na<sub>2</sub>O<sub>2</sub> — желтоватый порошок.</p>
+
+            <p><strong>Свойства:</strong></p>
+            <ul>
+                <li><strong>Реакция с водой</strong> (гидролиз):
+                    <ul>
+                        <li>На холоде: <span class="reaction">Na<sub>2</sub>O<sub>2</sub> + 2H<sub>2</sub>O → 2NaOH +
+                                H<sub>2</sub>O<sub>2</sub></span></li>
+                        <li>При нагревании (диспропорционирование): <span class="reaction">2Na<sub>2</sub>O<sub>2</sub>
+                                + 2H<sub>2</sub>O → 4NaOH + O<sub>2</sub>↑</span></li>
+                    </ul>
+                </li>
+                <li><strong>С углекислым газом</strong> (регенерация воздуха на подводных лодках): <br>
+                    <span class="reaction">2Na<sub>2</sub>O<sub>2</sub> + 2CO<sub>2</sub> →
+                        2Na<sub>2</sub>CO<sub>3</sub> + O<sub>2</sub>↑</span>
+                </li>
+                <li><strong>С минеральными кислотами:</strong>
+                    <ul>
+                        <li>На холоде (обменная реакция): <span class="reaction">Na<sub>2</sub>O<sub>2</sub> + 2HCl →
+                                2NaCl + H<sub>2</sub>O<sub>2</sub></span></li>
+                        <li>При нагревании (диспропорционирование): <span class="reaction">2Na<sub>2</sub>O<sub>2</sub>
+                                + 2H<sub>2</sub>SO<sub>4(разб.гор.)</sub> → 2Na<sub>2</sub>SO<sub>4</sub> +
+                                2H<sub>2</sub>O + O<sub>2</sub>↑</span></li>
+                    </ul>
+                </li>
+                <li><strong>Термическое разложение:</strong> <span class="reaction">2Na<sub>2</sub>O<sub>2</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2Na<sub>2</sub>O + O<sub>2</sub>↑</span></li>
+                <li><strong>Окислительные свойства</strong> (с восстановителями):
+                    <ul>
+                        <li>С угарным газом: <span class="reaction">Na<sub>2</sub>O<sub>2</sub> + CO →
+                                Na<sub>2</sub>CO<sub>3</sub></span></li>
+                        <li>С сернистым газом: <span class="reaction">Na<sub>2</sub>O<sub>2</sub> + SO<sub>2</sub> →
+                                Na<sub>2</sub>SO<sub>4</sub></span></li>
+                        <li>С серой: <span class="reaction">2Na<sub>2</sub>O<sub>2</sub> + S →
+                                Na<sub>2</sub>SO<sub>3</sub> + Na<sub>2</sub>O</span></li>
+                        <li>С иодидами в кислой среде: <span class="reaction">Na<sub>2</sub>O<sub>2</sub> +
+                                2H<sub>2</sub>SO<sub>4</sub> + 2NaI → I<sub>2</sub> + 2Na<sub>2</sub>SO<sub>4</sub> +
+                                2H<sub>2</sub>O</span></li>
+                        <li>С солями железа (II): <span class="reaction">Na<sub>2</sub>O<sub>2</sub> +
+                                2H<sub>2</sub>SO<sub>4</sub> + 2FeSO<sub>4</sub> →
+                                Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + Na<sub>2</sub>SO<sub>4</sub> +
+                                2H<sub>2</sub>O</span></li>
+                        <li>С солями хрома (III) в щелочной среде: <span class="reaction">3Na<sub>2</sub>O<sub>2</sub> +
+                                2Na<sub>3</sub>[Cr(OH)<sub>6</sub>] → 2Na<sub>2</sub>CrO<sub>4</sub> + 8NaOH +
+                                2H<sub>2</sub>O</span></li>
+                    </ul>
+                </li>
+                <li><strong>Восстановительные свойства</strong> (с сильными окислителями):<br>
+                    С перманганатом калия в кислой среде (выделяется кислород):<br>
+                    <span class="reaction">5Na<sub>2</sub>O<sub>2</sub> + 2KMnO<sub>4</sub> +
+                        8H<sub>2</sub>SO<sub>4</sub> → 5O<sub>2</sub>↑ + 2MnSO<sub>4</sub> +
+                        5Na<sub>2</sub>SO<sub>4</sub> + K<sub>2</sub>SO<sub>4</sub> + 8H<sub>2</sub>O</span>
+                </li>
+            </ul>
+
+            <h2 id="compounds-hydroxides">5.3. Гидроксиды (Щелочи)</h2>
+            <p>Гидроксиды щелочных металлов (LiOH, NaOH, KOH, RbOH, CsOH) — твердые белые вещества, гигроскопичные,
+                прекрасно растворимые в воде. Являются <strong>сильными основаниями (щелочами)</strong>.</p>
+            <p>Тривиальные названия: NaOH — едкий натр (каустическая сода), KOH — едкое кали.</p>
+
+            <p><strong>Способы получения:</strong></p>
+            <ol>
+                <li><strong>Электролиз растворов хлоридов</strong> (промышленный способ):<br>
+                    <span class="reaction">2NaCl + 2H<sub>2</sub>O <span class="reaction-arrow"><span
+                                class="ra-condition">⚡</span><span class="ra-symbol">→</span></span> 2NaOH +
+                        H<sub>2</sub>↑
+                        + Cl<sub>2</sub>↑</span>
+                </li>
+                <li><strong>Взаимодействие щелочных металлов и их соединений с водой:</strong>
+                    <ul>
+                        <li>Металлы: <span class="reaction">2Na + 2H<sub>2</sub>O → 2NaOH + H<sub>2</sub>↑</span></li>
+                        <li>Оксиды: <span class="reaction">Na<sub>2</sub>O + H<sub>2</sub>O → 2NaOH</span></li>
+                        <li>Пероксиды: <span class="reaction">Na<sub>2</sub>O<sub>2</sub> + H<sub>2</sub>O → 2NaOH +
+                                H<sub>2</sub>O<sub>2</sub></span></li>
+                        <li>Гидриды: <span class="reaction">2NaH + 2H<sub>2</sub>O → 2NaOH + H<sub>2</sub>↑</span></li>
+                    </ul>
+                </li>
+                <li><strong>Обменные реакции</strong> (каустификация):<br>
+                    Взаимодействие растворимых солей (карбонатов, сульфатов) с гидроксидом кальция (известковым молоком)
+                    или бария:<br>
+                    <span class="reaction">K<sub>2</sub>CO<sub>3</sub> + Ca(OH)<sub>2</sub> → CaCO<sub>3</sub>↓ +
+                        2KOH</span>
+                </li>
+            </ol>
+
+            <p><strong>Химические свойства:</strong></p>
+            <ol>
+                <li><strong>Диссоциация:</strong> Сильные электролиты, диссоциируют нацело. <br>
+                    <span class="reaction">NaOH ⇄ Na<sup>+</sup> + OH<sup>-</sup></span> <br>
+                    Среда щелочная, изменяют окраску индикаторов (лакмус — синий, фенолфталеин — малиновый, метилоранж —
+                    желтый).
+                </li>
+                <li><strong>С кислотами</strong> (любыми): <br>
+                    Образуются средние или кислые соли (в зависимости от соотношения):<br>
+                    <span class="reaction">3KOH + H<sub>3</sub>PO<sub>4</sub> → K<sub>3</sub>PO<sub>4</sub> +
+                        3H<sub>2</sub>O</span> (избыток щелочи)<br>
+                    <span class="reaction">2KOH + H<sub>3</sub>PO<sub>4</sub> → K<sub>2</sub>HPO<sub>4</sub> +
+                        2H<sub>2</sub>O</span><br>
+                    <span class="reaction">KOH + H<sub>3</sub>PO<sub>4</sub> → KH<sub>2</sub>PO<sub>4</sub> +
+                        H<sub>2</sub>O</span> (избыток кислоты)
+                </li>
+                <li><strong>С кислотными оксидами:</strong> <br>
+                    В зависимости от соотношения образуются средние или кислые соли:<br>
+                    <span class="reaction">2NaOH<sub>(изб.)</sub> + CO<sub>2</sub> → Na<sub>2</sub>CO<sub>3</sub> +
+                        H<sub>2</sub>O</span><br>
+                    <span class="reaction">NaOH + CO<sub>2(изб.)</sub> → NaHCO<sub>3</sub></span><br>
+                    <em>С оксидом NO<sub>2</sub> (диспропорционирование):</em><br>
+                    <span class="reaction">2NO<sub>2</sub> + 2NaOH → NaNO<sub>3</sub> + NaNO<sub>2</sub> +
+                        H<sub>2</sub>O</span><br>
+                    <em>В присутствии O<sub>2</sub>:</em> <span class="reaction">4NO<sub>2</sub> + 4KOH + O<sub>2</sub>
+                        → 4KNO<sub>3</sub> + 2H<sub>2</sub>O</span>
+                </li>
+                <li><strong>С амфотерными оксидами и гидроксидами:</strong>
+                    <ul>
+                        <li>В расплаве (образуются соли-метааллюминаты): <br><span class="reaction">2NaOH +
+                                Al<sub>2</sub>O<sub>3</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2NaAlO<sub>2</sub> + H<sub>2</sub>O</span></li>
+                        <li>В растворе (образуются комплексные соли): <br>
+                            <span class="reaction">2NaOH + Al<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub>O →
+                                2Na[Al(OH)<sub>4</sub>]</span><br>
+                            <span class="reaction">NaOH + Al(OH)<sub>3</sub> → Na[Al(OH)<sub>4</sub>]</span>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>С амфотерными металлами</strong> (Zn, Al, Be):<br>
+                    В расплаве: <span class="reaction">2KOH + Zn <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        K<sub>2</sub>ZnO<sub>2</sub> + H<sub>2</sub>↑</span><br>
+                    В растворе: <span class="reaction">2NaOH + 2Al + 6H<sub>2</sub>O → 2Na[Al(OH)<sub>4</sub>] +
+                        3H<sub>2</sub>↑</span>
+                </li>
+                <li><strong>С кислыми солями</strong> (до средних солей): <br>
+                    <span class="reaction">KOH + KHCO<sub>3</sub> → K<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O</span>
+                </li>
+                <li><strong>С растворимыми солями</strong> (обмен, если есть признак реакции): <br>
+                    <span class="reaction">CuCl<sub>2</sub> + 2NaOH → Cu(OH)<sub>2</sub>↓ + 2NaCl</span> (осадок)<br>
+                    <span class="reaction">NH<sub>4</sub>Cl + NaOH <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> NaCl +
+                        NH<sub>3</sub>↑ + H<sub>2</sub>O</span> (газ)
+                </li>
+                <li><strong>С неметаллами:</strong>
+                    <ul>
+                        <li>Si (окисляется): <span class="reaction">Si + 2NaOH + H<sub>2</sub>O →
+                                Na<sub>2</sub>SiO<sub>3</sub> + 2H<sub>2</sub>↑</span></li>
+                        <li>F<sub>2</sub> (окисляет щелочь): <span class="reaction">2F<sub>2</sub> + 2NaOH → 2NaF +
+                                OF<sub>2</sub>↑ + H<sub>2</sub>O</span> (также возможно выделение O<sub>2</sub>)</li>
+                        <li>P, S, Cl<sub>2</sub>, Br<sub>2</sub>, I<sub>2</sub> (диспропорционируют):<br>
+                            <span class="reaction">4P + 3KOH + 3H<sub>2</sub>O → 3KH<sub>2</sub>PO<sub>2</sub> +
+                                PH<sub>3</sub>↑</span><br>
+                            <span class="reaction">3S + 6NaOH <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                2Na<sub>2</sub>S + Na<sub>2</sub>SO<sub>3</sub> + 3H<sub>2</sub>O</span><br>
+                            <span class="reaction">Cl<sub>2</sub> + 2KOH<sub>(хол.)</sub> → KCl + KClO +
+                                H<sub>2</sub>O</span><br>
+                            <span class="reaction">3Cl<sub>2</sub> + 6KOH<sub>(гор.)</sub> → 5KCl + KClO<sub>3</sub> +
+                                3H<sub>2</sub>O</span>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Термическая устойчивость:</strong> <br>
+                    Плавится без разложения (NaOH, KOH). <br>
+                    <strong>Исключение:</strong> LiOH разлагается: <span class="reaction">2LiOH <span
+                            class="reaction-arrow"><span class="ra-condition">600°C</span><span
+                                class="ra-symbol">→</span></span> Li<sub>2</sub>O + H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Электролиз расплава:</strong> <br>
+                    <span class="reaction">4NaOH <span class="reaction-arrow"><span class="ra-condition">⚡</span><span
+                                class="ra-symbol">→</span></span> 4Na + O<sub>2</sub>↑ + 2H<sub>2</sub>O</span>
+                </li>
+            </ol>
+
+            <h2 id="compounds-salts">5.4. Соли щелочных металлов</h2>
+            <p>Почти все соли щелочных металлов растворимы в воде. Особый интерес представляет термическое разложение
+                нитратов.</p>
+
+            <div class="clarification-frame">
+                <strong>Разложение нитратов при нагревании:</strong>
+                <p>1. Нитрат лития (как и нитраты магния, меди) разлагается до оксида:</p>
+                <p class="reaction">4LiNO<sub>3</sub> → 2Li<sub>2</sub>O + 4NO<sub>2</sub> + O<sub>2</sub></p>
+                <p>2. Нитраты остальных щелочных металлов (Na, K, Rb, Cs) разлагаются до нитритов:</p>
+                <p class="reaction">2NaNO<sub>3</sub> → 2NaNO<sub>2</sub> + O<sub>2</sub></p>
+                <p class="reaction">2KNO<sub>3</sub> → 2KNO<sub>2</sub> + O<sub>2</sub></p>
+            </div>
+
+            <h2 id="qualitative">6. Качественные реакции (Окрашивание пламени)</h2>
+            <p>Ионы щелочных металлов окрашивают пламя горелки в характерные цвета, что используется для их
+                качественного обнаружения.</p>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image_copy_2.png" alt="Окрашивание пламени"
+                    style="max-width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 3. Окрашивание пламени
+                    (Li → Cs)
+                </figcaption>
+            </figure>
+
+
+            <h2 id="videos">7. Видео эксперименты</h2>
+            <p>Рекомендуем посмотреть опыты с щелочными металлами на канале Thoisoi:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=ZTTb-GomRmc" target="_blank">Литий (Lithium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=fFuA8XC8tIM" target="_blank">Натрий (Sodium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=oEKSJBX-hKA" target="_blank">Калий (Potassium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=V1-LcbGSsmw" target="_blank">Рубидий (Rubidium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=1gh5JJDvdiQ" target="_blank">Цезий (Cesium)</a></li>
+            </ul>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../../properties/salts/salt_properties.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Свойства солей
+                </a>
+                <a href="../alkaline-earth/alkaline_earth_metals.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Щелочноземельные металлы →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../1 глава/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+</body>
+
+</html>

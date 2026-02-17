@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Щелочноземельные металлы | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#general" class="active">1. Общая характеристика</a></li>
+                <li><a href="#nature">2. Нахождение в природе</a></li>
+                <li><a href="#production">3. Получение</a></li>
+                <li><a href="#chemical-prop">4. Химические свойства металлов</a></li>
+                <li><a href="#compounds-oxides">5.1. Оксиды</a></li>
+                <li><a href="#compounds-hydroxides">5.2. Гидроксиды</a></li>
+                <li><a href="#compounds-salts">5.3. Соли и жесткость воды</a></li>
+                <li><a href="#qualitative">6. Качественные реакции</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a href="#">Неорганическая химия</a>
+                <span>/</span> <a href="#">Металлы</a> <span>/</span> Щелочноземельные металлы
+            </div>
+
+            <h1>Щелочноземельные металлы</h1>
+            <p class="subtitle">Химия элементов IIА группы</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Щелочноземельные металлы расположены во II группе главной подгруппы
+                    (IIА). К ним традиционно относят <strong>кальций (Ca)</strong>, <strong>стронций (Sr)</strong>,
+                    <strong>барий (Ba)</strong> и <strong>радий (Ra)</strong>. Бериллий (Be) и магний (Mg) также входят
+                    в эту группу, но имеют ряд отличий. Все элементы группы проявляют постоянную степень окисления
+                    <strong>+2</strong>.
+                </p>
+            </div>
+
+            <h2 id="general">1. Общая характеристика</h2>
+            <p>Элементы группы: Бериллий (Be), Магний (Mg), Кальций (Ca), Стронций (Sr), Барий (Ba), Радий (Ra).</p>
+
+            <h3>Строение атома</h3>
+            <p>Внешний электронный уровень имеет конфигурацию <strong>ns<sup>2</sup></strong>. Два s-электрона легко
+                отдаются в химических реакциях, поэтому металлы проявляют сильные восстановительные свойства.</p>
+
+            <h3>Закономерности в группе (Be → Ra)</h3>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image_copy.png" alt="Закономерности в группе (Be → Ra)"
+                    style="max-width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Закономерности в группе
+                    (Be → Ra)
+                </figcaption>
+            </figure>
+
+
+            <h3>Физические свойства</h3>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image.png" alt="Физические свойства"
+                    style="max-width: 50%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Физические свойства
+                </figcaption>
+            </figure>
+            <p>Это металлы серого цвета, тверже щелочных металлов. Обладают металлической кристаллической решеткой,
+                высокой тепло- и электропроводностью.</p>
+            <p><strong>Хранение:</strong> Бериллий, Магний и Кальций устойчивы на сухом воздухе (покрываются оксидной
+                пленкой). Стронций и Барий более активны, их хранят под слоем керосина.</p>
+
+            <h2 id="nature">2. Нахождение в природе</h2>
+            <p>В природе встречаются исключительно в виде соединений (солей).</p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Название минерала</th>
+                        <th>Формула</th>
+                        <th>Химическое название</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Доломит</td>
+                        <td>CaCO<sub>3</sub> · MgCO<sub>3</sub></td>
+                        <td>Карбонат кальция-магния</td>
+                    </tr>
+                    <tr>
+                        <td>Магнезит</td>
+                        <td>MgCO<sub>3</sub></td>
+                        <td>Карбонат магния</td>
+                    </tr>
+                    <tr>
+                        <td>Кальцит (Мел, Мрамор, Известняк)</td>
+                        <td>CaCO<sub>3</sub></td>
+                        <td>Карбонат кальция</td>
+                    </tr>
+                    <tr>
+                        <td>Гипс</td>
+                        <td>CaSO<sub>4</sub> · 2H<sub>2</sub>O</td>
+                        <td>Дигидрат сульфата кальция</td>
+                    </tr>
+                    <tr>
+                        <td>Барит</td>
+                        <td>BaSO<sub>4</sub></td>
+                        <td>Сульфат бария</td>
+                    </tr>
+                    <tr>
+                        <td>Витерит</td>
+                        <td>BaCO<sub>3</sub></td>
+                        <td>Карбонат бария</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="production">3. Способы получения</h2>
+            <div class="reaction-block">
+                <p><strong>1. Электролиз расплавов (для Mg, Ca):</strong></p>
+                <p>Магний получают из карналлита или хлорида магния (часто с добавкой NaCl для снижения t° плавления):
+                </p>
+                <p class="reaction">MgCl<sub>2</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">⚡</span><span class="ra-symbol">→</span></span> Mg + Cl<sub>2</sub>↑
+                </p>
+                <p>Кальций также получают электролизом расплава хлорида:</p>
+                <p class="reaction">CaCl<sub>2</sub> <span class="reaction-arrow"><span
+                            class="ra-condition">⚡</span><span class="ra-symbol">→</span></span> Ca + Cl<sub>2</sub>↑
+                </p>
+
+                <p><strong>2. Металлотермия:</strong></p>
+                <p>Восстановление оксидов более активными металлами или кремнием. Например, получение магния из
+                    доломита:</p>
+                <p class="reaction">2(CaO · MgO) + Si <span class="reaction-arrow"><span
+                            class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Mg +
+                    Ca<sub>2</sub>SiO<sub>4</sub></p>
+                <p>Барий получают восстановлением оксида алюминием в вакууме:</p>
+                <p class="reaction">4BaO + 2Al <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                            class="ra-symbol">→</span></span> 3Ba + Ba(AlO<sub>2</sub>)<sub>2</sub></p>
+            </div>
+
+            <h2 id="chemical-prop">4. Химические свойства металлов</h2>
+            <p>Щелочноземельные металлы — <strong>сильные восстановители</strong>.</p>
+
+            <table class="styled-table reaction-table">
+                <thead>
+                    <tr>
+                        <th>Реагент</th>
+                        <th>Описание процесса и уравнения реакций</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>С галогенами</strong></td>
+                        <td>Активно реагируют при нагревании, образуя галогениды.<br>
+                            <span class="reaction">Be + Cl<sub>2</sub> → BeCl<sub>2</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С серой и фосфором</strong></td>
+                        <td>При нагревании образуют сульфиды и фосфиды.<br>
+                            <span class="reaction">Ca + S <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                CaS</span><br>
+                            <span class="reaction">3Ca + 2P <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Ca<sub>3</sub>P<sub>2</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С водородом</strong></td>
+                        <td>При нагревании образуют гидриды (кроме бериллия). Магний реагирует при повышенном
+                            давлении.<br>
+                            <span class="reaction">Mg + H<sub>2</sub> → MgH<sub>2</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С азотом</strong></td>
+                        <td>При нагревании образуют нитриды.<br>
+                            <span class="reaction">3Mg + N<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Mg<sub>3</sub>N<sub>2</sub></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С углеродом</strong></td>
+                        <td>Образуют карбиды (ацетилениды для Ca, метаниды для Be).<br>
+                            <span class="reaction">Ca + 2C <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                CaC<sub>2</sub></span><br>
+                            <span class="reaction">2Be + C <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Be<sub>2</sub>C</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С кислородом (Горение)</strong></td>
+                        <td>Горят на воздухе с образованием оксидов (и частично нитридов).<br>
+                            <span class="reaction">2Be + O<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">900°C</span><span class="ra-symbol">→</span></span>
+                                2BeO</span><br>
+                            <span class="reaction">2Mg + O<sub>2</sub> <span class="reaction-arrow"><span
+                                        class="ra-condition">650°C</span><span class="ra-symbol">→</span></span>
+                                2MgO</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С водой</strong></td>
+                        <td>
+                            • <strong>Be</strong> не реагирует.<br>
+                            • <strong>Mg</strong> реагирует только при кипячении: <br>
+                            <span class="reaction">Mg + 2H<sub>2</sub>O <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Mg(OH)<sub>2</sub> + H<sub>2</sub>↑</span><br>
+                            • <strong>Ca, Sr, Ba</strong> реагируют при комнатной температуре (активно):<br>
+                            <span class="reaction">Ca + 2H<sub>2</sub>O → Ca(OH)<sub>2</sub> + H<sub>2</sub>↑</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>С кислотами</strong></td>
+                        <td>Вытесняют водород из кислот-неокислителей (HCl, разб. H<sub>2</sub>SO<sub>4</sub>).<br>
+                            <span class="reaction">Mg + 2HCl → MgCl<sub>2</sub> + H<sub>2</sub>↑</span><br><br>
+
+                            <strong>С кислотами-окислителями:</strong><br>
+                            С конц. H<sub>2</sub>SO<sub>4</sub> (возможно образование S):<br>
+                            <span class="reaction">3Ca + 4H<sub>2</sub>SO<sub>4(конц.)</sub> → 3CaSO<sub>4</sub> + S +
+                                4H<sub>2</sub>O</span><br>
+                            С HNO<sub>3</sub> (продукты восстановления азота варьируются):<br>
+                            <span class="reaction">4Ca + 10HNO<sub>3(конц.)</sub> → 4Ca(NO<sub>3</sub>)<sub>2</sub> +
+                                N<sub>2</sub>O↑ + 5H<sub>2</sub>O</span><br>
+                            <span class="reaction">4Ba + 10HNO<sub>3(оч.разб.)</sub> → 4Ba(NO<sub>3</sub>)<sub>2</sub> +
+                                NH<sub>4</sub>NO<sub>3</sub> + 3H<sub>2</sub>O</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Восстановление оксидов</strong></td>
+                        <td>Могут восстанавливать неметаллы (Si, C, B) из их оксидов.<br>
+                            <span class="reaction">2Ca + SiO<sub>2</sub> → 2CaO + Si</span><br>
+                            Магний горит в углекислом газе:<br>
+                            <span class="reaction">2Mg + CO<sub>2</sub> → 2MgO + C</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Вытеснение металлов</strong></td>
+                        <td>В расплавах вытесняют менее активные металлы.<br>
+                            <span class="reaction">Ca + CuCl<sub>2(расплав)</sub> → CaCl<sub>2</sub> + Cu</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="compounds-oxides">5.1. Оксиды (MO)</h2>
+            <p>Оксиды Ca, Sr, Ba, Mg — основные. Оксид бериллия BeO — амфотерный.</p>
+
+            <p><strong>Получение:</strong></p>
+            <ul>
+                <li>Окисление металлов: <span class="reaction">2Ca + O<sub>2</sub> → 2CaO</span></li>
+                <li>Разложение карбонатов: <span class="reaction">CaCO<sub>3</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> CaO +
+                        CO<sub>2</sub></span>, <span class="reaction">MgCO<sub>3</sub> → MgO + CO_2</span></li>
+                <li>Разложение нитратов: <span class="reaction">2Ca(NO<sub>3</sub>)<sub>2</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2CaO + 4NO<sub>2</sub> + O<sub>2</sub></span></li>
+                <li>Разложение гидроксидов: <span class="reaction">Mg(OH)<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> MgO +
+                        H<sub>2</sub>O</span></li>
+            </ul>
+
+            <p><strong>Химические свойства:</strong></p>
+            <ol>
+                <li><strong>С кислотными оксидами:</strong> <span class="reaction">MgO + CO<sub>2</sub> →
+                        MgCO<sub>3</sub></span></li>
+                <li><strong>С кислотами:</strong> <span class="reaction">CaO + 2HCl → CaCl<sub>2</sub> +
+                        H<sub>2</sub>O</span></li>
+                <li><strong>С водой:</strong>
+                    <ul>
+                        <li>CaO, SrO, BaO реагируют активно (гашение извести): <span class="reaction">CaO +
+                                H<sub>2</sub>O → Ca(OH)<sub>2</sub></span></li>
+                        <li>MgO реагирует только при нагревании: <span class="reaction">MgO + H<sub>2</sub>O <span
+                                    class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                        class="ra-symbol">→</span></span> Mg(OH)<sub>2</sub></span></li>
+                        <li>BeO с водой не реагирует.</li>
+                    </ul>
+                </li>
+                <li><strong>Свойства амфотерного BeO:</strong>
+                    <ul>
+                        <li>С основными оксидами: <span class="reaction">BeO + Na<sub>2</sub>O →
+                                Na<sub>2</sub>BeO<sub>2</sub></span> (бериллат)</li>
+                        <li>С щелочами в расплаве: <span class="reaction">BeO + 2NaOH <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                Na<sub>2</sub>BeO<sub>2</sub> + H<sub>2</sub>O</span></li>
+                        <li>С щелочами в растворе: <span class="reaction">BeO + 2NaOH + H<sub>2</sub>O →
+                                Na<sub>2</sub>[Be(OH)<sub>4</sub>]</span></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2 id="compounds-hydroxides">5.2. Гидроксиды (M(OH)<sub>2</sub>)</h2>
+            <p>Гидроксиды Ca, Sr, Ba — щелочи (сила основания растет от Ca к Ba). Mg(OH)<sub>2</sub> — нерастворимое
+                основание. Be(OH)<sub>2</sub> — амфотерный гидроксид.</p>
+
+            <p><strong>Получение:</strong></p>
+            <ul>
+                <li>Оксид + Вода (для активных): <span class="reaction">CaO + H<sub>2</sub>O → Ca(OH)<sub>2</sub></span>
+                </li>
+                <li>Металл + Вода: <span class="reaction">2Ca + 2H<sub>2</sub>O → 2Ca(OH)<sub>2</sub> +
+                        H<sub>2</sub>↑</span></li>
+                <li>Обменная реакция (для малорастворимых): <span class="reaction">Ca(NO<sub>3</sub>)<sub>2</sub> + 2KOH
+                        → Ca(OH)<sub>2</sub>↓ + 2KNO<sub>3</sub></span></li>
+            </ul>
+
+            <p><strong>Химические свойства:</strong></p>
+            <ol>
+                <li><strong>Взаимодействие с кислотами:</strong><br>
+                    Гидроксиды кальция, стронция и бария реагируют со <strong>всеми</strong> кислотами (сильными и
+                    слабыми).<br>
+                    Гидроксид магния взаимодействует только с <strong>сильными</strong> кислотами.<br>
+                    <span class="reaction">Ca(OH)<sub>2</sub> + 2HCl → CaCl<sub>2</sub> + 2H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Взаимодействие с кислотными оксидами:</strong><br>
+                    Образуются средние или кислые соли (в зависимости от соотношения реагентов).<br>
+                    <span class="reaction">Ba(OH)<sub>2(изб.)</sub> + CO<sub>2</sub> → BaCO<sub>3</sub>↓ +
+                        H<sub>2</sub>O</span> (средняя соль)<br>
+                    <span class="reaction">Ba(OH)<sub>2</sub> + 2CO<sub>2(изб.)</sub> →
+                        Ba(HCO<sub>3</sub>)<sub>2</sub></span> (кислая соль)
+                </li>
+                <li><strong>Взаимодействие с амфотерными оксидами и гидроксидами (для Ca, Sr, Ba):</strong><br>
+                    <ul>
+                        <li>В расплаве (образуются средние соли):<br>
+                            <span class="reaction">Ba(OH)<sub>2</sub> + Al<sub>2</sub>O<sub>3</sub> <span
+                                    class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                        class="ra-symbol">→</span></span> Ba(AlO<sub>2</sub>)<sub>2</sub> +
+                                H<sub>2</sub>O</span>
+                        </li>
+                        <li>В растворе (образуются комплексные соли):<br>
+                            <span class="reaction">Ba(OH)<sub>2</sub> + Al<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub>O →
+                                Ba[Al(OH)<sub>4</sub>]<sub>2</sub></span>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Взаимодействие с кислыми солями:</strong><br>
+                    Образуются средние или менее кислые соли.<br>
+                    <span class="reaction">Ca(OH)<sub>2</sub> + Ca(HCO<sub>3</sub>)<sub>2</sub> → 2CaCO<sub>3</sub>↓ +
+                        2H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Взаимодействие с неметаллами:</strong><br>
+                    Гидроксиды Ca, Sr, Ba взаимодействуют с простыми веществами-неметаллами (кроме инертных газов,
+                    N<sub>2</sub>, O<sub>2</sub>, H<sub>2</sub>, C). См. свойства щелочных металлов.
+                </li>
+                <li><strong>Взаимодействие с амфотерными металлами (кроме Fe, Cr):</strong><br>
+                    <ul>
+                        <li>В расплаве:<br>
+                            <span class="reaction">Ca(OH)<sub>2</sub> + Zn <span class="reaction-arrow"><span
+                                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                                CaZnO<sub>2</sub> + H<sub>2</sub>↑</span>
+                        </li>
+                        <li>В растворе:<br>
+                            <span class="reaction">Ca(OH)<sub>2</sub> + 2Al + 6H<sub>2</sub>O →
+                                Ca[Al(OH)<sub>4</sub>]<sub>2</sub> + 3H<sub>2</sub>↑</span>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Обменные реакции с растворимыми солями:</strong><br>
+                    Реагируют с солями тяжелых металлов, карбонатами, сульфитами, силикатами, сульфатами (для Sr, Ba),
+                    солями аммония.<br>
+                    <span class="reaction">Ba(OH)<sub>2</sub> + FeCl<sub>2</sub> → BaCl<sub>2</sub> +
+                        Fe(OH)<sub>2</sub>↓</span><br>
+                    <span class="reaction">2NH<sub>4</sub>Br + Ca(OH)<sub>2</sub> → CaBr<sub>2</sub> + 2NH<sub>3</sub>↑
+                        + 2H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Термическое разложение:</strong><br>
+                    Ca(OH)<sub>2</sub> (при ~580°C), Mg(OH)<sub>2</sub>, Be(OH)<sub>2</sub> разлагаются при
+                    нагревании.<br>
+                    <span class="reaction">Mg(OH)<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> MgO +
+                        H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Сила оснований:</strong><br>
+                    Гидроксиды Ca, Sr, Ba — сильные основания (щелочи), полностью диссоциируют:<br>
+                    <span class="reaction">Ba(OH)<sub>2</sub> ⇄ Ba<sup>2+</sup> + 2OH<sup>-</sup></span><br>
+                    Mg(OH)<sub>2</sub> — нерастворимое основание. Be(OH)<sub>2</sub> — амфотерный гидроксид.
+                </li>
+                <li><strong>Свойства амфотерного Be(OH)<sub>2</sub>:</strong><br>
+                    Взаимодействует с щелочами.<br>
+                    В расплаве: <span class="reaction">Be(OH)<sub>2</sub> + 2NaOH <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                        Na<sub>2</sub>BeO<sub>2</sub> + 2H<sub>2</sub>O</span><br>
+                    В растворе: <span class="reaction">Be(OH)<sub>2</sub> + 2NaOH →
+                        Na<sub>2</sub>[Be(OH)<sub>4</sub>]</span>
+                </li>
+            </ol>
+
+            <h2 id="compounds-salts">5.3. Соли и жесткость воды</h2>
+
+            <h3>Разложение нитратов</h3>
+            <p>Нитраты Ca, Sr, Ba разлагаются до нитритов (по одной из схем), Mg — до оксида.</p>
+            <p class="reaction">Ca(NO<sub>3</sub>)<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Ca(NO<sub>2</sub>)<sub>2</sub> + O<sub>2</sub></p>
+            <p class="note">Примечание: В некоторых условиях или источниках указывается разложение до оксида (как при
+                получении оксидов).</p>
+
+            <h3>Карбонаты</h3>
+            <ul>
+                <li><strong>Термическое разложение:</strong> <span class="reaction">CaCO<sub>3</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">1200°C</span><span
+                                class="ra-symbol">→</span></span> CaO + CO<sub>2</sub></span></li>
+                <li><strong>Взаимодействие с сильными кислотами:</strong> <span class="reaction">CaCO<sub>3</sub> + 2HCl
+                        → CaCl<sub>2</sub> + CO<sub>2</sub>↑ + H<sub>2</sub>O</span></li>
+                <li><strong>Превращение в гидрокарбонаты (растворение в воде с CO<sub>2</sub>):</strong><br>
+                    <span class="reaction">CaCO<sub>3</sub> + H<sub>2</sub>O + CO<sub>2</sub> →
+                        Ca(HCO<sub>3</sub>)<sub>2</sub></span>
+                </li>
+                <li><strong>Сплавление с менее летучими оксидами (SiO<sub>2</sub>,
+                        Al<sub>2</sub>O<sub>3</sub>):</strong><br>
+                    <span class="reaction">CaCO<sub>3</sub> + Al<sub>2</sub>O<sub>3</sub> <span
+                            class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> Ca(AlO<sub>2</sub>)<sub>2</sub> +
+                        CO<sub>2</sub>↑</span>
+                </li>
+            </ul>
+
+            <h3>Жесткость воды</h3>
+            <p>Обусловлена наличием солей кальция и магния.</p>
+            <p><strong>Временная (карбонатная) жесткость:</strong> Гидрокарбонаты Ca(HCO<sub>3</sub>)<sub>2</sub> и
+                Mg(HCO<sub>3</sub>)<sub>2</sub>.</p>
+            <p><strong>Постоянная (некарбонатная) жесткость:</strong> Хлориды и сульфаты (CaCl<sub>2</sub>,
+                MgSO<sub>4</sub> и др.).</p>
+
+            <p><strong>Способы устранения:</strong></p>
+            <ol>
+                <li><strong>Кипячение (только для временной):</strong><br>
+                    <span class="reaction">Ca(HCO<sub>3</sub>)<sub>2</sub> <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> CaCO<sub>3</sub>↓
+                        + CO<sub>2</sub>↑ + H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Добавление извести (для временной):</strong><br>
+                    <span class="reaction">Ca(HCO<sub>3</sub>)<sub>2</sub> + Ca(OH)<sub>2</sub> → 2CaCO<sub>3</sub>↓ +
+                        2H<sub>2</sub>O</span>
+                </li>
+                <li><strong>Добавление соды (для постоянной):</strong><br>
+                    <span class="reaction">CaCl<sub>2</sub> + Na<sub>2</sub>CO<sub>3</sub> → CaCO<sub>3</sub>↓ +
+                        2NaCl</span>
+                </li>
+                <li><strong>Добавление фосфатов (для постоянной):</strong><br>
+                    <span class="reaction">3CaCl<sub>2</sub> + 2Na<sub>3</sub>PO<sub>4</sub> →
+                        Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>↓ + 6NaCl</span>
+                </li>
+            </ol>
+
+            <h2 id="qualitative">6. Качественные реакции</h2>
+
+            <h3>Окрашивание пламени</h3>
+            <ul>
+                <li><strong>Кальций (Ca<sup>2+</sup>)</strong>: Кирпично-красный цвет</li>
+                <li><strong>Стронций (Sr<sup>2+</sup>)</strong>: Карминово-красный (алый)</li>
+                <li><strong>Барий (Ba<sup>2+</sup>)</strong>: Яблочно-зеленый</li>
+            </ul>
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="image_copy_2.png" alt="Окрашивание пламени"
+                    style="max-width: 70%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 3. Окрашивание пламени
+                </figcaption>
+            </figure>
+
+            <h3>Осаждение ионов</h3>
+            <ul>
+                <li><strong>На ионы Mg<sup>2+</sup></strong>: Взаимодействие с щелочами (белый осадок):<br>
+                    <span class="reaction">Mg<sup>2+</sup> + 2OH<sup>-</sup> → Mg(OH)<sub>2</sub>↓</span>
+                </li>
+                <li><strong>На ионы Ca<sup>2+</sup>, Sr<sup>2+</sup>, Ba<sup>2+</sup></strong>: Взаимодействие с
+                    карбонатами (белый осадок):<br>
+                    <span class="reaction">Ca<sup>2+</sup> + CO<sub>3</sub><sup>2-</sup> → CaCO<sub>3</sub>↓</span><br>
+                    <span class="reaction">Ba<sup>2+</sup> + CO<sub>3</sub><sup>2-</sup> → BaCO<sub>3</sub>↓</span>
+                </li>
+                <li><strong>На ионы Sr<sup>2+</sup>, Ba<sup>2+</sup></strong>: Взаимодействие с сульфатами (белый
+                    осадок):<br>
+                    <span class="reaction">Ba<sup>2+</sup> + SO<sub>4</sub><sup>2-</sup> → BaSO<sub>4</sub>↓</span>
+                </li>
+                <li><strong>Фосфаты</strong> также дают белые осадки:<br>
+                    <span class="reaction">3Ca<sup>2+</sup> + 2PO<sub>4</sub><sup>3-</sup> →
+                        Ca<sub>3</sub>(PO_4)<sub>2</sub>↓</span>
+                </li>
+            </ul>
+
+
+            <h2 id="videos">7. Видео эксперименты</h2>
+            <p>Рекомендуем посмотреть опыты с щелочноземельными металлами на канале Thoisoi:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=z2JJ_YccUXQ" target="_blank">Бериллий (Beryllium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=56VXdYNb0MA" target="_blank">Магний (Magnesium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=q4LSaB-EYsg" target="_blank">Кальций (Calcium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=vSJw0Ds2CV0" target="_blank">Стронций (Strontium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=R4Vzn9fmBLI" target="_blank">Барий (Barium)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=l1i0vYO4lvg" target="_blank">Радий (Radium)</a></li>
+            </ul>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../alkali/alkali_metals.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Щелочные металлы
+                </a>
+                <a href="../aluminum/aluminum.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Алюминий →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../1 глава/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+</body>
+
+</html>
