@@ -200,6 +200,225 @@
             font-size: 1.25em !important;
             color: #1565c0;
         }
+
+        /* -------------------------------------
+           NEW INTERACTIVE STYLES
+        -------------------------------------- */
+
+        /* Toggle Switch for Electrolytes/Non-electrolytes */
+        .toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            gap: 20px;
+        }
+
+        .toggle-label {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #8898aa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .toggle-label.active-left {
+            color: #0277bd;
+        }
+
+        .toggle-label.active-right {
+            color: #f5a623;
+        }
+
+        .toggle-switch {
+            width: 70px;
+            height: 36px;
+            background: #0277bd;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+            transition: background 0.4s ease;
+        }
+
+        .toggle-switch.toggled {
+            background: #f5a623;
+        }
+
+        .toggle-knob {
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-switch.toggled .toggle-knob {
+            transform: translateX(34px);
+        }
+
+        .toggle-content {
+            display: none;
+            animation: slideFadeIn 0.4s ease forwards;
+        }
+
+        .toggle-content.active {
+            display: block;
+        }
+
+        @keyframes slideFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Expandable Cards for Strong/Weak Electrolytes */
+        .sw-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .sw-card {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            border-top: 5px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e8e4de;
+            border-top-width: 5px;
+        }
+
+        .sw-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .sw-card.strong {
+            border-top-color: #2196f3;
+        }
+
+        .sw-card.weak {
+            border-top-color: #f5a623;
+        }
+
+        .sw-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sw-card h3 svg {
+            transition: transform 0.3s ease;
+        }
+
+        .sw-card.expanded h3 svg {
+            transform: rotate(180deg);
+        }
+
+        .sw-detailed {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .sw-card.expanded .sw-detailed {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        .sw-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .sw-grid-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 3px solid #ddd;
+        }
+
+        .sw-card.strong .sw-grid-item {
+            border-left-color: #2196f3;
+        }
+
+        .sw-card.weak .sw-grid-item {
+            border-left-color: #f5a623;
+        }
+
+        /* Interactive Tabs for Equation Classes */
+        .eq-tabs-container {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            margin-top: 25px;
+            border: 1px solid #e8e4de;
+        }
+
+        .eq-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+
+        .eq-tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 16px 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #5A6A7B;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            font-size: 1.05em;
+        }
+
+        .eq-tab:hover {
+            background: #f0f2f5;
+            color: #1a2332;
+        }
+
+        .eq-tab.active {
+            color: #9c27b0;
+            border-bottom-color: #9c27b0;
+            background: #fff;
+        }
+
+        .eq-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .eq-content.active {
+            display: block;
+            animation: slideFadeIn 0.4s ease forwards;
+        }
     </style>
 </head>
 
@@ -294,28 +513,40 @@
                     (положительно и отрицательно заряженные частицы) при растворении в воде или расплавлении.
                 </div>
 
-                <div class="clarification-frame">
-                    <h3>⚡ Электролиты</h3>
-                    <p>Вещества, растворы или расплавы которых <strong>проводят электрический ток</strong>.</p>
-                    <p>К ним относятся вещества с <strong>ионной</strong> или <strong>ковалентной
-                            сильнополярной</strong> связью:</p>
-                    <ul>
-                        <li>Соли (например, $NaCl$, $K_2SO_4$)</li>
-                        <li>Кислоты (например, $HCl$, $H_2SO_4$)</li>
-                        <li>Основания (например, $NaOH$, $KOH$)</li>
-                    </ul>
+                <div class="toggle-wrapper">
+                    <div class="toggle-label active-left" id="lbl-electro" onclick="switchToggle(false)">⚡ Электролиты
+                    </div>
+                    <div class="toggle-switch" id="main-toggle" onclick="toggleSwitch()">
+                        <div class="toggle-knob"></div>
+                    </div>
+                    <div class="toggle-label" id="lbl-nonelectro" onclick="switchToggle(true)">🔌 Неэлектролиты</div>
                 </div>
 
-                <div class="clarification-frame">
-                    <h3>🔌 Неэлектролиты</h3>
-                    <p>Вещества, растворы и расплавы которых <strong>не проводят</strong> электрический ток.</p>
-                    <p>К ним относятся вещества с ковалентной неполярной или слабополярной связью:</p>
-                    <ul>
-                        <li>Простые газы ($O_2$, $N_2$)</li>
-                        <li>Многие органические вещества (сахароза, спирты, глюкоза)</li>
-                        <li>Оксиды (в твердом состоянии и если не реагируют с водой)</li>
-                    </ul>
-                    <p><em>Пример:</em> Раствор сахара в воде ток не проводит.</p>
+                <div id="content-electro" class="toggle-content active">
+                    <div class="clarification-frame" style="margin-top: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                        <p>Вещества, растворы или расплавы которых <strong>проводят электрический ток</strong>.</p>
+                        <p>К ним относятся вещества с <strong>ионной</strong> или <strong>ковалентной
+                                сильнополярной</strong> связью:</p>
+                        <ul>
+                            <li>Соли (например, $NaCl$, $K_2SO_4$)</li>
+                            <li>Кислоты (например, $HCl$, $H_2SO_4$)</li>
+                            <li>Основания (например, $NaOH$, $KOH$)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="content-nonelectro" class="toggle-content">
+                    <div class="clarification-frame"
+                        style="margin-top: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left-color: #f5a623;">
+                        <p>Вещества, растворы и расплавы которых <strong>не проводят</strong> электрический ток.</p>
+                        <p>К ним относятся вещества с ковалентной неполярной или слабополярной связью:</p>
+                        <ul>
+                            <li>Простые газы ($O_2$, $N_2$)</li>
+                            <li>Многие органические вещества (сахароза, спирты, глюкоза)</li>
+                            <li>Оксиды (в твердом состоянии и если не реагируют с водой)</li>
+                        </ul>
+                        <p><em>Пример:</em> Раствор сахара в воде ток не проводит.</p>
+                    </div>
                 </div>
 
                 <p><strong>Ионы</strong> — это заряженные частицы:</p>
@@ -363,80 +594,76 @@
                 </div>
                 <p>Где $n$ — число распавшихся молекул, $N$ — общее число растворенных молекул.</p>
 
-                <table class="comparison-table" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                    <thead>
-                        <tr style="background: #f8f9fa; border-bottom: 2px solid #ddd;">
-                            <th style="padding: 12px; text-align: left; width: 15%;">Группа</th>
-                            <th style="padding: 12px; text-align: left; width: 42%;">Сильные электролиты ($\alpha
-                                \approx 1$)</th>
-                            <th style="padding: 12px; text-align: left; width: 43%;">Слабые электролиты ($\alpha \ll 1$)
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 12px;"><strong>Определение</strong></td>
-                            <td style="padding: 12px;">Распадаются на ионы полностью и <strong>необратимо</strong>
-                                ($\rightarrow$).</td>
-                            <td style="padding: 12px;">Распадаются на ионы лишь частично и <strong>обратимо</strong>
-                                ($\leftrightarrows$). В растворе преобладают молекулы.</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 12px;"><strong>Кислоты</strong></td>
-                            <td style="padding: 12px;">
-                                <strong>Бескислородные:</strong><br>
-                                $HCl, HBr, HI$ (все, кроме $HF$)<br><br>
-                                <strong>Кислородсодержащие:</strong><br>
-                                $H_2SO_4$ (серная)<br>
-                                $HNO_3$ (азотная)<br>
-                                $HClO_4$ (хлорная)<br>
-                                $HClO_3$ (хлорноватая)<br>
-                                $HMnO_4$ (марганцовая)
-                            </td>
-                            <td style="padding: 12px;">
-                                <strong>Бескислородные:</strong><br>
-                                $HF$ (плавиковая), $H_2S$ (сероводородная), $HCN$ (синильная)<br><br>
-                                <strong>Кислородсодержащие:</strong><br>
-                                $H_2SO_3$ (сернистая), $H_2CO_3$ (угольная), $H_2SiO_3$ (кремниевая)<br>
-                                $HNO_2$ (азотистая), $H_3PO_4$ (фосфорная)<br>
-                                $HClO$ (хлорноватистая), $HClO_2$ (хлористая)<br><br>
-                                <strong>Все органические кислоты:</strong><br>
-                                $HCOOH$ (муравьиная), $CH_3COOH$ (уксусная) и др.
-                            </td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 12px;"><strong>Основания</strong></td>
-                            <td style="padding: 12px;">
-                                <strong>Щёлочи (растворимые основания):</strong><br>
-                                • I А группа: $LiOH, NaOH, KOH, RbOH, CsOH$<br>
-                                • II А группа: $Ca(OH)_2, Sr(OH)_2, Ba(OH)_2$
-                            </td>
-                            <td style="padding: 12px;">
-                                • <strong>Водный раствор аммиака</strong> ($NH_3 \cdot H_2O$)<br>
-                                • <strong>Нерастворимые основания:</strong> $Mg(OH)_2, Fe(OH)_2, Cu(OH)_2, Ni(OH)_2$ и
-                                др.<br>
-                                • <strong>Амфотерные гидроксиды:</strong> $Zn(OH)_2, Al(OH)_3, Fe(OH)_3, Cr(OH)_3,
-                                Be(OH)_2$
-                            </td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 12px;"><strong>Соли</strong></td>
-                            <td style="padding: 12px;">
-                                <strong>Почти все растворимые соли:</strong><br>
-                                $NaCl, K_2SO_4, CaCO_3$ (та часть, что растворилась), $NH_4NO_3$ и др.
-                            </td>
-                            <td style="padding: 12px;">
-                                Очень редкие исключения (например, $HgCl_2$, $Fe(SCN)_3$).<br>
-                                <em>Обычно соли считаются сильными электролитами.</em>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px;"><strong>Другое</strong></td>
-                            <td style="padding: 12px;"></td>
-                            <td style="padding: 12px;"><strong>Вода ($H_2O$)</strong> — очень слабый электролит.</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="sw-container">
+                    <!-- Strong Electrolytes -->
+                    <div class="sw-card strong" onclick="this.classList.toggle('expanded')">
+                        <h3>⚡ Сильные электролиты ($\alpha \approx 1$)
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </h3>
+                        <p style="color: #666; margin-top: 5px; font-size: 0.95em;">Распадаются на ионы полностью и
+                            <strong>необратимо</strong> ($\rightarrow$).
+                        </p>
+
+                        <div class="sw-detailed">
+                            <div class="sw-grid">
+                                <div class="sw-grid-item">
+                                    <strong>Кислoты</strong><br>
+                                    <em>Бескислородные:</em> $HCl, HBr, HI$ (все, кроме $HF$)<br>
+                                    <em>Кислородсодержащие:</em> $H_2SO_4, HNO_3, HClO_4, HClO_3, HMnO_4$
+                                </div>
+                                <div class="sw-grid-item">
+                                    <strong>Основания (Щёлочи)</strong><br>
+                                    I А группа: $LiOH, NaOH, KOH, RbOH, CsOH$<br>
+                                    II А группа: $Ca(OH)_2, Sr(OH)_2, Ba(OH)_2$
+                                </div>
+                                <div class="sw-grid-item">
+                                    <strong>Соли</strong><br>
+                                    Почти все растворимые соли: $NaCl, K_2SO_4, CaCO_3$ (та часть, что растворилась),
+                                    $NH_4NO_3$ и др.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weak Electrolytes -->
+                    <div class="sw-card weak" onclick="this.classList.toggle('expanded')">
+                        <h3>🔌 Слабые электролиты ($\alpha \ll 1$)
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </h3>
+                        <p style="color: #666; margin-top: 5px; font-size: 0.95em;">Распадаются на ионы частично и
+                            <strong>обратимо</strong> ($\leftrightarrows$).
+                        </p>
+
+                        <div class="sw-detailed">
+                            <div class="sw-grid">
+                                <div class="sw-grid-item">
+                                    <strong>Кислoты</strong><br>
+                                    <em>Бескислородные:</em> $HF, H_2S, HCN$<br>
+                                    <em>Кислородсодержащие:</em> $H_2SO_3, H_2CO_3, H_2SiO_3, HNO_2, H_3PO_4, HClO,
+                                    HClO_2$<br>
+                                    <em>Органические:</em> $HCOOH, CH_3COOH$ и др.
+                                </div>
+                                <div class="sw-grid-item">
+                                    <strong>Основания</strong><br>
+                                    • Водный аммиак: $NH_3 \cdot H_2O$<br>
+                                    • Нерастворимые: $Mg(OH)_2, Fe(OH)_2, Cu(OH)_2, Ni(OH)_2$<br>
+                                    • Амфотерные: $Zn(OH)_2, Al(OH)_3, Fe(OH)_3, Cr(OH)_3$
+                                </div>
+                                <div class="sw-grid-item">
+                                    <strong>Соли и Другое</strong><br>
+                                    • Очень редкие исключения-соли: $HgCl_2, Fe(SCN)_3$<br>
+                                    • Вода ($H_2O$) — очень слабый электролит.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="clarification-frame" style="margin-top: 10px; font-size: 0.9em;">
                     * <em>Примечание:</em> $Ca(OH)_2$ и $Sr(OH)_2$ — малорастворимы, но их растворенная часть
                     диссоциирует полностью, поэтому их часто относят к сильным электролитам (щелочам).
@@ -446,63 +673,81 @@
             <div class="topic-section">
                 <h2 id="equations">4. Уравнения электролитической диссоциации</h2>
 
-                <h3 id="acids">4.1. Кислоты</h3>
-                <p>Диссоциируют на <strong>катионы водорода ($H^+$)</strong> и анионы кислотных остатков.</p>
-                <div class="equation-frame">
-                    $HCl \rightarrow H^+ + Cl^-$<br>
-                    $HNO_3 \rightarrow H^+ + NO_3^-$
-                </div>
-                <p><strong>Многоосновные кислоты</strong> диссоциируют ступенчато (постепенно отщепляя $H^+$). Процесс
-                    обратим, первая ступень идет легче всего.</p>
-                <div class="clarification-frame">
-                    <strong>Пример: Ортофосфорная кислота $H_3PO_4$</strong>
-                    <ul>
-                        <li>I ступень: $H_3PO_4 \leftrightarrows H^+ + H_2PO_4^-$ (дигидрофосфат-ион)</li>
-                        <li>II ступень: $H_2PO_4^- \leftrightarrows H^+ + HPO_4^{2-}$ (гидрофосфат-ион)</li>
-                        <li>III ступень: $HPO_4^{2-} \leftrightarrows H^+ + PO_4^{3-}$ (фосфат-ион)</li>
-                    </ul>
-                </div>
+                <div class="eq-tabs-container">
+                    <div class="eq-tabs">
+                        <div class="eq-tab active" onclick="openEqTab(event, 'eq-acids')">🔴 Кислоты</div>
+                        <div class="eq-tab" onclick="openEqTab(event, 'eq-bases')">🔵 Основания</div>
+                        <div class="eq-tab" onclick="openEqTab(event, 'eq-salts')">⚪ Соли</div>
+                    </div>
 
-                <h3 id="bases">4.2. Основания</h3>
-                <p>Диссоциируют на <strong>катионы металла</strong> (или $NH_4^+$) и <strong>гидроксид-анионы
-                        ($OH^-$)</strong>.</p>
-                <div class="equation-frame">
-                    $NaOH \rightarrow Na^+ + OH^-$<br>
-                    $Ba(OH)_2 \rightarrow Ba^{2+} + 2OH^-$
-                </div>
-                <p>Многокислотные слабые основания также диссоциируют ступенчато:</p>
-                <div class="clarification-frame">
-                    <strong>Пример: $Fe(OH)_2$ (очень слабо диссоциирует)</strong>
-                    <ul>
-                        <li>I ступень: $Fe(OH)_2 \leftrightarrows Fe(OH)^+ + OH^-$ (гидроксо-катион железа)</li>
-                        <li>II ступень: $Fe(OH)^+ \leftrightarrows Fe^{2+} + OH^-$</li>
-                    </ul>
-                </div>
+                    <!-- Acids -->
+                    <div id="eq-acids" class="eq-content active">
+                        <p>Диссоциируют на <strong>катионы водорода ($H^+$)</strong> и анионы кислотных остатков.</p>
+                        <div class="equation-frame" style="margin: 20px auto;">
+                            $HCl \rightarrow H^+ + Cl^-$<br>
+                            $HNO_3 \rightarrow H^+ + NO_3^-$
+                        </div>
+                        <p><strong>Многоосновные кислоты</strong> диссоциируют ступенчато (постепенно отщепляя $H^+$).
+                            Процесс обратим, первая ступень идет легче всего.</p>
+                        <div class="clarification-frame"
+                            style="margin-top: 15px; box-shadow: none; border: 1px solid #eee;">
+                            <strong>Пример: Ортофосфорная кислота $H_3PO_4$</strong>
+                            <ul>
+                                <li>I ступень: $H_3PO_4 \leftrightarrows H^+ + H_2PO_4^-$ (дигидрофосфат-ион)</li>
+                                <li>II ступень: $H_2PO_4^- \leftrightarrows H^+ + HPO_4^{2-}$ (гидрофосфат-ион)</li>
+                                <li>III ступень: $HPO_4^{2-} \leftrightarrows H^+ + PO_4^{3-}$ (фосфат-ион)</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <h3 id="salts">4.3. Соли</h3>
-                <p>Диссоциируют на катионы металла (или $NH_4^+$) и анионы кислотного остатка.</p>
+                    <!-- Bases -->
+                    <div id="eq-bases" class="eq-content">
+                        <p>Диссоциируют на <strong>катионы металла</strong> (или $NH_4^+$) и <strong>гидроксид-анионы
+                                ($OH^-$)</strong>.</p>
+                        <div class="equation-frame" style="margin: 20px auto;">
+                            $NaOH \rightarrow Na^+ + OH^-$<br>
+                            $Ba(OH)_2 \rightarrow Ba^{2+} + 2OH^-$
+                        </div>
+                        <p>Многокислотные слабые основания также диссоциируют ступенчато:</p>
+                        <div class="clarification-frame"
+                            style="margin-top: 15px; box-shadow: none; border: 1px solid #eee;">
+                            <strong>Пример: $Fe(OH)_2$ (очень слабо диссоциирует)</strong>
+                            <ul>
+                                <li>I ступень: $Fe(OH)_2 \leftrightarrows Fe(OH)^+ + OH^-$ (гидроксо-катион железа)</li>
+                                <li>II ступень: $Fe(OH)^+ \leftrightarrows Fe^{2+} + OH^-$</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <p><strong>Средние соли</strong> (диссоциируют полностью в одну стадию):</p>
-                <div class="equation-frame">
-                    $Na_2SO_4 \rightarrow 2Na^+ + SO_4^{2-}$<br>
-                    $Al_2(SO_4)_3 \rightarrow 2Al^{3+} + 3SO_4^{2-}$
-                </div>
+                    <!-- Salts -->
+                    <div id="eq-salts" class="eq-content">
+                        <p>Диссоциируют на катионы металла (или $NH_4^+$) и анионы кислотного остатка.</p>
 
-                <p><strong>Кислые соли</strong> (содержат H) — диссоциируют ступенчато:</p>
-                <div class="clarification-frame">
-                    <strong>Пример: $NaHCO_3$</strong>
-                    <ul>
-                        <li>I ступень (как соль, полностью): $NaHCO_3 \rightarrow Na^+ + HCO_3^-$</li>
-                        <li>II ступень (как слабая кислота, обратимо): $HCO_3^- \leftrightarrows H^+ + CO_3^{2-}$</li>
-                    </ul>
-                </div>
+                        <p><strong>Средние соли</strong> (диссоциируют полностью в одну стадию):</p>
+                        <div class="equation-frame" style="margin: 20px auto;">
+                            $Na_2SO_4 \rightarrow 2Na^+ + SO_4^{2-}$<br>
+                            $Al_2(SO_4)_3 \rightarrow 2Al^{3+} + 3SO_4^{2-}$
+                        </div>
 
-                <p><strong>Комплексные соли</strong> (диссоциация внешней сферы):</p>
-                <div class="equation-frame">
-                    $K[Al(OH)_4] \rightarrow K^+ + [Al(OH)_4]^-$
+                        <p><strong>Кислые соли</strong> (содержат H) — диссоциируют ступенчато:</p>
+                        <div class="clarification-frame"
+                            style="margin-top: 15px; box-shadow: none; border: 1px solid #eee;">
+                            <strong>Пример: $NaHCO_3$</strong>
+                            <ul>
+                                <li>I ступень (как соль, полностью): $NaHCO_3 \rightarrow Na^+ + HCO_3^-$</li>
+                                <li>II ступень (как слабая кислота, обратимо): $HCO_3^- \leftrightarrows H^+ +
+                                    CO_3^{2-}$</li>
+                            </ul>
+                        </div>
+
+                        <p style="margin-top: 20px;"><strong>Комплексные соли</strong> (диссоциация внешней сферы):</p>
+                        <div class="equation-frame" style="margin: 20px auto;">
+                            $K[Al(OH)_4] \rightarrow K^+ + [Al(OH)_4]^-$
+                        </div>
+                        <p>Внутренняя сфера $[Al(OH)_4]^-$ очень прочная и диссоциирует крайне слабо (вторичная
+                            диссоциация).</p>
+                    </div>
                 </div>
-                <p>Внутренняя сфера $[Al(OH)_4]^-$ очень прочная и диссоциирует крайне слабо (вторичная диссоциация).
-                </p>
             </div>
 
 
@@ -556,6 +801,54 @@
     </footer>
 
     <script src="../../js/script.js"></script>
+    <script>
+        // Toggle Switch functionality
+        let isNonElectro = false;
+        function toggleSwitch() {
+            switchToggle(!isNonElectro);
+        }
+
+        function switchToggle(state) {
+            isNonElectro = state;
+            const toggle = document.getElementById('main-toggle');
+            const lblElectro = document.getElementById('lbl-electro');
+            const lblNonElectro = document.getElementById('lbl-nonelectro');
+            const contentElectro = document.getElementById('content-electro');
+            const contentNonElectro = document.getElementById('content-nonelectro');
+
+            if (isNonElectro) {
+                toggle.classList.add('toggled');
+                lblElectro.classList.remove('active-left');
+                lblNonElectro.classList.add('active-right');
+
+                contentElectro.classList.remove('active');
+                contentNonElectro.classList.add('active');
+            } else {
+                toggle.classList.remove('toggled');
+                lblElectro.classList.add('active-left');
+                lblNonElectro.classList.remove('active-right');
+
+                contentElectro.classList.add('active');
+                contentNonElectro.classList.remove('active');
+            }
+        }
+
+        // Equation Tabs functionality
+        function openEqTab(evt, tabName) {
+            const tabs = document.getElementsByClassName("eq-content");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            const tabLinks = document.getElementsByClassName("eq-tab");
+            for (let i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 
 </html>

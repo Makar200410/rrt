@@ -219,6 +219,98 @@
             font-size: 1.25em !important;
             color: #1565c0;
         }
+
+        /* Accordion styling */
+        .accordion-item {
+            background: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(26, 35, 50, 0.05);
+            border: 1px solid #e8e4de;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(26, 35, 50, 0.08);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a2332;
+            text-align: left;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .accordion-header:hover {
+            background: rgba(245, 166, 35, 0.05);
+            border-radius: 12px;
+        }
+
+        .accordion-header.active {
+            color: #d47a10;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .accordion-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5a623 0%, #d48b0f 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(245, 166, 35, 0.3);
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-content.show {
+            grid-template-rows: 1fr;
+        }
+
+        .accordion-inner {
+            overflow: hidden;
+            border-top: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .accordion-content.show .accordion-inner {
+            border-top-color: #f0f2f5;
+        }
+
+        .accordion-body {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        .accordion-content.show .accordion-body {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -372,120 +464,198 @@
                 <h2 id="factors">3. Факторы смещения равновесия</h2>
 
                 <!-- Concentration -->
-                <div class="factor-card" style="border-left-color: #ffffff;">
-                    <h3>🧪 Концентрация веществ</h3>
-                    <p>Правило: <strong>«Где густо — оттуда течет, где пусто — туда течет»</strong>.</p>
-                    <ul>
-                        <li><strong>Увеличение концентрации реагентов</strong> (добавили вещество слева) → равновесие
-                            смещается <strong>вправо</strong> (в сторону продуктов), чтобы потратить добавленное.</li>
-                        <li><strong>Увеличение концентрации продуктов</strong> (добавили вещество справа) → равновесие
-                            смещается <strong>влево</strong> (в сторону реагентов).</li>
-                        <li><strong>Удаление вещества</strong> (вывод из зоны реакции) → равновесие смещается в сторону
-                            <strong>образования</strong> этого вещества.
-                        </li>
-                    </ul>
-                    <div class="clarification-frame"
-                        style="margin-top: 20px; box-shadow: none; border: 1px solid #eee;">
-                        <strong>Важно!</strong> Добавление твердых нерастворимых веществ (осадка) <strong>не
-                            влияет</strong> на смещение равновесия, так как их концентрация (активная поверхность)
-                        считается постоянной (если поверхность не меняется радикально) или просто не учитывается в
-                        выражении константы равновесия для газов/растворов.
-                        <br>Например, в реакции $C_{(тв)} + CO_{2(г)} \leftrightarrows 2CO_{(г)}$ добавление угля ($C$)
-                        не смещает равновесие.
-                    </div>
-                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
-                        <strong>Пример:</strong><br>
-                        <figure style="text-align: center; margin: 10px 0;">
-                            <img src="image_copy.png" alt="Влияние концентрации на равновесие"
-                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
-                                концентрации на равновесие
-                            </figcaption>
-                        </figure>
-                        <figure style="text-align: center; margin: 10px 0;">
-                            <img src="image_copy_2.png" alt="Влияние концентрации на равновесие"
-                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
-                                концентрации на равновесие
-                            </figcaption>
-                        </figure>
+                <div class="accordion-item">
+                    <button class="accordion-header active" onclick="toggleAccordion(event)">
+                        <span>🧪 Концентрация веществ</span>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="accordion-content show">
+                        <div class="accordion-inner">
+                            <div class="accordion-body">
+                                <p>Правило: <strong>«Где густо — оттуда течет, где пусто — туда течет»</strong>.</p>
+                                <ul>
+                                    <li><strong>Увеличение концентрации реагентов</strong> (добавили вещество слева) →
+                                        равновесие
+                                        смещается <strong>вправо</strong> (в сторону продуктов), чтобы потратить
+                                        добавленное.</li>
+                                    <li><strong>Увеличение концентрации продуктов</strong> (добавили вещество справа) →
+                                        равновесие
+                                        смещается <strong>влево</strong> (в сторону реагентов).</li>
+                                    <li><strong>Удаление вещества</strong> (вывод из зоны реакции) → равновесие
+                                        смещается в сторону
+                                        <strong>образования</strong> этого вещества.
+                                    </li>
+                                </ul>
+                                <div class="clarification-frame"
+                                    style="margin-top: 20px; box-shadow: none; border: 1px solid #eee;">
+                                    <strong>Важно!</strong> Добавление твердых нерастворимых веществ (осадка) <strong>не
+                                        влияет</strong> на смещение равновесия, так как их концентрация (активная
+                                    поверхность)
+                                    считается постоянной (если поверхность не меняется радикально) или просто не
+                                    учитывается в
+                                    выражении константы равновесия для газов/растворов.
+                                    <br>Например, в реакции $C_{(тв)} + CO_{2(г)} \leftrightarrows 2CO_{(г)}$ добавление
+                                    угля ($C$)
+                                    не смещает равновесие.
+                                </div>
+                                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                    <strong>Пример:</strong><br>
+                                    <figure style="text-align: center; margin: 10px 0;">
+                                        <img src="image_copy.png" alt="Влияние концентрации на равновесие"
+                                            style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2.
+                                            Влияние
+                                            концентрации на равновесие
+                                        </figcaption>
+                                    </figure>
+                                    <figure style="text-align: center; margin: 10px 0;">
+                                        <img src="image_copy_2.png" alt="Влияние концентрации на равновесие"
+                                            style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2.
+                                            Влияние
+                                            концентрации на равновесие
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Temperature -->
-                <div class="factor-card" style="border-left-color: #ffffff;">
-                    <h3>🔥 Температура</h3>
-                    <p>Для определения направления нужно знать тепловой эффект реакции:</p>
-                    <ul>
-                        <li><strong>Экзотермическая ($+Q$)</strong>: выделение тепла (горячо).</li>
-                        <li><strong>Эндотермическая ($-Q$)</strong>: поглощение тепла (холодно).</li>
-                    </ul>
-                    <p><em>Правило:</em></p>
-                    <ul>
-                        <li><strong>При нагревании</strong> ($T\uparrow$) система хочет охладиться → равновесие
-                            смещается в сторону <strong>эндотермической</strong> реакции ($-Q$).</li>
-                        <li><strong>При охлаждении</strong> ($T\downarrow$) система хочет согреться → равновесие
-                            смещается в сторону <strong>экзотермической</strong> реакции ($+Q$).</li>
-                    </ul>
-                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
-                        <strong>Пример:</strong><br>
-                        <figure style="text-align: center; margin: 10px 0;">
-                            <img src="image.png" alt="Влияние температуры на равновесие"
-                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
-                                температуры на равновесие
-                            </figcaption>
-                        </figure>
-                        <figure style="text-align: center; margin: 10px 0;">
-                            <img src="image_copy_3.png" alt="Влияние температуры на равновесие"
-                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
-                                температуры на равновесие
-                            </figcaption>
-                        </figure>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(event)">
+                        <span>🔥 Температура</span>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="accordion-body">
+                                <p>Для определения направления нужно знать тепловой эффект реакции:</p>
+                                <ul>
+                                    <li><strong>Экзотермическая ($+Q$)</strong>: выделение тепла (горячо).</li>
+                                    <li><strong>Эндотермическая ($-Q$)</strong>: поглощение тепла (холодно).</li>
+                                </ul>
+                                <p><em>Правило:</em></p>
+                                <ul>
+                                    <li><strong>При нагревании</strong> ($T\uparrow$) система хочет охладиться →
+                                        равновесие
+                                        смещается в сторону <strong>эндотермической</strong> реакции ($-Q$).</li>
+                                    <li><strong>При охлаждении</strong> ($T\downarrow$) система хочет согреться →
+                                        равновесие
+                                        смещается в сторону <strong>экзотермической</strong> реакции ($+Q$).</li>
+                                </ul>
+                                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                    <strong>Пример:</strong><br>
+                                    <figure style="text-align: center; margin: 10px 0;">
+                                        <img src="image.png" alt="Влияние температуры на равновесие"
+                                            style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2.
+                                            Влияние
+                                            температуры на равновесие
+                                        </figcaption>
+                                    </figure>
+                                    <figure style="text-align: center; margin: 10px 0;">
+                                        <img src="image_copy_3.png" alt="Влияние температуры на равновесие"
+                                            style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2.
+                                            Влияние
+                                            температуры на равновесие
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Pressure -->
-                <div class="factor-card" style="border-left-color: #ffffff;">
-                    <h3>💨 Давление (только для газов!)</h3>
-                    <p>Давление связано с объемом газов (числом моль газов).</p>
-                    <p>Считаем коэффициенты <strong>перед газами</strong> слева и справа.</p>
-                    <ul>
-                        <li><strong>Повышение давления</strong> ($P\uparrow$) (сжатие системы) → равновесие смещается в
-                            сторону <strong>меньшего объема</strong> (меньшего числа моль газов), чтобы ослабить
-                            давление.</li>
-                        <li><strong>Понижение давления</strong> ($P\downarrow$) (расширение системы) → равновесие
-                            смещается в сторону <strong>большего объема</strong> (большего числа моль газов).</li>
-                    </ul>
-                    <div class="clarification-frame"
-                        style="margin-top: 20px; box-shadow: none; border: 1px solid #eee;">
-                        <strong>Примечание:</strong> Если число моль газов слева и справа одинаково (например, $H_2 +
-                        I_2 \leftrightarrows 2HI$, 2 моль газа $\leftrightarrows$ 2 моль газа), то изменение давления
-                        <strong>не смещает</strong> равновесие.
-                    </div>
-                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
-                        <strong>Пример:</strong><br>
-                        <figure style="text-align: center; margin: 10px 0;">
-                            <img src="image_copy_4.png" alt="Влияние давления на равновесие"
-                                style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                            <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Влияние
-                                давления на равновесие
-                            </figcaption>
-                        </figure>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(event)">
+                        <span>💨 Давление (только для газов!)</span>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="accordion-body">
+                                <p>Давление связано с объемом газов (числом моль газов).</p>
+                                <p>Считаем коэффициенты <strong>перед газами</strong> слева и справа.</p>
+                                <ul>
+                                    <li><strong>Повышение давления</strong> ($P\uparrow$) (сжатие системы) → равновесие
+                                        смещается в
+                                        сторону <strong>меньшего объема</strong> (меньшего числа моль газов), чтобы
+                                        ослабить
+                                        давление.</li>
+                                    <li><strong>Понижение давления</strong> ($P\downarrow$) (расширение системы) →
+                                        равновесие
+                                        смещается в сторону <strong>большего объема</strong> (большего числа моль
+                                        газов).</li>
+                                </ul>
+                                <div class="clarification-frame"
+                                    style="margin-top: 20px; box-shadow: none; border: 1px solid #eee;">
+                                    <strong>Примечание:</strong> Если число моль газов слева и справа одинаково
+                                    (например, $H_2 +
+                                    I_2 \leftrightarrows 2HI$, 2 моль газа $\leftrightarrows$ 2 моль газа), то изменение
+                                    давления
+                                    <strong>не смещает</strong> равновесие.
+                                </div>
+                                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                    <strong>Пример:</strong><br>
+                                    <figure style="text-align: center; margin: 10px 0;">
+                                        <img src="image_copy_4.png" alt="Влияние давления на равновесие"
+                                            style="max-width: 60%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2.
+                                            Влияние
+                                            давления на равновесие
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Catalyst -->
-                <div class="factor-card" style="border-left-color: #ffffff;">
-                    <h3>⏳ Катализатор</h3>
-                    <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">
-                        КАТАЛИЗАТОР НЕ СМЕЩАЕТ РАВНОВЕСИЕ!
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(event)">
+                        <span>⏳ Катализатор</span>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="accordion-body">
+                                <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">
+                                    КАТАЛИЗАТОР НЕ СМЕЩАЕТ РАВНОВЕСИЕ!
+                                </div>
+                                <p>Катализатор ускоряет как прямую, так и обратную реакцию <strong>в одинаковой
+                                        степени</strong>.
+                                </p>
+                                <p>Он лишь помогает системе быстрее достигнуть состояния равновесия, но не меняет
+                                    соотношение
+                                    продуктов и реагентов.</p>
+                            </div>
+                        </div>
                     </div>
-                    <p>Катализатор ускоряет как прямую, так и обратную реакцию <strong>в одинаковой степени</strong>.
-                    </p>
-                    <p>Он лишь помогает системе быстрее достигнуть состояния равновесия, но не меняет соотношение
-                        продуктов и реагентов.</p>
                 </div>
             </div>
 
@@ -670,6 +840,16 @@
     </footer>
 
     <script src="../../js/script.js"></script>
+    <script>
+        function toggleAccordion(event) {
+            const header = event.currentTarget;
+            const content = header.nextElementSibling;
+
+            // Toggle active state
+            header.classList.toggle('active');
+            content.classList.toggle('show');
+        }
+    </script>
 </body>
 
 </html>

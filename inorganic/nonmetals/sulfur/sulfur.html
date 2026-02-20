@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сера и её соединения | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        /* Interactive Allotrope Cards */
+        .allotrope-cards-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .allotrope-card {
+            flex: 1;
+            min-width: 250px;
+            background: #ffffff;
+            border: 2px solid #E8ECF0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .allotrope-card:hover {
+            transform: translateY(-5px);
+            border-color: #F5A623;
+            box-shadow: 0 10px 20px rgba(245, 166, 35, 0.1);
+        }
+
+        .allotrope-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--text-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .allotrope-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .allotrope-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a2332;
+            margin-bottom: 0.5rem;
+        }
+
+        .allotrope-desc {
+            font-size: 0.95rem;
+            color: #5A6A7B;
+            line-height: 1.5;
+            display: none;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .allotrope-card.active {
+            border-color: #F5A623;
+            background: #FFFAF0;
+        }
+
+        .allotrope-card.active .allotrope-desc {
+            display: block;
+        }
+
+        /* Rule Box (Cloud alternative for Sulfur) */
+        .sulfur-rule-box {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+            border: 1px solid #ffecca;
+            border-left: 5px solid #F5A623;
+            border-radius: 8px;
+            padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+            position: relative;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.05);
+        }
+
+        .sulfur-rule-box::before {
+            content: '⚠️';
+            position: absolute;
+            left: 1rem;
+            top: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        /* Custom tab styles for acids */
+        .tabs-container {
+            margin-top: 2rem;
+        }
+
+        .tabs-nav {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #5A6A7B;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            color: #F5A623;
+            border-bottom-color: #F5A623;
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: #1a2332;
+            border-bottom-color: #a0a0a0;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* H2SO4 specific styling */
+        .h2so4-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .h2so4-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#general" class="active">1. Общая характеристика</a></li>
+                <li><a href="#allotropes">2. Аллотропия серы</a></li>
+                <li><a href="#production">3. Получение</a></li>
+                <li><a href="#chemical-prop">4. Химические свойства</a></li>
+                <li><a href="#hydrogen-sulfide">5. Сероводород и сульфиды</a></li>
+                <li><a href="#oxides">6. Оксиды серы</a></li>
+                <li><a href="#acids">7. Кислоты (H₂SO₄ и H₂SO₃)</a></li>
+                <li><a href="#videos">8. Видео эксперименты</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a href="#">Неорганическая химия</a>
+                <span>/</span> <a href="#">Неметаллы</a> <span>/</span> Сера
+            </div>
+
+            <h1>Сера. Характеристика и соединения</h1>
+            <p class="subtitle">От желтого порошка до королевы кислот (H₂SO₄)</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Сера (S) – элемент VIА группы (халькоген). На внешнем уровне имеет
+                    конфигурацию <strong>3s² 3p⁴</strong>.
+                    В отличие от кислорода, у серы есть свободная <strong>3d-орбиталь</strong>, поэтому она может
+                    распаривать электроны и проявлять валентности <strong>II, IV, VI</strong>.
+                    Характерные степени окисления: <strong>-2, 0, +4, +6</strong>.</p>
+            </div>
+
+            <h2 id="general">1. Общая характеристика и строение</h2>
+            <p>В основном состоянии атом серы имеет 2 неспаренных электрона. При возбуждении электроны с 3p и 3s
+                орбиталей могут переходить на вакантную 3d-орбиталь, увеличивая число неспаренных электронов до 4, а
+                затем до 6.</p>
+
+            <p><strong>Нахождение в природе:</strong></p>
+            <ul>
+                <li>В самородном виде (свободная сера).</li>
+                <li>Сульфиды: из них самые популярные — <strong>ZnS</strong> (цинковая обманка), <strong>FeS₂</strong>
+                    (пирит, железный колчедан), <strong>HgS</strong> (киноварь).</li>
+                <li>Сульфаты: <strong>CaSO₄·2H₂O</strong> (гипс), <strong>Na₂SO₄·10H₂O</strong> (глауберова соль).</li>
+            </ul>
+
+            <h2 id="allotropes">2. Аллотропные модификации</h2>
+            <p>Кликайте по карточкам, чтобы узнать подробности о каждой модификации серы!</p>
+
+            <div class="allotrope-cards-container">
+                <div class="allotrope-card" onclick="toggleCard(this)">
+                    <div class="allotrope-title">🟡 Ромбическая сера (S₈)</div>
+                    <div>Самая стабильная форма.</div>
+                    <div class="allotrope-desc">Атомы соединены в коронообразные циклические молекулы
+                        <strong>S₈</strong>. Это знакомый всем хрупкий порошок или кристаллы желтого цвета. Нерастворима
+                        в воде, но хорошо растворяется в сероуглероде (CS₂).
+                    </div>
+                </div>
+                <div class="allotrope-card" onclick="toggleCard(this)">
+                    <div class="allotrope-title">🪡 Моноклинная сера (S₈)</div>
+                    <div>Кристаллизуется при нагреве.</div>
+                    <div class="allotrope-desc">Образуется при медленном охлаждении расплавленной серы. Выглядит как
+                        темно-желтые иголочки. Устойчива только при температуре выше 95.6 °C. При комнатной температуре
+                        постепенно превращается обратно в ромбическую.</div>
+                </div>
+                <div class="allotrope-card" onclick="toggleCard(this)">
+                    <div class="allotrope-title">🟤 Пластическая сера (Sₙ)</div>
+                    <div>Резиноподобная масса.</div>
+                    <div class="allotrope-desc">Получается, если кипящую серу резко вылить в холодную воду. Кольца S₈
+                        разрываются и образуют длинные полимерные цепи Sₙ. Это коричневая аморфная масса, тянущаяся как
+                        резина. Со временем кристаллизуется и тоже становится ромбической.</div>
+                </div>
+            </div>
+
+            <h2 id="production">3. Получение серы</h2>
+            <p>В промышленности серу добывают самородную (плавят перегретым водяным паром). В лаборатории есть несколько
+                красивых реакций:</p>
+
+            <p><strong>1. Неполное окисление сероводорода</strong> (если мало кислорода):</p>
+            <p class="reaction">2H₂S + O₂ → 2S↓ + 2H₂O</p>
+
+            <p><strong>2. Реакция сопропорционирования</strong> (между H₂S и SO₂):</p>
+            <p class="reaction">2H₂S + SO₂ → 3S↓ + 2H₂O</p>
+            <p class="note">Эту реакцию часто называют "вулканической", так как она происходит в фумаролах вулканов.</p>
+
+
+            <h2 id="chemical-prop">4. Химические свойства серы</h2>
+            <p>При обычных условиях сера "ленива", но при нагревании реагирует почти со всем, проявляя как
+                окислительные, так и восстановительные свойства.</p>
+
+            <div class="color-blue">
+                <p><strong>А. Сера как Окислитель (понижает степень окисления до -2):</strong></p>
+                <ul>
+                    <li>С активными металлами реакции идут бурно, часто без нагрева (щелочные металлы) или с нагревом
+                        (Al, Fe).
+                        <br><span class="reaction">S + 2Na → Na₂S</span> (без нагрева!)
+                        <br><span class="reaction">S + Fe <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> FeS</span>
+                        <br><span class="reaction">3S + 2Al <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Al₂S₃</span>
+                        <br><span class="reaction">S + Hg → HgS</span> (Используется для сбора пролитой ртути —
+                        демеркуризация).
+                    </li>
+                    <li>С водородом (образуется зловонный газ):
+                        <br><span class="reaction">S + H₂ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> H₂S↑</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="color-red">
+                <p><strong>Б. Сера как Восстановитель (повышает степень окисления до +4 или +6):</strong></p>
+                <ul>
+                    <li>С галогенами (фтор окисляет до максимума, хлор — до +1/ +2, с йодом сера <strong>НЕ
+                            реагирует</strong>!):
+                        <br><span class="reaction">S + 3F₂ → SF₆</span>
+                        <br><span class="reaction">S + Cl₂ → SCl₂ (возможен и S₂Cl₂)</span>
+                    </li>
+                    <li>С кислородом (горит красивым синеватым пламенем, получается сернистый газ):
+                        <br><span class="reaction">S + O₂ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> SO₂</span> (до
+                        SO₃ сера сама <strong>НЕ</strong> догорает!)
+                    </li>
+                </ul>
+            </div>
+
+            <p><strong>Реакции со сложными веществами:</strong></p>
+            <p><strong>1. Диспропорционирование в щелочах.</strong> Очень важная реакция для ЕГЭ! Сера сама себя
+                окисляет и восстанавливает при растворении в горячей щелочи:</p>
+            <p class="reaction">3S + 6NaOH <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> 2Na₂S + Na₂SO₃ + 3H₂O</p>
+
+            <p><strong>2. Взаимодействие с кислотами-окислителями (серу окисляют!):</strong></p>
+            <p class="reaction">S + 6HNO₃<sub>(конц)</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> H₂SO₄ + 6NO₂↑ + 2H₂O</p>
+            <p class="reaction">S + 2H₂SO₄<sub>(конц)</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3SO₂↑ + 2H₂O</p>
+
+            <p><strong>3. Взаимодействие с сильными окислителями (например, бертолетова соль):</strong></p>
+            <p class="reaction">3S + 2KClO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> 3SO₂↑ + 2KCl</p>
+
+
+            <h2 id="hydrogen-sulfide">5. Сероводород (H₂S) и сульфиды</h2>
+
+            <div class="sulfur-rule-box">
+                <p><strong>H₂S — типичный и сильный восстановитель!</strong></p>
+                <p>В сероводороде у серы минимальная степень окисления <strong>(-2)</strong>, ниже падать некуда.
+                    Поэтому он может <strong>только отдавать электроны</strong> (повышать степень окисления). Окисляется
+                    он либо до свободной серы (S), либо (с сильными окислителями) до оксида серы(IV) или даже кислот.
+                </p>
+            </div>
+
+            <p><strong>Горение:</strong></p>
+            <p>В избытке кислорода горит голубоватым пламенем: <span class="reaction">2H₂S + 3O₂ → 2SO₂ + 2H₂O</span>
+            </p>
+            <p>При недостатке кислорода выделяется сера: <span class="reaction">2H₂S + O₂ → 2S↓ + 2H₂O</span> (раствор
+                сероводородной воды на воздухе постепенно мутнеет из-за этой реакции).</p>
+
+            <p><strong>Окисление типичными окислителями:</strong></p>
+            <p>Галогены (хлор, бромчная вода) окисляют H₂S до серы: <span class="reaction">H₂S + Br₂ → 2HBr + S↓</span>
+            </p>
+            <p>Но если взять <strong>избыток</strong> хлора в воде, окисление пойдет до серной кислоты: <span
+                    class="reaction">H₂S + 4Cl₂ + 4H₂O → H₂SO₄ + 8HCl</span></p>
+
+            <p>Дихромат в кислой среде (классика ОВР):</p>
+            <p class="reaction">3H₂S + K₂Cr₂O₇ + 4H₂SO₄ → 3S↓ + Cr₂(SO₄)₃ + K₂SO₄ + 7H₂O</p>
+
+            <p><strong>Осаждение сульфидов (Качественные реакции):</strong></p>
+            <p>Сульфиды тяжелых металлов (CuS, PbS, Ag₂S, HgS) имеют <strong>чёрный цвет</strong> и не растворяются ни в
+                воде, ни в обычных не-окислительных кислотах (HCl, разб. H₂SO₄). Взаимодействие с солями свинца —
+                качественная реакция:</p>
+            <p class="reaction">H₂S + Pb(NO₃)₂ → <strong>PbS↓ (черный осадок)</strong> + 2HNO₃</p>
+
+
+            <h2 id="oxides">6. Оксиды серы: SO₂ и SO₃</h2>
+            <table class="styled-table reaction-table">
+                <thead>
+                    <tr>
+                        <th width="50%">Оксид серы (IV) — SO₂ (Сернистый газ)</th>
+                        <th>Оксид серы (VI) — SO₃ (Серный ангидрид)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Свойства:</strong> Газ с резким запахом (запах загорающейся спички). Кислотный оксид
+                            (соответствует кислота H₂SO₃).</td>
+                        <td><strong>Свойства:</strong> Бесцветная, дымящая на воздухе жидкость. Очень сильный кислотный
+                            оксид (соответствует H₂SO₄). Сильно поглощает влагу.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Окислительно-восстановительная двойственность:</strong> Сера (+4) может как
+                            окисляться, так и восстанавливаться.
+                            <ul>
+                                <li>Как восстановитель: легко окисляется марганцовкой (обесцвечивает её — качественная
+                                    реакция!), азотной кислотой:
+                                    <br><span class="reaction">SO₂ + Br₂ + 2H₂O → H₂SO₄ + 2HBr</span>
+                                    <br><span class="reaction">SO₂ + 2HNO₃ → H₂SO₄ + 2NO₂</span>
+                                </li>
+                                <li>Как окислитель (редко, с сильными восстановителями):
+                                    <br><span class="reaction">SO₂ + 2H₂S → 3S + 2H₂O</span>
+                                    <br><span class="reaction">SO₂ + 2CO → 2CO₂ + S</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td><strong>Сильный окислитель:</strong> Сера (+6) может только понижать степень окисления.
+                            <ul>
+                                <li>С фосфором, сероводородом:
+                                    <br><span class="reaction">5SO₃ + 2P → P₂O₅ + 5SO₂</span>
+                                    <br><span class="reaction">3SO₃ + H₂S → 4SO₂ + H₂O</span>
+                                </li>
+                                <li>С йодидом калия:
+                                    <br><span class="reaction">SO₃ + 2KI → I₂ + K₂SO₃</span>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="acids">7. Кислоты: разбавленная и концентрированная H₂SO₄</h2>
+
+            <p>Серная кислота в зависимости от концентрации ведёт себя абсолютно по-разному!</p>
+
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'diluted')">Разбавленная H₂SO₄</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'concentrated')">Концентрированная H₂SO₄</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'sulfates')">Сульфаты</button>
+                </div>
+
+                <!-- Tab 1: Разбавленная -->
+                <div class="tab-content active" id="diluted">
+                    <p>Ведёт себя как классическая сильная двухосновная кислота.</p>
+                    <ul>
+                        <li>Окисляет металлы <strong>только ионами водорода (H⁺)</strong>, поэтому реагирует только с
+                            металлами до водорода в ряду напряжений. Выделяется <strong>Н₂</strong>!
+                            <br><span class="reaction">Zn + H₂SO₄ (разб) → ZnSO₄ + H₂↑</span>
+                        </li>
+                        <li>Вступает в реакции обмена с основаниями, оксидами, солями слабых кислот (с выделением газов
+                            CO₂, H₂S).</li>
+                    </ul>
+                </div>
+
+                <!-- Tab 2: Концентрированная -->
+                <div class="tab-content" id="concentrated">
+                    <p>Это мощнейший окислитель! Окисляет за счёт атома <strong>серы S(+6)</strong>. Никогда не выделяет
+                        водород при реакции с металлами!</p>
+
+                    <div class="h2so4-grid">
+                        <div class="info-box" style="border-left-color: #f44336; margin: 0;">
+                            <strong>С малоактивными металлами (Cu, Ag, Hg):</strong>
+                            <p>Восстанавливается до SO₂. <br><span class="reaction">Cu + 2H₂SO₄(к) → CuSO₄ + SO₂↑ +
+                                    2H₂O</span></p>
+                        </div>
+                        <div class="info-box" style="border-left-color: #2196F3; margin: 0;">
+                            <strong>С активными металлами (Mg, Zn, щелочные):</strong>
+                            <p>Может восстанавливаться глубоко — до S или H₂S. <br><span class="reaction">4Zn +
+                                    5H₂SO₄(к) → 4ZnSO₄ + H₂S↑ + 4H₂O</span></p>
+                        </div>
+                    </div>
+
+                    <div class="color-yellow" style="margin-top: 1rem;">
+                        <strong>Пассивация:</strong> Холодная концентрированная H₂SO₄ пассивирует (покрывает защитной
+                        пленкой и не реагирует) железо (Fe), алюминий (Al) и хром (Cr). В железных или алюминиевых
+                        цистернах её можно перевозить! (Но при нагревании реакция пойдёт с выделением SO₂).
+                    </div>
+
+                    <p><strong>Реакции с неметаллами:</strong></p>
+                    <p>Окисляет P, C, S (восстанавливаясь до SO₂):</p>
+                    <p class="reaction">C + 2H₂SO₄(к) → CO₂↑ + 2SO₂↑ + 2H₂O</p>
+                </div>
+
+                <!-- Tab 3: Сульфаты -->
+                <div class="tab-content" id="sulfates">
+                    <p><strong>Качественная реакция:</strong> на сульфат-ионы (SO₄²⁻) — взаимодействие с ионами бария
+                        (Ba²⁺). Образуется тяжелый, белый осадок, нерастворимый в кислотах.</p>
+                    <p class="reaction">BaCl₂ + Na₂SO₄ → <strong>BaSO₄↓</strong> + 2NaCl</p>
+
+                    <p>Многие сульфаты кристаллогидратируются: <strong>CuSO₄ ∙ 5H₂O</strong> (медный купорос, синий),
+                        <strong>FeSO₄ ∙ 7H₂O</strong> (железный купорос, зеленый), <strong>CaSO₄ ∙ 2H₂O</strong> (гипс).
+                    </p>
+
+                    <p><strong>Термическое разложение:</strong> Сульфаты большинства металлов (кроме щелочных и
+                        щелочноземельных) разлагаются при нагревании на оксид, SO₂ и O₂:</p>
+                    <p class="reaction">2CuSO₄ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2CuO + 2SO₂↑ + O₂↑</p>
+                </div>
+            </div>
+
+
+            <h2 id="videos">8. Видео эксперименты</h2>
+            <p>Рекомендуем посмотреть опыты с серой на канале Thoisoi:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=kYv_zWcMlcQ" target="_blank">Сера - Огненный Камень</a>
+                    (введите "thoisoi сера" на Youtube для точной ссылки)</li>
+                <li><a href="https://www.youtube.com/watch?v=48-z4nZts3M" target="_blank">Концентрированная серная
+                        кислота и сахар (Обугливание углеводов)</a></li>
+            </ul>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/sulfur_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <!-- НАВИГАЦИЯ -->
+            <div style="margin-top: 3rem; display: flex; justify-content: space-between;">
+                <a href="../oxygen/oxygen.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Кислород
+                </a>
+                <a href="../nitrogen/nitrogen.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Азот →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../first_chap/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+    <script>
+        // Скрипт для аккордеонных карточек "аллотропия"
+        function toggleCard(element) {
+            // Закрыть остальные
+            document.querySelectorAll('.allotrope-card').forEach(card => {
+                if (card !== element) card.classList.remove('active');
+            });
+            // Переключить текущую
+            element.classList.toggle('active');
+        }
+
+        // Скрипт для табов (Конц/Разб. Серная кислота)
+        function switchTab(event, tabId) {
+            // Удаляем класс active у всех кнопок и контента
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // Добавляем класс active кликнутой кнопке и соответствующему контенту
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

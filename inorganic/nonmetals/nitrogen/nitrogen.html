@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Азот и его соединения | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        /* Nitrate Decomposition Interactive Scheme */
+        .nitrate-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .nitrate-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nitrate-tab {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 1rem;
+            background: #fff;
+            border: 2px solid #E8ECF0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #5A6A7B;
+            transition: all 0.2s;
+        }
+
+        .nitrate-tab:hover {
+            border-color: #F5A623;
+            transform: translateY(-2px);
+        }
+
+        .nitrate-tab.active {
+            background: #FFF4E0;
+            border-color: #F5A623;
+            color: #d47a10;
+        }
+
+        .nitrate-content {
+            display: none;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .nitrate-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Interactive Oxides */
+        .oxides-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .oxide-tab {
+            flex: 1;
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .oxide-tab:hover {
+            border-color: #3182ce;
+            transform: translateY(-2px);
+        }
+
+        .oxide-tab.active {
+            border-color: #3182ce;
+            background: #ebf8ff;
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.15);
+        }
+
+        .oxide-tab .oxide-formula {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #2d3748;
+        }
+
+        .oxide-tab .oxide-ox {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 0.1rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .oxide-tab.active .oxide-ox {
+            background: #3182ce;
+            color: #fff;
+        }
+
+        .oxide-content {
+            display: none;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .oxide-content.active {
+            display: block;
+        }
+
+        .rx-box {
+            background: #f8fafc;
+            border-left: 3px solid #3182ce;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Custom Tabs */
+        .primary-tabs {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 2px solid #edf2f7;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .primary-tab {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            color: #718096;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+        }
+
+        .primary-tab.active {
+            color: #2b6cb0;
+            border-bottom-color: #2b6cb0;
+        }
+
+        .primary-tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .primary-tab-content.active {
+            display: block;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#general" class="active">1. Азот: общая характеристика</a></li>
+                <li><a href="#ammonia">2. Аммиак и соли аммония</a></li>
+                <li><a href="#oxides">3. Оксиды азота</a></li>
+                <li><a href="#acids">4. Азотная и азотистая кислоты</a></li>
+                <li><a href="#nitrates">5. Соли: нитраты и нитриты</a></li>
+                <li><a href="#videos">6. Видео эксперименты</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a href="#">Неорганическая химия</a>
+                <span>/</span> <a href="#">Неметаллы</a> <span>/</span> Азот
+            </div>
+
+            <h1>Азот. Химия азота и его соединений</h1>
+            <p class="subtitle">От инертного газа до "царской водки"</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Азот (N) – элемент VA группы. Главная особенность: у азота
+                    <strong>НЕТ</strong> свободной d-орбитали! Поэтому он <strong>не может</strong> распарить электроны
+                    и образовать 5 связей. Его максимальная валентность равна <strong>IV</strong> (а не V). При этом
+                    максимальная степень окисления достигает <strong>+5</strong>.
+                </p>
+            </div>
+
+            <h2 id="general">1. Азот (N₂): общая характеристика и получение</h2>
+            <p>В природе азот существует в виде двухатомной молекулы <strong>N₂</strong> (составляет 78% воздуха).
+                Молекула крайне прочная из-за <strong>тройной связи (N≡N)</strong>, поэтому при обычных условиях азот
+                инертен.</p>
+
+            <div class="color-blue">
+                <p><strong>Химические свойства N₂:</strong></p>
+                <ul>
+                    <li>С активными металлами. При комнатной температуре реагирует <strong>ТОЛЬКО с литием</strong>:
+                        <br><span class="reaction">N₂ + 6Li → 2Li₃N</span> (нитрид лития)
+                    </li>
+                    <li>С другими активными металлами (Mg, Ca, Na) реагирует только при нагревании:
+                        <br><span class="reaction">N₂ + 3Mg <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Mg₃N₂</span>
+                    </li>
+                    <li>С водородом (процесс Габера — обратимая, экзотермическая реакция, требует t°, P, катализатор
+                        Fe):
+                        <br><span class="reaction">N₂ + 3H₂ ⇄ 2NH₃ + Q</span>
+                    </li>
+                    <li>С кислородом реагирует ОЧЕНЬ ТЯЖЕЛО — только при 2000°C (электрическая дуга или молния). Это
+                        единственная <strong>эндотермическая</strong> реакция соединения с кислородом:
+                        <br><span class="reaction">N₂ + O₂ ⇄ 2NO - Q</span>
+                    </li>
+                    <li>При очень сильном нагреве (в виде атомарного азота) реагирует с углеродом:
+                        <br><span class="reaction">2C + N₂ → N≡C–C≡N</span> (дициан)
+                    </li>
+                </ul>
+                <p><strong>С серой, фосфором, мышьяком молекулярный азот НЕ реагирует!</strong></p>
+            </div>
+
+            <p><strong>Получение N₂:</strong></p>
+            <ul>
+                <li><strong>В промышленности:</strong> Фракционная дистилляция жидкого воздуха (или
+                    мембранные/адсорбционные методы). Воздух бесплатный!</li>
+                <li><strong>В лаборатории (разложение нитрита аммония):</strong>
+                    <br><span class="reaction">NH₄NO₂ <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂↑ + 2H₂O</span>
+                    <br>(На практике нагревают безопасную смесь NaNO₂ + NH₄Cl, которая в растворе даёт нитрит аммония).
+                </li>
+                <li><strong>Горение аммиака без катализатора:</strong>
+                    <br><span class="reaction">4NH₃ + 3O₂ <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2N₂ + 6H₂O</span>
+                </li>
+                <li><strong>Особо чистый азот (разложение азидов):</strong>
+                    <br><span class="reaction">2NaN₃ <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Na + 3N₂↑</span>
+                </li>
+            </ul>
+
+            <h2 id="ammonia">2. Аммиак (NH₃) и соли аммония</h2>
+            <p>У атома азота в аммиаке степень окисления <strong>-3</strong> (минимальная). Поэтому аммиак может быть
+                <strong>только восстановителем</strong> в ОВР. Кроме того, за счёт неподеленной электронной пары аммиак
+                проявляет свойства <strong>слабого основания</strong>.
+            </p>
+
+            <div class="primary-tabs">
+                <div class="primary-tab active" onclick="switchAmmonia(event, 'ammonia-base')">Основные свойства</div>
+                <div class="primary-tab" onclick="switchAmmonia(event, 'ammonia-ovr')">Восстановительные свойства</div>
+                <div class="primary-tab" onclick="switchAmmonia(event, 'ammonium-salts')">Соли аммония</div>
+            </div>
+
+            <div id="ammonia-base" class="primary-tab-content active">
+                <p>При растворении в воде аммиак забирает ион водорода (H⁺), образуя катион аммония и гидроксид-ион
+                    (щелочная среда, синеет лакмус):</p>
+                <p class="reaction">NH₃ + H₂O ⇄ NH₄⁺ + OH⁻</p>
+                <p><strong>Взаимодействие с кислотами:</strong> "Дым без огня" (с газообразным HCl):
+                    <br><span class="reaction">NH₃ + HCl → NH₄Cl</span> (белый дым хлорида аммония)
+                </p>
+                <p>С многоосновными кислотами (напр., H₂SO₄) образует средние или кислые соли:
+                    <br><span class="reaction">2NH₃ + H₂SO₄ → (NH₄)₂SO₄</span>
+                </p>
+                <p>С водными растворами солей аммиак (как растворимое основание) реагирует, осаждая нерастворимые
+                    гидроксиды:
+                    <br><span class="reaction">FeSO₄ + 2NH₃ + 2H₂O → Fe(OH)₂↓ + (NH₄)₂SO₄</span>
+                </p>
+                <p><strong>Осторожно: аммиакаты!</strong> Осадки Cu(OH)₂, Ag₂O, Zn(OH)₂ растворяются в
+                    <strong>избытке</strong> аммиака с образованием комплексов:
+                    <br><span class="reaction">Cu(OH)₂ + 4NH₃ → [Cu(NH₃)₄](OH)₂</span> (ярко-синий раствор)
+                </p>
+            </div>
+
+            <div id="ammonia-ovr" class="primary-tab-content">
+                <p>Азот (-3) легко отдает электроны, повышая степень окисления до N₂ (0) или NO (+2).</p>
+                <p><strong>Горение:</strong>
+                    <br>Без катализатора: <span class="reaction">4NH₃ + 3O₂ → 2N₂ + 6H₂O</span>
+                    <br>В присутствии платины (Pt): <span class="reaction">4NH₃ + 5O₂ <span class="reaction-arrow"><span
+                                class="ra-condition">Pt, t°</span><span class="ra-symbol">→</span></span> 4NO +
+                        6H₂O</span> (важнейшая стадия синтеза азотной кислоты!)
+                </p>
+                <p><strong>Восстановление оксидов металлов (используется в металлургии):</strong>
+                    <br><span class="reaction">3CuO + 2NH₃ <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3Cu + N₂ +
+                        3H₂O</span>
+                </p>
+                <p><strong>Взаимодействие с окислителями (галогены, перекись):</strong>
+                    <br><span class="reaction">2NH₃ + 3Cl₂ → N₂ + 6HCl</span>
+                    <br><span class="reaction">2NH₃ + 3H₂O₂ → N₂ + 6H₂O</span>
+                </p>
+            </div>
+
+            <div id="ammonium-salts" class="primary-tab-content">
+                <p>Соли аммония — это кристаллические вещества, состоящие из иона NH₄⁺ и кислотного остатка. Сильные
+                    электролиты (хорошо растворимы). </p>
+                <p><strong>Получение (Качественная реакция):</strong> Соли аммония выделяют аммиак при действии щелочей
+                    (нагрев ускоряет процесс). Резкий запах аммиака — верный признак солей аммония!
+                    <br><span class="reaction">NH₄Cl + KOH <span class="reaction-arrow"><span
+                                class="ra-condition">t°</span><span class="ra-symbol">→</span></span> KCl + NH₃↑ +
+                        H₂O</span>
+                </p>
+
+                <div class="color-yellow">
+                    <p><strong>Особое химическое свойство — разложение при нагревании:</strong></p>
+                    <p>Если соль образована <strong>не окисляющей кислотой</strong> (HCl, H₂CO₃, H₂S), азот сохраняет
+                        ст. ок. (-3):
+                        <br><span class="reaction">NH₄Cl <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> NH₃↑ +
+                            HCl↑</span>
+                        <br><span class="reaction">NH₄HCO₃ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> NH₃↑ + CO₂↑ +
+                            H₂O</span>
+                    </p>
+
+                    <p>Если анион — <strong>окислитель</strong> (NO₂⁻, NO₃⁻, Cr₂O₇²⁻), происходит "внутренняя ОВР" и
+                        азот может разрушаться до простого вещества:
+                        <br><span class="reaction">NH₄NO₂ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ +
+                            2H₂O</span>
+                        <br><span class="reaction">NH₄NO₃ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂O +
+                            2H₂O</span> (веселящий газ)
+                        <br><span class="reaction">(NH₄)₂Cr₂O₇ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Cr₂O₃ + N₂↑ +
+                            4H₂O</span> (опыт "Вулканчик")
+                    </p>
+                </div>
+            </div>
+
+
+            <h2 id="oxides">3. Оксиды азота: 5 оттенков валентности</h2>
+            <p>Уникальность азота в том, что он образует оксиды во всех положительных степенях окисления от +1 до +5.
+                Кликайте по вкладкам, чтобы изучить подробные свойства и способы получения из базы ЕГЭ.</p>
+
+            <div class="oxides-interactive">
+                <div class="oxides-tabs">
+                    <div class="oxide-tab active" onclick="switchOxide(event, 'ox-n2o')">
+                        <span class="oxide-formula">N₂O</span>
+                        <span class="oxide-ox">+1</span>
+                    </div>
+                    <div class="oxide-tab" onclick="switchOxide(event, 'ox-no')">
+                        <span class="oxide-formula">NO</span>
+                        <span class="oxide-ox">+2</span>
+                    </div>
+                    <div class="oxide-tab" onclick="switchOxide(event, 'ox-n2o3')">
+                        <span class="oxide-formula">N₂O₃</span>
+                        <span class="oxide-ox">+3</span>
+                    </div>
+                    <div class="oxide-tab" onclick="switchOxide(event, 'ox-no2')">
+                        <span class="oxide-formula">NO₂</span>
+                        <span class="oxide-ox">+4</span>
+                    </div>
+                    <div class="oxide-tab" onclick="switchOxide(event, 'ox-n2o5')">
+                        <span class="oxide-formula">N₂O₅</span>
+                        <span class="oxide-ox">+5</span>
+                    </div>
+                </div>
+
+                <!-- N2O -->
+                <div id="ox-n2o" class="oxide-content active">
+                    <h3 style="margin-top:0;">Оксид азота (I) — Закись азота ("веселящий газ")</h3>
+                    <p><em>Несолеобразующий оксид.</em> Бесцветный газ. В малых дозах используется в медицине (наркоз).
+                    </p>
+
+                    <h4>Способы получения:</h4>
+                    <div class="rx-box">
+                        <p>В лаборатории получают аккуратным разложением нитрата аммония:</p>
+                        <p class="reaction">NH₄NO₃ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂O↑ + 2H₂O
+                        </p>
+                    </div>
+
+                    <h4>Химические свойства:</h4>
+                    <p>При нормальных условиях инертен. При нагревании проявляет свойства окислителя (распадается,
+                        выделяя кислород, поэтому поддерживает горение как сам кислород!).</p>
+                    <div class="rx-box">
+                        <p><strong>Как окислитель (N восстанавливается до нулевой степени):</strong></p>
+                        <p class="reaction">N₂O + H₂ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + H₂O</p>
+                        <p class="reaction">N₂O + Mg <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + MgO</p>
+                        <p class="reaction">N₂O + 2Cu <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + Cu₂O</p>
+                        <p class="reaction">3N₂O + 2NH₃ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 4N₂ + 3H₂O</p>
+                        <p>Окисляет углерод и фосфор:</p>
+                        <p class="reaction">N₂O + C <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + CO</p>
+                        <p class="reaction">5N₂O + 2P <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 5N₂ + P₂O₅</p>
+                        <p>Окисляет сернистый газ во влажной среде:</p>
+                        <p class="reaction">N₂O + H₂O + SO₂ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + H₂SO₄</p>
+                    </div>
+                    <div class="rx-box" style="border-left-color: #ed8936;">
+                        <p><strong>Как восстановитель:</strong> Взаимодействует только с очень сильными окислителями
+                            (перманганатом в кислой среде):</p>
+                        <p class="reaction">5N₂O + 3H₂SO₄ + 2KMnO₄ → 10NO + 2MnSO₄ + K₂SO₄ + 3H₂O</p>
+                    </div>
+                </div>
+
+                <!-- NO -->
+                <div id="ox-no" class="oxide-content">
+                    <h3 style="margin-top:0;">Оксид азота (II) — Монооксид азота</h3>
+                    <p><em>Несолеобразующий оксид.</em> Ядовитый бесцветный газ. Очень боится кислорода!</p>
+
+                    <h4>Способы получения:</h4>
+                    <div class="rx-box">
+                        <p><strong>В природе:</strong> Во время грозы при разряде молнии:</p>
+                        <p class="reaction">N₂ + O₂ ⇄ 2NO - Q</p>
+                        <p><strong>В промышленности:</strong> Каталитическое окисление аммиака (стадия производства
+                            HNO₃):</p>
+                        <p class="reaction">4NH₃ + 5O₂ <span class="reaction-arrow"><span class="ra-condition">Pt,
+                                    t°</span><span class="ra-symbol">→</span></span> 4NO + 6H₂O</p>
+                        <p><strong>В лаборатории:</strong> Действие разбавленной (30%) азотной кислоты на медь (или
+                            другие неактивные металлы):</p>
+                        <p class="reaction">3Cu + 8HNO₃(разб) → 3Cu(NO₃)₂ + 2NO↑ + 4H₂O</p>
+                        <p>Также можно получить, окисляя азотной кислотой галогениды или соединения железа(II):</p>
+                        <p class="reaction">3FeCl₂ + NaNO₃ + 4HCl → 3FeCl₃ + NaCl + NO↑ + 2H₂O</p>
+                        <p class="reaction">2HNO₃ + 6HI → 2NO↑ + 3I₂↓ + 4H₂O</p>
+                    </div>
+
+                    <h4>Химические свойства:</h4>
+                    <p>За счет промежуточной степени окисления может быть и окислителем, и восстановителем.</p>
+                    <div class="rx-box">
+                        <p><strong>Быстро окисляется (восстановитель):</strong> На воздухе мгновенно "буреет".</p>
+                        <p class="reaction">2NO + O₂ → 2NO₂</p>
+                        <p>Окисляется галогенами и озоном:</p>
+                        <p class="reaction">2NO + Cl₂ → 2NOCl (хлорид нитрозила)</p>
+                        <p class="reaction">NO + O₃ → NO₂ + O₂</p>
+                    </div>
+                    <div class="rx-box" style="border-left-color: #e53e3e;">
+                        <p><strong>В роли окислителя:</strong> В атмосфере NO могут гореть горячие восстановители.</p>
+                        <p class="reaction">2NO + 2H₂ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + 2H₂O</p>
+                        <p class="reaction">2NO + 2SO₂ → 2SO₃ + N₂</p>
+                    </div>
+                </div>
+
+                <!-- N2O3 -->
+                <div id="ox-n2o3" class="oxide-content">
+                    <h3 style="margin-top:0;">Оксид азота (III) — Азотистый ангидрид</h3>
+                    <p><em>Кислотный оксид.</em> Устойчив только при низких температурах (синяя жидкость). Соответствует
+                        азотистой кислоте (HNO₂).</p>
+
+                    <h4>Способы получения:</h4>
+                    <div class="rx-box">
+                        <p>Получают при сильном охлаждении смеси NO и NO₂:</p>
+                        <p class="reaction">NO₂ + NO ⇄ N₂O₃</p>
+                    </div>
+
+                    <h4>Химические свойства:</h4>
+                    <p>Такие же, как у всех типичных кислотных оксидов.</p>
+                    <div class="rx-box">
+                        <p>С водой дает кислоту:</p>
+                        <p class="reaction">N₂O₃ + H₂O ⇄ 2HNO₂</p>
+                        <p>С щелочами и основными оксидами образует <strong>нитриты</strong>:</p>
+                        <p class="reaction">N₂O₃ + 2NaOH → 2NaNO₂ + H₂O</p>
+                        <p class="reaction">N₂O₃ + Na₂O → 2NaNO₂</p>
+                    </div>
+                </div>
+
+                <!-- NO2 -->
+                <div id="ox-no2" class="oxide-content">
+                    <h3 style="margin-top:0;">Оксид азота (IV) — "Лисий хвост"</h3>
+                    <p><em>Смешанный оксид</em> (ему соответствуют сразу 2 кислоты - азотная и азотистая). Токсичный газ
+                        бурого цвета.</p>
+
+                    <h4>Способы получения:</h4>
+                    <div class="rx-box">
+                        <p><strong>Окисление оксидов азота (I) или (II):</strong></p>
+                        <p class="reaction">2NO + O₂ → 2NO₂</p>
+                        <p><strong>Взаимодействие концентрированной HNO₃ с металлами:</strong></p>
+                        <p class="reaction">Cu + 4HNO₃(конц) → Cu(NO₃)₂ + 2NO₂↑ + 2H₂O</p>
+                        <p><strong>Разложение нитратов:</strong> (металлов от Mg до Cu, и Li)</p>
+                        <p class="reaction">2AgNO₃ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Ag + 2NO₂↑ +
+                            O₂↑</p>
+                    </div>
+
+                    <h4>Химические свойства:</h4>
+                    <div class="rx-box">
+                        <p><strong>Диспропорционирование в воде:</strong> Растворение происходит с образованием двух
+                            кислот.</p>
+                        <p class="reaction">2NO₂ + H₂O → HNO₃ + HNO₂</p>
+                        <p>Если пропускать кислород, образуется только HNO₃ (важно для промышленности!):</p>
+                        <p class="reaction">4NO₂ + 2H₂O + O₂ → 4HNO₃</p>
+                        <p>В теплой воде HNO₂ распадается:</p>
+                        <p class="reaction">3NO₂ + H₂O <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2HNO₃ + NO↑
+                        </p>
+                    </div>
+                    <div class="rx-box">
+                        <p><strong>С щелочами:</strong> Образуется смесь солей - нитрат и нитрит.</p>
+                        <p class="reaction">2NO₂ + 2NaOH → NaNO₃ + NaNO₂ + H₂O</p>
+                        <p class="reaction">4NO₂ + 2Ca(OH)₂ → Ca(NO₃)₂ + Ca(NO₂)₂ + 2H₂O</p>
+                        <p>С кислородом (только нитрат): <span class="reaction">4NO₂ + 4NaOH + O₂ → 4NaNO₃ + 2H₂O</span>
+                        </p>
+                    </div>
+                    <div class="rx-box" style="border-left-color: #e53e3e;">
+                        <p><strong>NO₂ - сильный окислитель:</strong> В нем горят неметаллы (углерод, фосфор, сера).</p>
+                        <p class="reaction">2NO₂ + 2C <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + 2CO₂</p>
+                        <p class="reaction">2NO₂ + 2S <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> N₂ + 2SO₂</p>
+                        <p class="reaction">10NO₂ + 8P <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 5N₂ + 4P₂O₅
+                        </p>
+                        <p class="reaction">NO₂ + SO₂ → SO₃ + NO</p>
+                    </div>
+                    <p><strong>Димеризация:</strong> При охлаждении бурый газ превращается в бесцветную жидкость N₂O₄:
+                        <br><span class="reaction">2NO₂ ⇄ N₂O₄</span></p>
+                </div>
+
+                <!-- N2O5 -->
+                <div id="ox-n2o5" class="oxide-content">
+                    <h3 style="margin-top:0;">Оксид азота (V) — Азотный ангидрид</h3>
+                    <p><em>Кислотный оксид.</em> Ангидрид азотной кислоты. Бесцветные летучие кристаллы, молекулы
+                        которых легко разлагаются со взрывом.</p>
+
+                    <h4>Способы получения:</h4>
+                    <div class="rx-box">
+                        <p>Окисление диоксида азота озоном:</p>
+                        <p class="reaction">2NO₂ + O₃ → N₂O₅ + O₂</p>
+                        <p>Обезвоживание азотной кислоты мощным водоотнимающим средством (P₂O₅):</p>
+                        <p class="reaction">2HNO₃ + P₂O₅ → 2HPO₃ + N₂O₅</p>
+                    </div>
+
+                    <h4>Химические свойства:</h4>
+                    <div class="rx-box">
+                        <p><strong>Свойства кислотного оксида:</strong> Легко взаимодействует с водой, щелочами и
+                            основными оксидами.</p>
+                        <p class="reaction">N₂O₅ + H₂O → 2HNO₃</p>
+                        <p class="reaction">N₂O₅ + 2NaOH → 2NaNO₃ + H₂O</p>
+                        <p class="reaction">N₂O₅ + CaO → Ca(NO₃)₂</p>
+                    </div>
+                    <div class="rx-box" style="border-left-color: #e53e3e;">
+                        <p><strong>Сильный окислитель:</strong> Легко отдает кислород.</p>
+                        <p class="reaction">2N₂O₅ + S → SO₂ + 4NO₂</p>
+                        <p>Разложение при простом нагревании (иногда со взрывом!):</p>
+                        <p class="reaction">2N₂O₅ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                    class="ra-symbol">→</span></span> 4NO₂ + O₂</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 id="acids">4. Азотная и Азотистая кислоты</h2>
+
+            <h3>Азотная кислота (HNO₃)</h3>
+            <p><strong>Концентрированная и разбавленная HNO₃ – мощные окислители за счёт азота (+5)!</strong> С
+                металлами она <strong>НИКОГДА</strong> не выделяет водород. Продукты восстановления зависят от силы
+                металла и концентрации кислоты.</p>
+
+            <p><strong>С неметаллами (S, P, C, I₂):</strong> Концентрированная кислота окисляет их до максимальных
+                кислот (кислотных оксидов), сама восстанавливается до NO₂.
+                <br><span class="reaction">C + 4HNO₃(к) → CO₂↑ + 4NO₂↑ + 2H₂O</span>
+                <br><span class="reaction">P + 5HNO₃(к) → H₃PO₄ + 5NO₂↑ + H₂O</span>
+                <br><span class="reaction">S + 6HNO₃(к) → H₂SO₄ + 6NO₂↑ + 2H₂O</span>
+            </p>
+
+            <p><strong>С металлами:</strong>
+                <br><em>Пассивация:</em> Железо (Fe), Алюминий (Al), Хром (Cr) не реагируют с конц. HNO₃ без нагревания.
+                <br><em>Металлы после водорода (Cu, Ag):</em> <br>С <strong>концентрированной</strong> дают бурый NO₂:
+                <span class="reaction">Cu + 4HNO₃(к) → Cu(NO₃)₂ + 2NO₂ + 2H₂O</span><br> С <strong>разбавленной</strong>
+                дают NO: <span class="reaction">3Cu + 8HNO₃(р) → 3Cu(NO₃)₂ + 2NO + 4H₂O</span>
+                <br><em>С активными металлами (Zn, Mg, Ca):</em> Разбавленная кислота может восстановиться глубоко,
+                вплоть до N₂, N₂O или даже солей аммония! <span class="reaction">4Zn + 10HNO₃(оч.р) → 4Zn(NO₃)₂ + NH₄NO₃
+                    + 3H₂O</span>.
+            </p>
+
+            <p><strong>Царская водка:</strong> Смесь 1 объема конц. HNO₃ и 3 объемов конц. HCl может растворять золото и
+                платину: <span class="reaction">Au + HNO₃ + 3HCl → AuCl₃ + NO + 2H₂O</span>.</p>
+
+            <h3>Азотистая кислота (HNO₂)</h3>
+            <p>Слабая и неустойчивая кислота. Легко разлагается: <span class="reaction">3HNO₂ → HNO₃ + 2NO + H₂O</span>.
+                Азот в ней имеет степень окисления (+3), поэтому היא יגожет реагировать с сильными восстановителями (как
+                окислитель):
+                <br><span class="reaction">2HNO₂ + 2HI → 2NO + I₂ + 2H₂O</span>
+                <br>И с сильными окислителями (сама выступает восстановителем, переходя в HNO₃):
+                <br><span class="reaction">HNO₂ + H₂O₂ → HNO₃ + H₂O</span>
+            </p>
+
+
+            <h2 id="nitrates">5. Соли: Нитраты и Нитриты</h2>
+
+            <h3>Термическое разложение нитратов</h3>
+            <p>Все твердые нитраты при нагревании разлагаются с выделением кислорода. Характер разложения четко зависит
+                от положения металла в электрохимическом ряду напряжений! Выберите группу металлов, чтобы увидеть
+                правило:</p>
+
+            <div class="nitrate-container">
+                <div class="nitrate-tabs">
+                    <div class="nitrate-tab active" onclick="switchNitrate(event, 'n1')">Активные<br>(до Mg)</div>
+                    <div class="nitrate-tab" onclick="switchNitrate(event, 'n2')">Средние<br>(от Mg до Cu)</div>
+                    <div class="nitrate-tab" onclick="switchNitrate(event, 'n3')">Благородные<br>(правее Cu)</div>
+                </div>
+
+                <div id="n1" class="nitrate-content active">
+                    <strong>Щелочные и щелочноземельные металлы (от Li до Na, K, Ca...)</strong>
+                    <p>Разлагаются на нитрит (соль-нитрит) и кислород O₂.</p>
+                    <p class="reaction">2KNO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2KNO₂ + O₂↑</p>
+                    <p><em>Исключение:</em> Нитрат лития (LiNO₃) разлагается как нитрат среднего сектора — до оксида
+                        (Li₂O).</p>
+                </div>
+
+                <div id="n2" class="nitrate-content">
+                    <strong>Металлы средней активности (магний, цинк, железо... медь) и Литий</strong>
+                    <p>Разлагаются на оксид металла, бурый газ (NO₂) и кислород (O₂).</p>
+                    <p class="reaction">2Cu(NO₃)₂ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2CuO + 4NO₂↑ + O₂↑</p>
+                    <p><em>Специфические исключения:</em> Железо и марганец в нитратах (II) при разложении доокисляются
+                        кислородом:
+                        <br><span class="reaction">4Fe(NO₃)₂ <span class="reaction-arrow"><span
+                                    class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2Fe₂O₃ + 8NO₂
+                            + O₂</span>
+                    </p>
+                </div>
+
+                <div id="n3" class="nitrate-content">
+                    <strong>Малоактивные (тяжелые) металлы (Ag, Hg...)</strong>
+                    <p>Оксиды этих металлов термически неустойчивы, поэтому они разлагаются до чистого металла, бурового
+                        газа (NO₂) и кислорода (O₂).</p>
+                    <p class="reaction">2AgNO₃ <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                                class="ra-symbol">→</span></span> 2Ag + 2NO₂↑ + O₂↑</p>
+                </div>
+            </div>
+
+            <p style="margin-top:2rem;"><strong>Химические свойства нитритов (соли азотистой кислоты HNO₂):</strong></p>
+            <p>Нитриты (KNO₂, NaNO₂) ядовиты, но более устойчивы, чем сама азотистая кислота. Они, так же как H₂SО₃
+                (сульфиты), проявляют **окислительно-восстановительную двойственность**.</p>
+            <ul>
+                <li><strong>Как восстановитель</strong> — окисляются до нитратов сильными окислителями:
+                    <br><span class="reaction">5KNO₂ + 2KMnO₄ + 3H₂SO₄ → 5KNO₃ + 2MnSO₄ + K₂SO₄ + 3H₂O</span>
+                    <br><span class="reaction">2KNO₂ + O₂ → 2KNO₃</span>
+                </li>
+                <li><strong>Как окислитель</strong> — восстанавливают сильные восстановители, сами превращаясь в NO или
+                    аммиак:
+                    <br><span class="reaction">2KNO₂ + 2KI + 2H₂SO₄ → 2NO + I₂ + 2K₂SO₄ + 2H₂O</span>
+                    <br><span class="reaction">NaNO₂ + 2Al + NaOH + 6H₂O → 2Na[Al(OH)₄] + NH₃↑</span>
+                </li>
+            </ul>
+
+            <h2 id="videos">6. Видео эксперименты</h2>
+            <p>Рекомендуем посмотреть опыты с азотом на канале Thoisoi:</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=kYv_zWcMlcQ" target="_blank">Азот - Невидимый Холодильник
+                        (Жидкий азот)</a> (введите "thoisoi жидкий азот" на Youtube для точной ссылки)</li>
+                <li><a href="https://www.youtube.com/watch?v=48-z4nZts3M" target="_blank">Вулканчик (Разложение
+                        бихромата аммония)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=q4o7fE2zKkw" target="_blank">Царская водка растворяет
+                        золото</a></li>
+            </ul>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/nitrogen_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <!-- НАВИГАЦИЯ -->
+            <div style="margin-top: 3rem; display: flex; justify-content: space-between;">
+                <a href="../sulfur/sulfur.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Сера
+                </a>
+                <a href="../phosphorus/phosphorus.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Фосфор →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../first_chap/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+    <script>
+        // Скрипт для табов (Аммиак)
+        function switchAmmonia(event, tabId) {
+            document.querySelectorAll('.primary-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.primary-tab-content').forEach(content => content.classList.remove('active'));
+
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Скрипт для табов (Разложение Нитратов)
+        function switchNitrate(event, tabId) {
+            document.querySelectorAll('.nitrate-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nitrate-content').forEach(content => content.classList.remove('active'));
+
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+        // Скрипт для табов (Оксиды Азота)
+        function switchOxide(event, tabId) {
+            document.querySelectorAll('.oxide-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.oxide-content').forEach(content => content.classList.remove('active'));
+
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

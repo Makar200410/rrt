@@ -1,0 +1,459 @@
+import os
+
+html_content = """<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Водород | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        .color-box {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+        .color-blue {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #0d47a1;
+        }
+
+        .color-yellow {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            color: #f57f17;
+        }
+
+        .color-gray {
+            background-color: #f5f5f5;
+            border-left: 4px solid #9e9e9e;
+            color: #424242;
+        }
+
+        .color-red {
+            background-color: #fbe9e7;
+            border-left: 4px solid #e64a19;
+            color: #bf360c;
+        }
+
+        .color-green {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #1b5e20;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../../../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 17 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#structure" class="active">1. Строение атома</a></li>
+                <li><a href="#physical">2. Физические свойства</a></li>
+                <li><a href="#production">3. Получение водорода</a></li>
+                <li><a href="#chemicals-reducing">4. Химические свойства (Восстановитель)</a></li>
+                <li><a href="#chemicals-oxidizing">5. Химические свойства (Окислитель)</a></li>
+                <li><a href="#hydrogen-compounds">6. Важнейшие соединения</a></li>
+                <li><a href="#application">7. Применение</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a href="../../../first_chap/theory.html">Неорганическая химия</a>
+                <span>/</span> <a href="../../../first_chap/theory.html">Неметаллы</a> <span>/</span> Водород
+            </div>
+
+            <h1>Водород</h1>
+            <p class="subtitle">Самый легкий и самый распространенный элемент во Вселенной</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Водород — <strong>восстановитель</strong> во многих сильных ОВР (с оксидами тяжелых металлов, неметаллами), но с активными металлами он проявляет свойства <strong>окислителя</strong>, образуя гидриды (с.о. -1). Молекула водорода (H<sub>2</sub>) двухатомна (ковалентная неполярная связь).</p>
+            </div>
+
+            <!-- 1. СТРОЕНИЕ -->
+            <h2 id="structure">1. Строение атома и положение в ПС</h2>
+            <p>Водород (лат. <em>hydrogenium</em>, сокращенно H) — самый первый элемент таблицы Менделеева. Находится в <strong>1 периоде</strong>. Традиционно его помещают либо в IA группу (т.к. у него 1 электрон на внешнем уровне, как у щелочных металлов), либо в VIIA группу (т.к. ему не хватает 1 электрона до завершения уровня, как галогенам).</p>
+
+            <h3>Электронная конфигурация</h3>
+            <div
+                style="background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.1em; border: 1px solid #e9ecef; margin: 15px 0;">
+                <p style="margin: 8px 0;"><strong>₊₁H:</strong> <strong>1s<sup>1</sup></strong></p>
+                <p style="font-size:0.85em; color: #555;">(имеет один неспаренный электрон)</p>
+            </div>
+            
+            <p><strong>Возможные степени окисления:</strong></p>
+            <ul>
+                <li><strong>-1</strong> (в гидридах активных металлов: NaH, CaH<sub>2</sub>)</li>
+                <li><strong>0</strong> (в простом веществе H<sub>2</sub>)</li>
+                <li><strong>+1</strong> (во всех остальных соединениях: H<sub>2</sub>O, HCl, органических веществах)</li>
+            </ul>
+
+            <!-- 2. ФИЗИЧЕСКИЕ СВОЙСТВА -->
+            <h2 id="physical">2. Физические свойства и нахождение в природе</h2>
+
+            <p>Водород — самый легкий газ без цвета, вкуса и запаха. Он в 14,5 раз легче воздуха.</p>
+            
+            <ul>
+                <li><strong>Высокая теплопроводность:</strong> Благодаря своей крошечной массе, молекулы водорода движутся невероятно быстро, из-за чего он обладает крайне высокой теплопроводностью (в 7 раз выше, чем у воздуха).</li>
+                <li><strong>Малая растворимость в воде.</strong> Благодаря этому в лаборатории водород можно собирать "методом вытеснения воды".</li>
+            </ul>
+
+            <div class="clarification-frame">
+                <strong>Нахождение в природе:</strong> Водород — самый распространенный элемент Вселенной! Из него на 73% состоит Солнце и другие звезды. На Земле он встречается крайне редко в свободном виде (т.к. он слишком легкий и улетучивается в космос), зато в виде соединений он повсюду — это основа воды (H<sub>2</sub>O) и всей органической жизни.
+            </div>
+
+            <!-- 3. ПОЛУЧЕНИЕ -->
+            <h2 id="production">3. Получение водорода</h2>
+
+            <h3>В промышленности</h3>
+            <p><strong>1. Паровая конверсия метана (основной способ, 1000 °C):</strong></p>
+            <p class="reaction">CH<sub>4</sub> + H<sub>2</sub>O<sub>(пар)</sub> <span class="reaction-arrow"><span class="ra-condition">t, Ni</span><span class="ra-symbol">→</span></span> CO + 3H<sub>2</sub></p>
+            
+            <p><strong>2. Газификация (конверсия) угля:</strong></p>
+            <p class="reaction">C + H<sub>2</sub>O<sub>(пар)</sub> <span class="reaction-arrow"><span class="ra-condition">1000 °C</span><span class="ra-symbol">→</span></span> CO + H<sub>2</sub></p>
+            <p>Смесь CO и H<sub>2</sub> называют <em>синтез-газом</em>.</p>
+            
+            <p><strong>3. Электролиз водных растворов:</strong> (воды с добавлением щелочей или солей для проводимости)</p>
+            <p class="reaction">2H<sub>2</sub>O <span class="reaction-arrow"><span class="ra-condition">электроток</span><span class="ra-symbol">→</span></span> 2H<sub>2</sub>↑ + O<sub>2</sub>↑</p>
+
+            <h3>В лаборатории (аппарат Киппа)</h3>
+            <p><strong>1. Вытеснение водорода из кислот металлами:</strong> (Обычно используют гранулы цинка)</p>
+            <p class="reaction">Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub>↑</p>
+            <p class="reaction">Fe + H<sub>2</sub>SO<sub>4(разб.)</sub> → FeSO<sub>4</sub> + H<sub>2</sub>↑</p>
+
+            <p><strong>2. Взаимодействие активных металлов с водой:</strong></p>
+            <p class="reaction">2Na + 2H<sub>2</sub>O → 2NaOH + H<sub>2</sub>↑</p>
+            <p class="reaction">Ca + 2H<sub>2</sub>O → Ca(OH)<sub>2</sub> + H<sub>2</sub>↑</p>
+
+            <p><strong>3. Взаимодействие амфотерных металлов с растворами щелочей:</strong></p>
+            <p class="reaction">2Al + 2NaOH + 6H<sub>2</sub>O → 2Na[Al(OH)<sub>4</sub>] + 3H<sub>2</sub>↑</p>
+            <p class="reaction">Zn + 2NaOH + 2H<sub>2</sub>O → Na<sub>2</sub>[Zn(OH)<sub>4</sub>] + H<sub>2</sub>↑</p>
+
+            <p><strong>4. Гидролиз гидридов:</strong></p>
+            <p class="reaction">CaH<sub>2</sub> + 2H<sub>2</sub>O → Ca(OH)<sub>2</sub> + 2H<sub>2</sub>↑</p>
+
+            <!-- 4. ХИМИЧЕСКИЕ СВОЙСТВА ВОССТАНОВИТЕЛЬ -->
+            <h2 id="chemicals-reducing">4. Химические свойства: Водород как восстановитель</h2>
+            <p>Водород чаще всего повышает свою степень окисления от <strong>0</strong> до <strong>+1</strong>, выступая в роли сильного восстановителя. Молекула H<sub>2</sub> довольно прочная, поэтому для начала реакций часто требуется нагревание (t°) или катализатор.</p>
+
+            <h3>Взаимодействие с неметаллами</h3>
+            <p><strong>1. С кислородом:</strong> (горение, со взрывом)</p>
+            <p class="reaction">2H<sub>2</sub> + O<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2H<sub>2</sub>O</p>
+            <p>Смесь из 2 объёмов водорода и 1 объёма кислорода называется <em>"гремучим газом"</em>.</p>
+
+            <p><strong>2. С галогенами:</strong></p>
+            <p class="reaction">H<sub>2</sub> + F<sub>2</sub> → 2HF (в темноте, со взрывом!)</p>
+            <p class="reaction">H<sub>2</sub> + Cl<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">hν (свет)</span><span class="ra-symbol">→</span></span> 2HCl (со взрывом!)</p>
+            <p class="reaction">H<sub>2</sub> + Br<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2HBr</p>
+            <p class="reaction">H<sub>2</sub> + I<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">⇄</span></span> 2HI (обратимо!)</p>
+
+            <p><strong>3. С серой:</strong> (при нагревании)</p>
+            <p class="reaction">H<sub>2</sub> + S <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> H<sub>2</sub>S (сероводород)</p>
+
+            <p><strong>4. С азотом:</strong> (промышленный синтез аммиака — "Процесс Габера")</p>
+            <p class="reaction">3H<sub>2</sub> + N<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t, p, кат</span><span class="ra-symbol">⇄</span></span> 2NH<sub>3</sub></p>
+
+            <p><strong>5. С углеродом:</strong> (сложная и долгая реакция)</p>
+            <p class="reaction">2H<sub>2</sub> + C <span class="reaction-arrow"><span class="ra-condition">t, p, кат</span><span class="ra-symbol">→</span></span> CH<sub>4</sub> (метан)</p>
+
+            <div class="color-red">
+                <strong>Важный лайфхак (PSiH):</strong> Водород <strong>НЕ реагирует</strong> ни с фосфором (P), ни с кремнием (Si). Значения их электроотрицательностей очень близки, и им сложно "договориться", кто из них кого окисляет. Запомните: "ПСИХ" (P-Si-H) — они между собой не дружат!
+            </div>
+
+            <h3>Взаимодействие со сложными веществами</h3>
+            <p><strong>Восстановление металлов из их оксидов:</strong> Водород способен восстанавливать металлы средней активности и малоактивные (в ряду напряжений от железа и правее, а также иногда оксиды до цинка). <em>Оксиды очень активных металлов водородом не восстанавливаются!</em></p>
+            <p class="reaction">CuO + H<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Cu + H<sub>2</sub>O</p>
+            <p class="reaction">ZnO + H<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> Zn + H<sub>2</sub>O</p>
+            <p class="reaction">Fe<sub>3</sub>O<sub>4</sub> + 4H<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 3Fe + 4H<sub>2</sub>O</p>
+
+            <!-- 5. ХИМИЧЕСКИЕ СВОЙСТВА ОКИСЛИТЕЛЬ -->
+            <h2 id="chemicals-oxidizing">5. Химические свойства: Водород как окислитель</h2>
+            <p>Водород понижает свою степень окисления от <strong>0</strong> до <strong>-1</strong> только в реакциях с самыми активными металлами (щелочными — IA группа и щелочноземельными — IIA группа).</p>
+            <p>В результате образуются твердые солеобразные бинарные соединения с ионной связью — <strong>гидриды</strong>.</p>
+            <p class="reaction">2Na + H<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2NaH</p>
+            <p class="reaction">Ca + H<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> CaH<sub>2</sub></p>
+
+            <!-- 6. СОЕДИНЕНИЯ ВОДОРОДА -->
+            <h2 id="hydrogen-compounds">6. Важнейшие соединения водорода</h2>
+
+            <h3>Гидриды (MeH<sub>x</sub>, с.о. водорода -1)</h3>
+            <p>Это сильные восстановители, которые мгновенно и бурно вступают в реакции:</p>
+            <p>1. <strong>Гидролиз (разрушение водой):</strong> гидролизуются с выделением щёлочи и газа (водорода).</p>
+            <p class="reaction">NaH + H<sub>2</sub>O → NaOH + H<sub>2</sub>↑</p>
+            <p>2. <strong>Растворение в кислотах:</strong> выделяется соль и газ (водород).</p>
+            <p class="reaction">CaH<sub>2</sub> + 2HCl → CaCl<sub>2</sub> + 2H<sub>2</sub>↑</p>
+            <p>3. <strong>Окисление кислородом:</strong></p>
+            <p class="reaction">2NaH + O<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2NaOH (или Na<sub>2</sub>O + H<sub>2</sub>O)</p>
+            <p class="reaction">CaH<sub>2</sub> + O<sub>2</sub> <span class="reaction-arrow"><span class="ra-condition">t°</span><span class="ra-symbol">→</span></span> CaO + H<sub>2</sub>O</p>
+
+            <h3>Вода (H<sub>2</sub>O, с.о. водорода +1)</h3>
+            <p>Свойства воды как амфотерного растворителя:</p>
+            <ul>
+                <li><strong>Реагирует с металлами</strong> (до водорода — вытеснение: <code>K + H2O → KOH + H2</code>).</li>
+                <li><strong>Реагирует с основными оксидами</strong> активных металлов: <code>CaO + H2O → Ca(OH)2</code>.</li>
+                <li><strong>Реагирует с кислотными оксидами</strong>: <code>SO3 + H2O → H2SO4</code>.</li>
+                <li><strong>Галогены:</strong> диспропорционирование галогена (<code>Cl2 + H2O → HCl + HClO</code>).</li>
+            </ul>
+
+            <div class="color-blue">
+                <strong>Кристаллогидраты:</strong> Это кристаллические соли, содержащие молекулы воды. Пример: медный купорос CuSO<sub>4</sub>·5H<sub>2</sub>O. Кристаллическую воду нужно всегда учитывать при решении задач на массы осадков и растворов!
+            </div>
+
+            <!-- 7. ПРИМЕНЕНИЕ -->
+            <h2 id="application">7. Применение водорода</h2>
+            <ul>
+                <li><strong>Синтез химических веществ:</strong> производство огромных объемов аммиака (удобрения), получение хлороводорода, метанола.</li>
+                <li><strong>Топливо будущего:</strong> водород — сверхэкологичное топливо для автомобилей и ракет. Продукт его сгорания — чистая вода.</li>
+                <li><strong>Металлургия:</strong> водородом восстанавливают чистые тугоплавкие металлы из их оксидов (W, Mo, Re).</li>
+                <li><strong>Пищевая промышленность:</strong> гидрирование (насыщение водородом) жидких растительных масел позволяет получать твёрдые жиры (маргарин).</li>
+                <li><strong>Резка и сварка металлов:</strong> кислородно-водородное пламя дает очень высокую температуру (до 2800 °C).</li>
+            </ul>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../../transition-metals/zinc-mercury/zinc_mercury.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Цинк, ртуть
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Галогены →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+            <div
+                style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+                <a href="../../../index.html"
+                    style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+                <span style="color: #ddd;">·</span>
+                    <a href="../../../first_chap/theory.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../tests/periodic_law_test.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../variants.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../courses.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../../../dashboard.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+                </div>
+                <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+</body>
+
+</html>
+"""
+
+with open(r'c:\Users\B-Zone\Documents\chem\inorganic\nonmetals\hydrogen\hydrogen.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Created hydrogen.html successfully")

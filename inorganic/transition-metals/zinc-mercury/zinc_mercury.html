@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цинк и ртуть | Химия ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        .reaction-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            position: relative;
+            top: -5px;
+        }
+
+        .ra-condition {
+            font-size: 0.75em;
+            line-height: 1;
+            margin-bottom: 0px;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+
+        .ra-symbol {
+            line-height: 1;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', serif;
+            margin-top: -2px;
+        }
+
+        .color-box {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+        .color-blue {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #0d47a1;
+        }
+
+        .color-yellow {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            color: #f57f17;
+        }
+
+        .color-gray {
+            background-color: #f5f5f5;
+            border-left: 4px solid #9e9e9e;
+            color: #424242;
+        }
+
+        .color-red {
+            background-color: #fbe9e7;
+            border-left: 4px solid #e64a19;
+            color: #bf360c;
+        }
+
+        .color-green {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #1b5e20;
+        }
+
+        /* Header Layout: Centered & Inline */
+        header.site-header {
+            display: flex;
+            justify-content: center;
+            /* Centers the inner wrapper */
+            padding: 0.8rem 4%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #E8ECF0;
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 70px;
+        }
+
+        /* Wrapper to keep Logo and Nav together and centered */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between Logo and Nav */
+        }
+
+        header.site-header .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2332;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        header.site-header .logo span {
+            color: #F5A623;
+        }
+
+        /* Nav Container */
+        .site-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5A6A7B;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .nav-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover State */
+        .nav-link:hover {
+            color: #1a2332;
+            background: #F0F2F5;
+            transform: translateY(-1px);
+        }
+
+        .nav-link:hover svg {
+            transform: scale(1.1);
+            stroke: #E8941A;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            background: #FFF4E0;
+            color: #d47a10;
+            font-weight: 600;
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .nav-link.active svg {
+            stroke: #d47a10;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-link span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="with-sidebar">
+
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../../../index.html" class="logo">
+                Хим<span>Подготовка</span>
+            </a>
+
+            <nav class="site-nav-container">
+                <a href="../../../index.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Главная</span>
+                </a>
+                <a href="../../../first_chap/theory.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Теория</span>
+                </a>
+                <a href="../../../tests/periodic_law_test.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    <span>Задания</span>
+                </a>
+                <a href="../../../variants.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 17 12"></polyline>
+                    </svg>
+                    <span>Варианты</span>
+                </a>
+                <a href="../../../courses.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>Курсы</span>
+                </a>
+                <a href="../../../dashboard.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Панель</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>Оглавление</h3>
+            <ul>
+                <li><a href="#structure" class="active">1. Строение атомов</a></li>
+                <li><a href="#physical">2. Физические свойства</a></li>
+                <li><a href="#nature">3. Нахождение в природе</a></li>
+                <li><a href="#chemical-prop">4. Свойства простых веществ</a></li>
+                <li><a href="#zinc-compounds">5. Оксид и гидроксид цинка</a></li>
+                <li><a href="#zinc-salts">6. Соли цинка</a></li>
+                <li><a href="#mercury-compounds">7. Соединения ртути</a></li>
+                <li><a href="#qualitative">8. Качественные реакции</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Главная</a> <span>/</span> <a
+                    href="../../../first_chap/theory.html">Неорганическая химия</a>
+                <span>/</span> <a href="../../../first_chap/theory.html">Переходные металлы</a> <span>/</span> Цинк и
+                ртуть
+            </div>
+
+            <h1>Цинк и ртуть</h1>
+            <p class="subtitle">Элементы IIB-группы (побочная подгруппа II группы): амфотерный цинк и жидкая ртуть</p>
+
+            <div class="info-box">
+                <p><strong>Важно для ЕГЭ:</strong> Цинк — <strong>амфотерный металл</strong>. Его оксид ZnO и гидроксид
+                    Zn(OH)<sub>2</sub> реагируют как с кислотами, так и щелочами (в том числе в расплаве и в растворе с
+                    образованием комплексов). Цинк проявляет единственную степень окисления <strong>+2</strong>.<br>
+                    Ртуть — металл, находящийся при нормальных условиях в жидком состоянии. Для ртути характерны степени
+                    окисления <strong>+1 и +2</strong>. Ртуть не вытесняет водород из кислот.</p>
+            </div>
+
+            <!-- 1. СТРОЕНИЕ -->
+            <h2 id="structure">1. Строение атомов и положение в ПС</h2>
+            <p>Цинк (Zn), кадмий (Cd) и ртуть (Hg) расположены в <strong>IIB-группе</strong> периодической системы. У
+                этих элементов полностью заполняется предвнешний d-подуровень (d<sup>10</sup>), а на внешнем
+                энергетическом уровне находятся два s-электрона (ns<sup>2</sup>).</p>
+
+            <h3>Электронные конфигурации</h3>
+            <div
+                style="background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.1em; border: 1px solid #e9ecef; margin: 15px 0;">
+                <p style="margin: 8px 0;"><strong>+30Zn:</strong>
+                    1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup><strong>3d<sup>10</sup>4s<sup>2</sup></strong>
+                </p>
+                <p style="margin: 8px 0;"><strong>+80Hg:</strong>
+                    [Xe]4f<sup>14</sup><strong>5d<sup>10</sup>6s<sup>2</sup></strong>
+                </p>
+            </div>
+
+            <div class="clarification-frame">
+                <strong>Особенность:</strong> Из-за того, что d-подуровень у элементов IIB-группы <strong>полностью
+                    заполнен</strong> (как в атоме, так и в ионах, например, Zn<sup>2+</sup>), эти металлы иногда не
+                относят к "истинным" переходным элементам. Этим объясняется отсутствие окраски у солей цинка (у цинка
+                нет электронных переходов на d-подуровне).
+            </div>
+
+            <!-- 2. ФИЗИЧЕСКИЕ СВОЙСТВА -->
+            <h2 id="physical">2. Физические свойства</h2>
+
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Свойство</th>
+                        <th>Цинк (Zn)</th>
+                        <th>Ртуть (Hg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Агрегатное состояние (н.у.)</strong></td>
+                        <td>Твёрдое</td>
+                        <td>Жидкое (единственный жидкий металл)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Цвет</strong></td>
+                        <td>Серебристо-белый с синеватым отливом</td>
+                        <td>Серебристо-белый</td>
+                    </tr>
+                    <tr>
+                        <td><strong>t° плавления</strong></td>
+                        <td>419°C (легкоплавкий)</td>
+                        <td>–38,8°C</td>
+                    </tr>
+                    <tr>
+                        <td><strong>t° кипения</strong></td>
+                        <td>906°C</td>
+                        <td>356,7°C</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image.png" alt="Цинк"
+                        style="max-width: 80%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Кристаллический цинк
+                    </figcaption>
+                </figure>
+                <figure style="text-align: center; width: 45%;">
+                    <img src="image_copy.png" alt="Ртуть"
+                        style="max-width: 80%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Жидкая ртуть
+                    </figcaption>
+                </figure>
+            </div>
+
+            <!-- 3. НАХОЖДЕНИЕ В ПРИРОДЕ -->
+            <h2 id="nature">3. Нахождение в природе</h2>
+
+            <h3>Цинк</h3>
+            <p>Важнейший минерал цинка — <strong>цинковая обманка (сфалерит) ZnS</strong>. Именно из нее получают почти
+                весь цинк.</p>
+
+            <h3>Ртуть</h3>
+            <p>Главный минерал ртути — <strong>киноварь (HgS)</strong>. Киноварь имеет яркий красно-алый цвет и издревле
+                использовалась как краска.</p>
+            <p>Сплавы ртути с другими металлами называются <strong>амальгамами</strong>. Ртуть образует амальгамы почти
+                со всеми металлами, кроме железа (поэтому ртуть можно хранить и перевозить в стальных баллонах).</p>
+
+            <!-- 4. ХИМИЧЕСКИЕ СВОЙСТВА ПРОСТЫХ ВЕЩЕСТВ -->
+            <h2 id="chemical-prop">4. Химические свойства простых веществ (Zn, Hg)</h2>
+            <p>Цинк — активный металл (стоит до водорода в ряду активности), ртуть — малоактивный металл (стоит после
+                водорода).</p>
+
+            <h3>Взаимодействие цинка с неметаллами</h3>
+            <p class="reaction">2Zn + O<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2ZnO (горение цинковой
+                пыли)</p>
+            <p class="reaction">Zn + S <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> ZnS</p>
+            <p class="reaction">Zn + Cl<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> ZnCl<sub>2</sub></p>
+            <p class="reaction">Zn + I<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">H₂O</span><span class="ra-symbol">→</span></span> ZnI<sub>2</sub> (реакция
+                катализируется водой)</p>
+            <p class="reaction">3Zn + 2P <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> Zn<sub>3</sub>P<sub>2</sub></p>
+
+            <h3>Взаимодействие цинка со сложными веществами</h3>
+            <p><strong>1. С парами воды (при температуре красного каления):</strong></p>
+            <p class="reaction">Zn + H<sub>2</sub>O<sub>(пар)</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> ZnO + H<sub>2</sub>↑</p>
+            <p><strong>2. С кислотами, не являющимися окислителями:</strong></p>
+            <p class="reaction">Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub>↑</p>
+            <p class="reaction">Zn + H<sub>2</sub>SO<sub>4(разб.)</sub> → ZnSO<sub>4</sub> + H<sub>2</sub>↑</p>
+
+            <p><strong>3. Со щелочами (амфотерные свойства):</strong></p>
+            <p>Цинк растворяется в растворах щелочей (в отличие от железа и меди!):</p>
+            <p class="reaction">Zn + 2NaOH + 2H<sub>2</sub>O → Na<sub>2</sub>[Zn(OH)<sub>4</sub>] + H<sub>2</sub>↑</p>
+            <p>В расплаве щёлочи образуются цинкаты:</p>
+            <p class="reaction">Zn + 2NaOH <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> Na<sub>2</sub>ZnO<sub>2</sub> + H<sub>2</sub>↑</p>
+
+            <div class="clarification-frame">
+                <strong>Важно для ЕГЭ:</strong> К амфотерным металлам, которые растворяются в <strong>растворах
+                    щелочей</strong> с выделением водорода, относятся: <strong>Al, Zn, Be</strong>. Железо и хром в
+                растворах щелочей <strong>не растворяются</strong>.
+            </div>
+
+            <p><strong>4. С кислотами-окислителями (H<sub>2</sub>SO<sub>4</sub> конц., HNO<sub>3</sub>):</strong></p>
+            <p class="reaction">Zn + 2H<sub>2</sub>SO<sub>4(конц.)</sub> → ZnSO<sub>4</sub> + SO<sub>2</sub>↑ +
+                2H<sub>2</sub>O (при нагревании гранул)</p>
+            <p class="reaction">4Zn<sub>(порошок)</sub> + 5H<sub>2</sub>SO<sub>4(конц.)</sub> → 4ZnSO<sub>4</sub> +
+                H<sub>2</sub>S↑ + 4H<sub>2</sub>O</p>
+            <p class="reaction">Zn + 4HNO<sub>3(конц.)</sub> → Zn(NO<sub>3</sub>)<sub>2</sub> + 2NO<sub>2</sub>↑ +
+                2H<sub>2</sub>O</p>
+            <p class="reaction">4Zn + 10HNO<sub>3(разб.)</sub> → 4Zn(NO<sub>3</sub>)<sub>2</sub> +
+                NH<sub>4</sub>NO<sub>3</sub> + 3H<sub>2</sub>O</p>
+
+            <p><strong>5. Вытеснение менее активных металлов:</strong></p>
+            <p>Цинк вытесняет менее активные металлы (медь, свинец и др.) из их оксидов и растворов солей:</p>
+            <p class="reaction">Zn + CuO <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> Cu + ZnO</p>
+            <p class="reaction">Zn + CuSO<sub>4</sub> → ZnSO<sub>4</sub> + Cu↓</p>
+            <p class="reaction">Zn + Pb(NO<sub>3</sub>)<sub>2</sub> → Zn(NO<sub>3</sub>)<sub>2</sub> + Pb↓</p>
+
+            <p><strong>6. Восстановительные свойства в ОВР:</strong></p>
+            <p>Цинк может восстанавливать нитраты и сульфиты в различных средах:</p>
+            <p class="reaction">4Zn + KNO<sub>3</sub> + 7KOH + 6H<sub>2</sub>O → 4K<sub>2</sub>[Zn(OH)<sub>4</sub>] +
+                NH<sub>3</sub>↑</p>
+            <p class="reaction">Zn + NaNO<sub>3</sub> + 2HCl → ZnCl<sub>2</sub> + NaNO<sub>2</sub> + H<sub>2</sub>O</p>
+            <p class="reaction">3Zn + Na<sub>2</sub>SO<sub>3</sub> + 8HCl → 3ZnCl<sub>2</sub> + H<sub>2</sub>S↑ + 2NaCl
+                + 3H<sub>2</sub>O</p>
+
+            <h3>Взаимодействие ртути</h3>
+            <p>Ртуть окисляется кислородом только при медленном нагревании (около 300°C), образуя красный оксид HgO:</p>
+            <p class="reaction">2Hg + O<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">300°C</span><span class="ra-symbol">→</span></span> 2HgO</p>
+            <p>Ртуть легко реагирует с галогенами и с серой. Реакция с серой идёт <strong>даже при комнатной
+                    температуре</strong>. Это свойство используется для собирания пролитой ртути (демеркуризация):</p>
+            <p class="reaction">Hg + S → HgS</p>
+            <p>С разбавленными кислотами-неокислителями ртуть <strong>не реагирует</strong>, но растворяется в
+                HNO<sub>3</sub> и горячей концентрированной H<sub>2</sub>SO<sub>4</sub>.</p>
+
+            <!-- 5. ОКСИД И ГИДРОКСИД ЦИНКА -->
+            <h2 id="zinc-compounds">5. Оксид и гидроксид цинка (амфотерные)</h2>
+            <p>И оксид цинка (ZnO), и гидроксид цинка (Zn(OH)<sub>2</sub>, белый осадок) обладают ярко выраженными
+                <strong>амфотерными свойствами</strong>.</p>
+
+            <h3>Оксид цинка (ZnO)</h3>
+            <p>Белый порошок. Амфотерный оксид.</p>
+            <p><strong>Получение:</strong> разложение гидроксида или нитратов:</p>
+            <p class="reaction">Zn(OH)<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> ZnO + H<sub>2</sub>O</p>
+            <p class="reaction">2Zn(NO<sub>3</sub>)<sub>2</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> 2ZnO + 4NO<sub>2</sub>↑ +
+                O<sub>2</sub>↑</p>
+
+            <p><strong>С кислотами и кислотными оксидами:</strong></p>
+            <p class="reaction">ZnO + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub>O</p>
+            <p class="reaction">ZnO + SO<sub>3</sub> → ZnSO<sub>4</sub></p>
+
+            <p><strong>Со щелочами и основными оксидами:</strong></p>
+            <p class="reaction">ZnO + Na<sub>2</sub>O <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Na<sub>2</sub>ZnO<sub>2</sub></p>
+            <p class="reaction">ZnO + 2NaOH (сплавление) <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Na<sub>2</sub>ZnO<sub>2</sub> + H<sub>2</sub>O</p>
+            <p class="reaction">ZnO + 2NaOH + H<sub>2</sub>O (в растворе) → Na<sub>2</sub>[Zn(OH)<sub>4</sub>]</p>
+
+            <p><strong>Восстановление (окислительные свойства):</strong></p>
+            <p class="reaction">ZnO + C <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> Zn + CO</p>
+            <p class="reaction">ZnO + CO <span class="reaction-arrow"><span class="ra-condition">t°</span><span
+                        class="ra-symbol">→</span></span> Zn + CO<sub>2</sub></p>
+
+            <p><strong>Вытеснение летучих оксидов:</strong></p>
+            <p class="reaction">ZnO + BaCO<sub>3</sub> <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span> BaZnO<sub>2</sub> +
+                CO<sub>2</sub>↑</p>
+
+            <h3>Гидроксид цинка (Zn(OH)<sub>2</sub>)</h3>
+            <p>Белый студенистый осадок. Растворяется как в кислотах, так и в щелочах и растворах аммиака.</p>
+            <p class="reaction">Zn(OH)<sub>2</sub> + 2HCl → ZnCl<sub>2</sub> + 2H<sub>2</sub>O</p>
+            <p class="reaction">Zn(OH)<sub>2</sub> + 2NaOH → Na<sub>2</sub>[Zn(OH)<sub>4</sub>]</p>
+            <p class="reaction">Zn(OH)<sub>2</sub> + 4NH<sub>3</sub> → [Zn(NH<sub>3</sub>)<sub>4</sub>](OH)<sub>2</sub>
+            </p>
+            <p><strong>Получение гидроксида из комплексов:</strong></p>
+            <p class="reaction">Na<sub>2</sub>[Zn(OH)<sub>4</sub>] + 2CO<sub>2(изб)</sub> → Zn(OH)<sub>2</sub>↓ +
+                2NaHCO<sub>3</sub></p>
+            <p class="reaction">Na<sub>2</sub>[Zn(OH)<sub>4</sub>] + 2HCl<sub>(нед)</sub> → Zn(OH)<sub>2</sub>↓ + 2NaCl
+                + 2H<sub>2</sub>O</p>
+
+            <!-- 6. СОЛИ ЦИНКА -->
+            <h2 id="zinc-salts">6. Соли цинка (нитраты, сульфаты, сульфид, комплексы)</h2>
+            <h3>Комплексные соли (тетрагидроксоцинкаты) и цинкаты</h3>
+            <p>Гидроксокомплексы цинка разрушаются кислотами и кислотными оксидами:</p>
+            <p class="reaction">Na<sub>2</sub>[Zn(OH)<sub>4</sub>] + 4HCl<sub>(изб)</sub> → 2NaCl + ZnCl<sub>2</sub> +
+                4H<sub>2</sub>O</p>
+            <p>При прокаливании сухих комплексов образуются средние соли — цинкаты:</p>
+            <p class="reaction">Na<sub>2</sub>[Zn(OH)<sub>4</sub>] <span class="reaction-arrow"><span
+                        class="ra-condition">t°</span><span class="ra-symbol">→</span></span>
+                Na<sub>2</sub>ZnO<sub>2</sub> + 2H<sub>2</sub>O↑</p>
+            <p>Цинкаты реагируют с избытком кислот, образуя две соли:</p>
+            <p class="reaction">K<sub>2</sub>ZnO<sub>2</sub> + 4HCl<sub>(изб)</sub> → 2KCl + ZnCl<sub>2</sub> +
+                2H<sub>2</sub>O</p>
+            <p>В избытке воды цинкаты переходят обратно в комплексные соли:</p>
+            <p class="reaction">Na<sub>2</sub>ZnO<sub>2</sub> + 2H<sub>2</sub>O → Na<sub>2</sub>[Zn(OH)<sub>4</sub>]</p>
+
+            <h3>Сульфид цинка (ZnS)</h3>
+            <p>Сульфид цинка — <strong>белый сульфид</strong>, не растворяется в воде, но <strong>растворяется в сильных
+                    кислотах-неокислителях</strong> (в отличие от CuS, Ag2S, HgS, PbS):</p>
+            <p class="reaction">ZnS + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub>S↑</p>
+            <p>Действие кислот-окислителей:</p>
+            <p class="reaction">ZnS + 8HNO<sub>3(конц.)</sub> → ZnSO<sub>4</sub> + 8NO<sub>2</sub>↑ + 4H<sub>2</sub>O
+            </p>
+            <p class="reaction">ZnS + 4H<sub>2</sub>SO<sub>4(конц.)</sub> → ZnSO<sub>4</sub> + 4SO<sub>2</sub>↑ +
+                4H<sub>2</sub>O</p>
+            <p>Окисление в щелочной среде (галогенами):</p>
+            <p class="reaction">ZnS + 4NaOH + Br<sub>2</sub> → Na<sub>2</sub>[Zn(OH)<sub>4</sub>] + S↓ + 2NaBr</p>
+
+            <!-- 6. СОЕДИНЕНИЯ РТУТИ -->
+            <h2 id="mercury-compounds">7. Соединения ртути</h2>
+            <p>Ртуть проявляет степени окисления +1 и +2. Соединения ртути(I) содержат двухъядерный ион
+                Hg<sub>2</sub><sup>2+</sup> (например, каломель Hg<sub>2</sub>Cl<sub>2</sub>).</p>
+            <p><strong>Оксид ртути (II) HgO:</strong> При нагревании легко разлагается (опыты Пристли и Лавуазье по
+                открытию кислорода):</p>
+            <p class="reaction">2HgO <span class="reaction-arrow"><span class="ra-condition">t>400°C</span><span
+                        class="ra-symbol">→</span></span> 2Hg + O<sub>2</sub>↑</p>
+
+            <p>Гидроксид ртути(II) <strong>не существует</strong>; щелочи, действуя на соли Hg(II), осаждают желтый
+                оксид HgO:</p>
+            <p class="reaction">Hg(NO<sub>3</sub>)<sub>2</sub> + 2NaOH → HgO↓ + 2NaNO<sub>3</sub> + H<sub>2</sub>O</p>
+
+            <div class="color-yellow">
+                <strong>HgO</strong> — жёлтый или красный порошок (зависит от размера кристаллов).
+            </div>
+
+            <!-- 7. КАЧЕСТВЕННЫЕ РЕАКЦИИ -->
+            <h2 id="qualitative">8. Качественные реакции</h2>
+
+            <h3>На ион Zn<sup>2+</sup></h3>
+            <ul>
+                <li><strong>Действие щелочей:</strong> Выпадение белого осадка Zn(OH)<sub>2</sub>, который
+                    <strong>растворяется в избытке щёлочи</strong> (этим цинк отличается, например, от магния).</li>
+                <li><strong>С сероводородом / сульфидами:</strong> Образование <strong>белого</strong> осадка сульфида
+                    цинка (ZnS — единственный сульфид тяжелых металлов белого цвета).</li>
+            </ul>
+            <div class="color-gray">
+                <strong>ZnS</strong> — белый (бесцветный) порошок, используется в люминофорах.
+            </div>
+
+            <h3>На ион Hg<sup>2+</sup></h3>
+            <ul>
+                <li><strong>С йодидом калия:</strong> Образование <strong>ярко-красного</strong> осадка HgI<sub>2</sub>,
+                    который растворяется в избытке KI с образованием бесцветного комплекса (реактив Несслера).
+                    <br> <span class="reaction">Hg(NO<sub>3</sub>)<sub>2</sub> + 2KI → HgI<sub>2</sub>↓ +
+                        2KNO<sub>3</sub></span>
+                    <br> <span class="reaction">HgI<sub>2</sub> + 2KI(избыток) → K<sub>2</sub>[HgI<sub>4</sub>]</span>
+                </li>
+            </ul>
+
+            <div class="color-red">
+                <strong>HgI<sub>2</sub></strong> — ярко-красный осадок, растворяется в избытке йодида.
+            </div>
+
+            <!-- БЛОК ТЕСТА -->
+            <div
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../../../tests/periodic_law_test.html"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                    тест →</a>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+                <a href="../copper-silver-gold/copper_silver_gold.html" class="prev-chapter"
+                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    ← Медь, серебро, золото
+                </a>
+                <a href="../../nonmetals/hydrogen/hydrogen.html" class="next-chapter"
+                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                    Водород →
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../first_chap/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+
+</body>
+
+</html>
