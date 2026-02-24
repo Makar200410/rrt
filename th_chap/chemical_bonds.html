@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Типы химической связи | ХимПодготовка</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modern-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -93,9 +94,80 @@
             stroke: #d47a10;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a2332;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #F5A623;
+        }
+
         @media (max-width: 1000px) {
-            .nav-link span {
+            header.site-header {
+                height: auto;
+                padding: 1rem 4%;
+            }
+
+            .header-content {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .site-nav-container {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1rem 4% 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid #E8ECF0;
+                border-bottom: 1px solid #E8ECF0;
+                gap: 0.5rem;
+            }
+
+            .site-nav-container.open {
+                display: flex;
+                animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link span {
+                display: inline;
             }
         }
 
@@ -190,55 +262,145 @@
             background-color: #fffbfd;
         }
 
-        /* Interactive Bonds CSS */
-        .bond-tabs {
+        /* Interactive Accordion CSS */
+        .accordion-item {
+            background: #ffffff;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(26, 35, 50, 0.05);
+            border: 1px solid #e8e4de;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(26, 35, 50, 0.08);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            justify-content: center;
-        }
-
-        .bond-tab {
-            padding: 0.8rem 1.5rem;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #475569;
-            transition: all 0.2s ease;
-            display: inline-flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-        }
-
-        .bond-tab:hover {
-            border-color: #3b82f6;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            font-weight: 600;
             color: #1a2332;
-            transform: translateY(-2px);
+            text-align: left;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
 
-        .bond-tab.active {
-            background: #3b82f6;
-            color: #fff;
-            border-color: #3b82f6;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
-
-        .bond-content {
-            display: none;
-            animation: fadeIn 0.4s ease;
-            background: #fff;
-            padding: 2rem;
+        .accordion-header:hover {
+            background: rgba(59, 130, 246, 0.05);
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
         }
 
-        .bond-content.active {
-            display: block;
+        .accordion-header.active {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .accordion-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-content.show {
+            grid-template-rows: 1fr;
+        }
+
+        .accordion-inner {
+            overflow: hidden;
+            border-top: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .accordion-content.show .accordion-inner {
+            border-top-color: #f0f2f5;
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        .accordion-content.show .accordion-body {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .header-cov {
+            color: #1a2332;
+        }
+
+        .header-cov.active {
+            color: #2563eb;
+        }
+
+        .header-cov .accordion-icon {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+        }
+
+        .header-ion {
+            color: #1a2332;
+        }
+
+        .header-ion.active {
+            color: #7c3aed;
+        }
+
+        .header-ion .accordion-icon {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
+        }
+
+        .header-met {
+            color: #1a2332;
+        }
+
+        .header-met.active {
+            color: #475569;
+        }
+
+        .header-met .accordion-icon {
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            box-shadow: 0 2px 6px rgba(100, 116, 139, 0.3);
+        }
+
+        .header-hyd {
+            color: #1a2332;
+        }
+
+        .header-hyd.active {
+            color: #db2777;
+        }
+
+        .header-hyd .accordion-icon {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            box-shadow: 0 2px 6px rgba(236, 72, 153, 0.3);
         }
 
         .cov-tabs {
@@ -303,6 +465,249 @@
         .interactive-card:hover {
             transform: translateX(5px);
         }
+
+        /* Buttons Update (matching previous) */
+        .chapter-nav-container {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .chapter-nav-btn {
+            display: flex;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            background: #fff;
+            border: 1px solid #E8ECF0;
+            color: #1a2332;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .chapter-nav-btn:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        .chapter-nav-btn.prev {
+            gap: 1rem;
+        }
+
+        .chapter-nav-btn.next {
+            gap: 1rem;
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .chapter-nav-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .chapter-nav-btn.prev .chapter-nav-icon {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .chapter-nav-btn.next .chapter-nav-icon {
+            background: #FFF4E0;
+            color: #F5A623;
+        }
+
+        .chapter-nav-btn:hover .chapter-nav-icon {
+            transform: scale(1.05);
+        }
+
+        .chapter-nav-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-nav-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #8C9BAB;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .chapter-nav-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+
+        .chapter-nav-btn.next .chapter-nav-title {
+            color: #F5A623;
+        }
+
+        @media (max-width: 768px) {
+            .chapter-nav-container {
+                grid-template-columns: 1fr;
+            }
+
+            .chapter-nav-btn.next {
+                justify-content: flex-start;
+                text-align: left;
+                flex-direction: row-reverse;
+            }
+
+            .chapter-nav-btn.next .chapter-nav-text {
+                align-items: flex-start;
+            }
+
+            /* Main Header Fix */
+            h1 {
+                font-size: 1.6rem;
+                padding: 0 1rem;
+            }
+
+            main>p {
+                padding: 0 1rem;
+                text-align: left !important;
+            }
+
+            /* Accordion Mobile Fix - Force Non-Interactive */
+            .accordion-header {
+                padding: 1rem;
+                font-size: 1.05rem;
+                pointer-events: none;
+                /* disable clicks on mobile */
+            }
+
+            .accordion-header .accordion-icon {
+                display: none;
+                /* hide arrow */
+            }
+
+            .accordion-header span {
+                line-height: 1.4;
+            }
+
+            .accordion-content {
+                grid-template-rows: 1fr !important;
+                /* always open */
+            }
+
+            .accordion-body {
+                padding: 1rem 0.5rem;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .accordion-inner {
+                border-top-color: #f0f2f5 !important;
+            }
+
+            /* Cov tabs mobile - sequential layout instead of tabs */
+            .cov-tabs {
+                display: none !important;
+                /* hide tab buttons completely */
+            }
+
+            .cov-content {
+                display: block !important;
+                /* show all sections sequentially */
+                animation: none !important;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+                border-bottom: 2px dashed #e2e8f0;
+            }
+
+            .cov-content:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            /* Inline style overrides for mobile */
+            .interactive-card {
+                margin-bottom: 1rem;
+            }
+
+            .accordion-body [style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .accordion-body [style*="column-count"] {
+                column-count: 1 !important;
+            }
+
+            .accordion-body div[style*="flex-wrap: wrap"] {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .accordion-body div[style*="display: flex"] {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 1rem !important;
+            }
+
+            /* Keep info box emojis side block nicely centered on mobile */
+            .info-box,
+            .accordion-body>div[style*="background: #faf5ff"],
+            .accordion-body>div[style*="background: #fdf2f8"] {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center;
+                padding: 1.2rem !important;
+                gap: 0.5rem !important;
+            }
+
+            .info-box ul {
+                text-align: left;
+                column-count: 1 !important;
+                margin-top: 0.5rem !important;
+            }
+
+            /* Mechanisms specific fix */
+            div[style*="background: #f8fafc"] {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center;
+            }
+
+            /* Table scrolling */
+            .table-responsive {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
+            }
+
+            .minimalist-table {
+                margin: 0 !important;
+                box-shadow: none !important;
+                min-width: 500px;
+            }
+
+            /* Test Block */
+            .test-block {
+                flex-direction: column !important;
+                text-align: center;
+                padding: 1.5rem !important;
+            }
+
+            .test-block .test-btn {
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 
@@ -313,6 +718,16 @@
             <a href="../index.html" class="logo">
                 Хим<span>Подготовка</span>
             </a>
+
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
 
             <nav class="site-nav-container">
                 <a href="../index.html" class="nav-link">
@@ -334,7 +749,7 @@
                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                     </svg>
-                    <span>Задания</span>
+                    <span>Задания по номерам</span>
                 </a>
                 <a href="../variants.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -342,7 +757,7 @@
                         <polyline points="2 17 12 22 22 17"></polyline>
                         <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
-                    <span>Варианты</span>
+                    <span>Варианты ЕГЭ</span>
                 </a>
                 <a href="../courses.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -357,7 +772,7 @@
                         <line x1="12" y1="20" x2="12" y2="4"></line>
                         <line x1="6" y1="20" x2="6" y2="14"></line>
                     </svg>
-                    <span>Панель</span>
+                    <span>Моя статистика</span>
                 </a>
             </nav>
         </div>
@@ -383,409 +798,598 @@
                 </figcaption>
             </figure>
 
-            <div class="bond-tabs">
-                <button class="bond-tab active" onclick="openBond(event, 'bond-cov')">🧪 Ковалентная связь</button>
-                <button class="bond-tab" onclick="openBond(event, 'bond-ion')">🧲 Ионная связь</button>
-                <button class="bond-tab" onclick="openBond(event, 'bond-met')">🔗 Металлическая связь</button>
-                <button class="bond-tab" onclick="openBond(event, 'bond-hyd')">💧 Водородная связь</button>
-            </div>
             <!-- Ковалентная связь -->
-            <div id="bond-cov" class="bond-content active">
-                <h2 id="covalent" style="margin-top: 0; color: #3b82f6; text-align: center;">1. Ковалентная химическая
-                    связь</h2>
-                <p><strong>Ковалентная связь</strong> — это химическая связь, образующаяся за счет обобществления
-                    электронных пар (перекрывания атомных орбиталей). Возникает, как правило, <strong>между атомами
-                        неметаллов</strong>.
-                </p>
+            <div id="covalent" class="accordion-item">
+                <button class="accordion-header header-cov active" onclick="toggleAccordion(event)">
+                    <span>🧪 1. Ковалентная химическая связь</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-content show">
+                    <div class="accordion-inner">
+                        <div class="accordion-body">
+                            <p><strong>Ковалентная связь</strong> — это химическая связь, образующаяся за счет
+                                обобществления
+                                электронных пар (перекрывания атомных орбиталей). Возникает, как правило, <strong>между
+                                    атомами
+                                    неметаллов</strong>.
+                            </p>
 
-                <div class="cov-tabs">
-                    <button class="cov-tab active" onclick="openCov(event, 'cov-class')">Классификация</button>
-                    <button class="cov-tab" onclick="openCov(event, 'cov-mech')">Механизмы</button>
-                    <button class="cov-tab" onclick="openCov(event, 'cov-char')">Характеристики</button>
-                </div>
+                            <div class="cov-tabs">
+                                <button class="cov-tab active"
+                                    onclick="openCov(event, 'cov-class')">Классификация</button>
+                                <button class="cov-tab" onclick="openCov(event, 'cov-mech')">Механизмы</button>
+                                <button class="cov-tab" onclick="openCov(event, 'cov-char')">Характеристики</button>
+                            </div>
 
-                <div id="cov-class" class="cov-content active">
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                        <div class="interactive-card">
-                            <h4 style="margin-top:0; color: #1a2332;">Неполярная связь</h4>
-                            <p style="margin-bottom: 10px; font-size: 0.95rem; color: #555;">Образуется между атомами
-                                одного элемента с одинаковой электроотрицательностью (ΔЭО = 0).</p>
-                            <ul style="margin-bottom: 0; font-size: 0.95rem;">
-                                <li><strong>Простые вещества:</strong> H<sub>2</sub>, O<sub>2</sub>, N<sub>2</sub>,
-                                    F<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub>, I<sub>2</sub>, P<sub>4</sub>,
-                                    S<sub>8</sub>.</li>
-                                <li style="margin-top: 0.5rem;"><strong>Сложные вещества</strong> (связь между
-                                    одинаковыми атомами):
-                                    <ul style="margin-top: 0.3rem;">
-                                        <li>Пероксид водорода <strong>H<sub>2</sub>O<sub>2</sub></strong> <span
-                                                style="color:#888;">(связь O–O)</span></li>
-                                        <li>Пирит <strong>FeS<sub>2</sub></strong> <span style="color:#888;">(связь
-                                                S–S)</span></li>
-                                        <li>Карбид кальция <strong>CaC<sub>2</sub></strong> <span
-                                                style="color:#888;">(связь C≡C)</span></li>
-                                        <li>Органика (этан C<sub>2</sub>H<sub>6</sub>, бензол C<sub>6</sub>H<sub>6</sub>
-                                            — <span style="color:#888;">связи C–C</span>)</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="interactive-card" style="border-left-color: #2ecc71;">
-                            <h4 style="margin-top:0; color: #1a2332;">Полярная связь</h4>
-                            <p style="margin-bottom: 10px; font-size: 0.95rem; color: #555;">Образуется между атомами
-                                разных неметаллов (ΔЭО > 0, но < 1.7). Электронная плотность смещена к более
-                                    электроотрицательному атому.</p>
-                                    <ul style="margin-bottom: 0; font-size: 0.95rem;">
-                                        <li><strong>Примеры:</strong> HCl, H<sub>2</sub>O, NH<sub>3</sub>,
-                                            CO<sub>2</sub>,
-                                            SO<sub>3</sub>, P<sub>2</sub>O<sub>5</sub>, CCl<sub>4</sub>, OF<sub>2</sub>.
-                                        </li>
-                                    </ul>
-                                    <div
-                                        style="margin-top: 1rem; padding: 10px; background: rgba(46, 204, 113, 0.1); border-radius: 6px; font-size: 0.9rem;">
-                                        💡 <strong>Запомните:</strong> Чем больше разница электроотрицательностей
-                                        атомов, тем более полярной является связь!
+                            <div id="cov-class" class="cov-content active">
+                                <div class="chem-cards-grid">
+                                    <div class="chem-card" data-color="blue">
+                                        <h4 style="margin-top:0; color: #1a2332;">Неполярная связь</h4>
+                                        <p style="margin-bottom: 10px; font-size: 0.95rem; color: #555;">Образуется
+                                            между атомами
+                                            одного элемента с одинаковой электроотрицательностью (ΔЭО = 0).</p>
+                                        <ul style="margin-bottom: 0; font-size: 0.95rem;">
+                                            <li><strong>Простые вещества:</strong> H<sub>2</sub>, O<sub>2</sub>,
+                                                N<sub>2</sub>,
+                                                F<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub>, I<sub>2</sub>,
+                                                P<sub>4</sub>,
+                                                S<sub>8</sub>.</li>
+                                            <li style="margin-top: 0.5rem;"><strong>Сложные вещества</strong> (связь
+                                                между
+                                                одинаковыми атомами):
+                                                <ul style="margin-top: 0.3rem;">
+                                                    <li>Пероксид водорода <strong>H<sub>2</sub>O<sub>2</sub></strong>
+                                                        <span style="color:#888;">(связь O–O)</span>
+                                                    </li>
+                                                    <li>Пирит <strong>FeS<sub>2</sub></strong> <span
+                                                            style="color:#888;">(связь
+                                                            S–S)</span></li>
+                                                    <li>Карбид кальция <strong>CaC<sub>2</sub></strong> <span
+                                                            style="color:#888;">(связь C≡C)</span></li>
+                                                    <li>Органика (этан C<sub>2</sub>H<sub>6</sub>, бензол
+                                                        C<sub>6</sub>H<sub>6</sub>
+                                                        — <span style="color:#888;">связи C–C</span>)</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div id="cov-mech" class="cov-content">
-                    <p style="font-size: 1.05rem;" id="mechanisms">Существует два основных механизма образования
-                        ковалентной связи:</p>
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
-                        <div
-                            style="display: flex; align-items: flex-start; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
-                            <div
-                                style="font-size: 1.5rem; border-radius: 50%; width: 50px; height: 50px; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">
-                                1</div>
-                            <div>
-                                <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">Обменный механизм</h4>
-                                <p style="margin: 0 0 0.5rem 0; color: #555;">Каждый атом предоставляет по одному
-                                    неспаренному электрону на образование общей связи.</p>
-                                <code
-                                    style="background: #e2e8f0; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 1.1rem;">A• + •B → A:B</code>
+                                    <div class="chem-card" data-color="green">
+                                        <h4 style="margin-top:0; color: #1a2332;">Полярная связь</h4>
+                                        <p style="margin-bottom: 10px; font-size: 0.95rem; color: #555;">Образуется
+                                            между атомами
+                                            разных неметаллов (ΔЭО > 0, но < 1.7). Электронная плотность смещена к более
+                                                электроотрицательному атому.</p>
+                                                <ul style="margin-bottom: 0; font-size: 0.95rem;">
+                                                    <li><strong>Примеры:</strong> HCl, H<sub>2</sub>O, NH<sub>3</sub>,
+                                                        CO<sub>2</sub>,
+                                                        SO<sub>3</sub>, P<sub>2</sub>O<sub>5</sub>, CCl<sub>4</sub>,
+                                                        OF<sub>2</sub>.
+                                                    </li>
+                                                </ul>
+                                                <div
+                                                    style="margin-top: 1rem; padding: 10px; background: rgba(46, 204, 113, 0.1); border-radius: 6px; font-size: 0.9rem;">
+                                                    💡 <strong>Запомните:</strong> Чем больше разница
+                                                    электроотрицательностей
+                                                    атомов, тем более полярной является связь!
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="cov-mech" class="cov-content">
+                                <p style="font-size: 1.05rem;" id="mechanisms">Существует два основных механизма
+                                    образования
+                                    ковалентной связи:</p>
+                                <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                                    <div
+                                        style="display: flex; align-items: flex-start; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
+                                        <div
+                                            style="font-size: 1.5rem; border-radius: 50%; width: 50px; height: 50px; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">
+                                            1</div>
+                                        <div>
+                                            <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">Обменный механизм</h4>
+                                            <p style="margin: 0 0 0.5rem 0; color: #555;">Каждый атом предоставляет по
+                                                одному
+                                                неспаренному электрону на образование общей связи.</p>
+                                            <code
+                                                style="background: #e2e8f0; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 1.1rem;">A• + •B → A:B</code>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        style="display: flex; align-items: flex-start; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
+                                        <div
+                                            style="font-size: 1.5rem; border-radius: 50%; width: 50px; height: 50px; background: #f5a623; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">
+                                            2</div>
+                                        <div>
+                                            <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">Донорно-акцепторный
+                                                механизм</h4>
+                                            <p style="margin: 0 0 0.5rem 0; color: #555;">Один атом
+                                                (<strong>донор</strong>)
+                                                предоставляет неподеленную электронную пару, а другой
+                                                (<strong>акцептор</strong>) —
+                                                свободную орбиталь.</p>
+                                            <code
+                                                style="background: #e2e8f0; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 1.1rem;">A: + □B → A:B (или A→B)</code>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <figure style="text-align: center; margin: 2rem 0;">
+                                    <img src="image_copy.png" alt="Донорно-акцепторный механизм"
+                                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2.
+                                        Донорно-акцепторный
+                                        механизм на примере иона аммония</figcaption>
+                                </figure>
+
+                                <div class="chem-note" style="display: flex; gap: 1rem; align-items: center;">
+                                    <div style="font-size: 2rem;">🧠</div>
+                                    <div>
+                                        <strong style="display: block; margin-bottom: 0.5rem;">Список для ЕГЭ! Вещества
+                                            с
+                                            донорно-акцепторными связями:</strong>
+                                        <ul style="margin: 0; column-count: 2; column-gap: 2rem;">
+                                            <li>Ион аммония <strong>NH<sub>4</sub><sup>+</sup></strong> (и его соли)
+                                            </li>
+                                            <li>Угарный газ <strong>CO</strong></li>
+                                            <li>Азотная кислота <strong>HNO<sub>3</sub></strong> и нитраты</li>
+                                            <li>Комплексные соединения (напр., Na[Al(OH)<sub>4</sub>])</li>
+                                            <li>Озон <strong>O<sub>3</sub></strong></li>
+                                            <li>Оксид азота (V) <strong>N<sub>2</sub>O<sub>5</sub></strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="cov-char" class="cov-content">
+                                <p id="characteristics">Основные параметры связи — это <strong>длина</strong>,
+                                    <strong>энергия</strong> и
+                                    <strong>кратность</strong>. Они тесно взаимосвязаны.
+                                </p>
+
+                                <div class="chem-card" data-color="purple" style="margin-top: 1.5rem;">
+                                    <div style="display: flex; gap: 1rem; align-items: center;">
+                                        <div style="font-size: 2rem;">📏</div>
+                                        <div>
+                                            <h4 style="margin: 0 0 0.2rem 0;">1. Зависимость от кратности связи</h4>
+                                            <p style="margin: 0;">Чем выше кратность связи, тем она <span
+                                                    style="color: #c0392b; font-weight: bold;">короче</span> и тем она
+                                                <span style="color: #27ae60; font-weight: bold;">прочнее</span> (энергия
+                                                разрыва
+                                                выше).
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chem-table-wrap">
+                                    <table class="chem-table striped">
+                                        <tr>
+                                            <th>Тип связи</th>
+                                            <th>Пример (Углерод)</th>
+                                            <th>Длина связи (пм)</th>
+                                            <th>Энергия разрыва (кДж/моль)</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Одинарная (σ)</td>
+                                            <td><strong style="font-size: 1.2em;">C — C</strong></td>
+                                            <td>154 <span style="color: #888;">(самая длинная)</span></td>
+                                            <td>343</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Двойная (σ + π)</td>
+                                            <td><strong style="font-size: 1.2em;">C = C</strong></td>
+                                            <td>134</td>
+                                            <td>615</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Тройная (σ + 2π)</td>
+                                            <td><strong style="font-size: 1.2em;">C ≡ C</strong></td>
+                                            <td>120 <span style="color: #c0392b; font-weight: bold;">(самая
+                                                    короткая)</span>
+                                            </td>
+                                            <td>812 <span style="color: #27ae60; font-weight: bold;">(самая
+                                                    прочная)</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                                    <div>
+                                        <h4 style="margin-top: 0; text-align: center;">2. Кратность в простых веществах
+                                        </h4>
+                                        <div class="chem-table-wrap">
+                                            <table class="chem-table striped" style="margin-top: 0.5rem;">
+                                                <tr>
+                                                    <th>Кратность</th>
+                                                    <th>Связь</th>
+                                                    <th>Примеры</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>1</strong></td>
+                                                    <td>H–H, Cl–Cl</td>
+                                                    <td>H<sub>2</sub>, Галогены</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>2</strong></td>
+                                                    <td>O = O</td>
+                                                    <td>O<sub>2</sub></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>3</strong></td>
+                                                    <td>N ≡ N</td>
+                                                    <td>N<sub>2</sub></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 style="margin-top: 0; text-align: center;">3. Зависимость от радиуса атома
+                                        </h4>
+                                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #666;">Чем больше
+                                            радиус атома,
+                                            тем длиннее
+                                            связь и тем меньше её прочность.</p>
+                                        <div class="chem-table-wrap">
+                                            <table class="chem-table striped" style="margin-top: 0.5rem;">
+                                                <tr>
+                                                    <th>Связь</th>
+                                                    <th>Длина</th>
+                                                    <th>Прочность</th>
+                                                    <th>Кислотность</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>H — F</strong></td>
+                                                    <td>Короткая</td>
+                                                    <td>Прочная</td>
+                                                    <td>Слабая</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong style="color:#aaa;">H — Cl</strong></td>
+                                                    <td>↓</td>
+                                                    <td>↓</td>
+                                                    <td>Сильная</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong style="color:#aaa;">H — Br</strong></td>
+                                                    <td>↓</td>
+                                                    <td>↓</td>
+                                                    <td>Сильная</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>H — I</strong></td>
+                                                    <td>Длинная</td>
+                                                    <td>Слабая</td>
+                                                    <td>Сильнейшая</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div
-                            style="display: flex; align-items: flex-start; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
-                            <div
-                                style="font-size: 1.5rem; border-radius: 50%; width: 50px; height: 50px; background: #f5a623; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">
-                                2</div>
-                            <div>
-                                <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">Донорно-акцепторный механизм</h4>
-                                <p style="margin: 0 0 0.5rem 0; color: #555;">Один атом (<strong>донор</strong>)
-                                    предоставляет неподеленную электронную пару, а другой (<strong>акцептор</strong>) —
-                                    свободную орбиталь.</p>
-                                <code
-                                    style="background: #e2e8f0; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 1.1rem;">A: + □B → A:B (или A→B)</code>
-                            </div>
-                        </div>
-                    </div>
-
-                    <figure style="text-align: center; margin: 2rem 0;">
-                        <img src="image_copy.png" alt="Донорно-акцепторный механизм"
-                            style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                        <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Донорно-акцепторный
-                            механизм на примере иона аммония</figcaption>
-                    </figure>
-
-                    <div class="info-box"
-                        style="border-left-color: #f5a623; display: flex; gap: 1rem; align-items: center;">
-                        <div style="font-size: 2rem;">🧠</div>
-                        <div>
-                            <strong style="display: block; margin-bottom: 0.5rem;">Список для ЕГЭ! Вещества с
-                                донорно-акцепторными связями:</strong>
-                            <ul style="margin: 0; column-count: 2; column-gap: 2rem;">
-                                <li>Ион аммония <strong>NH<sub>4</sub><sup>+</sup></strong> (и его соли)</li>
-                                <li>Угарный газ <strong>CO</strong></li>
-                                <li>Азотная кислота <strong>HNO<sub>3</sub></strong> и нитраты</li>
-                                <li>Комплексные соединения (напр., Na[Al(OH)<sub>4</sub>])</li>
-                                <li>Озон <strong>O<sub>3</sub></strong></li>
-                                <li>Оксид азота (V) <strong>N<sub>2</sub>O<sub>5</sub></strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="cov-char" class="cov-content">
-                    <p id="characteristics">Основные параметры связи — это <strong>длина</strong>,
-                        <strong>энергия</strong> и
-                        <strong>кратность</strong>. Они тесно взаимосвязаны.
-                    </p>
-
-                    <div class="interactive-card" style="border-left-color: #9b59b6; margin-top: 1.5rem;">
-                        <div style="display: flex; gap: 1rem; align-items: center;">
-                            <div style="font-size: 2rem;">📏</div>
-                            <div>
-                                <h4 style="margin: 0 0 0.2rem 0;">1. Зависимость от кратности связи</h4>
-                                <p style="margin: 0;">Чем выше кратность связи, тем она <span
-                                        style="color: #c0392b; font-weight: bold;">короче</span> и тем она <span
-                                        style="color: #27ae60; font-weight: bold;">прочнее</span> (энергия разрыва
-                                    выше).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <table class="minimalist-table table-theme-indigo">
-                        <tr>
-                            <th>Тип связи</th>
-                            <th>Пример (Углерод)</th>
-                            <th>Длина связи (пм)</th>
-                            <th>Энергия разрыва (кДж/моль)</th>
-                        </tr>
-                        <tr>
-                            <td>Одинарная (σ)</td>
-                            <td><strong style="font-size: 1.2em;">C — C</strong></td>
-                            <td>154 <span style="color: #888;">(самая длинная)</span></td>
-                            <td>343</td>
-                        </tr>
-                        <tr>
-                            <td>Двойная (σ + π)</td>
-                            <td><strong style="font-size: 1.2em;">C = C</strong></td>
-                            <td>134</td>
-                            <td>615</td>
-                        </tr>
-                        <tr>
-                            <td>Тройная (σ + 2π)</td>
-                            <td><strong style="font-size: 1.2em;">C ≡ C</strong></td>
-                            <td>120 <span style="color: #c0392b; font-weight: bold;">(самая короткая)</span></td>
-                            <td>812 <span style="color: #27ae60; font-weight: bold;">(самая прочная)</span></td>
-                        </tr>
-                    </table>
-
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                        <div>
-                            <h4 style="margin-top: 0; text-align: center;">2. Кратность в простых веществах</h4>
-                            <table class="minimalist-table table-theme-emerald" style="margin-top: 0.5rem;">
-                                <tr>
-                                    <th>Кратность</th>
-                                    <th>Связь</th>
-                                    <th>Примеры</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>1</strong></td>
-                                    <td>H–H, Cl–Cl</td>
-                                    <td>H<sub>2</sub>, Галогены</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>2</strong></td>
-                                    <td>O = O</td>
-                                    <td>O<sub>2</sub></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>3</strong></td>
-                                    <td>N ≡ N</td>
-                                    <td>N<sub>2</sub></td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div>
-                            <h4 style="margin-top: 0; text-align: center;">3. Зависимость от радиуса атома</h4>
-                            <p style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #666;">Чем больше радиус атома,
-                                тем длиннее
-                                связь и тем меньше её прочность.</p>
-                            <table class="minimalist-table table-theme-warm" style="margin-top: 0.5rem;">
-                                <tr>
-                                    <th>Связь</th>
-                                    <th>Длина</th>
-                                    <th>Прочность</th>
-                                    <th>Кислотность</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>H — F</strong></td>
-                                    <td>Короткая</td>
-                                    <td>Прочная</td>
-                                    <td>Слабая</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color:#aaa;">H — Cl</strong></td>
-                                    <td>↓</td>
-                                    <td>↓</td>
-                                    <td>Сильная</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color:#aaa;">H — Br</strong></td>
-                                    <td>↓</td>
-                                    <td>↓</td>
-                                    <td>Сильная</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>H — I</strong></td>
-                                    <td>Длинная</td>
-                                    <td>Слабая</td>
-                                    <td>Сильнейшая</td>
-                                </tr>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Ионная связь -->
-            <div id="bond-ion" class="bond-content">
-                <h2 id="ionic" style="margin-top: 0; color: #8b5cf6; text-align: center;">2. Ионная химическая связь
-                </h2>
-                <div
-                    style="display: flex; gap: 2rem; align-items: center; background: #faf5ff; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #f3e8ff;">
-                    <div style="font-size: 4rem;">🧲</div>
-                    <div>
-                        <p style="font-size: 1.1rem; margin-top: 0;"><strong>Ионная связь</strong> — это сильное
-                            электростатическое притяжение между разноименно заряженными ионами.</p>
-                        <p style="margin-bottom: 0;">Возникает между элементами с большой разницей
-                            электроотрицательностей
-                            (обычно это <strong>Металл + Неметалл</strong>), а также в солях аммония.</p>
+            <div id="ionic" class="accordion-item">
+                <button class="accordion-header header-ion" onclick="toggleAccordion(event)">
+                    <span>🧲 2. Ионная химическая связь</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </div>
-                </div>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <div class="accordion-body">
+                            <div
+                                style="display: flex; gap: 2rem; align-items: center; background: #faf5ff; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #f3e8ff;">
+                                <div style="font-size: 4rem;">🧲</div>
+                                <div>
+                                    <p style="font-size: 1.1rem; margin-top: 0;"><strong>Ионная связь</strong> — это
+                                        сильное
+                                        электростатическое притяжение между разноименно заряженными ионами.</p>
+                                    <p style="margin-bottom: 0;">Возникает между элементами с большой разницей
+                                        электроотрицательностей
+                                        (обычно это <strong>Металл + Неметалл</strong>), а также в солях аммония.</p>
+                                </div>
+                            </div>
 
-                <h3 style="text-align: center;">Где встречается ионная связь?</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                    <div class="interactive-card" style="border-left-color: #8b5cf6;">
-                        <h4 style="margin: 0 0 0.5rem 0;">Бинарные соединения</h4>
-                        <p style="margin: 0; color: #555;">(Металл + Галоген/Кислород/Сера)</p>
-                        <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
-                            <li><strong>NaCl, K<sub>2</sub>O, CaF<sub>2</sub>, LiBr, MgO</strong></li>
-                        </ul>
+                            <h3 style="text-align: center;">Где встречается ионная связь?</h3>
+                            <div class="chem-cards-grid">
+                                <div class="chem-card" data-color="purple">
+                                    <h4 style="margin: 0 0 0.5rem 0;">Бинарные соединения</h4>
+                                    <p style="margin: 0; color: #555;">(Металл + Галоген/Кислород/Сера)</p>
+                                    <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                                        <li><strong>NaCl, K<sub>2</sub>O, CaF<sub>2</sub>, LiBr, MgO</strong></li>
+                                    </ul>
+                                </div>
+
+                                <div class="chem-card" data-color="purple">
+                                    <h4 style="margin: 0 0 0.5rem 0;">Соли с кислородом</h4>
+                                    <p style="margin: 0; color: #555;">(Между металлом и кислотным остатком)</p>
+                                    <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                                        <li><strong>Na<sub>2</sub>SO<sub>4</sub>, CaCO<sub>3</sub>,
+                                                KNO<sub>3</sub></strong>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="chem-card" data-color="purple">
+                                    <h4 style="margin: 0 0 0.5rem 0;">Щелочи</h4>
+                                    <p style="margin: 0; color: #555;">(Между металлом и OH-группой)</p>
+                                    <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                                        <li><strong>NaOH, Ba(OH)<sub>2</sub>, KOH</strong></li>
+                                    </ul>
+                                </div>
+
+                                <div class="chem-card" data-color="purple">
+                                    <h4 style="margin: 0 0 0.5rem 0;">Соли аммония</h4>
+                                    <p style="margin: 0; color: #555;">(Без металлов! Ионная связь между катионом NH₄⁺ и
+                                        анионом)
+                                    </p>
+                                    <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                                        <li><strong>NH<sub>4</sub>Cl,
+                                                (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="chem-note" style="margin-top: 1rem; transform: none;">
+                                <strong style="color: #6d28d9;">Суть:</strong> Активный металл отдает валентные
+                                электроны
+                                (становясь
+                                положительным катионом), а неметалл их принимает (становясь отрицательным анионом).
+                                Разные
+                                заряды
+                                притягиваются образуя прочный ионный кристалл.
+                            </div>
+                        </div>
+
                     </div>
-
-                    <div class="interactive-card" style="border-left-color: #a78bfa;">
-                        <h4 style="margin: 0 0 0.5rem 0;">Соли с кислородом</h4>
-                        <p style="margin: 0; color: #555;">(Между металлом и кислотным остатком)</p>
-                        <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
-                            <li><strong>Na<sub>2</sub>SO<sub>4</sub>, CaCO<sub>3</sub>, KNO<sub>3</sub></strong></li>
-                        </ul>
-                    </div>
-
-                    <div class="interactive-card" style="border-left-color: #c4b5fd;">
-                        <h4 style="margin: 0 0 0.5rem 0;">Щелочи</h4>
-                        <p style="margin: 0; color: #555;">(Между металлом и OH-группой)</p>
-                        <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
-                            <li><strong>NaOH, Ba(OH)<sub>2</sub>, KOH</strong></li>
-                        </ul>
-                    </div>
-
-                    <div class="interactive-card" style="border-left-color: #ddd6fe;">
-                        <h4 style="margin: 0 0 0.5rem 0;">Соли аммония</h4>
-                        <p style="margin: 0; color: #555;">(Без металлов! Ионная связь между катионом NH₄⁺ и анионом)
-                        </p>
-                        <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
-                            <li><strong>NH<sub>4</sub>Cl, (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></strong></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="info-box" style="border-left-color: #8b5cf6; margin-top: 1rem; transform: none;">
-                    <strong style="color: #6d28d9;">Суть:</strong> Активный металл отдает валентные электроны (становясь
-                    положительным катионом), а неметалл их принимает (становясь отрицательным анионом). Разные заряды
-                    притягиваются образуя прочный ионный кристалл.
                 </div>
             </div>
+
 
             <!-- Металлическая связь -->
-            <div id="bond-met" class="bond-content">
-                <h2 id="metallic" style="margin-top: 0; color: #64748b; text-align: center;">3. Металлическая связь</h2>
-
-                <div style="display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <p style="font-size: 1.1rem;"><strong>Металлическая связь</strong> — это особая связь в металлах
-                            и
-                            сплавах, которая образуется за счет обобществления валентных электронов.</p>
-                        <p>В узлах кристаллической решетки металлов находятся катионы (положительные ионы) и нейтральные
-                            атомы,
-                            а между ними свободно перемещаются <strong>«электронный газ»</strong> (оторвавшиеся
-                            электроны).</p>
-
-                        <div class="info-box" style="border-left-color: #94a3b8; margin-top: 1.5rem;">
-                            <strong>Именно электронный газ обуславливает главные свойства металлов:</strong>
-                            <ul style="margin-bottom: 0;">
-                                <li>Электропроводность</li>
-                                <li>Теплопроводность</li>
-                                <li>Пластичность и ковкость</li>
-                                <li>Характерный металлический блеск</li>
-                            </ul>
-                        </div>
+            <div id="metallic" class="accordion-item">
+                <button class="accordion-header header-met" onclick="toggleAccordion(event)">
+                    <span>🔗 3. Металлическая связь</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </div>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <div class="accordion-body">
 
-                    <div
-                        style="flex: 1; min-width: 300px; background: #f1f5f9; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                        <h4 style="margin-top: 0; font-size: 1.2rem;">Примеры веществ:</h4>
-                        <ul style="font-size: 1.05rem;">
-                            <li style="margin-bottom: 1rem;"><strong>Все чистые металлы:</strong><br>
-                                <span style="color: #475569; display: inline-block; margin-top: 0.3rem;">Fe (железо), Cu
-                                    (медь),
-                                    Na (натрий), Au (золото), Al (алюминий), Zn, Mg, Ti и т.д.</span>
-                            </li>
-                            <li><strong>Все сплавы:</strong><br>
-                                <span style="color: #475569; display: inline-block; margin-top: 0.3rem;">Бронза, Латунь,
-                                    Сталь,
-                                    Чугун, Дюралюминий, Мельхиор.</span>
-                            </li>
-                        </ul>
+                            <div
+                                style="display: flex; flex-direction: column; gap: 2rem; align-items: flex-start; margin-bottom: 2rem;">
+                                <div style="width: 100%;">
+                                    <p style="font-size: 1.1rem;"><strong>Металлическая связь</strong> — это особая
+                                        связь в
+                                        металлах
+                                        и
+                                        сплавах, которая образуется за счет обобществления валентных электронов.</p>
+                                    <p>В узлах кристаллической решетки металлов находятся катионы (положительные ионы) и
+                                        нейтральные
+                                        атомы,
+                                        а между ними свободно перемещаются <strong>«электронный газ»</strong>
+                                        (оторвавшиеся
+                                        электроны).</p>
+
+                                    <div class="chem-note" style="margin-top: 1.5rem;">
+                                        <strong>Именно электронный газ обуславливает главные свойства металлов:</strong>
+                                        <ul style="margin-bottom: 0;">
+                                            <li>Электропроводность</li>
+                                            <li>Теплопроводность</li>
+                                            <li>Пластичность и ковкость</li>
+                                            <li>Характерный металлический блеск</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div
+                                    style="width: 100%; background: #f1f5f9; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                                    <h4 style="margin-top: 0; font-size: 1.2rem;">Примеры веществ:</h4>
+                                    <ul style="font-size: 1.05rem;">
+                                        <li style="margin-bottom: 1rem;"><strong>Все чистые металлы:</strong><br>
+                                            <span style="color: #475569; display: inline-block; margin-top: 0.3rem;">Fe
+                                                (железо), Cu
+                                                (медь),
+                                                Na (натрий), Au (золото), Al (алюминий), Zn, Mg, Ti и т.д.</span>
+                                        </li>
+                                        <li><strong>Все сплавы:</strong><br>
+                                            <span
+                                                style="color: #475569; display: inline-block; margin-top: 0.3rem;">Бронза,
+                                                Латунь,
+                                                Сталь,
+                                                Чугун, Дюралюминий, Мельхиор.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
+
             <!-- Водородная связь -->
-            <div id="bond-hyd" class="bond-content">
-                <h2 id="hydrogen" style="margin-top: 0; color: #ec4899; text-align: center;">4. Водородная связь</h2>
-
-                <div
-                    style="background: #fdf2f8; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #fce7f3; display: flex; gap: 1.5rem; align-items: center;">
-                    <div style="font-size: 4rem;">💧</div>
-                    <p style="font-size: 1.05rem; margin: 0;"><strong>Водородная связь</strong> — это межмолекулярное
-                        (редко
-                        внутримолекулярное) взаимодействие между электроположительным атомом <strong>Водорода
-                            (H)</strong> одной
-                        молекулы и сильно электроотрицательным атомом <strong>(F, O, N)</strong> другой молекулы.</p>
-                </div>
-
-                <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <div class="interactive-card" style="border-left-color: #ec4899; height: 100%;">
-                            <h4 style="margin-top:0;">Как быстро узнать молекулу с H-связью:</h4>
-                            <p>Если в молекуле есть связи <strong>H-F, H-O, H-N</strong> — значит, вещество образует
-                                водородные
-                                связи!</p>
-
-                            <h4 style="margin-top: 1.5rem;">Примеры:</h4>
-                            <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0;">
-                                <li><strong>H<sub>2</sub>O</strong> (Вода)</li>
-                                <li><strong>HF</strong> (Фтороводород)</li>
-                                <li><strong>NH<sub>3</sub></strong> (Аммиак)</li>
-                                <li><strong>R-OH</strong> (Спирты)</li>
-                                <li><strong>R-COOH</strong> (Карбоновые к-ты)</li>
-                                <li>Белки и ДНК</li>
-                            </ul>
-                        </div>
+            <div id="hydrogen" class="accordion-item">
+                <button class="accordion-header header-hyd" onclick="toggleAccordion(event)">
+                    <span>💧 4. Водородная связь</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </div>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <div class="accordion-body">
 
-                    <div
-                        style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div class="info-box" style="border-left-color: #f472b6; margin: 0 0 1rem 0;">
-                            <strong>Влияние на физические свойства:</strong>
-                            <p style="margin: 0.5rem 0 0 0;">Водородные связи объединяют молекулы, повышая температуру
-                                кипения и
-                                растворимость в воде.</p>
+                            <div
+                                style="background: #fdf2f8; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #fce7f3; display: flex; gap: 1.5rem; align-items: center;">
+                                <div style="font-size: 4rem;">💧</div>
+                                <p style="font-size: 1.05rem; margin: 0;"><strong>Водородная связь</strong> — это
+                                    межмолекулярное
+                                    (редко
+                                    внутримолекулярное) взаимодействие между электроположительным атомом
+                                    <strong>Водорода
+                                        (H)</strong> одной
+                                    молекулы и сильно электроотрицательным атомом <strong>(F, O, N)</strong> другой
+                                    молекулы.
+                                </p>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                                <div style="width: 100%;">
+                                    <div class="chem-card" data-color="blue" style="height: 100%;">
+                                        <h4 style="margin-top:0;">Как быстро узнать молекулу с H-связью:</h4>
+                                        <p>Если в молекуле есть связи <strong>H-F, H-O, H-N</strong> — значит, вещество
+                                            образует
+                                            водородные
+                                            связи!</p>
+
+                                        <h4 style="margin-top: 1.5rem;">Примеры:</h4>
+                                        <ul
+                                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0;">
+                                            <li><strong>H<sub>2</sub>O</strong> (Вода)</li>
+                                            <li><strong>HF</strong> (Фтороводород)</li>
+                                            <li><strong>NH<sub>3</sub></strong> (Аммиак)</li>
+                                            <li><strong>R-OH</strong> (Спирты)</li>
+                                            <li><strong>R-COOH</strong> (Карбоновые к-ты)</li>
+                                            <li>Белки и ДНК</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div
+                                    style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="chem-note" style="margin: 0 0 1rem 0;">
+                                        <strong>Влияние на физические свойства:</strong>
+                                        <p style="margin: 0.5rem 0 0 0;">Водородные связи объединяют молекулы, повышая
+                                            температуру
+                                            кипения и
+                                            растворимость в воде.</p>
+                                    </div>
+
+                                    <figure style="text-align: center; margin: 0;">
+                                        <img src="image.png" alt="Водородная связь в воде"
+                                            style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="color: #666; font-size: 0.85em; margin-top: 4px;">Рис. 3.
+                                            Водородная
+                                            связь.
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
                         </div>
 
-                        <figure style="text-align: center; margin: 0;">
-                            <img src="image.png" alt="Водородная связь в воде"
-                                style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                            <figcaption style="color: #666; font-size: 0.85em; margin-top: 4px;">Рис. 3. Водородная
-                                связь.
-                            </figcaption>
-                        </figure>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Уловки ЕГЭ -->
+            <div id="ege-traps" class="accordion-item"
+                style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1);">
+                <button class="accordion-header header-cov active" onclick="toggleAccordion(event)"
+                    style="color: #d97706;">
+                    <span>⚠️ 5. Уловки и ловушки ЕГЭ</span>
+                    <div class="accordion-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-content show">
+                    <div class="accordion-inner">
+                        <div class="accordion-body">
+
+                            <div class="chem-cards-grid">
+                                <div class="chem-exception">
+                                    <h4 style="margin-top:0; color:#b91c1c;">📍 Скрытая ковалентная неполярная связь
+                                    </h4>
+                                    <p style="font-size: 0.95rem; color: #7f1d1d;">Ее часто забывают найти в сложных
+                                        и органических веществах:</p>
+                                    <ul style="font-size: 0.95rem; color: #7f1d1d; margin-bottom: 0;">
+                                        <li><strong>Пероксиды (Na<sub>2</sub>O<sub>2</sub>,
+                                                H<sub>2</sub>O<sub>2</sub>):</strong> есть связь
+                                            <strong>O–O</strong>.
+                                        </li>
+                                        <li><strong>Ацетилениды (CaC<sub>2</sub>), карбиды:</strong> связь
+                                            <strong>C≡C</strong>.
+                                        </li>
+                                        <li><strong>Пирит (FeS<sub>2</sub>):</strong> связь <strong>S–S</strong>.
+                                        </li>
+                                        <li><strong>Любая органика с 2+ атомами C:</strong> связь
+                                            <strong>C–C</strong> (кроме метана и его производных с одним углеродом).
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="chem-card" data-color="yellow">
+                                    <h4 style="margin-top:0; color:#b45309;">📍 Скрытая ионная связь</h4>
+                                    <p style="font-size: 0.95rem; color: #92400e;">Во многих солях, которые кажутся
+                                        "чисто органическими", есть ионная связь!</p>
+                                    <ul style="font-size: 0.95rem; color: #92400e; margin-bottom: 0;">
+                                        <li><strong>Соли карбоновых кислот:</strong> ацетат натрия
+                                            (CH<sub>3</sub>COONa) — ИОННАЯ связь между катионом Na⁺ и анионом
+                                            кислотного остатка.</li>
+                                        <li><strong>Соли аминов:</strong> хлорид метиламмония
+                                            [CH<sub>3</sub>NH<sub>3</sub>]Cl — ИОННАЯ между катионом органического
+                                            аммония и Cl⁻.</li>
+                                        <li><strong>Алкоголяты и феноляты:</strong> CH<sub>3</sub>ONa.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="chem-card" data-color="blue">
+                                    <h4 style="margin-top:0; color:#1d4ed8;">📍 "Все виды связей сразу"</h4>
+                                    <p style="font-size: 0.95rem; color: #1e3a8a;">Типичное задание: "Выберите
+                                        вещества, в которых есть и ионная, и ковалентная полярная связь".</p>
+                                    <p style="font-size: 0.95rem; color: #1e3a8a; margin-bottom: 0;"><strong>Что
+                                            искать?</strong></p>
+                                    <ul style="font-size: 0.95rem; color: #1e3a8a; margin-bottom: 0;">
+                                        <li>Соли кислородсодержащих кислот (K<sub>2</sub>SO<sub>4</sub>,
+                                            NaNO<sub>3</sub>)</li>
+                                        <li>Щёлочи (NaOH, KOH)</li>
+                                        <li>Соли аммония (NH<sub>4</sub>Cl,
+                                            (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub>)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
 
 
             <!-- БЛОК ТЕСТА -->
-            <div
+            <div class="test-block"
                 style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
                 <div style="flex: 1; min-width: 200px;">
                     <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
@@ -793,19 +1397,40 @@
                     <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
                         знания по типам химической связи. Задания формата ЕГЭ.</div>
                 </div>
-                <a href="../tests/chemical_bonds_test.html"
-                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                <a href="../tests/chemical_bonds_test.html" class="test-btn"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); color: #fff; white-space: nowrap; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(16, 185, 129, 0.35)'"
+                    onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)'">Начать
                     тест →</a>
             </div>
 
-            <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
-                <a href="../first_chap/oxidation_valence.html" class="prev-chapter"
-                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    ← Степени окисления
+            <div class="chapter-nav-container">
+                <a href="../first_chap/oxidation_valence.html" class="chapter-nav-btn prev">
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Предыдущая тема</span>
+                        <span class="chapter-nav-title">Степени окисления</span>
+                    </div>
                 </a>
-                <a href="../for_chap/crystal_lattices.html" class="next-chapter"
-                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    Следующая тема: Кристаллические решетки →
+
+                <a href="../for_chap/crystal_lattices.html" class="chapter-nav-btn next">
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Следующая тема</span>
+                        <span class="chapter-nav-title">Кристаллические решетки</span>
+                    </div>
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
                 </a>
             </div>
         </main>
@@ -819,23 +1444,23 @@
             <a href="../first_chap/theory.html" style="color: var(--text-secondary); text-decoration: none;">Теория</a>
             <span style="color: #ddd;">·</span>
             <a href="../tests/periodic_law_test.html"
-                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                style="color: var(--text-secondary); text-decoration: none;">Задания по номерам</a>
             <span style="color: #ddd;">·</span>
-            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты ЕГЭ</a>
             <span style="color: #ddd;">·</span>
             <a href="../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
             <span style="color: #ddd;">·</span>
-            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Моя статистика</a>
         </div>
         <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
     </footer>
 
     <script>
-        function openBond(event, bondId) {
-            document.querySelectorAll('.bond-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.bond-content').forEach(c => c.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            document.getElementById(bondId).classList.add('active');
+        function toggleAccordion(event) {
+            const header = event.currentTarget;
+            const content = header.nextElementSibling;
+            header.classList.toggle('active');
+            content.classList.toggle('show');
         }
         function openCov(event, covId) {
             document.querySelectorAll('.cov-tab').forEach(t => t.classList.remove('active'));

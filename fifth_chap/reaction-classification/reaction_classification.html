@@ -8,6 +8,7 @@
     <meta name="description"
         content="Типы химических реакций: по количеству и составу участников, по наличию катализатора, по направлению протекания, по агрегатному состоянию, по энергетическому эффекту.">
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../modern-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -95,29 +96,122 @@
             stroke: #d47a10;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a2332;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #F5A623;
+        }
+
         @media (max-width: 1000px) {
-            .nav-link span {
+            header.site-header {
+                height: auto;
+                padding: 1rem 4%;
+            }
+
+            .header-content {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .site-nav-container {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1rem 4% 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid #E8ECF0;
+                border-bottom: 1px solid #E8ECF0;
+                gap: 0.5rem;
+            }
+
+            .site-nav-container.open {
+                display: flex;
+                animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link span {
+                display: inline;
+            }
+
+            .type-tabs {
+                display: none !important;
+            }
+
+            .type-content {
+                display: block !important;
+                margin-bottom: 2rem;
+                opacity: 1 !important;
+                animation: none !important;
+            }
+
+            .mobile-nav-top {
+                display: flex !important;
             }
         }
 
-        /* Minimalist Table Styles for Specific Reactions */
+        .mobile-nav-top {
+            display: none;
+        }
+
+        .minimalist-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
         .minimalist-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 25px 0;
-            font-size: 0.95em;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            min-width: 500px;
+            border-collapse: collapse;
+            font-size: 0.9em;
             background: white;
-            border: 1px solid #f0f0f0;
         }
 
         .minimalist-table th,
         .minimalist-table td {
-            padding: 16px 20px;
+            padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid #f5f5f5;
         }
@@ -127,7 +221,6 @@
             font-weight: 600;
             letter-spacing: 0.5px;
             text-align: center;
-            text-transform: uppercase;
             font-size: 0.85rem;
         }
 
@@ -181,6 +274,16 @@
             <a href="../../index.html" class="logo">
                 Хим<span>Подготовка</span>
             </a>
+
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
 
             <nav class="site-nav-container">
                 <a href="../../index.html" class="nav-link">
@@ -250,7 +353,7 @@
                 <a href="../../index.html">Главная</a> <span>/</span> <a href="../../1 глава/theory.html">Теоретические
                     основы</a>
                 <span>/</span>
-                Классификация химических реакций
+                <h1>Классификация химических реакций</h1>
             </div>
 
             <figure style="text-align: center; margin: 20px 0;">
@@ -261,7 +364,6 @@
                 </figcaption>
             </figure>
 
-            <h1>Классификация химических реакций</h1>
 
             <!-- Раздел 1: По числу и составу реагирующих веществ -->
             <div class="topic-section">
@@ -483,7 +585,7 @@
                     <h3 style="margin-top: 0;">⚡ 2.1. Окислительно-восстановительные реакции (ОВР)</h3>
                     <p>В этих процессах степени окисления элементов <strong>изменяются</strong> за счёт передачи
                         электронов между частицами.</p>
-                    <div class="info-box" style="border-left-color: #FF5722;">
+                    <div class="chem-note" style="border-left-color: #FF5722;">
                         <strong>Обратите внимание!</strong> К ОВР обычно относят процессы соединения, разложения,
                         замещения, а также <strong>любые превращения с участием простых веществ</strong>.
                     </div>
@@ -664,7 +766,7 @@
                     но <strong>не расходуется</strong> и не входит в конечные продукты. Он временно связывается с
                     реагентами, а затем высвобождается.</p>
 
-                <div class="info-box" style="border-left-color: #607D8B;">
+                <div class="chem-note" style="border-left-color: #607D8B;">
                     <strong>Упрощённая схема действия катализатора К:</strong><br>
                     A + K → AK<br>
                     AK + B → AB + K
@@ -763,7 +865,7 @@
                     <h3 style="margin-top: 0;">➡️ 6.2. Необратимые процессы</h3>
                     <p>Протекают преимущественно <strong>в одном направлении</strong>: продукты практически не способны
                         вернуться к исходным веществам при данных условиях.</p>
-                    <div class="info-box" style="border-left-color: #E91E63;">
+                    <div class="chem-note" style="border-left-color: #E91E63;">
                         <strong>Признаки необратимости:</strong> горение, взрывы, выпадение осадка ↓, выделение газа ↑,
                         образование воды.
                     </div>
@@ -781,39 +883,40 @@
                 </div>
             </div>
 
-            <!-- Сводная таблица -->
             <div class="topic-section">
                 <h2 id="summary">Итоговая таблица классификации</h2>
-                <table class="styled-table">
-                    <tr>
-                        <th>Критерий классификации</th>
-                        <th>Виды реакций</th>
-                    </tr>
-                    <tr>
-                        <td><strong>По количеству и составу участников</strong></td>
-                        <td>Соединения, разложения, замещения, обмена, изомеризации</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По изменению степеней окисления</strong></td>
-                        <td>ОВР (с переносом электронов), не ОВР (без переноса)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По энергетическому эффекту</strong></td>
-                        <td>Экзотермические (+Q), эндотермические (–Q)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По агрегатному состоянию</strong></td>
-                        <td>Гомогенные (одна фаза), гетерогенные (разные фазы)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По участию катализатора</strong></td>
-                        <td>Каталитические, некаталитические, ферментативные</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По направлению протекания</strong></td>
-                        <td>Обратимые (⇌), необратимые (→)</td>
-                    </tr>
-                </table>
+                <div class="chem-table-wrap">
+                    <table class="chem-table striped">
+                        <tr>
+                            <th>Критерий классификации</th>
+                            <th>Виды реакций</th>
+                        </tr>
+                        <tr>
+                            <td><strong>По количеству и составу участников</strong></td>
+                            <td>Соединения, разложения, замещения, обмена, изомеризации</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По изменению степеней окисления</strong></td>
+                            <td>ОВР (с переносом электронов), не ОВР (без переноса)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По энергетическому эффекту</strong></td>
+                            <td>Экзотермические (+Q), эндотермические (–Q)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По агрегатному состоянию</strong></td>
+                            <td>Гомогенные (одна фаза), гетерогенные (разные фазы)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По участию катализатора</strong></td>
+                            <td>Каталитические, некаталитические, ферментативные</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По направлению протекания</strong></td>
+                            <td>Обратимые (⇌), необратимые (→)</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <!-- Специфические названия реакций -->
@@ -833,255 +936,272 @@
 
                 <div id="spec-add" class="type-content spec-content active">
                     <h3 style="margin-top: 0;">Реакции присоединения</h3>
-                    <table class="minimalist-table table-theme-emerald">
-                        <tr>
-                            <th style="width: 30%;">Название</th>
-                            <th>Описание</th>
-                            <th style="width: 25%;">Пример</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Гидрирование</strong></td>
-                            <td>Присоединение водорода (H<sub>2</sub>) по кратной связи</td>
-                            <td>CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub> → C<sub>2</sub>H<sub>6</sub></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Гидратация</strong></td>
-                            <td>Присоединение воды (H<sub>2</sub>O)</td>
-                            <td>CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O → C<sub>2</sub>H<sub>5</sub>OH</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Галогенирование</strong></td>
-                            <td>Присоединение галогена (Cl<sub>2</sub>, Br<sub>2</sub>)</td>
-                            <td>CH<sub>2</sub>=CH<sub>2</sub> + Br<sub>2</sub> → CH<sub>2</sub>Br–CH<sub>2</sub>Br</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Гидрогалогенирование</strong></td>
-                            <td>Присоединение галогеноводорода (HCl, HBr)</td>
-                            <td>CH<sub>2</sub>=CH<sub>2</sub> + HBr → CH<sub>3</sub>–CH<sub>2</sub>Br</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Полимеризация</strong></td>
-                            <td>Соединение множества молекул мономера в полимер</td>
-                            <td>nCH<sub>2</sub>=CH<sub>2</sub> → (–CH<sub>2</sub>–CH<sub>2</sub>–)<sub>n</sub></td>
-                        </tr>
-                    </table>
+                    <div class="minimalist-table-wrap">
+                        <table class="minimalist-table table-theme-emerald">
+                            <tr>
+                                <th style="width: 30%;">Название</th>
+                                <th>Описание</th>
+                                <th style="width: 25%;">Пример</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Гидрирование</strong></td>
+                                <td>Присоединение водорода (H<sub>2</sub>) по кратной связи</td>
+                                <td>CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub> → C<sub>2</sub>H<sub>6</sub></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Гидратация</strong></td>
+                                <td>Присоединение воды (H<sub>2</sub>O)</td>
+                                <td>CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O → C<sub>2</sub>H<sub>5</sub>OH</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Галогенирование</strong></td>
+                                <td>Присоединение галогена (Cl<sub>2</sub>, Br<sub>2</sub>)</td>
+                                <td>CH<sub>2</sub>=CH<sub>2</sub> + Br<sub>2</sub> → CH<sub>2</sub>Br–CH<sub>2</sub>Br
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Гидрогалогенирование</strong></td>
+                                <td>Присоединение галогеноводорода (HCl, HBr)</td>
+                                <td>CH<sub>2</sub>=CH<sub>2</sub> + HBr → CH<sub>3</sub>–CH<sub>2</sub>Br</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Полимеризация</strong></td>
+                                <td>Соединение множества молекул мономера в полимер</td>
+                                <td>nCH<sub>2</sub>=CH<sub>2</sub> → (–CH<sub>2</sub>–CH<sub>2</sub>–)<sub>n</sub></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="spec-elim" class="type-content spec-content">
                     <h3 style="margin-top: 0;">Реакции отщепления (элиминирования)</h3>
-                    <table class="minimalist-table table-theme-warm">
-                        <tr>
-                            <th style="width: 30%;">Название</th>
-                            <th>Описание</th>
-                            <th style="width: 25%;">Пример</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Дегидрирование</strong></td>
-                            <td>Отщепление водорода (H<sub>2</sub>)</td>
-                            <td>C<sub>2</sub>H<sub>6</sub> → CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Дегидратация</strong></td>
-                            <td>Отщепление воды (H<sub>2</sub>O)</td>
-                            <td>C<sub>2</sub>H<sub>5</sub>OH → CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Дегалогенирование</strong></td>
-                            <td>Отщепление галогена (обычно с Zn)</td>
-                            <td>CH<sub>2</sub>Br–CH<sub>2</sub>Br + Zn → CH<sub>2</sub>=CH<sub>2</sub> +
-                                ZnBr<sub>2</sub>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Дегидрогалогенирование</strong></td>
-                            <td>Отщепление галогеноводорода (HCl, HBr)</td>
-                            <td>CH<sub>3</sub>–CH<sub>2</sub>Cl + KOH<sub>(спирт)</sub> → CH<sub>2</sub>=CH<sub>2</sub>
-                                +
-                                KCl + H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Крекинг</strong></td>
-                            <td>Разрыв углеродной цепи при нагревании</td>
-                            <td>C<sub>10</sub>H<sub>22</sub> → C<sub>5</sub>H<sub>10</sub> + C<sub>5</sub>H<sub>12</sub>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Декарбоксилирование</strong></td>
-                            <td>Отщепление CO<sub>2</sub> от карбоновой кислоты</td>
-                            <td>CH<sub>3</sub>COONa + NaOH → CH<sub>4</sub> + Na<sub>2</sub>CO<sub>3</sub></td>
-                        </tr>
-                    </table>
+                    <div class="minimalist-table-wrap">
+                        <table class="minimalist-table table-theme-warm">
+                            <tr>
+                                <th style="width: 30%;">Название</th>
+                                <th>Описание</th>
+                                <th style="width: 25%;">Пример</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Дегидрирование</strong></td>
+                                <td>Отщепление водорода (H<sub>2</sub>)</td>
+                                <td>C<sub>2</sub>H<sub>6</sub> → CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Дегидратация</strong></td>
+                                <td>Отщепление воды (H<sub>2</sub>O)</td>
+                                <td>C<sub>2</sub>H<sub>5</sub>OH → CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Дегалогенирование</strong></td>
+                                <td>Отщепление галогена (обычно с Zn)</td>
+                                <td>CH<sub>2</sub>Br–CH<sub>2</sub>Br + Zn → CH<sub>2</sub>=CH<sub>2</sub> +
+                                    ZnBr<sub>2</sub>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Дегидрогалогенирование</strong></td>
+                                <td>Отщепление галогеноводорода (HCl, HBr)</td>
+                                <td>CH<sub>3</sub>–CH<sub>2</sub>Cl + KOH<sub>(спирт)</sub> →
+                                    CH<sub>2</sub>=CH<sub>2</sub>
+                                    +
+                                    KCl + H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Крекинг</strong></td>
+                                <td>Разрыв углеродной цепи при нагревании</td>
+                                <td>C<sub>10</sub>H<sub>22</sub> → C<sub>5</sub>H<sub>10</sub> +
+                                    C<sub>5</sub>H<sub>12</sub>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Декарбоксилирование</strong></td>
+                                <td>Отщепление CO<sub>2</sub> от карбоновой кислоты</td>
+                                <td>CH<sub>3</sub>COONa + NaOH → CH<sub>4</sub> + Na<sub>2</sub>CO<sub>3</sub></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="spec-subst" class="type-content spec-content">
                     <h3 style="margin-top: 0;">Реакции замещения</h3>
-                    <table class="minimalist-table table-theme-indigo">
-                        <tr>
-                            <th style="width: 30%;">Название</th>
-                            <th>Описание</th>
-                            <th style="width: 25%;">Пример</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Галогенирование</strong> (замещение)</td>
-                            <td>Замена атома H на галоген</td>
-                            <td>CH<sub>4</sub> + Cl<sub>2</sub> → CH<sub>3</sub>Cl + HCl</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Нитрование</strong></td>
-                            <td>Замещение H на нитрогруппу (–NO<sub>2</sub>)</td>
-                            <td>C<sub>6</sub>H<sub>6</sub> + HNO<sub>3</sub> → C<sub>6</sub>H<sub>5</sub>NO<sub>2</sub>
-                                +
-                                H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Сульфирование</strong></td>
-                            <td>Замещение H на сульфогруппу (–SO<sub>3</sub>H)</td>
-                            <td>C<sub>6</sub>H<sub>6</sub> + H<sub>2</sub>SO<sub>4</sub> →
-                                C<sub>6</sub>H<sub>5</sub>SO<sub>3</sub>H + H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Алкилирование</strong></td>
-                            <td>Введение алкильной группы в молекулу</td>
-                            <td>C<sub>6</sub>H<sub>6</sub> + CH<sub>3</sub>Cl → C<sub>6</sub>H<sub>5</sub>CH<sub>3</sub>
-                                +
-                                HCl</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Радикальное замещение</strong> (S<sub>R</sub>)</td>
-                            <td>Замещение по радикальному механизму (цепная реакция)</td>
-                            <td>Хлорирование алканов на свету</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Электрофильное замещение</strong> (S<sub>E</sub>)</td>
-                            <td>Замещение с атакой электрофила</td>
-                            <td>Реакции бензола с электрофилами</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Нуклеофильное замещение</strong> (S<sub>N</sub>)</td>
-                            <td>Замещение с атакой нуклеофила</td>
-                            <td>CH<sub>3</sub>Br + NaOH → CH<sub>3</sub>OH + NaBr</td>
-                        </tr>
-                    </table>
+                    <div class="minimalist-table-wrap">
+                        <table class="minimalist-table table-theme-indigo">
+                            <tr>
+                                <th style="width: 30%;">Название</th>
+                                <th>Описание</th>
+                                <th style="width: 25%;">Пример</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Галогенирование</strong> (замещение)</td>
+                                <td>Замена атома H на галоген</td>
+                                <td>CH<sub>4</sub> + Cl<sub>2</sub> → CH<sub>3</sub>Cl + HCl</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Нитрование</strong></td>
+                                <td>Замещение H на нитрогруппу (–NO<sub>2</sub>)</td>
+                                <td>C<sub>6</sub>H<sub>6</sub> + HNO<sub>3</sub> →
+                                    C<sub>6</sub>H<sub>5</sub>NO<sub>2</sub>
+                                    +
+                                    H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Сульфирование</strong></td>
+                                <td>Замещение H на сульфогруппу (–SO<sub>3</sub>H)</td>
+                                <td>C<sub>6</sub>H<sub>6</sub> + H<sub>2</sub>SO<sub>4</sub> →
+                                    C<sub>6</sub>H<sub>5</sub>SO<sub>3</sub>H + H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Алкилирование</strong></td>
+                                <td>Введение алкильной группы в молекулу</td>
+                                <td>C<sub>6</sub>H<sub>6</sub> + CH<sub>3</sub>Cl →
+                                    C<sub>6</sub>H<sub>5</sub>CH<sub>3</sub>
+                                    +
+                                    HCl</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Радикальное замещение</strong> (S<sub>R</sub>)</td>
+                                <td>Замещение по радикальному механизму (цепная реакция)</td>
+                                <td>Хлорирование алканов на свету</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Электрофильное замещение</strong> (S<sub>E</sub>)</td>
+                                <td>Замещение с атакой электрофила</td>
+                                <td>Реакции бензола с электрофилами</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Нуклеофильное замещение</strong> (S<sub>N</sub>)</td>
+                                <td>Замещение с атакой нуклеофила</td>
+                                <td>CH<sub>3</sub>Br + NaOH → CH<sub>3</sub>OH + NaBr</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="spec-exch" class="type-content spec-content">
                     <h3 style="margin-top: 0;">Реакции обмена и ионные</h3>
-                    <table class="minimalist-table table-theme-teal">
-                        <tr>
-                            <th style="width: 30%;">Название</th>
-                            <th>Описание</th>
-                            <th style="width: 25%;">Пример</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Нейтрализация</strong></td>
-                            <td>Взаимодействие кислоты с основанием</td>
-                            <td>HCl + NaOH → NaCl + H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ионного обмена</strong></td>
-                            <td>Обмен ионами между электролитами в растворе</td>
-                            <td>BaCl<sub>2</sub> + Na<sub>2</sub>SO<sub>4</sub> → BaSO<sub>4</sub>↓ + 2NaCl</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Гидролиз</strong></td>
-                            <td>Разложение вещества водой</td>
-                            <td>Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O ⇌ NaHCO<sub>3</sub> + NaOH</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Этерификация</strong></td>
-                            <td>Образование сложного эфира из кислоты и спирта</td>
-                            <td>CH<sub>3</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH ⇌
-                                CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Омыление</strong></td>
-                            <td>Гидролиз сложного эфира в щелочной среде</td>
-                            <td>CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + NaOH → CH<sub>3</sub>COONa +
-                                C<sub>2</sub>H<sub>5</sub>OH</td>
-                        </tr>
-                    </table>
+                    <div class="minimalist-table-wrap">
+                        <table class="minimalist-table table-theme-teal">
+                            <tr>
+                                <th style="width: 30%;">Название</th>
+                                <th>Описание</th>
+                                <th style="width: 25%;">Пример</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Нейтрализация</strong></td>
+                                <td>Взаимодействие кислоты с основанием</td>
+                                <td>HCl + NaOH → NaCl + H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ионного обмена</strong></td>
+                                <td>Обмен ионами между электролитами в растворе</td>
+                                <td>BaCl<sub>2</sub> + Na<sub>2</sub>SO<sub>4</sub> → BaSO<sub>4</sub>↓ + 2NaCl</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Гидролиз</strong></td>
+                                <td>Разложение вещества водой</td>
+                                <td>Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O ⇌ NaHCO<sub>3</sub> + NaOH</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Этерификация</strong></td>
+                                <td>Образование сложного эфира из кислоты и спирта</td>
+                                <td>CH<sub>3</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH ⇌
+                                    CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Омыление</strong></td>
+                                <td>Гидролиз сложного эфира в щелочной среде</td>
+                                <td>CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + NaOH → CH<sub>3</sub>COONa +
+                                    C<sub>2</sub>H<sub>5</sub>OH</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="spec-redox" class="type-content spec-content">
                     <h3 style="margin-top: 0;">Окислительно-восстановительные реакции</h3>
-                    <table class="minimalist-table table-theme-amber">
-                        <tr>
-                            <th style="width: 30%;">Название</th>
-                            <th>Описание</th>
-                            <th style="width: 25%;">Пример</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Горение</strong></td>
-                            <td>Окисление кислородом с выделением тепла и света</td>
-                            <td>CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Окисление</strong></td>
-                            <td>Потеря электронов, увеличение СО</td>
-                            <td>Fe<sup>0</sup> → Fe<sup>3+</sup> + 3e<sup>−</sup></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Восстановление</strong></td>
-                            <td>Приобретение электронов, уменьшение СО</td>
-                            <td>Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu<sup>0</sup></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Диспропорционирование</strong></td>
-                            <td>Один элемент одновременно окисляется и восстанавливается</td>
-                            <td>Cl<sub>2</sub> + 2NaOH → NaCl + NaClO + H<sub>2</sub>O</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Сопропорционирование</strong></td>
-                            <td>Два атома одного элемента с разными СО дают одинаковую СО</td>
-                            <td>2H<sub>2</sub>S + SO<sub>2</sub> → 3S + 2H<sub>2</sub>O</td>
-                        </tr>
-                    </table>
+                    <div class="minimalist-table-wrap">
+                        <table class="minimalist-table table-theme-amber">
+                            <tr>
+                                <th style="width: 30%;">Название</th>
+                                <th>Описание</th>
+                                <th style="width: 25%;">Пример</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Горение</strong></td>
+                                <td>Окисление кислородом с выделением тепла и света</td>
+                                <td>CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Окисление</strong></td>
+                                <td>Потеря электронов, увеличение СО</td>
+                                <td>Fe<sup>0</sup> → Fe<sup>3+</sup> + 3e<sup>−</sup></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Восстановление</strong></td>
+                                <td>Приобретение электронов, уменьшение СО</td>
+                                <td>Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Диспропорционирование</strong></td>
+                                <td>Один элемент одновременно окисляется и восстанавливается</td>
+                                <td>Cl<sub>2</sub> + 2NaOH → NaCl + NaClO + H<sub>2</sub>O</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Сопропорционирование</strong></td>
+                                <td>Два атома одного элемента с разными СО дают одинаковую СО</td>
+                                <td>2H<sub>2</sub>S + SO<sub>2</sub> → 3S + 2H<sub>2</sub>O</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="spec-other" class="type-content spec-content">
                     <h3 style="margin-top: 0;">Другие типы реакций</h3>
-                    <table class="minimalist-table table-theme-slate">
-                        <tr>
-                            <th style="width: 30%;">Название</th>
-                            <th>Описание</th>
-                            <th style="width: 25%;">Пример</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Изомеризация</strong></td>
-                            <td>Перестройка структуры без изменения формулы</td>
-                            <td>н-бутан → изобутан</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Поликонденсация</strong></td>
-                            <td>Образование полимера с выделением побочного продукта</td>
-                            <td>Синтез полиэфиров, полиамидов</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Риформинг</strong></td>
-                            <td>Превращение алканов в арены и изоалканы</td>
-                            <td>н-гексан → бензол + H<sub>2</sub></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Пиролиз</strong></td>
-                            <td>Разложение органических веществ при высокой температуре без кислорода</td>
-                            <td>CH<sub>4</sub> → C + 2H<sub>2</sub></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Электролиз</strong></td>
-                            <td>ОВР под действием электрического тока</td>
-                            <td>2NaCl → 2Na + Cl<sub>2</sub></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Фотолиз</strong></td>
-                            <td>Разложение под действием света</td>
-                            <td>2AgBr → 2Ag + Br<sub>2</sub></td>
-                        </tr>
-                    </table>
+                    <div class="minimalist-table-wrap">
+                        <table class="minimalist-table table-theme-slate">
+                            <tr>
+                                <th style="width: 30%;">Название</th>
+                                <th>Описание</th>
+                                <th style="width: 25%;">Пример</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Изомеризация</strong></td>
+                                <td>Перестройка структуры без изменения формулы</td>
+                                <td>н-бутан → изобутан</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Поликонденсация</strong></td>
+                                <td>Образование полимера с выделением побочного продукта</td>
+                                <td>Синтез полиэфиров, полиамидов</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Риформинг</strong></td>
+                                <td>Превращение алканов в арены и изоалканы</td>
+                                <td>н-гексан → бензол + H<sub>2</sub></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Пиролиз</strong></td>
+                                <td>Разложение органических веществ при высокой температуре без кислорода</td>
+                                <td>CH<sub>4</sub> → C + 2H<sub>2</sub></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Электролиз</strong></td>
+                                <td>ОВР под действием электрического тока</td>
+                                <td>2NaCl → 2Na + Cl<sub>2</sub></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Фотолиз</strong></td>
+                                <td>Разложение под действием света</td>
+                                <td>2AgBr → 2Ag + Br<sub>2</sub></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
 
             <!-- БЛОК ТЕСТА -->
-            <div
+            <div class="test-block"
                 style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
                 <div style="flex: 1; min-width: 200px;">
                     <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
@@ -1089,19 +1209,39 @@
                     <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
                         знания по классификации реакций. Задания формата ЕГЭ.</div>
                 </div>
-                <a href="../../tests/reaction_classification_test.html"
-                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                <a href="../../tests/reaction_classification_test.html" class="test-btn"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); color: #fff; white-space: nowrap; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(16, 185, 129, 0.35)'"
+                    onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)'">Начать
                     тест →</a>
             </div>
 
-            <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
-                <a href="../../for_chap/crystal_lattices.html" class="prev-chapter"
-                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    ← Кристаллические решетки
+            <div class="chapter-nav-container">
+                <a href="../../for_chap/crystal_lattices.html" class="chapter-nav-btn prev">
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Предыдущая тема</span>
+                        <span class="chapter-nav-title">Кристаллические решетки</span>
+                    </div>
                 </a>
-                <a href="../../fifth_chap/reaction-rate/reaction_rate.html" class="next-chapter"
-                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    Скорость реакций →
+                <a href="../reaction-rate/reaction_rate.html" class="chapter-nav-btn next">
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Следующая тема</span>
+                        <span class="chapter-nav-title">Скорость реакций</span>
+                    </div>
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
                 </a>
             </div>
     </div>

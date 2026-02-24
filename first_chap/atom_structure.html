@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modern-styles.css">
     <style>
         /* Header Layout: Centered & Inline */
         header.site-header {
@@ -105,9 +106,90 @@
             stroke: #d47a10;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a2332;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #F5A623;
+        }
+
         @media (max-width: 1000px) {
-            .nav-link span {
+            header.site-header {
+                height: auto;
+                padding: 1rem 4%;
+            }
+
+            .header-content {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .site-nav-container {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1rem 4% 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid #E8ECF0;
+                border-bottom: 1px solid #E8ECF0;
+                gap: 0.5rem;
+            }
+
+            .site-nav-container.open {
+                display: flex;
+                animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link span {
+                display: inline;
+            }
+
+            .test-block {
+                flex-direction: column !important;
+                text-align: center !important;
+                padding: 1.2rem !important;
+            }
+
+            .test-btn {
+                width: 100% !important;
             }
         }
     </style>
@@ -120,6 +202,16 @@
             <a href="../index.html" class="logo">
                 Хим<span>Подготовка</span>
             </a>
+
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
 
             <nav class="site-nav-container">
                 <a href="../index.html" class="nav-link">
@@ -141,7 +233,7 @@
                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                     </svg>
-                    <span>Задания</span>
+                    <span>Задания по номерам</span>
                 </a>
                 <a href="../variants.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -149,7 +241,7 @@
                         <polyline points="2 17 12 22 22 17"></polyline>
                         <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
-                    <span>Варианты</span>
+                    <span>Варианты ЕГЭ</span>
                 </a>
                 <a href="../courses.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -164,7 +256,7 @@
                         <line x1="12" y1="20" x2="12" y2="4"></line>
                         <line x1="6" y1="20" x2="6" y2="14"></line>
                     </svg>
-                    <span>Панель</span>
+                    <span>Моя статистика</span>
                 </a>
             </nav>
         </div>
@@ -195,8 +287,9 @@
 
             <h1>Строение атома и электронной оболочки</h1>
 
-            <div class="info-box">
-                <p><strong>Темы кодификатора ЕГЭ:</strong> Строение электронных оболочек атомов элементов первых четырех
+            <div class="chem-note">
+                <p class="chem-note-text"><strong>Темы кодификатора ЕГЭ:</strong> Строение электронных оболочек атомов
+                    элементов первых четырех
                     периодов: s-, p- и d-элементы. Электронная конфигурация атомов и ионов. Основное и возбужденное
                     состояние атомов.</p>
             </div>
@@ -243,44 +336,42 @@
             <h2 id="particles">2. Характеристики элементарных частиц</h2>
             <p>Центральная часть атома — положительно заряженное ядро. Оно состоит из нуклонов. Количество протонов
                 строго фиксировано для каждого элемента.</p>
-            <table
-                style="width:100%; border-collapse: collapse; margin-bottom: 1rem; border: 1px solid var(--border-color);">
-                <thead>
-                    <tr style="background-color: var(--bg-sidebar); text-align: left;">
-                        <th style="padding: 0.5rem; border: 1px solid var(--border-color);">Частица</th>
-                        <th style="padding: 0.5rem; border: 1px solid var(--border-color);">Обозначение</th>
-                        <th style="padding: 0.5rem; border: 1px solid var(--border-color);">Заряд (относит.)</th>
-                        <th style="padding: 0.5rem; border: 1px solid var(--border-color);">Масса (а.е.м.)</th>
-                        <th style="padding: 0.5rem; border: 1px solid var(--border-color);">Роль</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Протон</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">p<sup>+</sup></td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">+1</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">≈ 1,007</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Определяет заряд ядра и тип
-                            элемента</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Нейтрон</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">n<sup>0</sup></td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">0</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">≈ 1,008</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Обеспечивает стабильность
-                            ядра, отделяет протоны</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Электрон</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">e<sup>-</sup></td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">-1</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">≈ 1/1836</td>
-                        <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Определяет химические
-                            свойства и объем атома</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="chem-table-wrap">
+                <table class="chem-table striped">
+                    <thead>
+                        <tr>
+                            <th>Частица</th>
+                            <th>Обозначение</th>
+                            <th>Заряд (относит.)</th>
+                            <th>Масса (а.е.м.)</th>
+                            <th>Роль</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Протон</td>
+                            <td>p<sup>+</sup></td>
+                            <td>+1</td>
+                            <td>≈ 1,007</td>
+                            <td>Определяет заряд ядра и тип элемента</td>
+                        </tr>
+                        <tr>
+                            <td>Нейтрон</td>
+                            <td>n<sup>0</sup></td>
+                            <td>0</td>
+                            <td>≈ 1,008</td>
+                            <td>Обеспечивает стабильность ядра, отделяет протоны</td>
+                        </tr>
+                        <tr>
+                            <td>Электрон</td>
+                            <td>e<sup>-</sup></td>
+                            <td>-1</td>
+                            <td>≈ 1/1836</td>
+                            <td>Определяет химические свойства и объем атома</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <figure style="text-align: center; margin: 20px 0;">
                 <img src="image.png" alt="Модель атома"
                     style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
@@ -542,7 +633,7 @@
                 уменьшается</strong> с ростом заряда ядра.</p>
 
             <!-- БЛОК ТЕСТА -->
-            <div
+            <div class="test-block"
                 style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;">
                 <div style="flex: 1; min-width: 200px;">
                     <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
@@ -550,8 +641,8 @@
                     <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">20 заданий по
                         электронным конфигурациям, квантовым числам и ионам.</div>
                 </div>
-                <a href="../tests/electron_config_test.html"
-                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                <a href="../tests/electron_config_test.html" class="test-btn"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap; text-align: center;">Начать
                     тест →</a>
             </div>
 
@@ -572,13 +663,13 @@
             <a href="theory.html" style="color: var(--text-secondary); text-decoration: none;">Теория</a>
             <span style="color: #ddd;">·</span>
             <a href="../tests/periodic_law_test.html"
-                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                style="color: var(--text-secondary); text-decoration: none;">Задания по номерам</a>
             <span style="color: #ddd;">·</span>
-            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты ЕГЭ</a>
             <span style="color: #ddd;">·</span>
             <a href="../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
             <span style="color: #ddd;">·</span>
-            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Моя статистика</a>
         </div>
         <p>© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
     </footer>

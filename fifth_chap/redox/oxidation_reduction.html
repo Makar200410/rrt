@@ -104,9 +104,107 @@
         }
 
         @media (max-width: 1000px) {
-            .nav-link span {
-                display: none;
+            header.site-header {
+                height: auto;
+                padding: 1rem 4%;
             }
+
+            .header-content {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .site-nav-container {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1rem 4% 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid #E8ECF0;
+                gap: 0.5rem;
+            }
+
+            .site-nav-container.open {
+                display: flex;
+                animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link span {
+                display: inline;
+            }
+
+            .type-tabs {
+                display: none !important;
+            }
+
+            .type-content {
+                display: block !important;
+                margin-bottom: 2rem;
+                border: none;
+                padding: 0;
+                background: transparent;
+                box-shadow: none;
+            }
+
+            .type-content h3 {
+                border-bottom: 2px solid #3b82f6;
+                padding-bottom: 0.5rem;
+                margin-bottom: 1rem;
+                color: #1a2332;
+            }
+
+            .mobile-nav-top {
+                display: flex !important;
+            }
+        }
+
+        .mobile-nav-top {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a2332;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #F5A623;
         }
 
         /* Tabs Styles */
@@ -178,6 +276,16 @@
                 Хим<span>Подготовка</span>
             </a>
 
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
             <nav class="site-nav-container">
                 <a href="../../index.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -243,6 +351,27 @@
             <div class="breadcrumbs">
                 <a href="../../index.html">Главная</a> <span>/</span> <a href="../../1 глава/theory.html">Теоретические
                     основы</a> <span>/</span> Окислительно-восстановительные реакции
+            </div>
+
+            <div class="mobile-nav-top chapter-nav-container" style="margin-bottom: 2rem;">
+                <a href="../../fifth_chap/reaction-rate/reaction_rate.html" class="chapter-nav-btn prev">
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <a href="../../fifth_chap/equilibrium/chemical_equilibrium.html" class="chapter-nav-btn next">
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
             </div>
 
             <h1>Окислительно-восстановительные реакции (ОВР)</h1>
@@ -2074,7 +2203,8 @@
                                     style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; flex: 1; min-width: 200px;">
                                     <p style="text-align: center; font-size: 1.2em; margin-bottom: 10px;">
                                         <strong>Углерод-1
-                                            (CH₃−)</strong></p>
+                                            (CH₃−)</strong>
+                                    </p>
                                     <table style="width: 100%; font-size: 0.95em;">
                                         <tr>
                                             <td>3 × (−H)</td>
@@ -2099,7 +2229,8 @@
                                     style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; flex: 1; min-width: 200px;">
                                     <p style="text-align: center; font-size: 1.2em; margin-bottom: 10px;">
                                         <strong>Углерод-2
-                                            (−CH₂−OH)</strong></p>
+                                            (−CH₂−OH)</strong>
+                                    </p>
                                     <table style="width: 100%; font-size: 0.95em;">
                                         <tr>
                                             <td>2 × (−H)</td>
@@ -2469,7 +2600,7 @@
             </div>
 
             <!-- БЛОК ТЕСТА -->
-            <div
+            <div class="test-block"
                 style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
                 <div style="flex: 1; min-width: 200px;">
                     <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
@@ -2477,19 +2608,39 @@
                     <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
                         знания по ОВР. Задания формата ЕГЭ.</div>
                 </div>
-                <a href="../../tests/oxidation_reduction_test.html"
-                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                <a href="../../tests/oxidation_reduction_test.html" class="test-btn"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); color: #fff; white-space: nowrap; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(16, 185, 129, 0.35)'"
+                    onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)'">Начать
                     тест →</a>
             </div>
 
-            <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
-                <a href="../../fifth_chap/reaction-rate/reaction_rate.html" class="prev-chapter"
-                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    ← Скорость реакций
+            <div class="chapter-nav-container">
+                <a href="../../fifth_chap/reaction-rate/reaction_rate.html" class="chapter-nav-btn prev">
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Предыдущая тема</span>
+                        <span class="chapter-nav-title">Скорость реакций</span>
+                    </div>
                 </a>
-                <a href="../../fifth_chap/equilibrium/chemical_equilibrium.html" class="next-chapter"
-                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    Химическое равновесие →
+                <a href="../../fifth_chap/equilibrium/chemical_equilibrium.html" class="chapter-nav-btn next">
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Следующая тема</span>
+                        <span class="chapter-nav-title">Химическое равновесие</span>
+                    </div>
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
                 </a>
             </div>
     </div>

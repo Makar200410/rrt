@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modern-styles.css">
     <style>
         /* Header Layout: Centered & Inline */
         header.site-header {
@@ -95,9 +96,287 @@
             stroke: #d47a10;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a2332;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #F5A623;
+        }
+
         @media (max-width: 1000px) {
-            .nav-link span {
+            header.site-header {
+                height: auto;
+                padding: 1rem 4%;
+            }
+
+            .header-content {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .site-nav-container {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1rem 4% 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid #E8ECF0;
+                border-bottom: 1px solid #E8ECF0;
+                gap: 0.5rem;
+            }
+
+            .site-nav-container.open {
+                display: flex;
+                animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link span {
+                display: inline;
+            }
+
+            .test-block {
+                flex-direction: column !important;
+                text-align: center !important;
+                padding: 1.2rem !important;
+            }
+
+            .test-btn {
+                width: 100% !important;
+                white-space: normal !important;
+            }
+        }
+
+        /* Interactive Tabs and Cards */
+        .struct-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .struct-tab {
+            padding: 1rem 2rem;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #475569;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .struct-tab:hover {
+            border-color: #3b82f6;
+            color: #1a2332;
+            transform: translateY(-2px);
+        }
+
+        .struct-tab.active {
+            background: #3b82f6;
+            color: #fff;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+        }
+
+        .struct-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .struct-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .interactive-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--text-accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: default;
+            height: 100%;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Buttons Update (matching previous) */
+        .chapter-nav-container {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .chapter-nav-btn {
+            display: flex;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            background: #fff;
+            border: 1px solid #E8ECF0;
+            color: #1a2332;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .chapter-nav-btn:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        .chapter-nav-btn.prev {
+            gap: 1rem;
+        }
+
+        .chapter-nav-btn.next {
+            gap: 1rem;
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .chapter-nav-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .chapter-nav-btn.prev .chapter-nav-icon {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .chapter-nav-btn.next .chapter-nav-icon {
+            background: #FFF4E0;
+            color: #F5A623;
+        }
+
+        .chapter-nav-btn:hover .chapter-nav-icon {
+            transform: scale(1.05);
+        }
+
+        .chapter-nav-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-nav-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #8C9BAB;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .chapter-nav-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+
+        .chapter-nav-btn.next .chapter-nav-title {
+            color: #F5A623;
+        }
+
+        @media (max-width: 768px) {
+            .chapter-nav-container {
+                grid-template-columns: 1fr;
+            }
+
+            .chapter-nav-btn.next {
+                justify-content: flex-start;
+                text-align: left;
+                flex-direction: row-reverse;
+            }
+
+            .chapter-nav-btn.next .chapter-nav-text {
+                align-items: flex-start;
+            }
+
+            .struct-content {
+                padding: 1.5rem !important;
+            }
+
+            .struct-tabs {
+                display: none !important;
+            }
+
+            .struct-content {
+                display: block !important;
+                opacity: 1 !important;
+                animation: none;
             }
         }
     </style>
@@ -110,6 +389,16 @@
             <a href="../index.html" class="logo">
                 Хим<span>Подготовка</span>
             </a>
+
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
 
             <nav class="site-nav-container">
                 <a href="../index.html" class="nav-link">
@@ -131,7 +420,7 @@
                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                     </svg>
-                    <span>Задания</span>
+                    <span>Задания по номерам</span>
                 </a>
                 <a href="../variants.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -139,7 +428,7 @@
                         <polyline points="2 17 12 22 22 17"></polyline>
                         <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
-                    <span>Варианты</span>
+                    <span>Варианты ЕГЭ</span>
                 </a>
                 <a href="../courses.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -154,7 +443,7 @@
                         <line x1="12" y1="20" x2="12" y2="4"></line>
                         <line x1="6" y1="20" x2="6" y2="14"></line>
                     </svg>
-                    <span>Панель</span>
+                    <span>Моя статистика</span>
                 </a>
             </nav>
         </div>
@@ -182,86 +471,186 @@
 
             <h1>Периодический закон и система химических элементов</h1>
 
-            <div class="info-box">
-                <p><strong>Суть закона (современная формулировка):</strong> Свойства химических элементов, а также формы
-                    и
-                    свойства образуемых ими простых веществ и соединений находятся в периодической зависимости от
-                    величины заряда ядер их атомов.</p>
+            <div class="chem-def">
+                <div class="chem-def-content">
+                    <h3 class="chem-def-title">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2h11A2.5 2.5 0 0 1 20 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19.5z">
+                            </path>
+                            <path d="M4 19.5H20"></path>
+                        </svg>
+                        Суть закона (современная формулировка)
+                    </h3>
+                    <p class="chem-def-text">Свойства химических элементов, а также формы и свойства образуемых ими
+                        простых веществ и соединений находятся в периодической зависимости от <strong>величины заряда
+                            ядер их атомов</strong>.</p>
+                </div>
             </div>
 
             <h2 id="system">1. Структура Периодической системы</h2>
             <p>Таблица Менделеева — это графическое отображение Периодического закона. Каждое место элемента в ней
-                строго
-                обосновано строением его атома.</p>
-            <figure style="text-align: center; margin: 20px 0;">
-                <img src="element.jpg" alt="Периодическая система химических элементов Д.И. Менделеева"
-                    style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 2. Периодическая система
-                    химических элементов Д.И. Менделеева</figcaption>
-            </figure>
+                строго обосновано строением его атома.</p>
 
-            <h3>Периоды</h3>
-            <p>Это горизонтальные ряды элементов. Номер периода физически означает <strong>число энергетических
-                    уровней</strong> (слоев), на которых находятся электроны.</p>
-            <ul>
-                <li><strong>Малые периоды (1, 2, 3):</strong> состоят из одного ряда элементов. В них происходит
-                    заполнение только s- и p-подуровней.</li>
-                <li><strong>Большие периоды (4, 5, 6, 7):</strong> состоят из двух рядов (в коротком варианте таблицы).
-                    Включают в себя d- и f-элементы (вставки переходных металлов).</li>
-            </ul>
+            <div class="struct-tabs">
+                <button class="struct-tab active" onclick="openStruct(event, 'struct-periods')">↔️ Периоды</button>
+                <button class="struct-tab" onclick="openStruct(event, 'struct-groups')">↕️ Группы</button>
+                <button class="struct-tab" onclick="openStruct(event, 'struct-blocks')">🧱 Блоки элементов</button>
+            </div>
 
-            <h3>Группы</h3>
-            <p>Это вертикальные столбцы. Элементы одной группы имеют сходное строение внешнего электронного слоя,
-                поэтому
-                проявляют похожие химические свойства (являются <em>элементами-аналогами</em>).</p>
-            <ul>
-                <li><strong>Главная подгруппа (A):</strong> содержит s- и p-элементы. Число электронов на внешнем уровне
-                    равно номеру группы.</li>
-                <li><strong>Побочная подгруппа (B):</strong> содержит d-элементы. У них валентные электроны находятся на
-                    внешнем s-подуровне и <em>предвнешнем</em> d-подуровне.</li>
-            </ul>
+            <div id="struct-periods" class="struct-content active">
+                <h3 style="margin-top:0; color: #0284c7;">Периоды (горизонтальные ряды)</h3>
+                <p>Номер периода физически означает <strong>число энергетических уровней</strong> (электронных слоев),
+                    на которых находятся электроны. Каждый новый период начинается с заполнения нового электронного слоя
+                    (s-орбитали).</p>
+                <div class="chem-cards-grid">
+                    <div class="chem-card" data-color="blue">
+                        <h4 class="chem-card-title">Малые периоды (1, 2, 3)</h4>
+                        <ul style="padding-left: 1.2rem; margin-bottom: 0;">
+                            <li style="margin-bottom: 0.5rem;">Состоят только из одного ряда элементов.</li>
+                            <li style="margin-bottom: 0.5rem;">Происходит заполнение исключительно внешних
+                                <strong>s-</strong> и
+                                <strong>p-подуровней</strong>.
+                            </li>
+                            <li>Все элементы в этих периодах относятся к главным подгруппам.</li>
+                        </ul>
+                    </div>
+                    <div class="chem-card" data-color="blue">
+                        <h4 class="chem-card-title">Большие периоды (4, 5, 6, 7)</h4>
+                        <ul style="padding-left: 1.2rem; margin-bottom: 0;">
+                            <li style="margin-bottom: 0.5rem;">Состоят из двух рядов (в коротком варианте таблицы).</li>
+                            <li style="margin-bottom: 0.5rem;">Включают в себя десять <strong>d-элементов</strong>
+                                (переходные металлы). У них
+                                заполняется предвнешний слой.</li>
+                            <li>В 6 и 7 периодах добавляются еще и по 14 <strong>f-элементов</strong> (лантаноиды и
+                                актиноиды).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-            <div class="definition">
-                <p><strong>Названия некоторых групп:</strong><br>
-                    I A — Щелочные металлы (активные, мягкие).<br>
-                    II A — Щелочноземельные металлы (кроме Be и Mg).<br>
-                    VI A — Халькогены («рождающие руды» — O, S, Se, Te).<br>
-                    VII A — Галогены («рождающие соли» — F, Cl, Br, I).<br>
-                    VIII A — Благородные (инертные) газы.</p>
+            <div id="struct-groups" class="struct-content">
+                <h3 style="margin-top:0; color: #ea580c;">Группы (вертикальные столбцы)</h3>
+                <p>Элементы одной группы имеют сходное строение внешнего электронного слоя, поэтому проявляют похожие
+                    химические свойства. Номер группы обычно совпадает с <strong>высшей валентностью</strong> элемента.
+                </p>
+
+                <div class="chem-cards-grid">
+                    <div class="chem-card" data-color="yellow">
+                        <h4 class="chem-card-title">Главная подгруппа (А)</h4>
+                        <ul style="padding-left: 1.2rem; margin-bottom: 0;">
+                            <li style="margin-bottom: 0.5rem;">Содержит элементы малых и больших периодов.</li>
+                            <li style="margin-bottom: 0.5rem;">Это <strong>s- и p-элементы</strong>.</li>
+                            <li style="margin-bottom: 0.5rem;">Валентные электроны находятся на <em>внешнем</em> слое.
+                                Их число строго равно номеру
+                                группы.</li>
+                            <li>Например, у Галогенов (VIIA) 7 валентных электронов снаружи.</li>
+                        </ul>
+                    </div>
+                    <div class="chem-card" data-color="yellow">
+                        <h4 class="chem-card-title">Побочная подгруппа (B)</h4>
+                        <ul style="padding-left: 1.2rem; margin-bottom: 0;">
+                            <li style="margin-bottom: 0.5rem;">Содержит элементы только больших периодов.</li>
+                            <li style="margin-bottom: 0.5rem;">Это <strong>d-элементы</strong> (переходные металлы).
+                            </li>
+                            <li style="margin-bottom: 0.5rem;">Валентные электроны располагаются как на внешнем
+                                s-подуровне, так и на
+                                <em>предвнешнем</em> d-подуровне.
+                            </li>
+                            <li>Имеют переменные степени окисления.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="struct-blocks" class="struct-content">
+                <h3 style="margin-top:0; color: #8b5cf6;">Электронные семейства (блоки)</h3>
+                <p>Все элементы делятся на блоки в зависимости от того, какой подуровень заполняется последним:</p>
+                <div class="chem-note">
+                    <h4 class="chem-note-title">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="2" x2="12" y2="6"></line>
+                            <line x1="12" y1="18" x2="12" y2="22"></line>
+                            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                            <line x1="2" y1="12" x2="6" y2="12"></line>
+                            <line x1="18" y1="12" x2="22" y2="12"></line>
+                            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+                        </svg>
+                        Блоки:
+                    </h4>
+                    <ul class="chem-note-text" style="padding-left: 1.2rem;">
+                        <li style="margin-bottom: 0.4rem;"><strong>s-элементы:</strong> IA и IIA группы, плюс H и He.
+                        </li>
+                        <li style="margin-bottom: 0.4rem;"><strong>p-элементы:</strong> С IIIA по VIIIA группу. (Почти
+                            все неметаллы).</li>
+                        <li style="margin-bottom: 0.4rem;"><strong>d-элементы:</strong> Побочные подгруппы (переходные
+                            металлы).</li>
+                        <li><strong>f-элементы:</strong> Лантаноиды и актиноиды.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chem-note"
+                style="border-left-color: var(--chem-green); background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);">
+                <h4 class="chem-note-title" style="color: var(--chem-green-dark);">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Названия главных групп:
+                </h4>
+                <ul class="chem-note-text"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; list-style-type: none; padding-left: 0;">
+                    <li><strong>I A</strong> — Щелочные металлы</li>
+                    <li><strong>II A</strong> — Щелочноземельные</li>
+                    <li><strong>VI A</strong> — Халькогены</li>
+                    <li><strong>VII A</strong> — Галогены</li>
+                    <li><strong>VIII A</strong> — Инертные газы</li>
+                </ul>
             </div>
 
             <h2 id="radius">2. Атомный и ионный радиус</h2>
-            <p>Атом не имеет четкой границы, поэтому под радиусом понимают теоретическое расстояние от ядра до дальней
-                области высокой электронной плотности.</p>
+            <p>Атом не имеет четкой границы, поэтому радиус — это расстояние от ядра до дальней области с высокой
+                электронной плотностью.</p>
 
             <h3>Тренды изменения радиуса</h3>
-            <table class="styled-table" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th>Направление</th>
-                        <th>Изменение</th>
-                        <th>Причина</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>По периоду (→)</strong></td>
-                        <td style="color: #c0392b;">Уменьшается</td>
-                        <td>Число слоев неизменно, но растет заряд ядра (+). Ядро сильнее "сжимает" электронную
-                            оболочку.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По группе (↓)</strong></td>
-                        <td style="color: #27ae60;">Увеличивается</td>
-                        <td>Добавляются новые электронные слои ("шубы"), атом становится крупнее.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="chem-table-wrap">
+                <table class="chem-table striped">
+                    <thead>
+                        <tr>
+                            <th>Направление</th>
+                            <th>Изменение</th>
+                            <th>Причина</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>По периоду (→)</strong></td>
+                            <td style="color: var(--chem-red-dark); font-weight: 600;">Уменьшается</td>
+                            <td>Число слоев неизменно, но растет заряд ядра (+). Ядро сильнее "сжимает" электронную
+                                оболочку.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По группе (↓)</strong></td>
+                            <td style="color: var(--chem-green); font-weight: 600;">Увеличивается</td>
+                            <td>Добавляются новые электронные слои ("шубы"), атом становится крупнее.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <h3>Сравнение радиусов частиц</h3>
             <p>Важно помнить простое правило: <em>кто больше "минус", тот больше в размере</em>.</p>
-            <div class="info-box" style="text-align: center;">
-                <strong>Катион (M<sup>+</sup>) < Атом (M<sup>0</sup>) < Анион (M<sup>-</sup>)</strong>
+            <div class="chem-note"
+                style="text-align: center; border-left-color: var(--chem-blue); background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);">
+                <strong style="font-size: 1.25rem; color: var(--chem-blue-dark);">Катион (M<sup>+</sup>) &lt; Атом
+                    (M<sup>0</sup>) &lt; Анион (M<sup>-</sup>)</strong>
             </div>
             <p><strong>Пример:</strong>
                 <code>Al<sup>3+</sup> < Mg<sup>2+</sup> < Na<sup>+</sup> < F<sup>-</sup> < O<sup>2-</sup></code>.
@@ -271,38 +660,8 @@
 
             <h2 id="electronegativity">3. Электроотрицательность (ЭО)</h2>
             <p>Это мера "жадности" атома к чужим электронам. Фтор — самый "жадный" (альфа-хищник химии).</p>
-            <table class="styled-table" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th>Направление</th>
-                        <th>Изменение</th>
-                        <th>Причина</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>По периоду (→)</strong></td>
-                        <td style="color: #27ae60;">Увеличивается</td>
-                        <td>Радиус уменьшается, заряд ядра растет. Ядро сильнее притягивает валентные электроны.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По группе (↓)</strong></td>
-                        <td style="color: #c0392b;">Уменьшается</td>
-                        <td>Радиус атома растет, усиливается экранирование ядра внутренними слоями.</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>Элементы с высокой ЭО — типичные <strong>неметаллы</strong> (окислители). Элементы с низкой ЭО —
-                <strong>металлы</strong> (восстановители).
-            </p>
-
-            <h2 id="redox">4. Окисление и восстановление</h2>
-            <p>Здесь всё взаимосвязано с радиусом и ЭО.</p>
-
-            <div style="margin-top: 20px;">
-                <h4 style="color: #2e7d32;">1. Металлические свойства (восстановительные)</h4>
-                <p>Способность атома <strong>отдавать</strong> электроны. Максимум — Франций (Fr).</p>
-                <table class="styled-table" style="width: 100%;">
+            <div class="chem-table-wrap">
+                <table class="chem-table striped">
                     <thead>
                         <tr>
                             <th>Направление</th>
@@ -313,151 +672,213 @@
                     <tbody>
                         <tr>
                             <td><strong>По периоду (→)</strong></td>
-                            <td style="color: #c0392b;">Ослабевают</td>
-                            <td>Радиус уменьшается, электроны притягиваются сильнее, их сложнее отдать.</td>
+                            <td style="color: var(--chem-green-dark); font-weight: 600;">Увеличивается</td>
+                            <td>Радиус уменьшается, заряд ядра растет. Ядро сильнее притягивает валентные электроны.
+                            </td>
                         </tr>
                         <tr>
                             <td><strong>По группе (↓)</strong></td>
-                            <td style="color: #27ae60;">Усиливаются</td>
-                            <td>Радиус растет, внешние электроны дальше от ядра и слабее удерживаются.</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h4 style="color: #c62828; margin-top: 20px;">2. Неметаллические свойства (окислительные)</h4>
-                <p>Способность атома <strong>принимать</strong> электроны. Максимум — Фтор (F).</p>
-                <table class="styled-table" style="width: 100%;">
-                    <thead>
-                        <tr>
-                            <th>Направление</th>
-                            <th>Изменение</th>
-                            <th>Причина</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>По периоду (→)</strong></td>
-                            <td style="color: #27ae60;">Усиливаются</td>
-                            <td>Радиус уменьшается, ЭО растет, атому легче притянуть недостающие электроны.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>По группе (↓)</strong></td>
-                            <td style="color: #c0392b;">Ослабевают</td>
-                            <td>Радиус растет, способность удерживать "чужие" электроны падает.</td>
+                            <td style="color: var(--chem-red-dark); font-weight: 600;">Уменьшается</td>
+                            <td>Радиус атома растет, усиливается экранирование ядра внутренними слоями.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <p>Элементы с высокой ЭО — типичные <strong>неметаллы</strong> (окислители). Элементы с низкой ЭО —
+                <strong>металлы</strong> (восстановители).
+            </p>
+
+            <h2 id="redox">4. Окисление и восстановление (особый фокус на ЕГЭ)</h2>
+            <p>Способность отдавать или принимать электроны тесно взаимосвязана с радиусом и ЭО.</p>
+
+            <div class="struct-tabs">
+                <button class="struct-tab active" onclick="openStruct(event, 'struct-metals')">🛡️ Восстановители
+                    (Металлы)</button>
+                <button class="struct-tab" onclick="openStruct(event, 'struct-nonmetals')">⚔️ Окислители
+                    (Неметаллы)</button>
+            </div>
+
+            <div id="struct-metals" class="struct-content active">
+                <h3 style="margin-top: 0; color: #2e7d32;">Металлические свойства (Восстановительные)</h3>
+                <p>Металлические свойства — это способность атома <strong>отдавать</strong> свои внешние электроны. Чем
+                    легче он их отдает, тем он более сильный восстановитель и более активный металл. Главный (самый
+                    активный) металл в таблице — <strong>Франций (Fr)</strong>.</p>
+                <div class="chem-table-wrap">
+                    <table class="chem-table striped">
+                        <thead>
+                            <tr>
+                                <th>Направление</th>
+                                <th>Изменение свойств</th>
+                                <th>Главная причина</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>По периоду (→) к Фтору</strong></td>
+                                <td style="color: var(--chem-red-dark); font-weight: 600;">Ослабевают</td>
+                                <td>Радиус уменьшается, заряд ядра (плюс) растет. Электроны притягиваются так сильно,
+                                    что оторвать их становится почти невозможно.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>По группе (↓) ко Францию</strong></td>
+                                <td style="color: var(--chem-green-dark); font-weight: 600;">Усиливаются</td>
+                                <td>Радиус атома катастрофически быстро растет. Внешние электроны отдаляются от ядра и
+                                    удерживаются намного слабее, отдать их очень легко.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="struct-nonmetals" class="struct-content">
+                <h3 style="margin-top: 0; color: #c62828;">Неметаллические свойства (Окислительные)</h3>
+                <p>Неметаллические свойства — это способность атома <strong>принимать</strong> (притягивать) чужие
+                    электроны, чтобы завершить внешний слой до устойчивого октета (8 электронов). Чем сильнее атом тянет
+                    чужие электроны, тем он более типичный неметалл. Чемпион здесь — <strong>Фтор (F)</strong>.</p>
+                <div class="chem-table-wrap">
+                    <table class="chem-table striped">
+                        <thead>
+                            <tr>
+                                <th>Направление</th>
+                                <th>Изменение свойств</th>
+                                <th>Главная причина</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>По периоду (→) к Фтору</strong></td>
+                                <td style="color: var(--chem-green-dark); font-weight: 600;">Усиливаются</td>
+                                <td>Радиус уменьшается, заряд ядра возрастает. Чем ближе внешний слой к ядру, тем легче
+                                    ядру "зацепить" и притянуть чужой электрон.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>По группе (↓) ко Францию</strong></td>
+                                <td style="color: var(--chem-red-dark); font-weight: 600;">Ослабевают</td>
+                                <td>Радиус атома резко растет. Из-за огромного количества оболочек, ядро уже с трудом
+                                    удерживает даже свои электроны, не говоря уже о притяжении чужих.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             <h2 id="oxides">5. Кислотно-основные свойства соединений</h2>
             <p>Характер оксидов и гидроксидов меняется плавно. Рассмотрим общие тренды кислотных свойств:</p>
-            <table class="styled-table" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th>Направление</th>
-                        <th>Кислотные свойства</th>
-                        <th>Основные свойства</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>По периоду (→)</strong></td>
-                        <td style="color: #27ae60;">Усиливаются</td>
-                        <td style="color: #c0392b;">Ослабевают</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По группе (↓)</strong></td>
-                        <td style="color: #c0392b;">Ослабевают</td>
-                        <td style="color: #27ae60;">Усиливаются</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="chem-table-wrap">
+                <table class="chem-table striped">
+                    <thead>
+                        <tr>
+                            <th>Направление</th>
+                            <th>Кислотные свойства</th>
+                            <th>Основные свойства</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>По периоду (→)</strong></td>
+                            <td style="color: var(--chem-green-dark); font-weight: 600;">Усиливаются</td>
+                            <td style="color: var(--chem-red-dark); font-weight: 600;">Ослабевают</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По группе (↓)</strong></td>
+                            <td style="color: var(--chem-red-dark); font-weight: 600;">Ослабевают</td>
+                            <td style="color: var(--chem-green-dark); font-weight: 600;">Усиливаются</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <p>Рассмотрим это на примере 3-го периода (от Na до Cl):</p>
 
-            <table class="styled-table" style="width: 100%; font-size: 0.9em;">
-                <thead>
-                    <tr>
-                        <th>Элемент</th>
-                        <th>Na</th>
-                        <th>Mg</th>
-                        <th>Al</th>
-                        <th>Si</th>
-                        <th>P</th>
-                        <th>S</th>
-                        <th>Cl</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Оксид</strong></td>
-                        <td>Na<sub>2</sub>O<br>(осн)</td>
-                        <td>MgO<br>(осн)</td>
-                        <td>Al<sub>2</sub>O<sub>3</sub><br>(амф)</td>
-                        <td>SiO<sub>2</sub><br>(кисл)</td>
-                        <td>P<sub>2</sub>O<sub>5</sub><br>(кисл)</td>
-                        <td>SO<sub>3</sub><br>(кисл)</td>
-                        <td>Cl<sub>2</sub>O<sub>7</sub><br>(кисл)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Гидроксид</strong></td>
-                        <td>NaOH<br>(щелочь)</td>
-                        <td>Mg(OH)<sub>2</sub><br>(слаб. осн)</td>
-                        <td>Al(OH)<sub>3</sub><br>(амфотер)</td>
-                        <td>H<sub>2</sub>SiO<sub>3</sub><br>(слаб. к-та)</td>
-                        <td>H<sub>3</sub>PO<sub>4</sub><br>(ср. к-та)</td>
-                        <td>H<sub>2</sub>SO<sub>4</sub><br>(сильн. к-та)</td>
-                        <td>HClO<sub>4</sub><br>(оч. сильн)</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><strong>Вывод:</strong> Слева направо основные свойства <em>ослабевают</em>, а кислотные —
-                <em>усиливаются</em>.
+            <div class="chem-table-wrap">
+                <table class="chem-table">
+                    <thead>
+                        <tr>
+                            <th>Элемент</th>
+                            <th>Na</th>
+                            <th>Mg</th>
+                            <th>Al</th>
+                            <th>Si</th>
+                            <th>P</th>
+                            <th>S</th>
+                            <th>Cl</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Оксид</strong></td>
+                            <td>Na<sub>2</sub>O<br>(осн)</td>
+                            <td>MgO<br>(осн)</td>
+                            <td>Al<sub>2</sub>O<sub>3</sub><br>(амф)</td>
+                            <td>SiO<sub>2</sub><br>(кисл)</td>
+                            <td>P<sub>2</sub>O<sub>5</sub><br>(кисл)</td>
+                            <td>SO<sub>3</sub><br>(кисл)</td>
+                            <td>Cl<sub>2</sub>O<sub>7</sub><br>(кисл)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Гидроксид</strong></td>
+                            <td>NaOH<br>(щелочь)</td>
+                            <td>Mg(OH)<sub>2</sub><br>(слаб. осн)</td>
+                            <td>Al(OH)<sub>3</sub><br>(амфотер)</td>
+                            <td>H<sub>2</sub>SiO<sub>3</sub><br>(слаб. к-та)</td>
+                            <td>H<sub>3</sub>PO<sub>4</sub><br>(ср. к-та)</td>
+                            <td>H<sub>2</sub>SO<sub>4</sub><br>(сильн. к-та)</td>
+                            <td>HClO<sub>4</sub><br>(оч. сильн)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Вывод:</strong> Слева направо основные свойства <em
+                    style="color: var(--chem-red-dark);">ослабевают</em>, а кислотные —
+                <em style="color: var(--chem-green-dark);">усиливаются</em>.
             </p>
 
-            <p>Рассмотрим изменение свойств в главной подгруппе II группы (щелочноземельные металлы и бериллий/магний):
+            <p>Рассмотрим изменение свойств в главной подгруппе II группы (щелочноземельные металлы и
+                бериллий/магний):
             </p>
-            <table class="styled-table" style="width: 100%; font-size: 0.9em;">
-                <thead>
-                    <tr>
-                        <th>Элемент</th>
-                        <th>Оксид</th>
-                        <th>Гидроксид</th>
-                        <th>Свойства</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="text-align: center;"><strong>Be</strong></td>
-                        <td>BeO</td>
-                        <td>Be(OH)<sub>2</sub></td>
-                        <td><strong>Амфотерные</strong><br>(реагируют и с кислотами, и с щелочами)</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;"><strong>Mg</strong></td>
-                        <td>MgO</td>
-                        <td>Mg(OH)<sub>2</sub></td>
-                        <td><strong>Осно́вные</strong><br>(слабое основание, нерастворимое)</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;"><strong>Ca</strong></td>
-                        <td>CaO</td>
-                        <td>Ca(OH)<sub>2</sub></td>
-                        <td><strong>Осно́вные</strong><br>(щёлочь, малорастворимая)</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;"><strong>Sr</strong></td>
-                        <td>SrO</td>
-                        <td>Sr(OH)<sub>2</sub></td>
-                        <td><strong>Осно́вные</strong><br>(сильная щёлочь)</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;"><strong>Ba</strong></td>
-                        <td>BaO</td>
-                        <td>Ba(OH)<sub>2</sub></td>
-                        <td><strong>Осно́вные</strong><br>(очень сильная щёлочь)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="chem-table-wrap">
+                <table class="chem-table striped">
+                    <thead>
+                        <tr>
+                            <th>Элемент</th>
+                            <th>Оксид</th>
+                            <th>Гидроксид</th>
+                            <th>Свойства</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;"><strong>Be</strong></td>
+                            <td>BeO</td>
+                            <td>Be(OH)<sub>2</sub></td>
+                            <td><strong>Амфотерные</strong><br>(реагируют и с кислотами, и с щелочами)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><strong>Mg</strong></td>
+                            <td>MgO</td>
+                            <td>Mg(OH)<sub>2</sub></td>
+                            <td><strong>Осно́вные</strong><br>(слабое основание, нерастворимое)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><strong>Ca</strong></td>
+                            <td>CaO</td>
+                            <td>Ca(OH)<sub>2</sub></td>
+                            <td><strong>Осно́вные</strong><br>(щёлочь, малорастворимая)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><strong>Sr</strong></td>
+                            <td>SrO</td>
+                            <td>Sr(OH)<sub>2</sub></td>
+                            <td><strong>Осно́вные</strong><br>(сильная щёлочь)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><strong>Ba</strong></td>
+                            <td>BaO</td>
+                            <td>Ba(OH)<sub>2</sub></td>
+                            <td><strong>Осно́вные</strong><br>(очень сильная щёлочь)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <p><strong>Вывод:</strong> В группах сверху вниз основные свойства оксидов и гидроксидов
                 <em>усиливаются</em>.
@@ -475,51 +896,107 @@
             </figure>
 
             <p><strong>Кислотные свойства летучих водородных соединений:</strong></p>
-            <table class="styled-table" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th>Направление</th>
-                        <th>Изменение силы кислоты</th>
-                        <th>Причина</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>По периоду (→)</strong></td>
-                        <td style="color: #27ae60;">Усиливаются</td>
-                        <td>Растет полярность связи, увеличивается стабильность аниона. (CH₄ нейтр. < HF кислота).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>По группе (↓)</strong></td>
-                        <td style="color: #27ae60;">Усиливаются (HF < HI)</td>
-                        <td>Радиус атома растет, связь H–Э становится длиннее и слабее. H⁺ легче отщепить.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- БЛОК ТЕСТА -->
-            <div
-                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem; margin-bottom: 2rem;">
-                <div style="flex: 1; min-width: 200px;">
-                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Закрепи
-                        теорию практикой</div>
-                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Пройди тест по
-                        Периодическому закону и свойствам элементов.</div>
-                </div>
-                <a href="../tests/periodic_law_test.html"
-                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #27ae60, #2ecc71); color: #fff; white-space: nowrap;">Начать
-                    тест (Периодический закон) →</a>
+            <div class="chem-table-wrap">
+                <table class="chem-table striped">
+                    <thead>
+                        <tr>
+                            <th>Направление</th>
+                            <th>Изменение силы кислоты</th>
+                            <th>Причина</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>По периоду (→)</strong></td>
+                            <td style="color: var(--chem-green-dark); font-weight: 600;">Усиливаются</td>
+                            <td>Растет полярность связи, увеличивается стабильность аниона. (CH₄ нейтр. &lt; HF
+                                кислота).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>По группе (↓)</strong></td>
+                            <td style="color: var(--chem-green-dark); font-weight: 600;">Усиливаются (HF &lt; HI)</td>
+                            <td>Радиус атома растет, связь H–Э становится длиннее и слабее. H⁺ легче отщепить.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="navigation-links" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-                <a href="../first_chap/atom_structure.html"
-                    style="padding: 10px 20px; background-color: #f0f2f5; color: #5a6a7b; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem; transition: background 0.2s;">
-                    ← Строение атома
+            <div class="chem-exception">
+                <h4 class="chem-exception-title">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                        </path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    Секрет 7-ой группы (Частая Ошибка!)
+                </h4>
+                <p class="chem-exception-text">
+                    У галогенов (F, Cl, Br, I) радиус атома играет огромную роль в силе кислот.
+                    <strong>HF - слабая кислота, а HI - очень сильная</strong>. Потому что у йода радиус настолько
+                    большой,
+                    что он плохо держит протон водорода и легко отдает его в раствор (а смысл кислоты как раз в умении
+                    отдавать H⁺).
+                </p>
+            </div>
+
+            <script>
+                function openStruct(event, structId) {
+                    if (window.innerWidth <= 768) return; // Disable tabs on mobile (everything is visible)
+                    const container = event.currentTarget.parentElement.parentElement;
+                    container.querySelectorAll('.struct-tab').forEach(t => t.classList.remove('active'));
+                    container.querySelectorAll('.struct-content').forEach(c => c.classList.remove('active'));
+                    event.currentTarget.classList.add('active');
+                    document.getElementById(structId).classList.add('active');
+                }
+            </script>
+
+            <!-- БЛОК ТЕСТА -->
+            <div class="test-block"
+                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                        тест по теме</div>
+                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                        знания по периодическому закону. Задания формата ЕГЭ.</div>
+                </div>
+                <a href="../tests/periodic_law_test.html" class="test-btn"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); color: #fff; white-space: nowrap; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(16, 185, 129, 0.35)'"
+                    onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)'">Начать
+                    тест →</a>
+            </div>
+
+            <div class="chapter-nav-container">
+                <a href="../first_chap/atom_structure.html" class="chapter-nav-btn prev">
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Предыдущая тема</span>
+                        <span class="chapter-nav-title">Строение атома</span>
+                    </div>
                 </a>
-                <!-- Future link placeholder or next chapter -->
-                <a href="../first_chap/oxidation_valence.html"
-                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    Степени окисления →
+
+                <a href="../first_chap/oxidation_valence.html" class="chapter-nav-btn next">
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Следующая тема</span>
+                        <span class="chapter-nav-title">Степени окисления</span>
+                    </div>
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
                 </a>
             </div>
 
@@ -533,13 +1010,13 @@
             <a href="../first_chap/theory.html" style="color: var(--text-secondary); text-decoration: none;">Теория</a>
             <span style="color: #ddd;">·</span>
             <a href="../tests/periodic_law_test.html"
-                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                style="color: var(--text-secondary); text-decoration: none;">Задания по номерам</a>
             <span style="color: #ddd;">·</span>
-            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты ЕГЭ</a>
             <span style="color: #ddd;">·</span>
             <a href="../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
             <span style="color: #ddd;">·</span>
-            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Моя статистика</a>
         </div>
         <p>© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
     </footer>

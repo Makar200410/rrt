@@ -95,9 +95,246 @@
         stroke: #d47a10;
     }
 
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #1a2332;
+        padding: 0.5rem;
+        transition: color 0.2s;
+    }
+
+    .mobile-menu-btn:hover {
+        color: #F5A623;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    #lattices-table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 800px;
+        margin: 0;
+    }
+
+    .chapter-nav-container {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .chapter-nav-btn {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1.5rem;
+        background: #fff;
+        border: 1px solid #E8ECF0;
+        color: #1a2332;
+        text-decoration: none;
+        border-radius: 12px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .chapter-nav-btn:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        border-color: #cbd5e1;
+        transform: translateY(-2px);
+    }
+
+    .chapter-nav-btn.prev {
+        gap: 1rem;
+    }
+
+    .chapter-nav-btn.next {
+        gap: 1rem;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .chapter-nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+    }
+
+    .chapter-nav-btn.prev .chapter-nav-icon {
+        background: #f1f5f9;
+        color: #64748b;
+    }
+
+    .chapter-nav-btn.next .chapter-nav-icon {
+        background: #FFF4E0;
+        color: #F5A623;
+    }
+
+    .chapter-nav-btn:hover .chapter-nav-icon {
+        transform: scale(1.05);
+    }
+
+    .chapter-nav-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chapter-nav-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #8C9BAB;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+    }
+
+    .chapter-nav-title {
+        font-weight: 600;
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+
+    .chapter-nav-btn.next .chapter-nav-title {
+        color: #F5A623;
+    }
+
     @media (max-width: 1000px) {
-        .nav-link span {
+        header.site-header {
+            height: auto;
+            padding: 1rem 4%;
+        }
+
+        .header-content {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+        }
+
+        .site-nav-container {
             display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            flex-direction: column;
+            padding: 1rem 4% 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-top: 1px solid #E8ECF0;
+            border-bottom: 1px solid #E8ECF0;
+            gap: 0.5rem;
+        }
+
+        .site-nav-container.open {
+            display: flex;
+            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-link {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-link span {
+            display: inline;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .chapter-nav-container {
+            grid-template-columns: 1fr;
+        }
+
+        .chapter-nav-btn.next {
+            justify-content: flex-start;
+            text-align: left;
+            flex-direction: row-reverse;
+        }
+
+        .chapter-nav-btn.next .chapter-nav-text {
+            align-items: flex-start;
+        }
+
+        /* Make structs flat and responsive */
+        .struct-content {
+            padding: 1.5rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .interactive-card {
+            margin-bottom: 1rem !important;
+        }
+
+        .struct-tabs {
+            display: none !important;
+        }
+
+        /* Hide tabs on mobile */
+        .struct-content {
+            display: block !important;
+            opacity: 1 !important;
+            animation: none;
+        }
+
+        /* Force show all sections on mobile */
+
+        h1 {
+            font-size: 1.6rem;
+            padding: 0 0.5rem;
+        }
+
+        main {
+            padding: 0 0.5rem;
+        }
+
+        aside {
+            display: none;
+        }
+
+        .test-block {
+            flex-direction: column !important;
+            text-align: center;
+            padding: 1.5rem !important;
+        }
+
+        .test-block .test-btn {
+            width: 100%;
+            display: block;
+            box-sizing: border-box;
         }
     }
 </style>
@@ -110,6 +347,16 @@
             <a href="../index.html" class="logo">
                 Хим<span>Подготовка</span>
             </a>
+
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
 
             <nav class="site-nav-container">
                 <a href="../index.html" class="nav-link">
@@ -164,11 +411,10 @@
         <aside>
             <h3>Оглавление</h3>
             <ul>
-                <li><a href="#lattices">1. Типы решёток</a></li>
-                <li><a href="#molecular">2. Молекулярная</a></li>
-                <li><a href="#atomic">3. Атомная</a></li>
-                <li><a href="#ionic">4. Ионная</a></li>
-                <li><a href="#metallic">5. Металлическая</a></li>
+                <li><a href="#amorph">1. Аморфные и крист. вещества</a></li>
+                <li><a href="#lattices">2. Типы решёток</a></li>
+                <li><a href="#molecular">3. Молекулярное строение</a></li>
+                <li><a href="#exceptions">4. Исключения и особенности</a></li>
             </ul>
         </aside>
 
@@ -182,340 +428,499 @@
 
             <h1>Кристаллические решетки и строение вещества</h1>
 
-            <style>
-                #lattices-table {
-                    border-radius: 12px;
-                    overflow: hidden;
-                    box-shadow: 0 1px 3px rgba(26, 35, 50, 0.04);
-                    border: 1px solid #e8e4de;
-                }
-
-                #lattices-table th,
-                #lattices-table td {
-                    padding: 14px 10px;
-                }
-
-                #lattices-table th {
-                    background: linear-gradient(135deg, #f5a623 0%, #d48b0f 100%);
-                    color: white;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    font-size: 0.85rem;
-                    letter-spacing: 0.04em;
-                }
-            </style>
             <div class="topic-section">
-                <h2 id="lattices">1. Типы кристаллических решёток</h2>
-                <p>Физические свойства веществ (температура плавления, твердость, электропроводность) зависят от типа их
-                    кристаллической решетки.</p>
+                <h2 id="amorph">1. Аморфные и кристаллические вещества</h2>
+                <p>Твердые вещества делятся на две большие группы в зависимости от упорядоченности внутреннего строения:
+                </p>
 
-                <table id="lattices-table" class="styled-table" style="font-size: 0.9em;">
-                    <tr>
-                        <th style="width: 8%;">Тип решётки</th>
-                        <th id="molecular" style="width: 23%;">Молекулярная</th>
-                        <th id="atomic" style="width: 23%;">Атомная</th>
-                        <th id="ionic" style="width: 23%;">Ионная</th>
-                        <th id="metallic" style="width: 23%;">Металлическая</th>
-                    </tr>
-                    <tr>
-                        <td><strong>Тип связи</strong></td>
-                        <td>Ковалентная (внутри молекул) + Слабые межмолекулярные силы</td>
-                        <td>Ковалентная (очень прочная)</td>
-                        <td>Ионная</td>
-                        <td>Металлическая</td>
-                    </tr>
-                    <tr>
-                        <td><strong>В узлах решетки</strong></td>
-                        <td>Молекулы</td>
-                        <td>Атомы</td>
-                        <td>Ионы (+ и -)</td>
-                        <td>Атомы и ионы (в "электронном газе")</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Свойства</strong></td>
-                        <td>
-                            • Летучие (имеют запах)<br>
-                            • Легкоплавкие (низкая Т<sub>пл</sub>)<br>
-                            • Малая твердость<br>
-                            • Диэлектрики (не проводят ток)
-                        </td>
-                        <td>
-                            • Очень твердые<br>
-                            • Тугоплавкие (очень высокая Т<sub>пл</sub>)<br>
-                            • Нелетучие<br>
-                            • Нерастворимые
-                        </td>
-                        <td>
-                            • Твердые, но хрупкие<br>
-                            • Тугоплавкие<br>
-                            • Растворы и расплавы <strong>проводят ток</strong><br>
-                            • Часто растворимы в воде
-                        </td>
-                        <td>
-                            • Пластичные, ковкие<br>
-                            • Металлический блеск<br>
-                            • Высокая тепло- и электропроводность
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Типичные примеры</strong></td>
-                        <td>
-                            • Все газы (O<sub>2</sub>, N<sub>2</sub>, CO<sub>2</sub>)<br>
-                            • Жидкости (H<sub>2</sub>O, Br<sub>2</sub>)<br>
-                            • Твердые: I<sub>2</sub>, S<sub>8</sub>, P<sub>4</sub> (белый), C<sub>60</sub>
-                            (фуллерен)<br>
-                            • <strong>Органика</strong> (почти вся)
-                        </td>
-                        <td>
-                            • <strong>C</strong> (алмаз, графит)<br>
-                            • <strong>Si</strong> (кремний)<br>
-                            • <strong>B</strong> (бор)<br>
-                            • <strong>SiO<sub>2</sub></strong> (кремнезем, кварц, песок)<br>
-                            • <strong>SiC</strong> (карборунд)
-                        </td>
-                        <td>
-                            • <strong>Соли</strong> (NaCl, K<sub>2</sub>SO<sub>4</sub>, NH<sub>4</sub>Cl)<br>
-                            • <strong>Щелочи</strong> (NaOH, KOH)<br>
-                            • <strong>Оксиды металлов</strong> (CaO, CuO)<br>
-                            • Бинарные соединения Ме+НеМе
-                        </td>
-                        <td>
-                            • <strong>Металлы</strong> (Fe, Cu, Na, Au)<br>
-                            • <strong>Сплавы</strong> (бронза, сталь)
-                        </td>
-                    </tr>
-                </table>
-                <figure style="text-align: center; margin: 20px 0;">
-                    <img src="image.png" alt="Водородная связь"
-                        style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
-                    <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Кристаллические решетки
-                        простых веществ
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="topic-section">
-                <h2 id="structure">2. Молекулярное и немолекулярное строение</h2>
-                <p>В зависимости от типа химической связи и кристаллической решетки, все вещества можно разделить на две
-                    группы по строению.</p>
-
-                <style>
-                    .struct-tabs {
-                        display: flex;
-                        gap: 1rem;
-                        margin-bottom: 2rem;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                    }
-
-                    .struct-tab {
-                        padding: 1rem 2rem;
-                        background: #f8fafc;
-                        border: 2px solid #e2e8f0;
-                        border-radius: 12px;
-                        cursor: pointer;
-                        font-size: 1.1rem;
-                        font-weight: 600;
-                        color: #475569;
-                        transition: all 0.2s ease;
-                        display: inline-flex;
-                        align-items: center;
-                        gap: 10px;
-                    }
-
-                    .struct-tab:hover {
-                        border-color: #3b82f6;
-                        color: #1a2332;
-                        transform: translateY(-2px);
-                    }
-
-                    .struct-tab.active {
-                        background: #3b82f6;
-                        color: #fff;
-                        border-color: #3b82f6;
-                        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
-                    }
-
-                    .struct-content {
-                        display: none;
-                        animation: fadeIn 0.4s ease;
-                        background: #fff;
-                        padding: 2.5rem;
-                        border-radius: 16px;
-                        border: 1px solid #e2e8f0;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                    }
-
-                    .struct-content.active {
-                        display: block;
-                    }
-
-                    .interactive-card {
-                        background: #f8fafc;
-                        padding: 20px;
-                        border-radius: 12px;
-                        margin-bottom: 15px;
-                        border-left: 4px solid var(--text-accent);
-                        transition: transform 0.2s, box-shadow 0.2s;
-                        cursor: default;
-                        height: 100%;
-                    }
-
-                    .interactive-card:hover {
-                        transform: translateY(-5px);
-                        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-                    }
-                </style>
-
-                <div class="struct-tabs">
-                    <button class="struct-tab active" onclick="openStruct(event, 'struct-mol')">🧊 Молекулярное
-                        строение</button>
-                    <button class="struct-tab" onclick="openStruct(event, 'struct-nonmol')">🧱 Немолекулярное
-                        строение</button>
-                </div>
-
-                <div id="struct-mol" class="struct-content active">
-                    <h3
-                        style="margin-top:0; color: #0284c7; font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">
-                        1. Вещества молекулярного строения</h3>
-                    <div
-                        style="background: #f0f9ff; padding: 1.5rem; border-radius: 12px; border: 1px solid #bae6fd; margin-bottom: 2rem; display: flex; gap: 1.5rem; align-items: center;">
-                        <div style="font-size: 3rem;">💧</div>
-                        <div>
-                            <p style="margin: 0; font-size: 1.1rem; color: #0c4a6e;">Состоят из
-                                <strong>молекул</strong>. Внутри молекул связи очень прочные (ковалентные), но между
-                                самими молекулами действуют <strong>слабые межмолекулярные силы</strong>.</p>
+                <div style="display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem; margin-bottom: 3rem;">
+                    <div class="crystal-card">
+                        <div class="crystal-content">
+                            <h3 class="crystal-title">
+                                <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2.5"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                                Кристаллические
+                            </h3>
+                            <p style="margin-bottom: 1.2rem; color: #0c4a6e; font-size: 1.05rem; line-height: 1.6;">
+                                Частицы <strong>строго упорядочены</strong> и образуют правильную пространственную
+                                кристаллическую решетку (каркас).
+                            </p>
+                            <ul class="crystal-list"
+                                style="padding-left: 1.6rem; color: #0c4a6e; font-size: 1.05rem; line-height: 1.6;">
+                                <li>Имеют строгую постоянную температуру плавления.</li>
+                                <li>При ударе раскалываются по определенным плоскостям (образуя ровные плоские грани).
+                                </li>
+                                <li style="margin-top: 1.4rem; list-style-type: none; margin-left: -1.6rem;">
+                                    <span
+                                        style="background: rgba(14, 165, 233, 0.15); padding: 0.4rem 0.8rem; border-radius: 4px; font-weight: 600; color: #0284c7; margin-right: 0.5rem; border: 1px solid rgba(14, 165, 233, 0.3);">Примеры:</span>
+                                    Алмаз, лёд, поваренная соль, все чистые металлы (железо, золото).
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-                        <div class="interactive-card" style="border-left-color: #38bdf8; background: #fff;">
-                            <h4
-                                style="margin-top: 0; font-size: 1.2rem; color: #0369a1; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>✨</span> Основные свойства</h4>
-                            <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
-                                <li><strong>Легкоплавкие:</strong> низкие температуры плавления и кипения.</li>
-                                <li><strong>Летучие:</strong> часто имеют характерный запах.</li>
-                                <li><strong>Диэлектрики:</strong> слабая электропроводность.</li>
-                                <li><strong>Агрегатное состояние (студ. усл.):</strong> к ним относятся все газы и
-                                    жидкости (кроме ртути), а также некоторые твердые вещества.</li>
-                            </ul>
-                        </div>
-
-                        <div class="interactive-card" style="border-left-color: #7dd3fc; background: #fff;">
-                            <h4
-                                style="margin-top: 0; font-size: 1.2rem; color: #0369a1; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>🧪</span> Примеры веществ</h4>
-                            <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
-                                <li><strong>Газы:</strong> H<sub>2</sub>, O<sub>2</sub>, Cl<sub>2</sub>, N<sub>2</sub>,
-                                    CO<sub>2</sub>, NH<sub>3</sub></li>
-                                <li><strong>Жидкости:</strong> H<sub>2</sub>O, H<sub>2</sub>SO<sub>4</sub> (безводная),
-                                    Бром (Br<sub>2</sub>)</li>
-                                <li><strong>Твердые вещества:</strong> Йод (I<sub>2</sub>), Сера (S<sub>8</sub>), Белый
-                                    фосфор (P<sub>4</sub>), Глюкоза, Сахароза</li>
+                    <div class="amorph-card">
+                        <div class="amorph-content">
+                            <h3 class="amorph-title">
+                                <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2.5"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M12 2.5a5.5 5.5 0 0 0-3.096 10.047 9.005 9.005 0 0 0 5.9 8.18 9.005 9.005 0 0 0 5.898-8.18A5.5 5.5 0 0 0 12 2.5Z">
+                                    </path>
+                                    <path
+                                        d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1-5.9 8.18 9.005 9.005 0 0 1-5.898-8.18A5.5 5.5 0 0 1 12 2.5Z">
+                                    </path>
+                                </svg>
+                                Аморфные
+                            </h3>
+                            <p style="margin-bottom: 1.2rem; color: #4a044e; font-size: 1.05rem; line-height: 1.6;">
+                                Частицы расположены <strong>хаотично</strong>, без геометрического порядка. По
+                                внутреннему строению они похожи на очень густые, застывшие жидкости.
+                            </p>
+                            <ul class="amorph-list"
+                                style="padding-left: 1.6rem; color: #4a044e; font-size: 1.05rem; line-height: 1.6;">
+                                <li>Нет точной температуры плавления (при нагревании они постепенно размягчаются).</li>
+                                <li>При ударе образуют неровные осколки (образуют так называемый раковистый излом).</li>
+                                <li style="margin-top: 1.4rem; list-style-type: none; margin-left: -1.6rem;">
+                                    <span
+                                        style="background: rgba(217, 70, 239, 0.15); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; color: #9333ea; margin-right: 0.5rem; box-shadow: 0 2px 8px rgba(217, 70, 239, 0.05);">Примеры:</span>
+                                    Стекло, смола, янтарь, пластилин, пластмассы и резина.
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div id="struct-nonmol" class="struct-content">
-                    <h3
-                        style="margin-top:0; color: #ea580c; font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">
-                        2. Вещества немолекулярного строения</h3>
-                    <div
-                        style="background: #fff7ed; padding: 1.5rem; border-radius: 12px; border: 1px solid #fed7aa; margin-bottom: 2rem; display: flex; gap: 1.5rem; align-items: center;">
-                        <div style="font-size: 3rem;">🏔️</div>
-                        <div>
-                            <p style="margin: 0; font-size: 1.1rem; color: #9a3412;">Не содержат молекул. Атомы или ионы
-                                связаны в единый <strong>бесконечный каркас</strong> (кристаллическую решетку).</p>
+                <div class="topic-section">
+                    <h2 id="lattices">2. Типы кристаллических решёток</h2>
+                    <p>Физические свойства веществ (температура плавления, твердость, электропроводность) зависят от
+                        типа их
+                        кристаллической решетки.</p>
+
+                    <div class="table-responsive">
+                        <table id="lattices-table" class="styled-table" style="font-size: 0.9em;">
+                            <tr>
+                                <th style="width: 8%;">Тип решётки</th>
+                                <th id="molecular" style="width: 23%;">Молекулярная</th>
+                                <th id="atomic" style="width: 23%;">Атомная</th>
+                                <th id="ionic" style="width: 23%;">Ионная</th>
+                                <th id="metallic" style="width: 23%;">Металлическая</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Тип связи</strong></td>
+                                <td>Ковалентная (внутри молекул) + Слабые межмолекулярные силы</td>
+                                <td>Ковалентная (очень прочная)</td>
+                                <td>Ионная</td>
+                                <td>Металлическая</td>
+                            </tr>
+                            <tr>
+                                <td><strong>В узлах решетки</strong></td>
+                                <td>Молекулы</td>
+                                <td>Атомы</td>
+                                <td>Ионы (+ и -)</td>
+                                <td>Атомы и ионы (в "электронном газе")</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Свойства</strong></td>
+                                <td>
+                                    • Летучие (имеют запах)<br>
+                                    • Легкоплавкие (низкая Т<sub>пл</sub>)<br>
+                                    • Малая твердость<br>
+                                    • Диэлектрики (не проводят ток)
+                                </td>
+                                <td>
+                                    • Очень твердые<br>
+                                    • Тугоплавкие (очень высокая Т<sub>пл</sub>)<br>
+                                    • Нелетучие<br>
+                                    • Нерастворимые
+                                </td>
+                                <td>
+                                    • Твердые, но хрупкие<br>
+                                    • Тугоплавкие<br>
+                                    • Растворы и расплавы <strong>проводят ток</strong><br>
+                                    • Часто растворимы в воде
+                                </td>
+                                <td>
+                                    • Пластичные, ковкие<br>
+                                    • Металлический блеск<br>
+                                    • Высокая тепло- и электропроводность
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Типичные примеры</strong></td>
+                                <td>
+                                    • Все газы (O<sub>2</sub>, N<sub>2</sub>, CO<sub>2</sub>)<br>
+                                    • Жидкости (H<sub>2</sub>O, Br<sub>2</sub>)<br>
+                                    • Твердые: I<sub>2</sub>, S<sub>8</sub>, P<sub>4</sub> (белый), C<sub>60</sub>
+                                    (фуллерен)<br>
+                                    • <strong>Органика</strong> (почти вся)
+                                </td>
+                                <td>
+                                    • <strong>C</strong> (алмаз, графит)<br>
+                                    • <strong>Si</strong> (кремний)<br>
+                                    • <strong>B</strong> (бор)<br>
+                                    • <strong>SiO<sub>2</sub></strong> (кремнезем, кварц, песок)<br>
+                                    • <strong>SiC</strong> (карборунд)
+                                </td>
+                                <td>
+                                    • <strong>Соли</strong> (NaCl, K<sub>2</sub>SO<sub>4</sub>, NH<sub>4</sub>Cl)<br>
+                                    • <strong>Щелочи</strong> (NaOH, KOH)<br>
+                                    • <strong>Оксиды металлов</strong> (CaO, CuO)<br>
+                                    • Бинарные соединения Ме+НеМе
+                                </td>
+                                <td>
+                                    • <strong>Металлы</strong> (Fe, Cu, Na, Au)<br>
+                                    • <strong>Сплавы</strong> (бронза, сталь)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <figure style="text-align: center; margin: 20px 0;">
+                        <img src="image.png" alt="Водородная связь"
+                            style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #eee;">
+                        <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Кристаллические
+                            решетки
+                            простых веществ
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="topic-section">
+                    <h2 id="structure">3. Молекулярное и немолекулярное строение</h2>
+                    <p>В зависимости от типа химической связи и кристаллической решетки, все вещества можно разделить на
+                        две
+                        группы по строению.</p>
+
+                    <style>
+                        .struct-tabs {
+                            display: flex;
+                            gap: 1rem;
+                            margin-bottom: 2rem;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                        }
+
+                        .struct-tab {
+                            padding: 1rem 2rem;
+                            background: #f8fafc;
+                            border: 2px solid #e2e8f0;
+                            border-radius: 12px;
+                            cursor: pointer;
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            color: #475569;
+                            transition: all 0.2s ease;
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+
+                        .struct-tab:hover {
+                            border-color: #3b82f6;
+                            color: #1a2332;
+                            transform: translateY(-2px);
+                        }
+
+                        .struct-tab.active {
+                            background: #3b82f6;
+                            color: #fff;
+                            border-color: #3b82f6;
+                            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+                        }
+
+                        .struct-content {
+                            display: none;
+                            animation: fadeIn 0.4s ease;
+                            background: #fff;
+                            padding: 2.5rem;
+                            border-radius: 16px;
+                            border: 1px solid #e2e8f0;
+                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                        }
+
+                        .struct-content.active {
+                            display: block;
+                        }
+
+                        .interactive-card {
+                            background: #f8fafc;
+                            padding: 20px;
+                            border-radius: 12px;
+                            margin-bottom: 15px;
+                            border-left: 4px solid var(--text-accent);
+                            transition: transform 0.2s, box-shadow 0.2s;
+                            cursor: default;
+                            height: 100%;
+                        }
+
+                        .interactive-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+                        }
+                    </style>
+
+                    <div class="struct-tabs">
+                        <button class="struct-tab active" onclick="openStruct(event, 'struct-mol')">🧊 Молекулярное
+                            строение</button>
+                        <button class="struct-tab" onclick="openStruct(event, 'struct-nonmol')">🧱 Немолекулярное
+                            строение</button>
+                    </div>
+
+                    <div id="struct-mol" class="struct-content active">
+                        <h3
+                            style="margin-top:0; color: #0284c7; font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">
+                            1. Вещества молекулярного строения</h3>
+                        <div
+                            style="background: #f0f9ff; padding: 1.5rem; border-radius: 12px; border: 1px solid #bae6fd; margin-bottom: 2rem; display: flex; gap: 1.5rem; align-items: center;">
+                            <div style="font-size: 3rem;">💧</div>
+                            <div>
+                                <p style="margin: 0; font-size: 1.1rem; color: #0c4a6e;">Состоят из
+                                    <strong>молекул</strong>. Внутри молекул связи очень прочные (ковалентные), но между
+                                    самими молекулами действуют <strong>слабые межмолекулярные силы</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div class="interactive-card"
+                                style="background: linear-gradient(135deg, #ffffff, #f0f9ff); border: 1px solid #bae6fd; box-shadow: 0 8px 24px rgba(2, 132, 199, 0.06); border-left: 5px solid #0ea5e9; border-radius: 16px; padding: 1.5rem 2rem;">
+                                <h4
+                                    style="margin-top: 0; font-size: 1.25rem; color: #0369a1; display: flex; align-items: center; gap: 0.5rem;">
+                                    <span>✨</span> Основные свойства
+                                </h4>
+                                <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
+                                    <li style="margin-bottom: 0.3rem;"><strong>Легкоплавкие:</strong> низкие температуры
+                                        плавления и кипения.</li>
+                                    <li style="margin-bottom: 0.3rem;"><strong>Летучие:</strong> часто имеют характерный
+                                        запах.</li>
+                                    <li style="margin-bottom: 0.3rem;"><strong>Диэлектрики:</strong> слабая
+                                        электропроводность.</li>
+                                    <li><strong>Агрегатное состояние (студ. усл.):</strong> к ним относятся все газы и
+                                        жидкости (кроме ртути), а также некоторые твердые вещества.</li>
+                                </ul>
+                            </div>
+
+                            <div class="interactive-card"
+                                style="background: linear-gradient(135deg, #ffffff, #e0f2fe); border: 1px solid #7dd3fc; box-shadow: 0 8px 24px rgba(2, 132, 199, 0.06); border-left: 5px solid #38bdf8; border-radius: 16px; padding: 1.5rem 2rem;">
+                                <h4
+                                    style="margin-top: 0; font-size: 1.25rem; color: #0369a1; display: flex; align-items: center; gap: 0.5rem;">
+                                    <span>🧪</span> Примеры веществ
+                                </h4>
+                                <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
+                                    <li style="margin-bottom: 0.3rem;"><strong>Газы:</strong> H<sub>2</sub>,
+                                        O<sub>2</sub>,
+                                        Cl<sub>2</sub>, N<sub>2</sub>,
+                                        CO<sub>2</sub>, NH<sub>3</sub></li>
+                                    <li style="margin-bottom: 0.3rem;"><strong>Жидкости:</strong> H<sub>2</sub>O,
+                                        H<sub>2</sub>SO<sub>4</sub> (безводная),
+                                        Бром (Br<sub>2</sub>)</li>
+                                    <li><strong>Твердые вещества:</strong> Йод (I<sub>2</sub>), Сера (S<sub>8</sub>),
+                                        Белый
+                                        фосфор (P<sub>4</sub>), Глюкоза, Сахароза</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-                        <div class="interactive-card" style="border-left-color: #fb923c; background: #fff;">
-                            <h4
-                                style="margin-top: 0; font-size: 1.2rem; color: #c2410c; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>💪</span> Основные свойства</h4>
-                            <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
-                                <li><strong>Тугоплавкие:</strong> высокие температуры плавления.</li>
-                                <li><strong>Твердые:</strong> высокая твердость и механическая прочность.</li>
-                                <li><strong>Нелетучие:</strong> не имеют запаха.</li>
-                            </ul>
+                    <div id="struct-nonmol" class="struct-content">
+                        <h3
+                            style="margin-top:0; color: #ea580c; font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">
+                            2. Вещества немолекулярного строения</h3>
+                        <div
+                            style="background: #fff7ed; padding: 1.5rem; border-radius: 12px; border: 1px solid #fed7aa; margin-bottom: 2rem; display: flex; gap: 1.5rem; align-items: center;">
+                            <div style="font-size: 3rem;">🏔️</div>
+                            <div>
+                                <p style="margin: 0; font-size: 1.1rem; color: #9a3412;">Не содержат молекул. Атомы или
+                                    ионы
+                                    связаны в единый <strong>бесконечный каркас</strong> (кристаллическую решетку).</p>
+                            </div>
                         </div>
 
-                        <div class="interactive-card" style="border-left-color: #fdba74; background: #fff;">
-                            <h4
-                                style="margin-top: 0; font-size: 1.2rem; color: #c2410c; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>🔄</span> Типы связей и решеток</h4>
-                            <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
-                                <li style="margin-bottom: 0.5rem;"><strong>Ионная решетка:</strong> Соли (NaCl), Щелочи
-                                    (NaOH), Оксиды металлов (CaO).</li>
-                                <li style="margin-bottom: 0.5rem;"><strong>Металлическая решетка:</strong> Все металлы и
-                                    сплавы.</li>
-                                <li><strong>Атомная решетка (ковалентная):</strong> Алмаз (C), Графит (C), Кремний (Si),
-                                    Кварц (SiO<sub>2</sub>), Карбид кремния (SiC).</li>
-                            </ul>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div class="interactive-card"
+                                style="background: linear-gradient(135deg, #ffffff, #fff7ed); border: 1px solid #fed7aa; box-shadow: 0 8px 24px rgba(234, 88, 12, 0.06); border-left: 5px solid #f97316; border-radius: 16px; padding: 1.5rem 2rem;">
+                                <h4
+                                    style="margin-top: 0; font-size: 1.25rem; color: #c2410c; display: flex; align-items: center; gap: 0.5rem;">
+                                    <span>💪</span> Основные свойства
+                                </h4>
+                                <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
+                                    <li style="margin-bottom: 0.3rem;"><strong>Тугоплавкие:</strong> высокие температуры
+                                        плавления.</li>
+                                    <li style="margin-bottom: 0.3rem;"><strong>Твердые:</strong> высокая твердость и
+                                        механическая прочность.</li>
+                                    <li><strong>Нелетучие:</strong> не имеют запаха.</li>
+                                </ul>
+                            </div>
+
+                            <div class="interactive-card"
+                                style="background: linear-gradient(135deg, #ffffff, #ffedd5); border: 1px solid #fdba74; box-shadow: 0 8px 24px rgba(234, 88, 12, 0.06); border-left: 5px solid #fb923c; border-radius: 16px; padding: 1.5rem 2rem;">
+                                <h4
+                                    style="margin-top: 0; font-size: 1.25rem; color: #c2410c; display: flex; align-items: center; gap: 0.5rem;">
+                                    <span>🔄</span> Типы связей и решеток
+                                </h4>
+                                <ul style="margin-bottom: 0; padding-left: 1.5rem; color: #334155; line-height: 1.6;">
+                                    <li style="margin-bottom: 0.5rem;"><strong>Ионная решетка:</strong> Соли (NaCl),
+                                        Щелочи
+                                        (NaOH), Оксиды металлов (CaO).</li>
+                                    <li style="margin-bottom: 0.5rem;"><strong>Металлическая решетка:</strong> Все
+                                        металлы и
+                                        сплавы.</li>
+                                    <li><strong>Атомная решетка (ковалентная):</strong> Алмаз (C), Графит (C), Кремний
+                                        (Si),
+                                        Кварц (SiO<sub>2</sub>), Карбид кремния (SiC).</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+
+                    <div id="exceptions-info" class="exceptions-block"
+                        style="margin-top: 2.5rem; background: #fff; padding: 2.5rem; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);">
+                        <h3 id="exceptions"
+                            style="color: #0f172a; margin-top: 0; margin-bottom: 2rem; text-align: center;">
+                            🚨 Особые случаи и исключения для ЕГЭ</h3>
+
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div class="interactive-card"
+                                style="background: linear-gradient(135deg, #fff5f5, #fef2f2); border: 1px solid #fecaca; box-shadow: 0 8px 24px rgba(239, 68, 68, 0.08); border-left: 5px solid #ef4444; border-radius: 16px; padding: 1.5rem 2rem;">
+                                <h4
+                                    style="margin-top: 0; font-size: 1.25rem; color: #b91c1c; display: flex; align-items: center; gap: 0.5rem;">
+                                    🚩 Оксиды металлов</h4>
+                                <p style="color: #991b1b; margin-bottom: 0.5rem; line-height: 1.6;">Обычно оксиды
+                                    металлов
+                                    имеют ионную решетку (CaO, CuO), но оксиды металлов <strong>в высоких степенях
+                                        окисления
+                                        (+5, +6, +7)</strong> являются кислотными оксидами и имеют <strong>молекулярную
+                                        решетку</strong>!</p>
+                                <p
+                                    style="margin: 0; color: #7f1d1d; background: #fee2e2; padding: 0.8rem 1rem; border-radius: 8px; display: inline-block;">
+                                    <strong>Примеры:</strong> CrO<sub>3</sub> (оксид хрома
+                                    VI), Mn<sub>2</sub>O<sub>7</sub> (оксид марганца VII).
+                                </p>
+                            </div>
+
+                            <div class="interactive-card"
+                                style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); border: 1px solid #e9d5ff; box-shadow: 0 8px 24px rgba(168, 85, 247, 0.08); border-left: 5px solid #8b5cf6; border-radius: 16px; padding: 1.5rem 2rem;">
+                                <h4
+                                    style="margin-top: 0; font-size: 1.25rem; color: #6d28d9; display: flex; align-items: center; gap: 0.5rem;">
+                                    ⚛️ Органические соли</h4>
+                                <p style="color: #5b21b6; margin-bottom: 0.5rem; line-height: 1.6;">Органические
+                                    вещества
+                                    обычно имеют молекулярную решетку. Но соли органических кислот, аминокислот и аминов
+                                    имеют <strong>ионную решетку</strong>.</p>
+                                <p
+                                    style="margin: 0; color: #5b21b6; background: #ede9fe; padding: 0.8rem 1rem; border-radius: 8px; display: inline-block;">
+                                    <strong>Примеры:</strong> CH<sub>3</sub>COONa (ацетат
+                                    натрия), C<sub>6</sub>H<sub>5</sub>ONa (фенолят натрия),
+                                    [CH<sub>3</sub>NH<sub>3</sub>]Cl (хлорид метиламмония).
+                                </p>
+                            </div>
+
+                            <div class="interactive-card"
+                                style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #a7f3d0; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.08); border-left: 5px solid #10b981; border-radius: 16px; padding: 1.5rem 2rem;">
+                                <h4
+                                    style="margin-top: 0; font-size: 1.25rem; color: #047857; display: flex; align-items: center; gap: 0.5rem;">
+                                    💎 Аллотропные модификации</h4>
+                                <p style="color: #065f46; margin-bottom: 0.5rem; line-height: 1.6;">Один и тот же
+                                    химический
+                                    элемент может образовывать совершенно разные кристаллические решетки:</p>
+                                <ul style="margin: 0; padding-left: 1.2rem; color: #047857; line-height: 1.6;">
+                                    <li style="margin-bottom: 0.3rem;"><strong>Углерод:</strong> Алмаз, графит —
+                                        <strong>атомная</strong>. Фуллерен — <strong>молекулярная
+                                            (C<sub>60</sub>)</strong>.
+                                    </li>
+                                    <li><strong>Фосфор:</strong> Красный, черный — <strong>атомная</strong>. Белый —
+                                        <strong>молекулярная (P<sub>4</sub>)</strong>.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        function openStruct(event, structId) {
+                            if (window.innerWidth <= 768) return; // Disable tabs on mobile (everything is visible)
+                            document.querySelectorAll('.struct-tab').forEach(t => t.classList.remove('active'));
+                            document.getElementById('struct-mol').classList.remove('active');
+                            document.getElementById('struct-nonmol').classList.remove('active');
+
+                            event.currentTarget.classList.add('active');
+                            document.getElementById(structId).classList.add('active');
+                        }
+                    </script>
                 </div>
 
-                <script>
-                    function openStruct(event, structId) {
-                        document.querySelectorAll('.struct-tab').forEach(t => t.classList.remove('active'));
-                        document.querySelectorAll('.struct-content').forEach(c => c.classList.remove('active'));
-                        event.currentTarget.classList.add('active');
-                        document.getElementById(structId).classList.add('active');
-                    }
-                </script>
-            </div>
-
-            <!-- БЛОК ТЕСТА -->
-            <div
-                style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
-                <div style="flex: 1; min-width: 200px;">
-                    <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
-                        тест по теме</div>
-                    <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
-                        знания по кристаллическим решеткам. Задания формата ЕГЭ.</div>
+                <!-- БЛОК ТЕСТА -->
+                <div class="test-block"
+                    style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
+                            тест по теме</div>
+                        <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
+                            знания по кристаллическим решеткам. Задания формата ЕГЭ.</div>
+                    </div>
+                    <a href="../tests/crystal_lattices_test.html" class="test-btn"
+                        style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); color: #fff; white-space: nowrap; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease;"
+                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(16, 185, 129, 0.35)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)'">Начать
+                        тест →</a>
                 </div>
-                <a href="../tests/crystal_lattices_test.html"
-                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
-                    тест →</a>
+
+                <div class="chapter-nav-container">
+                    <a href="../th_chap/chemical_bonds.html" class="chapter-nav-btn prev">
+                        <div class="chapter-nav-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </div>
+                        <div class="chapter-nav-text">
+                            <span class="chapter-nav-label">Предыдущая тема</span>
+                            <span class="chapter-nav-title">Химическая связь</span>
+                        </div>
+                    </a>
+
+                    <a href="../fifth_chap/reaction-classification/reaction_classification.html"
+                        class="chapter-nav-btn next">
+                        <div class="chapter-nav-text">
+                            <span class="chapter-nav-label">Следующая тема</span>
+                            <span class="chapter-nav-title">Классификация реакций</span>
+                        </div>
+                        <div class="chapter-nav-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
             </div>
 
-            <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
-                <a href="../th_chap/chemical_bonds.html" class="prev-chapter"
-                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    ← Химическая связь
-                </a>
-                <a href="../fifth_chap/reaction-classification/reaction_classification.html" class="next-chapter"
-                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    Следующая тема: Классификация реакций →
-                </a>
-            </div>
-    </div>
+            <footer>
+                <div
+                    style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+                    <a href="../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../first_chap/theory.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../tests/periodic_law_test.html"
+                        style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+                    <span style="color: #ddd;">·</span>
+                    <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+                </div>
+                <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+            </footer>
 
-    <footer>
-        <div
-            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
-            <a href="../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
-            <span style="color: #ddd;">·</span>
-            <a href="../first_chap/theory.html" style="color: var(--text-secondary); text-decoration: none;">Теория</a>
-            <span style="color: #ddd;">·</span>
-            <a href="../tests/periodic_law_test.html"
-                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
-            <span style="color: #ddd;">·</span>
-            <a href="../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
-            <span style="color: #ddd;">·</span>
-            <a href="../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
-            <span style="color: #ddd;">·</span>
-            <a href="../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
-        </div>
-        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
-    </footer>
-
-    </main>
+        </main>
     </div>
     <script src="../js/script.js"></script>
 </body>

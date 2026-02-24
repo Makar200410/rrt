@@ -102,9 +102,80 @@
             stroke: #d47a10;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a2332;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #F5A623;
+        }
+
         @media (max-width: 1000px) {
-            .nav-link span {
+            header.site-header {
+                height: auto;
+                padding: 1rem 4%;
+            }
+
+            .header-content {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .site-nav-container {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1rem 4% 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid #E8ECF0;
+                border-bottom: 1px solid #E8ECF0;
+                gap: 0.5rem;
+            }
+
+            .site-nav-container.open {
+                display: flex;
+                animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link span {
+                display: inline;
             }
         }
 
@@ -205,168 +276,308 @@
            NEW INTERACTIVE STYLES
         -------------------------------------- */
 
-        /* Toggle Switch for Electrolytes/Non-electrolytes */
-        .toggle-wrapper {
+        /* --- NEW COLORFUL ELECTROLYTES PANELS --- */
+        .electro-panels {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .electro-panels {
+                flex-direction: column;
+            }
+        }
+
+        .e-panel {
+            flex: 1;
+            border-radius: 20px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            min-height: 100px;
+        }
+
+        .ep-blue {
+            background: linear-gradient(135deg, #0277bd 0%, #00bcd4 100%);
+            box-shadow: 0 10px 20px rgba(2, 119, 189, 0.2);
+        }
+
+        .ep-orange {
+            background: linear-gradient(135deg, #e65100 0%, #ff9800 100%);
+            box-shadow: 0 10px 20px rgba(230, 81, 0, 0.2);
+        }
+
+        .e-panel:hover,
+        .e-panel.active {
+            flex: 1.15;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .e-panel::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            transition: transform 0.8s ease;
+        }
+
+        .e-panel:hover::after,
+        .e-panel.active::after {
+            transform: scale(1.3);
+        }
+
+        .ep-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ep-icon {
+            font-size: 1.8rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 55px;
+            height: 55px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 30px 0;
-            gap: 20px;
-        }
-
-        .toggle-label {
-            font-size: 1.15em;
-            font-weight: 700;
-            color: #8898aa;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .toggle-label.active-left {
-            color: #0277bd;
-        }
-
-        .toggle-label.active-right {
-            color: #f5a623;
-        }
-
-        .toggle-switch {
-            width: 70px;
-            height: 36px;
-            background: #0277bd;
-            border-radius: 20px;
-            position: relative;
-            cursor: pointer;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
-            transition: background 0.4s ease;
-        }
-
-        .toggle-switch.toggled {
-            background: #f5a623;
-        }
-
-        .toggle-knob {
-            width: 28px;
-            height: 28px;
-            background: #fff;
             border-radius: 50%;
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            flex-shrink: 0;
         }
 
-        .toggle-switch.toggled .toggle-knob {
-            transform: translateX(34px);
-        }
-
-        .toggle-content {
-            display: none;
-            animation: slideFadeIn 0.4s ease forwards;
-        }
-
-        .toggle-content.active {
-            display: block;
-        }
-
-        @keyframes slideFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Expandable Cards for Strong/Weak Electrolytes */
-        .sw-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .sw-card {
+        .ep-header h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.4rem;
             flex: 1;
-            min-width: 300px;
-            background: #fff;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-            border-top: 5px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #e8e4de;
-            border-top-width: 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .sw-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        .ep-expand-icon {
+            font-size: 1.2rem;
+            transition: transform 0.4s;
+            opacity: 0.8;
+            font-weight: bold;
         }
 
-        .sw-card.strong {
-            border-top-color: #2196f3;
-        }
-
-        .sw-card.weak {
-            border-top-color: #f5a623;
-        }
-
-        .sw-card h3 {
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .sw-card h3 svg {
-            transition: transform 0.3s ease;
-        }
-
-        .sw-card.expanded h3 svg {
+        .e-panel.active .ep-expand-icon {
             transform: rotate(180deg);
         }
 
-        .sw-detailed {
+        .ep-body {
             max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
             opacity: 0;
-            margin-top: 0;
+            transition: all 0.5s ease;
+            z-index: 2;
+            position: relative;
         }
 
-        .sw-card.expanded .sw-detailed {
-            max-height: 1000px;
+        .e-panel.active .ep-body {
+            max-height: 600px;
             opacity: 1;
+            margin-top: 20px;
+        }
+
+        .ep-body p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .ep-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 15px;
         }
 
-        .sw-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+        .badg {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
         }
 
-        .sw-grid-item {
+        /* --- NEW STRONG vs WEAK DASHBOARD --- */
+        .sw-dashboard {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 25px 0;
+            transition: all 0.4s;
+        }
+
+        .sw-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             background: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            border-left: 3px solid #ddd;
+            padding: 8px;
+            border-radius: 30px;
+            width: fit-content;
+            margin: 0 auto 30px auto;
+            flex-wrap: wrap;
         }
 
-        .sw-card.strong .sw-grid-item {
-            border-left-color: #2196f3;
+        .sw-btn {
+            border: none;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #5A6A7B;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
         }
 
-        .sw-card.weak .sw-grid-item {
-            border-left-color: #f5a623;
+        .sw-btn:hover {
+            color: #1a2332;
+        }
+
+        .sw-btn.active {
+            background: #fff;
+            color: #1a2332;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sw-section {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .sw-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sw-section h4 {
+            color: #1a2332;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sw-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 600px) {
+            .sw-group {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .group-label {
+            font-weight: 600;
+            color: #7b8a9c;
+            font-size: 0.9rem;
+            width: 180px;
+            flex-shrink: 0;
+            margin-bottom: 10px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .f-tag {
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            color: #1a2332;
+        }
+
+        /* Stop MathJax from breaking layout */
+        .f-tag mjx-container {
+            margin: 0 !important;
+        }
+
+        .tag-strong {
+            border-color: rgba(33, 150, 243, 0.15);
+        }
+
+        .tag-weak {
+            border-color: rgba(245, 166, 35, 0.15);
+        }
+
+        /* Filter view: strong */
+        .view-strong .tag-weak {
+            opacity: 0.25;
+            filter: grayscale(1);
+            transform: scale(0.95);
+        }
+
+        .view-strong .tag-strong {
+            background: rgba(33, 150, 243, 0.1);
+            color: #1565C0;
+            border-color: rgba(33, 150, 243, 0.4);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Filter view: weak */
+        .view-weak .tag-strong {
+            opacity: 0.25;
+            filter: grayscale(1);
+            transform: scale(0.95);
+        }
+
+        .view-weak .tag-weak {
+            background: rgba(245, 166, 35, 0.1);
+            color: #d47a10;
+            border-color: rgba(245, 166, 35, 0.4);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* View all (default) interactions */
+        .view-all .f-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .view-all .tag-strong:hover {
+            border-color: rgba(33, 150, 243, 0.5);
+            color: #1565C0;
+        }
+
+        .view-all .tag-weak:hover {
+            border-color: rgba(245, 166, 35, 0.5);
+            color: #d47a10;
         }
 
         /* Interactive Tabs for Equation Classes */
@@ -430,6 +641,16 @@
                 Хим<span>Подготовка</span>
             </a>
 
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
             <nav class="site-nav-container">
                 <a href="../../index.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -450,7 +671,7 @@
                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                     </svg>
-                    <span>Задания</span>
+                    <span>Задания по номерам</span>
                 </a>
                 <a href="../../variants.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -458,7 +679,7 @@
                         <polyline points="2 17 12 22 22 17"></polyline>
                         <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
-                    <span>Варианты</span>
+                    <span>Варианты ЕГЭ</span>
                 </a>
                 <a href="../../courses.html" class="nav-link">
                     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -473,7 +694,7 @@
                         <line x1="12" y1="20" x2="12" y2="4"></line>
                         <line x1="6" y1="20" x2="6" y2="14"></line>
                     </svg>
-                    <span>Панель</span>
+                    <span>Моя статистика</span>
                 </a>
             </nav>
         </div>
@@ -490,7 +711,7 @@
                 <li><a href="#acids">4.1. Кислоты</a></li>
                 <li><a href="#bases">4.2. Основания</a></li>
                 <li><a href="#salts">4.3. Соли</a></li>
-                <li><a href="#practice">⚡ Практика</a></li>
+
             </ul>
         </aside>
 
@@ -513,39 +734,44 @@
                     (положительно и отрицательно заряженные частицы) при растворении в воде или расплавлении.
                 </div>
 
-                <div class="toggle-wrapper">
-                    <div class="toggle-label active-left" id="lbl-electro" onclick="switchToggle(false)">⚡ Электролиты
+                <div class="electro-panels">
+                    <!-- Electrolytes Panel -->
+                    <div class="e-panel ep-blue" onclick="toggleEPanel(this)">
+                        <div class="ep-header">
+                            <div class="ep-icon">⚡</div>
+                            <h3>Электролиты</h3>
+                            <div class="ep-expand-icon">▼</div>
+                        </div>
+                        <div class="ep-body">
+                            <p>Вещества, растворы или расплавы которых <strong>проводят электрический ток</strong>.</p>
+                            <p>К ним относятся вещества с <strong>ионной</strong> или <strong>ковалентной
+                                    сильнополярной</strong> связью.</p>
+                            <div class="ep-tags">
+                                <span class="badg">Соли ($NaCl$, $K_2SO_4$)</span>
+                                <span class="badg">Кислоты ($HCl$, $H_2SO_4$)</span>
+                                <span class="badg">Основания ($NaOH$, $KOH$)</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="toggle-switch" id="main-toggle" onclick="toggleSwitch()">
-                        <div class="toggle-knob"></div>
-                    </div>
-                    <div class="toggle-label" id="lbl-nonelectro" onclick="switchToggle(true)">🔌 Неэлектролиты</div>
-                </div>
 
-                <div id="content-electro" class="toggle-content active">
-                    <div class="clarification-frame" style="margin-top: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                        <p>Вещества, растворы или расплавы которых <strong>проводят электрический ток</strong>.</p>
-                        <p>К ним относятся вещества с <strong>ионной</strong> или <strong>ковалентной
-                                сильнополярной</strong> связью:</p>
-                        <ul>
-                            <li>Соли (например, $NaCl$, $K_2SO_4$)</li>
-                            <li>Кислоты (например, $HCl$, $H_2SO_4$)</li>
-                            <li>Основания (например, $NaOH$, $KOH$)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="content-nonelectro" class="toggle-content">
-                    <div class="clarification-frame"
-                        style="margin-top: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left-color: #f5a623;">
-                        <p>Вещества, растворы и расплавы которых <strong>не проводят</strong> электрический ток.</p>
-                        <p>К ним относятся вещества с ковалентной неполярной или слабополярной связью:</p>
-                        <ul>
-                            <li>Простые газы ($O_2$, $N_2$)</li>
-                            <li>Многие органические вещества (сахароза, спирты, глюкоза)</li>
-                            <li>Оксиды (в твердом состоянии и если не реагируют с водой)</li>
-                        </ul>
-                        <p><em>Пример:</em> Раствор сахара в воде ток не проводит.</p>
+                    <!-- Non-electrolytes Panel -->
+                    <div class="e-panel ep-orange" onclick="toggleEPanel(this)">
+                        <div class="ep-header">
+                            <div class="ep-icon">🔌</div>
+                            <h3>Неэлектролиты</h3>
+                            <div class="ep-expand-icon">▼</div>
+                        </div>
+                        <div class="ep-body">
+                            <p>Вещества, растворы и расплавы которых <strong>не проводят</strong> электрический ток.</p>
+                            <p>Имеют ковалентную неполярную или слабополярную связь.</p>
+                            <div class="ep-tags">
+                                <span class="badg">Простые газы ($O_2$, $N_2$)</span>
+                                <span class="badg">Органические (сахар, спирт)</span>
+                                <span class="badg">Оксиды</span>
+                            </div>
+                            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9;"><em>Пример:</em> Раствор
+                                сахара в воде ток не проводит.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -594,71 +820,105 @@
                 </div>
                 <p>Где $n$ — число распавшихся молекул, $N$ — общее число растворенных молекул.</p>
 
-                <div class="sw-container">
-                    <!-- Strong Electrolytes -->
-                    <div class="sw-card strong" onclick="this.classList.toggle('expanded')">
-                        <h3>⚡ Сильные электролиты ($\alpha \approx 1$)
-                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </h3>
-                        <p style="color: #666; margin-top: 5px; font-size: 0.95em;">Распадаются на ионы полностью и
-                            <strong>необратимо</strong> ($\rightarrow$).
-                        </p>
+                <div class="sw-dashboard view-all" id="sw-dashboard-view">
+                    <!-- Control buttons -->
+                    <div class="sw-controls">
+                        <button class="sw-btn active" onclick="filterSW('all', this)">Показать все</button>
+                        <button class="sw-btn" onclick="filterSW('strong', this)">⚡ Сильные электролиты</button>
+                        <button class="sw-btn" onclick="filterSW('weak', this)">🔌 Слабые электролиты</button>
+                    </div>
 
-                        <div class="sw-detailed">
-                            <div class="sw-grid">
-                                <div class="sw-grid-item">
-                                    <strong>Кислoты</strong><br>
-                                    <em>Бескислородные:</em> $HCl, HBr, HI$ (все, кроме $HF$)<br>
-                                    <em>Кислородсодержащие:</em> $H_2SO_4, HNO_3, HClO_4, HClO_3, HMnO_4$
+                    <div class="sw-sections">
+                        <!-- Acids -->
+                        <div class="sw-section">
+                            <h4>Кислоты</h4>
+
+                            <div class="sw-group">
+                                <div class="group-label">Бескислородные</div>
+                                <div class="tag-cloud">
+                                    <div class="f-tag tag-strong">$HCl$</div>
+                                    <div class="f-tag tag-strong">$HBr$</div>
+                                    <div class="f-tag tag-strong">$HI$</div>
+                                    <div class="f-tag tag-weak">$HF$</div>
+                                    <div class="f-tag tag-weak">$H_2S$</div>
+                                    <div class="f-tag tag-weak">$HCN$</div>
                                 </div>
-                                <div class="sw-grid-item">
-                                    <strong>Основания (Щёлочи)</strong><br>
-                                    I А группа: $LiOH, NaOH, KOH, RbOH, CsOH$<br>
-                                    II А группа: $Ca(OH)_2, Sr(OH)_2, Ba(OH)_2$
+                            </div>
+
+                            <div class="sw-group">
+                                <div class="group-label">Кислородсодержащие</div>
+                                <div class="tag-cloud">
+                                    <div class="f-tag tag-strong">$H_2SO_4$</div>
+                                    <div class="f-tag tag-strong">$HNO_3$</div>
+                                    <div class="f-tag tag-strong">$HClO_4$</div>
+                                    <div class="f-tag tag-strong">$HClO_3$</div>
+                                    <div class="f-tag tag-strong">$HMnO_4$</div>
+
+                                    <div class="f-tag tag-weak">$H_2SO_3$</div>
+                                    <div class="f-tag tag-weak">$H_2CO_3$</div>
+                                    <div class="f-tag tag-weak">$HNO_2$</div>
+                                    <div class="f-tag tag-weak">$H_3PO_4$</div>
+                                    <div class="f-tag tag-weak">$HClO$</div>
+                                    <div class="f-tag tag-weak">$H_2SiO_3$</div>
                                 </div>
-                                <div class="sw-grid-item">
-                                    <strong>Соли</strong><br>
-                                    Почти все растворимые соли: $NaCl, K_2SO_4, CaCO_3$ (та часть, что растворилась),
-                                    $NH_4NO_3$ и др.
+                            </div>
+
+                            <div class="sw-group">
+                                <div class="group-label">Органические</div>
+                                <div class="tag-cloud">
+                                    <div class="f-tag tag-weak">$CH_3COOH$</div>
+                                    <div class="f-tag tag-weak">$HCOOH$</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Weak Electrolytes -->
-                    <div class="sw-card weak" onclick="this.classList.toggle('expanded')">
-                        <h3>🔌 Слабые электролиты ($\alpha \ll 1$)
-                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </h3>
-                        <p style="color: #666; margin-top: 5px; font-size: 0.95em;">Распадаются на ионы частично и
-                            <strong>обратимо</strong> ($\leftrightarrows$).
-                        </p>
+                        <!-- Bases -->
+                        <div class="sw-section">
+                            <h4>Основания</h4>
 
-                        <div class="sw-detailed">
-                            <div class="sw-grid">
-                                <div class="sw-grid-item">
-                                    <strong>Кислoты</strong><br>
-                                    <em>Бескислородные:</em> $HF, H_2S, HCN$<br>
-                                    <em>Кислородсодержащие:</em> $H_2SO_3, H_2CO_3, H_2SiO_3, HNO_2, H_3PO_4, HClO,
-                                    HClO_2$<br>
-                                    <em>Органические:</em> $HCOOH, CH_3COOH$ и др.
+                            <div class="sw-group">
+                                <div class="group-label">Щёлочи (IА, IIА)</div>
+                                <div class="tag-cloud">
+                                    <div class="f-tag tag-strong">$NaOH$</div>
+                                    <div class="f-tag tag-strong">$KOH$</div>
+                                    <div class="f-tag tag-strong">$LiOH$</div>
+                                    <div class="f-tag tag-strong">$Ba(OH)_2$</div>
+                                    <div class="f-tag tag-strong">$Ca(OH)_2$</div>
+                                    <div class="f-tag tag-strong">$Sr(OH)_2$</div>
                                 </div>
-                                <div class="sw-grid-item">
-                                    <strong>Основания</strong><br>
-                                    • Водный аммиак: $NH_3 \cdot H_2O$<br>
-                                    • Нерастворимые: $Mg(OH)_2, Fe(OH)_2, Cu(OH)_2, Ni(OH)_2$<br>
-                                    • Амфотерные: $Zn(OH)_2, Al(OH)_3, Fe(OH)_3, Cr(OH)_3$
+                            </div>
+
+                            <div class="sw-group">
+                                <div class="group-label">Нерастворимые и др.</div>
+                                <div class="tag-cloud">
+                                    <div class="f-tag tag-weak">$NH_3 \cdot H_2O$</div>
+                                    <div class="f-tag tag-weak">$Mg(OH)_2$</div>
+                                    <div class="f-tag tag-weak">$Fe(OH)_2$</div>
+                                    <div class="f-tag tag-weak">$Cu(OH)_2$</div>
+                                    <div class="f-tag tag-weak">$Al(OH)_3$</div>
+                                    <div class="f-tag tag-weak">$Zn(OH)_2$</div>
                                 </div>
-                                <div class="sw-grid-item">
-                                    <strong>Соли и Другое</strong><br>
-                                    • Очень редкие исключения-соли: $HgCl_2, Fe(SCN)_3$<br>
-                                    • Вода ($H_2O$) — очень слабый электролит.
+                            </div>
+                        </div>
+
+                        <!-- Salts and other -->
+                        <div class="sw-section">
+                            <h4>Соли и Другое</h4>
+
+                            <div class="sw-group">
+                                <div class="group-label">Большинство солей</div>
+                                <div class="tag-cloud">
+                                    <div class="f-tag tag-strong">Почти все растворимые соли ($NaCl$, $K_2SO_4$,
+                                        $NH_4NO_3$)</div>
+                                </div>
+                            </div>
+
+                            <div class="sw-group">
+                                <div class="group-label">Исключения</div>
+                                <div class="tag-cloud">
+                                    <div class="f-tag tag-weak">$HgCl_2$</div>
+                                    <div class="f-tag tag-weak">$Fe(SCN)_3$</div>
+                                    <div class="f-tag tag-weak">Вода ($H_2O$)</div>
                                 </div>
                             </div>
                         </div>
@@ -789,48 +1049,33 @@
                 style="color: var(--text-secondary); text-decoration: none;">Теория</a>
             <span style="color: #ddd;">·</span>
             <a href="../../tests/periodic_law_test.html"
-                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+                style="color: var(--text-secondary); text-decoration: none;">Задания по номерам</a>
             <span style="color: #ddd;">·</span>
-            <a href="../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <a href="../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты ЕГЭ</a>
             <span style="color: #ddd;">·</span>
             <a href="../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
             <span style="color: #ddd;">·</span>
-            <a href="../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+            <a href="../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Моя
+                статистика</a>
         </div>
         <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
     </footer>
 
     <script src="../../js/script.js"></script>
     <script>
-        // Toggle Switch functionality
-        let isNonElectro = false;
-        function toggleSwitch() {
-            switchToggle(!isNonElectro);
+        // Electrolytes/Non-electrolytes Accordion
+        function toggleEPanel(el) {
+            el.classList.toggle('active');
         }
 
-        function switchToggle(state) {
-            isNonElectro = state;
-            const toggle = document.getElementById('main-toggle');
-            const lblElectro = document.getElementById('lbl-electro');
-            const lblNonElectro = document.getElementById('lbl-nonelectro');
-            const contentElectro = document.getElementById('content-electro');
-            const contentNonElectro = document.getElementById('content-nonelectro');
+        // Strong vs Weak Filter
+        function filterSW(filterValue, btnElement) {
+            const buttons = document.querySelectorAll('.sw-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            if (btnElement) btnElement.classList.add('active');
 
-            if (isNonElectro) {
-                toggle.classList.add('toggled');
-                lblElectro.classList.remove('active-left');
-                lblNonElectro.classList.add('active-right');
-
-                contentElectro.classList.remove('active');
-                contentNonElectro.classList.add('active');
-            } else {
-                toggle.classList.remove('toggled');
-                lblElectro.classList.add('active-left');
-                lblNonElectro.classList.remove('active-right');
-
-                contentElectro.classList.add('active');
-                contentNonElectro.classList.remove('active');
-            }
+            const db = document.getElementById('sw-dashboard-view');
+            db.className = 'sw-dashboard view-' + filterValue;
         }
 
         // Equation Tabs functionality

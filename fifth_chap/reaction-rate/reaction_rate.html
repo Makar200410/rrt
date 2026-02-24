@@ -8,6 +8,7 @@
     <meta name="description"
         content="Химическая кинетика. Скорость химической реакции и факторы, влияющие на неё: температура, концентрация, давление, катализаторы, площадь поверхности.">
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../modern-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script>
@@ -19,154 +20,6 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        /* Gradient-bordered card for important laws */
-        .law-card {
-            position: relative;
-            border-radius: 16px;
-            padding: 1.5rem 1.8rem;
-            margin: 1.5rem 0;
-            background: #fff;
-            z-index: 1;
-        }
-
-        .law-card::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #43a047, #00acc1, #5c6bc0, #ab47bc);
-            z-index: -1;
-        }
-
-        .law-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #f0faf0 0%, #e8f8fb 50%, #f3f0fa 100%);
-            z-index: -1;
-        }
-
-        .law-card h4 {
-            margin: 0 0 0.6rem 0;
-            font-size: 1.15rem;
-            color: #2e7d32;
-            font-family: var(--font-heading);
-        }
-
-        .law-card p {
-            margin-bottom: 0.6rem;
-        }
-
-        /* Round beautiful formula bubbles */
-        .formula-bubble {
-            background: linear-gradient(135deg, #fafbff 0%, #eef1f8 40%, #f0eefa 100%);
-            border: 2px solid transparent;
-            border-image: linear-gradient(135deg, #90caf9, #ce93d8) 1;
-            border-radius: 50px;
-            padding: 1rem 2rem;
-            margin: 1rem auto;
-            text-align: center;
-            font-size: 1.1rem;
-            font-family: 'Times New Roman', serif;
-            letter-spacing: 0.5px;
-            box-shadow: 0 3px 12px rgba(100, 100, 200, 0.1), inset 0 1px 4px rgba(255, 255, 255, 0.8);
-            max-width: fit-content;
-            /* border-image doesn't work with border-radius, use outline trick */
-            border: none;
-            outline: none;
-            position: relative;
-            overflow: visible;
-        }
-
-        .formula-bubble::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border-radius: 52px;
-            background: linear-gradient(135deg, #64b5f6, #ba68c8, #4dd0e1);
-            z-index: -1;
-        }
-
-        .formula-bubble::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 50px;
-            background: linear-gradient(135deg, #fafbff 0%, #eef1f8 40%, #f0eefa 100%);
-            z-index: -1;
-        }
-
-        .formula-bubble small {
-            display: block;
-            margin-top: 0.4rem;
-            font-size: 0.82rem;
-            color: #666;
-            font-style: italic;
-            font-family: var(--font-body);
-        }
-
-        .formula-bubble .MathJax {
-            font-size: 1.05em !important;
-        }
-
-        /* Vant-Hoff card */
-        .vanthoff-card {
-            position: relative;
-            border-radius: 16px;
-            padding: 1.5rem 1.8rem;
-            margin: 1.5rem 0;
-            background: #fff;
-            z-index: 1;
-        }
-
-        .vanthoff-card::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #ff7043, #ffa726, #ff5252);
-            z-index: -1;
-        }
-
-        .vanthoff-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #fff8f0 0%, #fff3e0 50%, #ffebee 100%);
-            z-index: -1;
-        }
-
-        .vanthoff-card h4 {
-            margin: 0 0 0.6rem 0;
-            font-size: 1.15rem;
-            color: #d84315;
-            font-family: var(--font-heading);
-        }
-
-        .vanthoff-card p {
-            margin-bottom: 0.6rem;
-        }
-
         /* Header Layout: Centered & Inline */
         header.site-header {
             display: flex;
@@ -250,10 +103,89 @@
             stroke: #d47a10;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a2332;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #F5A623;
+        }
+
         @media (max-width: 1000px) {
-            .nav-link span {
-                display: none;
+            header.site-header {
+                height: auto;
+                padding: 1rem 4%;
             }
+
+            .header-content {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .site-nav-container {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 1rem 4% 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid #E8ECF0;
+                border-bottom: 1px solid #E8ECF0;
+                gap: 0.5rem;
+            }
+
+            .site-nav-container.open {
+                display: flex;
+                animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link span {
+                display: inline;
+            }
+
+            .mobile-nav-top {
+                display: flex !important;
+            }
+        }
+
+        .mobile-nav-top {
+            display: none;
         }
     </style>
 </head>
@@ -265,6 +197,16 @@
             <a href="../../index.html" class="logo">
                 Хим<span>Подготовка</span>
             </a>
+
+            <button class="mobile-menu-btn"
+                onclick="document.querySelector('.site-nav-container').classList.toggle('open');">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
 
             <nav class="site-nav-container">
                 <a href="../../index.html" class="nav-link">
@@ -337,11 +279,14 @@
 
             <h1>Скорость химических реакций (Химическая кинетика)</h1>
 
+
+
             <div class="topic-section">
                 <h2 id="definition">1. Что такое скорость реакции?</h2>
                 <p><strong>Скорость химической реакции</strong> ($\upsilon$) показывает, как быстро протекает процесс,
                     то есть как быстро расходуются исходные вещества или образуются продукты реакции.</p>
-                <div class="info-box" style="border-left-color: #2196F3;">
+                <div class="chem-card" data-color="blue"
+                    style="margin-top: 1rem; margin-bottom: 2rem; padding: 1.2rem 1.5rem;">
                     Реакция происходит при <strong>столкновении</strong> частиц. Но не каждое столкновение приводит к
                     реакции, а только <strong>эффективное</strong> (когда частицы обладают достаточной энергией).
                 </div>
@@ -381,7 +326,8 @@
                         <small>где $\gamma$ — температурный коэффициент (от 2 до 4)</small>
                     </div>
                 </div>
-                <div class="info-box" style="border-left-color: #FF9800;">
+                <div class="chem-card" data-color="yellow"
+                    style="margin-top: 1rem; margin-bottom: 2rem; padding: 1.2rem 1.5rem;">
                     <strong>Важно!</strong> Это правило работает и для экзотермических, и для эндотермических реакций.
                     При нагревании скорость <strong>всегда растет</strong>.
                 </div>
@@ -401,7 +347,8 @@
                 </div>
                 <p>Концентрации <strong>твердых веществ</strong> в уравнение скорости гетерогенной реакции <strong>не
                         входят</strong>, так как они реагируют только на поверхности и их концентрация постоянна.</p>
-                <div class="info-box" style="border-left-color: #00BCD4;">
+                <div class="chem-card" data-color="purple"
+                    style="margin-top: 1rem; margin-bottom: 2rem; padding: 1.2rem 1.5rem;">
                     Однако, если твердое вещество <strong>растворимо</strong>, то по мере его растворения концентрация
                     вещества <strong>в растворе увеличивается</strong>, что может влиять на скорость реакций,
                     протекающих уже в жидкой фазе.
@@ -416,7 +363,8 @@
                     <li><strong>Понижение давления</strong> (расширение = увеличение объема сосуда) $\to$ уменьшение
                         концентрации газов $\to$ <strong>замедление</strong> реакции.</li>
                 </ul>
-                <div class="info-box" style="border-left-color: #607D8B;">
+                <div class="chem-card" data-color="blue"
+                    style="margin-top: 1rem; margin-bottom: 2rem; padding: 1.2rem 1.5rem;">
                     <strong>Изменение объема сосуда обратно давлению:</strong><br>
                     Уменьшение объема сосуда в N раз = Увеличение давления в N раз = Увеличение скорости (для
                     газов).<br>
@@ -449,11 +397,13 @@
                     <figcaption style="color: #666; font-size: 0.9em; margin-top: 8px;">Рис. 1. Катализ
                     </figcaption>
                 </figure>
-                <div class="info-box" style="border-left-color: #9C27B0;">
+                <div class="chem-card" data-color="yellow"
+                    style="margin-top: 1rem; margin-bottom: 2rem; padding: 1.2rem 1.5rem;">
                     <strong>Ингибиторы</strong> — вещества, замедляющие реакцию (но они НЕ называются «отрицательными
                     катализаторами»).
                 </div>
-                <div class="info-box" style="border-left-color: #FF5722;">
+                <div class="chem-card" data-color="purple"
+                    style="margin-top: 1rem; margin-bottom: 2rem; padding: 1.2rem 1.5rem;">
                     <strong>Важно!</strong> <br>
                     <strong>Температура</strong>, <strong>свет</strong> ($h\nu$), <strong>радиация</strong>,
                     <strong>электрический ток</strong> — это <strong>условия</strong> начала или течения реакции
@@ -483,7 +433,7 @@
                 </ul>
             </div>
             <!-- БЛОК ТЕСТА -->
-            <div
+            <div class="test-block"
                 style="background: linear-gradient(135deg, #1a2332 0%, #243447 100%); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;">
                 <div style="flex: 1; min-width: 200px;">
                     <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;">🎯 Пройди
@@ -491,45 +441,63 @@
                     <div style="font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;">Проверь свои
                         знания по скорости реакций. Задания формата ЕГЭ.</div>
                 </div>
-                <a href="../../tests/reaction_rate_test.html"
-                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #F5A623, #e8941a); color: #fff; white-space: nowrap;">Начать
+                <a href="../../tests/reaction_rate_test.html" class="test-btn"
+                    style="padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); color: #fff; white-space: nowrap; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(16, 185, 129, 0.35)'"
+                    onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.2)'">Начать
                     тест →</a>
             </div>
 
-            <div class="navigation-links" style="margin-top: 2rem; display: flex; justify-content: space-between;">
-                <a href="../../fifth_chap/reaction-classification/reaction_classification.html" class="prev-chapter"
-                    style="padding: 10px 20px; background-color: white; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    ← Классификация реакций
+            <div class="chapter-nav-container">
+                <a href="../reaction-classification/reaction_classification.html" class="chapter-nav-btn prev">
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Предыдущая тема</span>
+                        <span class="chapter-nav-title">Классификация реакций</span>
+                    </div>
                 </a>
-                <a href="../../fifth_chap/redox/oxidation_reduction.html" class="next-chapter"
-                    style="padding: 10px 20px; background-color: var(--text-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                    Окислительно-восстановительные реакции →
+                <a href="../redox/oxidation_reduction.html" class="chapter-nav-btn next">
+                    <div class="chapter-nav-text">
+                        <span class="chapter-nav-label">Следующая тема</span>
+                        <span class="chapter-nav-title">ОВР</span>
+                    </div>
+                    <div class="chapter-nav-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
                 </a>
             </div>
-        </div>
+    </div>
 
-        <footer>
-            <div
-                style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
-                <a href="../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
-                <span style="color: #ddd;">·</span>
-                <a href="../../first_chap/theory.html"
-                        style="color: var(--text-secondary); text-decoration: none;">Теория</a>
-                    <span style="color: #ddd;">·</span>
-                    <a href="../../tests/periodic_law_test.html"
-                        style="color: var(--text-secondary); text-decoration: none;">Задания</a>
-                    <span style="color: #ddd;">·</span>
-                    <a href="../../variants.html"
-                        style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
-                    <span style="color: #ddd;">·</span>
-                    <a href="../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
-                    <span style="color: #ddd;">·</span>
-                    <a href="../../dashboard.html"
-                        style="color: var(--text-secondary); text-decoration: none;">Панель</a>
-                </div>
-                <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
-            </footer>
-        </main>
+    <footer>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem 1rem; margin-bottom: 0.5rem; margin-top: 2rem;">
+            <a href="../../index.html" style="color: var(--text-secondary); text-decoration: none;">Главная</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../first_chap/theory.html"
+                style="color: var(--text-secondary); text-decoration: none;">Теория</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../tests/periodic_law_test.html"
+                style="color: var(--text-secondary); text-decoration: none;">Задания</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../variants.html" style="color: var(--text-secondary); text-decoration: none;">Варианты</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../courses.html" style="color: var(--text-secondary); text-decoration: none;">Курсы</a>
+            <span style="color: #ddd;">·</span>
+            <a href="../../dashboard.html" style="color: var(--text-secondary); text-decoration: none;">Панель</a>
+        </div>
+        <p style="text-align: center; color: #666;">© 2025 ХимПодготовка — подготовка к ЕГЭ по химии</p>
+    </footer>
+    </main>
     </div>
     <script src="../../js/script.js"></script>
 </body>

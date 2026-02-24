@@ -1,0 +1,723 @@
+/* --- СОВРЕМЕННЫЙ ДИЗАЙН-КОД САЙТА --- */
+/* Подключается поверх всех стилей для антуража. Стиль соточек/клеточек и apple-like */
+
+:root {
+    --chem-blue: #0ea5e9;
+    --chem-blue-light: #e0f2fe;
+    --chem-blue-dark: #0284c7;
+
+    --chem-yellow: #f59e0b;
+    --chem-yellow-light: #fef3c7;
+    --chem-yellow-dark: #b45309;
+
+    --chem-red: #ef4444;
+    --chem-red-light: #fee2e2;
+    --chem-red-dark: #b91c1c;
+
+    --chem-green: #10b981;
+    --chem-green-light: #d1fae5;
+    --chem-green-dark: #047857;
+
+    --chem-purple: #8b5cf6;
+    --chem-purple-light: #ede9fe;
+    --chem-purple-dark: #5b21b6;
+
+    --chem-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.04);
+    --chem-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --chem-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* 1. ОПРЕДЕЛЕНИЯ (Definitions) - Синий, авторитетный с фоном-клеточкой */
+.chem-def {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--chem-shadow-md);
+    margin: 2rem 0;
+    overflow: hidden;
+    border-left: 6px solid var(--chem-blue);
+}
+
+.chem-def::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.chem-def-content {
+    position: relative;
+    z-index: 1;
+}
+
+.chem-def-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--chem-blue-dark);
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0 0 0.8rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #e0f2fe;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+}
+
+.chem-def-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #334155;
+    margin: 0;
+}
+
+.chem-def-text strong {
+    color: var(--chem-blue-dark);
+}
+
+
+/* 2. ПРИМЕЧАНИЯ И ФАКТЫ (Notes) - Желтый, яркий */
+.chem-note {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
+    border: 1px solid #fde68a;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--chem-shadow-sm);
+    margin: 2rem 0;
+    border-left: 6px solid var(--chem-yellow);
+    transition: transform 0.3s;
+}
+
+.chem-note:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--chem-shadow-hover);
+}
+
+.chem-note-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--chem-yellow-dark);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.8rem 0;
+}
+
+.chem-note-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+}
+
+
+/* 3. ИСКЛЮЧЕНИЯ И УЛОВКИ ЕГЭ (Exceptions) - Красный, тревожный, стильный */
+.chem-exception {
+    position: relative;
+    background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);
+    border: 1px solid #fecaca;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--chem-shadow-md);
+    margin: 2rem 0;
+}
+
+.chem-exception::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    bottom: -2px;
+    width: 6px;
+    background: repeating-linear-gradient(-45deg,
+            var(--chem-red),
+            var(--chem-red) 10px,
+            #fca5a5 10px,
+            #fca5a5 20px);
+    border-radius: 16px 0 0 16px;
+}
+
+.chem-exception-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--chem-red-dark);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0 0 0.8rem 0;
+}
+
+.chem-exception-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #7f1d1d;
+    margin: 0;
+}
+
+
+/* 4. ПРОТИВОПОЛОЖНЫЕ ПОНЯТИЯ (Grid Cards) */
+.chem-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.chem-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--chem-shadow-sm);
+    transition: all 0.3s ease;
+    border-top: 5px solid #cbd5e1;
+}
+
+.chem-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--chem-shadow-md);
+}
+
+.chem-card[data-color="green"] {
+    border-top-color: var(--chem-green);
+    background: linear-gradient(180deg, #ecfdf5 0%, #ffffff 30%);
+}
+
+.chem-card[data-color="purple"] {
+    border-top-color: var(--chem-purple);
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 30%);
+}
+
+.chem-card[data-color="blue"] {
+    border-top-color: var(--chem-blue);
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 30%);
+}
+
+.chem-card[data-color="yellow"] {
+    border-top-color: var(--chem-yellow);
+    background: linear-gradient(180deg, #fffbeb 0%, #ffffff 30%);
+}
+
+.chem-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chem-card[data-color="green"] .chem-card-title {
+    color: var(--chem-green-dark);
+}
+
+.chem-card[data-color="purple"] .chem-card-title {
+    color: var(--chem-purple-dark);
+}
+
+.chem-card[data-color="blue"] .chem-card-title {
+    color: var(--chem-blue-dark);
+}
+
+.chem-card[data-color="yellow"] .chem-card-title {
+    color: var(--chem-yellow-dark);
+}
+
+
+/* 5. ТАБЛИЦЫ (Modern Tables) */
+.chem-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    box-shadow: var(--chem-shadow-sm);
+    margin: 2rem 0;
+    border: 1px solid #e2e8f0;
+}
+
+.chem-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+.chem-table th {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #334155;
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-bottom: 2px solid #cbd5e1;
+}
+
+.chem-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+.chem-table tbody tr:hover td {
+    background: #f8fafc;
+}
+
+/* Зебра опционально */
+.chem-table.striped tbody tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+.chem-table.striped tbody tr:hover td {
+    background: #f1f5f9;
+}
+
+
+/* 6. СХЕМЫ / АЛГОРИТМЫ (Roadmap Steps) */
+.chem-scheme {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 2rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.chem-scheme::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 1.85rem;
+    width: 2px;
+    background: #cbd5e1;
+    z-index: 0;
+}
+
+.chem-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 2rem;
+}
+
+.chem-step:last-child {
+    padding-bottom: 0;
+}
+
+.chem-step-number {
+    width: 30px;
+    height: 30px;
+    background: var(--chem-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px #ffffff, var(--chem-shadow-sm);
+}
+
+.chem-step-content {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: var(--chem-shadow-sm);
+    flex-grow: 1;
+    margin-top: -5px;
+}
+
+.chem-step-title {
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+.chem-step-text {
+    color: #475569;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 7. CHAPTER NAVIGATION BUTTONS */
+.chapter-nav-container {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.chapter-nav-btn {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: #fff;
+    border: 1px solid #E8ECF0;
+    color: #1a2332;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chapter-nav-btn:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+}
+
+.chapter-nav-btn.prev {
+    gap: 1rem;
+}
+
+.chapter-nav-btn.next {
+    gap: 1rem;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.chapter-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.chapter-nav-btn.prev .chapter-nav-icon {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.chapter-nav-btn.next .chapter-nav-icon {
+    background: #FFF4E0;
+    color: #F5A623;
+}
+
+.chapter-nav-btn:hover .chapter-nav-icon {
+    transform: scale(1.05);
+}
+
+.chapter-nav-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter-nav-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8C9BAB;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.chapter-nav-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+.chapter-nav-btn.next .chapter-nav-title {
+    color: #F5A623;
+}
+
+@media (max-width: 768px) {
+    .chapter-nav-container {
+        grid-template-columns: 1fr;
+    }
+
+    .chapter-nav-btn.next {
+        justify-content: flex-start;
+        text-align: left;
+        flex-direction: row-reverse;
+    }
+
+    .chapter-nav-btn.next .chapter-nav-text {
+        align-items: flex-start;
+    }
+}
+
+/* 8. LAW CARDS (Rules and Formulas) */
+.law-card {
+    position: relative;
+    border-radius: 16px;
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+    background: #fff;
+    z-index: 1;
+}
+
+.law-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #43a047, #00acc1, #5c6bc0, #ab47bc);
+    z-index: -1;
+}
+
+.law-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0faf0 0%, #e8f8fb 50%, #f3f0fa 100%);
+    z-index: -1;
+}
+
+.law-card h4 {
+    margin: 0 0 0.6rem 0;
+    font-size: 1.15rem;
+    color: #2e7d32;
+    font-family: var(--font-heading);
+}
+
+.law-card p {
+    margin-bottom: 0.6rem;
+}
+
+.vanthoff-card {
+    position: relative;
+    border-radius: 16px;
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+    background: #fff;
+    z-index: 1;
+}
+
+.vanthoff-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ff7043, #ffa726, #ff5252);
+    z-index: -1;
+}
+
+.vanthoff-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fff8f0 0%, #fff3e0 50%, #ffebee 100%);
+    z-index: -1;
+}
+
+.vanthoff-card h4 {
+    margin: 0 0 0.6rem 0;
+    font-size: 1.15rem;
+    color: #d84315;
+    font-family: var(--font-heading);
+}
+
+.vanthoff-card p {
+    margin-bottom: 0.6rem;
+}
+
+/* Round beautiful formula bubbles */
+.formula-bubble {
+    background: linear-gradient(135deg, #fafbff 0%, #eef1f8 40%, #f0eefa 100%);
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 12px rgba(100, 100, 200, 0.1), inset 0 1px 4px rgba(255, 255, 255, 0.8);
+    max-width: fit-content;
+    border: none;
+    outline: none;
+    position: relative;
+    overflow: visible;
+}
+
+.formula-bubble::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 52px;
+    background: linear-gradient(135deg, #64b5f6, #ba68c8, #4dd0e1);
+    z-index: -1;
+}
+
+.formula-bubble::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #fafbff 0%, #eef1f8 40%, #f0eefa 100%);
+    z-index: -1;
+}
+
+.formula-bubble small {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.82rem;
+    color: #666;
+    font-style: italic;
+    font-family: var(--font-body);
+}
+
+.formula-bubble .MathJax {
+    font-size: 1.05em !important;
+}
+
+/* 9. THEMATIC CARDS (Crystal & Amorphous styles) */
+.crystal-card {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border: 2px solid #bae6fd;
+    border-radius: 4px;
+    padding: 2.5rem;
+    box-shadow: 6px 6px 0px rgba(14, 165, 233, 0.15);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.crystal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.crystal-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px rgba(14, 165, 233, 0.25);
+}
+
+.crystal-content {
+    position: relative;
+    z-index: 1;
+}
+
+.crystal-title {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #0369a1;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    border-bottom: 2px dashed #bae6fd;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.crystal-list li {
+    margin-bottom: 0.5rem;
+}
+
+.amorph-card {
+    position: relative;
+    background: linear-gradient(120deg, #ffffff 0%, #fdf4ff 100%);
+    border: 1px solid #f3e8ff;
+    border-radius: 40px;
+    padding: 2.5rem;
+    box-shadow: 0 12px 30px rgba(192, 132, 252, 0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.amorph-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(216, 180, 254, 0.4) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.amorph-card::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(244, 114, 182, 0.15) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.amorph-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(192, 132, 252, 0.2);
+    border-radius: 30px 50px 30px 50px;
+}
+
+.amorph-content {
+    position: relative;
+    z-index: 1;
+}
+
+.amorph-title {
+    font-weight: 700;
+    color: #7e22ce;
+    margin-top: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(243, 232, 255, 0.9);
+    padding: 0.6rem 1.2rem;
+    border-radius: 24px;
+    box-shadow: 0 2px 10px rgba(147, 51, 234, 0.05);
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+}
+
+.amorph-list li {
+    margin-bottom: 0.5rem;
+}
