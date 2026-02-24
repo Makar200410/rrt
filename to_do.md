@@ -1,6 +1,7 @@
 Начитая с темы 1.2 "Периодический закон" и далее надо проверить чтобы в каждом разделе использовались 6 стилей которые я привёл ниже, а также чтобы было интерактивное оформление(для компьютерной версии),а для мобильной версии была кнопка меню сверху и кнопка тестов(аккуратно оформленная) снизу(но без интерактивного вида).
 
 1) В папке sc_chap\periodic_law.html и for_chap\crystal_lattices.html есть стили, которые можно использовать для оформления блоков с противоположными понятиями(например главная и побочная подгруппы, аморфные и кристаллические вещества, и т.д.). 
+1a)
 ```html
 <div class="chem-cards-grid">
                     <div class="chem-card" data-color="yellow">
@@ -15,6 +16,7 @@
                         </ul>
                     </div>
 ```
+1b)
 ```html
 <div style="display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem; margin-bottom: 3rem;">
     <div class="crystal-card">
@@ -114,6 +116,7 @@
 
 4) В папке sc_chap\periodic_law.html, for_chap\crystal_lattices.html, fifth_chap\reaction-classification\reaction_classification.html  есть стиль, который можно использовать для оформления таблиц в каждом разделе, но иногда стили таблиц можно менять чтобы они были разными(например таблицы в inorganic\classification\inorganic_classification.html можно сделать в разных стилях, чтобы было интерепсней читать).
 sc_chap\periodic_law.html
+4a)
 ```html
 <div class="chem-table-wrap">
                 <table class="chem-table striped">
@@ -141,6 +144,7 @@ sc_chap\periodic_law.html
             </div>
 ```
 for_chap\crystal_lattices.html
+4b)
 ```html
 <div class="topic-section">
                     <h2 id="lattices">2. Типы кристаллических решёток</h2>
@@ -167,6 +171,7 @@ for_chap\crystal_lattices.html
                             <tr>
 ```
 fifth_chap\reaction-classification\reaction_classification.html
+4c)
 ```html
 <div id="spec-add" class="type-content spec-content active">
                     <h3 style="margin-top: 0;">Реакции присоединения</h3>
